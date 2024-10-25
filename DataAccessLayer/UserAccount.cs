@@ -1,0 +1,167 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Entities;
+using System.Data.SqlClient;
+using System.Data;
+
+namespace DataAccessLayer
+{
+    public class DUserAccount
+    {
+        public static bool IsExistsAccount(UserAccount user)
+        {
+            bool isExist = false;
+            
+            SqlConnection sqlConnection = new SqlConnection(TestCore.ConnectionString.strCon);
+            try
+            {
+                sqlConnection.Open();
+                SqlCommand sqlCommand = new SqlCommand("UserAccount_CheckExist", sqlConnection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@Username", user.Username);
+                sqlCommand.Parameters.AddWithValue("@Password", user.Password);
+
+                SqlDataReader dataReader = sqlCommand.ExecuteReader();
+                if (dataReader.Read())
+                    isExist = true;
+                dataReader.Close();
+                sqlCommand.Dispose();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+            return isExist;
+        }
+
+        //cập nhật mật khẩu
+        public static void UpdatePassword(UserAccount user)
+        {
+            SqlConnection sqlConnection = new SqlConnection(TestCore.ConnectionString.strCon);
+            try
+            {
+                sqlConnection.Open();
+                SqlCommand sqlCommand = new SqlCommand("UserAccount_ChangePassword", sqlConnection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@username", user.Username);
+                sqlCommand.Parameters.AddWithValue("@newPassword", user.NewPassword);
+                sqlCommand.ExecuteNonQuery();
+                sqlCommand.Dispose();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+        }
+        //
+        public static void AddNewUser(UserAccount newUser)
+        {
+            try
+            {
+                SqlHelper.ExecuteNonQuery(TestCore.ConnectionString.strCon, "UserAccount_Insert", newUser.RoldId, newUser.Username,
+                    newUser.Password, newUser.Fullname, newUser.Email, newUser.PhoneNumber, newUser.Address,
+                    newUser.Birthday, newUser.Note, newUser.CreatedBy, newUser.ModifiedBy);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static DataTable GetAll()
+        {
+            try
+            {
+                DataTable dtData = SqlHelper.ExecuteData(TestCore.ConnectionString.strCon, CommandType.StoredProcedure, "UserAccount_SelectAll");
+                return dtData;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static void UpdateUser (UserAccount editUser)
+        {
+            try
+            {
+                SqlHelper.ExecuteNonQuery(TestCore.ConnectionString.strCon, "UserAccount_Update",
+                                                    editUser.UsertId,
+                                                    editUser.RoldId,
+                                                    editUser.Username,
+                                                    editUser.Password,
+                                                    editUser.Fullname,
+                                                    editUser.Email,
+                                                    editUser.PhoneNumber,
+                                                    editUser.Address,
+                                                    editUser.Birthday,
+                                                    editUser.Note,
+                                                    editUser.ModifiedBy);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static void DeleteUser(int userId)
+        {
+            try
+            {
+                SqlHelper.ExecuteNonQuery(TestCore.ConnectionString.strCon, "UserAccount_Delete", userId);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static DataTable Search(string keyword, string roleFilter)
+        {
+            try
+            {
+                DataTable dtData = SqlHelper.ExecuteData(TestCore.ConnectionString.strCon, CommandType.StoredProcedure,
+                                                            "UserAccount_Search",
+                                                            new SqlParameter("@Keyword", keyword),
+                                                            new SqlParameter("@RoleID", roleFilter));
+                return dtData;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static UserAccount GetInforUser(string username)
+        {
+            try
+            {
+                SqlDataReader reader = SqlHelper.ExecuteReader(TestCore.ConnectionString.strCon, CommandType.StoredProcedure, "UserAccount_GetInforUser",
+                                                           new SqlParameter("@Username", username));
+                UserAccount userAccount = new UserAccount();
+                if(reader.Read())
+                {
+                    userAccount.Username = reader["Username"].ToString();
+                    userAccount.Fullname = reader["Fullname"].ToString();
+                    userAccount.Birthday = DateTime.Parse(reader["Birthday"].ToString());
+                    userAccount.UsertId = int.Parse(reader["UserID"].ToString());
+                    userAccount.Address = reader["Address"].ToString();
+                    userAccount.RoldId = reader["RoleID"].ToString();
+                }
+                reader.Close();
+                return userAccount;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+    }
+}
