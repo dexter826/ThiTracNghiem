@@ -42,7 +42,7 @@
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(51, 35);
             this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(152, 24);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(192, 30);
             this.guna2HtmlLabel1.TabIndex = 0;
             this.guna2HtmlLabel1.Text = "Đường dẫn lưu file";
             // 
@@ -67,7 +67,6 @@
             this.txt_file.SelectedText = "";
             this.txt_file.Size = new System.Drawing.Size(497, 37);
             this.txt_file.TabIndex = 1;
-            this.txt_file.TextChanged += new System.EventHandler(this.txt_file_TextChanged);
             // 
             // btn_Backup
             // 
@@ -125,7 +124,7 @@
             this.Appearance.BackColor = System.Drawing.Color.White;
             this.Appearance.Options.UseBackColor = true;
             this.Appearance.Options.UseFont = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(890, 169);
             this.Controls.Add(this.btn_Backup);
@@ -136,9 +135,9 @@
             this.IconOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("frmBackUp.IconOptions.SvgImage")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(892, 201);
+            this.MaximumSize = new System.Drawing.Size(892, 209);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(892, 201);
+            this.MinimumSize = new System.Drawing.Size(892, 209);
             this.Name = "frmBackUp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sao lưu dữ liệu";

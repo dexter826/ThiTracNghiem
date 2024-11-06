@@ -22,6 +22,11 @@ namespace ThiTracNghiem
             Application.Exit();
         }
 
+        /// <summary>
+        /// Phương thức kiểm tra tính hợp lệ của thông tin tài khoản người dùng:
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         private bool IsValidUser(UserAccount user)
         {
             if (string.IsNullOrEmpty(user.Username))

@@ -24,7 +24,6 @@ namespace ThiTracNghiem
             dpk_EndDate.Value = DateTime.Now;
         }
 
-
         private void btn_XemBaoCao_Click(object sender, EventArgs e)
         {
             //lay du lieu tu store len textbox

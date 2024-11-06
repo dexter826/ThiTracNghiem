@@ -40,6 +40,7 @@ namespace DataAccessLayer
                 throw ex;
             }
         }
+
         public static void UpdateSubject (Subject editSubject)
         {
             try
@@ -55,6 +56,7 @@ namespace DataAccessLayer
                 throw ex;
             }
         }
+
         public static void DeleteSubject(string subjectId)
         {
             try
@@ -66,6 +68,7 @@ namespace DataAccessLayer
                 throw ex;
             }
         }
+
         public static DataTable Search(string keyword)
         {
             try

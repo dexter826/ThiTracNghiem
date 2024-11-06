@@ -20,6 +20,7 @@ namespace ThiTracNghiem
             InitializeComponent();
             SetStyle(ControlStyles.ResizeRedraw, true);
         }
+
         protected override void OnPaintBackground(PaintEventArgs e)
         {
             Rectangle rc = ClientRectangle;
@@ -32,6 +33,11 @@ namespace ThiTracNghiem
                 e.Graphics.FillRectangle(brush, rc);
             }
         }
+
+        /// <summary>
+        /// Phương thức lấy thông tin người dùng từ các trường nhập liệu trên giao diện
+        /// </summary>
+        /// <returns></returns>
         private UserAccount GetUserInfor()
         {
             UserAccount useraccount = new UserAccount();
@@ -44,7 +50,7 @@ namespace ThiTracNghiem
             useraccount.ModifiedAt = DateTime.Now;
             useraccount.ModifiedBy = Session.LogonUser.Username; ;
             useraccount.Note = "new year";
-            useraccount.Password = txt_Password.Text.Trim(); //Mã hóa
+            useraccount.Password = txt_Password.Text.Trim();
             useraccount.PhoneNumber = txt_PhoneMumber.Text.Trim();
             useraccount.RoldId = cbb_Role.SelectedValue.ToString();
             int.TryParse(txt_UserID.Text, out int roleId);
@@ -52,6 +58,12 @@ namespace ThiTracNghiem
             useraccount.Username = txt_Username.Text.Trim();
             return useraccount;
         }
+
+        /// <summary>
+        /// Phương thức kiểm tra tính hợp lệ của các thông tin nhập vào
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         private bool IsValidUser(UserAccount user)
         {
             string strMessage = string.Empty;
@@ -92,6 +104,9 @@ namespace ThiTracNghiem
             return true;
         }
 
+        /// <summary>
+        /// Phương thức để thêm người dùng vào cơ sở dữ liệu.
+        /// </summary>
         private void AddNewUser()
         {
             var newUser = GetUserInfor();
@@ -107,11 +122,17 @@ namespace ThiTracNghiem
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
+        /// <summary>
+        /// Phương thức này dùng để hiển thị/ẩn các nút lưu và hủy khi đang trong chế độ thêm/sửa người dùng. Các nút như "Thêm", "Sửa", "Xóa" sẽ bị ẩn khi lưu hoặc hủy.
+        /// </summary>
+        /// <param name="isSaveCancel"></param>
         private void ShowHideButton(bool isSaveCancel = false)
         {
             btn_Save.Visible = btn_Cancel.Visible = isSaveCancel;
             btn_Add.Visible = btn_Edit.Visible = btn_Delete.Visible = !isSaveCancel;
         }
+
         private void SetEnableControl(bool isEnable = true)
         {
             foreach (Control ctrl in grb_Infor.Controls)
@@ -133,6 +154,7 @@ namespace ThiTracNghiem
                 }
             }
         }
+
         private void btn_Add_Click(object sender, EventArgs e)
         {
             isAddNew = true;
@@ -149,6 +171,7 @@ namespace ThiTracNghiem
             LoadData();
             SetEnableControl(false);
         }
+
         private void LoadData()
         {
             try
@@ -182,6 +205,7 @@ namespace ThiTracNghiem
         {
             grv_DataUser["STT", e.RowIndex].Value = (e.RowIndex < 9 ? "0" : string.Empty) + (e.RowIndex + 1);
         }
+
         private void ShowDetailData(int rowIndex)
         {
             try
@@ -202,6 +226,7 @@ namespace ThiTracNghiem
                 MessageBox.Show(ex.Message, "Thông báo lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
         private void grv_DataUser_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
@@ -211,6 +236,7 @@ namespace ThiTracNghiem
             rowIndex = e.RowIndex;
             ShowDetailData(rowIndex);
         }
+
         private void UpdateUser()
         {
             var editUser = GetUserInfor();
@@ -227,6 +253,7 @@ namespace ThiTracNghiem
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
         private void btn_Edit_Click(object sender, EventArgs e)
         {
             isAddNew = false;
@@ -282,6 +309,7 @@ namespace ThiTracNghiem
         {
             txt_Search.Clear();
         }
+
         private void txt_Search_Leave(object sender, EventArgs e)
         {
             if(string.IsNullOrEmpty(txt_Search.Text.Trim()))
@@ -314,11 +342,6 @@ namespace ThiTracNghiem
             }
             ShowHideButton(false);
             SetEnableControl(false);
-        }
-
-        private void cbb_RoleFilter_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

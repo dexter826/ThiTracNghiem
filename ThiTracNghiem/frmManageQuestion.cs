@@ -19,6 +19,7 @@ namespace ThiTracNghiem
             InitializeComponent();
             SetStyle(ControlStyles.ResizeRedraw, true);
         }
+
         protected override void OnPaintBackground(PaintEventArgs e)
         {
             Rectangle rc = ClientRectangle;
@@ -31,6 +32,11 @@ namespace ThiTracNghiem
                 e.Graphics.FillRectangle(brush, rc);
             }
         }
+
+        /// <summary>
+        /// Phương thức thu thập dữ liệu từ các điều khiển trong form (như các TextBox, ComboBox) và trả về một đối tượng Question chứa thông tin câu hỏi cần thêm hoặc chỉnh sửa.
+        /// </summary>
+        /// <returns></returns>
         private Question GetQuestionInfor()
         {
             Question question = new Question();
@@ -48,6 +54,12 @@ namespace ThiTracNghiem
             question.ModifiedBy = Session.LogonUser.Username;
             return question;
         }
+
+        /// <summary>
+        /// Phương thức kiểm tra tính hợp lệ của câu hỏi:
+        /// </summary>
+        /// <param name="question"></param>
+        /// <returns></returns>
         private bool IsValidQuestion(Question question)
         {
             string strMessage = string.Empty;
@@ -81,13 +93,18 @@ namespace ThiTracNghiem
             return true;
         }
 
+        /// <summary>
+        /// Phương thức thêm câu hỏi
+        /// </summary>
         private void AddNewQuestion()
         {
             var newQuestion = GetQuestionInfor();
+            //kiểm tra tính hợp lệ của câu hỏi
             if (!IsValidQuestion(newQuestion))
                 return; // thoát
             try
             {
+                //Thêm câu hỏi mới vào cơ sở dữ liệu thông qua BQuestion.AddNewQuestion.
                 BQuestion.AddNewQuestion(newQuestion);
                 LoadData();
             }
@@ -96,11 +113,20 @@ namespace ThiTracNghiem
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
+        /// <summary>
+        /// Ẩn/hiện các nút "Save" và "Cancel" (nếu isSaveCancel là true), đồng thời hiển thị các nút "Add", "Edit", "Delete" (nếu isSaveCancel là false).
+        /// </summary>
+        /// <param name="isSaveCancel"></param>
         private void ShowHideButton(bool isSaveCancel = false)
         {
             btn_Save.Visible = btn_Cancel.Visible = isSaveCancel;
             btn_Add.Visible = btn_Edit.Visible = btn_Delete.Visible = !isSaveCancel;
         }
+        /// <summary>
+        /// Kích hoạt hoặc vô hiệu hóa tất cả các điều khiển trong nhóm grb_Infor (các TextBox, ComboBox, DateTimePicker), giúp dễ dàng cho phép người dùng chỉnh sửa hoặc chỉ xem thông tin.
+        /// </summary>
+        /// <param name="isEnable"></param>
         private void SetEnableControl(bool isEnable = true)
         {
             foreach (Control ctrl in grb_Infor.Controls)
@@ -122,9 +148,10 @@ namespace ThiTracNghiem
                 }
             }
         }
+
         private void btn_Add_Click(object sender, EventArgs e)
         {
-            isAddNew = true;
+            isAddNew = true; //Thiết lập isAddNew = true, hiển thị các nút "Save" và "Cancel"
             ShowHideButton(true);
             SetEnableControl(true);
             txt_QuestionId.Text = "0";
@@ -136,6 +163,10 @@ namespace ThiTracNghiem
             LoadData();
             SetEnableControl(false);
         }
+
+        /// <summary>
+        /// Tải danh sách tất cả các câu hỏi từ cơ sở dữ liệu và hiển thị chúng trên DataGridView. Đồng thời, tải dữ liệu các môn học từ bảng Subject để hiển thị trong ComboBox.
+        /// </summary>
         private void LoadData()
         {
             try
@@ -156,6 +187,10 @@ namespace ThiTracNghiem
         {
             grv_DataUser["STT", e.RowIndex].Value = (e.RowIndex < 9 ? "0" : string.Empty) + (e.RowIndex + 1);
         }
+        /// <summary>
+        /// Hiển thị chi tiết câu hỏi ở dòng được chọn trong DataGridView vào các trường nhập liệu trong form.
+        /// </summary>
+        /// <param name="rowIndex"></param>
         private void ShowDetailData(int rowIndex)
         {
             try
@@ -175,6 +210,11 @@ namespace ThiTracNghiem
                 MessageBox.Show(ex.Message, "Thông báo lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+        /// <summary>
+        /// Xử lý khi người dùng chọn một dòng trong DataGridView, lấy thông tin của câu hỏi đó và hiển thị trong các trường nhập liệu.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void grv_DataUser_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
@@ -184,6 +224,7 @@ namespace ThiTracNghiem
             rowIndex = e.RowIndex;
             ShowDetailData(rowIndex);
         }
+
         private void UpdateQuestion()
         {
             var editUser = GetQuestionInfor();
@@ -200,6 +241,7 @@ namespace ThiTracNghiem
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
         private void btn_Edit_Click(object sender, EventArgs e)
         {
             isAddNew = false;
@@ -254,6 +296,7 @@ namespace ThiTracNghiem
         {
             txt_Search.Clear();
         }
+
         private void txt_Search_Leave(object sender, EventArgs e)
         {
             if(string.IsNullOrEmpty(txt_Search.Text.Trim()))

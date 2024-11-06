@@ -19,6 +19,10 @@ namespace ThiTracNghiem
             InitializeComponent();
             SetStyle(ControlStyles.ResizeRedraw, true);
         }
+        /// <summary>
+        /// Đổ màu background
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnPaintBackground(PaintEventArgs e)
         {
             Rectangle rc = ClientRectangle;
@@ -31,6 +35,10 @@ namespace ThiTracNghiem
                 e.Graphics.FillRectangle(brush, rc);
             }
         }
+        /// <summary>
+        /// Lấy thông tin môn thi
+        /// </summary>
+        /// <returns></returns>
         private Subject GetSubjectInfor()
         {
             Subject subject = new Subject();
@@ -44,6 +52,11 @@ namespace ThiTracNghiem
             subject.ModifiedBy = Session.LogonUser.Username; ;
             return subject;
         }
+        /// <summary>
+        /// Phương thức kiểm tra tính hợp lệ của thông tin môn thi
+        /// </summary>
+        /// <param name="subject"></param>
+        /// <returns></returns>
         private bool IsValidInfor(Subject subject)
         {
             string strMessage = string.Empty;
@@ -80,13 +93,26 @@ namespace ThiTracNghiem
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+        /// <summary>
+        /// Phương thức điều khiển việc hiển thị các nút bấm
+        /// </summary>
+        /// <param name="isSaveCancel"></param>
         private void ShowHideButton(bool isSaveCancel = false)
         {
+            //Nếu isSaveCancel là true, hiển thị các nút "Lưu" và "Hủy".
             btn_Save.Visible = btn_Cancel.Visible = isSaveCancel;
+            //Nếu isSaveCancel là false, ẩn các nút "Lưu", "Hủy" và hiển thị các nút "Thêm", "Sửa", "Xóa".
             btn_Add.Visible = btn_Edit.Visible = btn_Delete.Visible = !isSaveCancel;
         }
+
+        /// <summary>
+        /// Phương thức kích hoạt hoặc vô hiệu hóa tất cả các điều khiển trong nhóm grb_Infor (các TextBox, DateTimePicker, ComboBox):
+        /// </summary>
+        /// <param name="isEnable"></param>
         private void SetEnableControl(bool isEnable = true)
         {
+            //Nếu isEnable là true, tất cả các điều khiển sẽ được kích hoạt (Enabled = true).
+            //Nếu isEnable là false, tất cả các điều khiển sẽ bị vô hiệu hóa(Enabled = false).
             foreach (Control ctrl in grb_Infor.Controls)
             {
                 if (ctrl is TextBox)
@@ -106,8 +132,14 @@ namespace ThiTracNghiem
                 }
             }
         }
+        /// <summary>
+        /// Phương thức xử lý sự kiện khi người dùng nhấn nút "Thêm mới":
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Add_Click(object sender, EventArgs e)
         {
+            //Thiết lập isAddNew là true, điều này cho biết người dùng đang thêm mới môn thi.
             isAddNew = true;
             ShowHideButton(true);
             SetEnableControl(true);
@@ -120,11 +152,17 @@ namespace ThiTracNghiem
 
         private void frmManageSubject_Load(object sender, EventArgs e)
         {
+            //Tải dữ liệu môn thi và hiển thị chúng lên giao diện.
             LoadData();
+            //Vô hiệu hóa tất cả các điều khiển nhập liệu.
             SetEnableControl(false);
         }
+        /// <summary>
+        /// Phương thức tải dữ liệu môn thi từ cơ sở dữ liệu:
+        /// </summary>
         private void LoadData()
         {
+            //Cập nhật nguồn dữ liệu cho grv_DataUser bằng cách lấy tất cả môn thi từ BSubject.GetAll().
             try
             {
                 grv_DataUser.AutoGenerateColumns = false;
@@ -135,13 +173,23 @@ namespace ThiTracNghiem
                 MessageBox.Show(ex.Message, "Thông báo lỗi!");
             }
         }
-
+        /// <summary>
+        /// Phương thức định dạng lại các hàng trong DataGridView khi vẽ:
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void grv_DataUser_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
         {
+            //Cập nhật số thứ tự (STT) của mỗi hàng trong bảng, đảm bảo nó có dạng "01", "02", v.v.
             grv_DataUser["STT", e.RowIndex].Value = (e.RowIndex < 9 ? "0" : string.Empty) + (e.RowIndex + 1);
         }
+        /// <summary>
+        /// Phương thức hiển thị chi tiết thông tin của môn thi khi người dùng chọn một hàng trong bảng
+        /// </summary>
+        /// <param name="rowIndex"></param>
         private void ShowDetailData(int rowIndex)
         {
+            //Lấy thông tin môn thi từ các ô trong hàng đã chọn và hiển thị lên các ô nhập liệu.
             try
             {
                 DataGridViewRow row = grv_DataUser.Rows[rowIndex];
@@ -154,18 +202,30 @@ namespace ThiTracNghiem
                 MessageBox.Show(ex.Message, "Thông báo lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+        /// <summary>
+        /// Phương thức xử lý sự kiện khi người dùng chọn một hàng trong DataGridView:
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void grv_DataUser_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
             {
                 return;
             }
+            //Cập nhật rowIndex với chỉ số hàng hiện tại.
             rowIndex = e.RowIndex;
+            //Hiển thị chi tiết môn thi từ ShowDetailData(rowIndex).
             ShowDetailData(rowIndex);
         }
+        /// <summary>
+        /// Phương thức cập nhật thông tin môn thi:
+        /// </summary>
         private void UpdateSubject()
         {
+            //Lấy thông tin môn thi mới từ GetSubjectInfor().
             var editSubject = GetSubjectInfor();
+            //Kiểm tra tính hợp lệ và nếu hợp lệ, gọi BSubject.UpdateSubject(editSubject) để cập nhật môn thi trong cơ sở dữ liệu.
             if (!IsValidInfor(editSubject))
                 return; // thoát
             try
@@ -179,10 +239,14 @@ namespace ThiTracNghiem
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
         private void btn_Edit_Click(object sender, EventArgs e)
         {
+            //Thiết lập isAddNew là false, cho biết người dùng đang sửa môn thi.
             isAddNew = false;
+            //Hiển thị các nút "Lưu" và "Hủy", đồng thời ẩn các nút khác.
             ShowHideButton(true);
+            //Kích hoạt tất cả các điều khiển và làm cho ô SubjectId không thể sửa.
             SetEnableControl(true);
             txt_SubjectId.ReadOnly = true;
         }
@@ -228,16 +292,21 @@ namespace ThiTracNghiem
                 MessageBox.Show(ex.Message, "Thông báo lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        /// <summary>
+        /// Phương thức xử lý sự kiện khi người dùng nhấp đúp chuột vào ô tìm kiếm:
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txt_Search_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            txt_Search.Clear();
+            txt_Search.Clear(); //Xóa nội dung trong ô tìm kiếm.
         }
+
         private void txt_Search_Leave(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txt_Search.Text.Trim()))
             {
-                txt_Search.Text = strMessageInputSearch;
+                txt_Search.Text = strMessageInputSearch; //Đặt lại giá trị mặc định "Nhập nội dung cần tìm...".
             }
         }
 
@@ -248,6 +317,7 @@ namespace ThiTracNghiem
 
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
+            //Ẩn các nút "Lưu" và "Hủy". Hiển thị lại thông tin môn thi đã chọn và vô hiệu hóa các điều khiển.
             ShowHideButton(false);
             ShowDetailData(rowIndex);
             SetEnableControl(false);
@@ -255,14 +325,17 @@ namespace ThiTracNghiem
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
+            //Nếu đang thêm môn thi mới, gọi phương thức AddNewSubject().
             if (isAddNew)
             {
                 AddNewSubject();
             }
+            //Nếu đang sửa môn thi, gọi phương thức UpdateSubject().
             else
             {
                 UpdateSubject();
             }
+            //Sau khi lưu thành công, ẩn các nút "Lưu" và "Hủy", vô hiệu hóa các điều khiển.
             ShowHideButton(false);
             SetEnableControl(false);
         }

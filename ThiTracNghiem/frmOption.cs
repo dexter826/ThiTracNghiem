@@ -65,6 +65,10 @@ namespace ThiTracNghiem
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
+        /// <summary>
+        ///  Phương thức này lấy danh sách các môn học từ BSubject
+        /// </summary>
         private void LoadData()
         {
             try
@@ -78,6 +82,7 @@ namespace ThiTracNghiem
                 MessageBox.Show(ex.Message, "Thông báo lỗi!");
             }
         }
+
         private void frmOption_Load(object sender, EventArgs e)
         {
             LoadData();
@@ -89,6 +94,12 @@ namespace ThiTracNghiem
             }
         }
 
+        /// <summary>
+        /// Khi người dùng thay đổi số lượng câu hỏi trong ComboBox, sự kiện này sẽ được kích hoạt. 
+        /// Nếu số câu hỏi hợp lệ, nó sẽ tính thời gian làm bài bằng cách cộng thêm 10 phút vào số câu hỏi và hiển thị thời gian vào ô txt_Time.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbb_NumberOfQuestion_SelectedIndexChanged(object sender, EventArgs e)
         {
             int numberOfQuestions;

@@ -10,10 +10,5 @@ namespace ThiTracNghiem
         {
             InitializeComponent();
         }
-
-        private void frmLoad_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

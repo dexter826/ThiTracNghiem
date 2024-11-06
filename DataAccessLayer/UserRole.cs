@@ -37,6 +37,7 @@ namespace DataAccessLayer
                 throw ex;
             }
         }
+
         public static void UpdateUser (UserAccount editUser)
         {
             try
@@ -59,6 +60,7 @@ namespace DataAccessLayer
                 throw ex;
             }
         }
+
         public static void DeleteUser(int userId)
         {
             try
@@ -70,6 +72,7 @@ namespace DataAccessLayer
                 throw ex;
             }
         }
+
         public static DataTable Search(string keyword)
         {
             try

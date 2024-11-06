@@ -14,26 +14,18 @@ namespace ThiTracNghiem
         public frmChangePassword()
         {
             InitializeComponent();
-            //SetStyle(ControlStyles.ResizeRedraw, true);
         }
-        //protected override void OnPaintBackground(PaintEventArgs e)
-        //{
-        //    Rectangle rc = ClientRectangle;
-        //    if (rc.IsEmpty)
-        //        return;
-        //    if (rc.Width == 0 || rc.Height == 0)
-        //        return;
-        //    using (LinearGradientBrush brush = new LinearGradientBrush(rc, Color.White, Color.FromArgb(196, 232, 250), 90F))
-        //    {
-        //        e.Graphics.FillRectangle(brush, rc);
-        //    }
-        //}
 
         private void btn_Thoat_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Phương thức kiểm tra tính hợp lệ của thông tin người dùng (tên tài khoản, mật khẩu cũ, mật khẩu mới, và xác nhận mật khẩu mới):
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         private bool IsValidUserInfor(UserAccount user)
         {
             if (string.IsNullOrEmpty(user.Username))
@@ -75,6 +67,7 @@ namespace ThiTracNghiem
             }
             return true;
         }
+
         private void btn_Update_Click(object sender, EventArgs e)
         {
             UserAccount eUser = new UserAccount()

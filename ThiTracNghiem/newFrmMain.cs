@@ -15,7 +15,11 @@ namespace ThiTracNghiem
             lbl_HelloUser.Text = $"Xin chào, {ThiTracNghiem.Common.Session.LogonUser.Fullname}";
 
         }
-
+        /// <summary>
+        /// Tạo tab page
+        /// </summary>
+        /// <param name="strTabName"></param>
+        /// <param name="ucContent"></param>
         public void addNewTab(string strTabName, UserControl ucContent)
         {
             // Kiểm tra nếu tab đã tồn tại
@@ -36,31 +40,51 @@ namespace ThiTracNghiem
             xtraTabControl1.TabPages.Add(newTab); 
             xtraTabControl1.SelectedTabPage = newTab; 
         }
-
+        /// <summary>
+        /// Menu thay đổi mật khẩu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mn_ChangePassword_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmChangePassword fmChangePass = new frmChangePassword();
             fmChangePass.ShowDialog();
         }
-
+        /// <summary>
+        /// Quản lí người dùng
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mn_ManageUser_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmManageUser ucfmManageUser = new frmManageUser();
             addNewTab("Quản lí người dùng", ucfmManageUser);
         }
-
+        /// <summary>
+        /// Quản lí câu hỏi
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mn_ManageQuestion_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmManageQuestion ucfmManageQuestion = new frmManageQuestion();
             addNewTab("Quản lí câu hỏi", ucfmManageQuestion);
         }
-
+        /// <summary>
+        /// Làm bài thi
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mn_StartExam_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmOption frmOption = new frmOption();
             frmOption.ShowDialog();
         }
-
+        /// <summary>
+        /// Báo cáo theo môn
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mn_ReportBySubject_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             //frmReportBySubject fmReportBySubject = new frmReportBySubject();
@@ -71,7 +95,11 @@ namespace ThiTracNghiem
 
             addNewTab("Báo cáo điểm theo môn thi", newFrmReportBySubject);
         }
-
+        /// <summary>
+        /// Báo cáo theo thời gian
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mn_ReportByStudent_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             //frmReportByTime fmReportByTime = new frmReportByTime();
@@ -129,63 +157,44 @@ namespace ThiTracNghiem
                 this.Close();
             }
         }
-
-        private void mn_ManageSubject_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Quản lí môn thi
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mn_ManageSubject_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmManageSubject ucfmManageSubject = new frmManageSubject();
             addNewTab("Quản lí môn thi", ucfmManageSubject);
         }
 
+        /// <summary>
+        /// Sao lưu csdl
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //using (SaveFileDialog saveFileDialog = new SaveFileDialog())
-            //{
-            //    saveFileDialog.Filter = "Backup Files (*.bak)|*.bak";
-            //    saveFileDialog.Title = "Chọn vị trí lưu file sao lưu";
-            //    saveFileDialog.FileName = "Backup_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".bak"; // Đặt tên file mặc định
-            //    saveFileDialog.InitialDirectory = @"C:\Backup"; // Đặt thư mục mặc định
-
-            //    if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            //    {
-            //        string backupFilePath = saveFileDialog.FileName;
-            //        string sourceConnectionString = ConnectionString.strCon;
-
-            //        try
-            //        {
-            //            using (SqlConnection connection = new SqlConnection(sourceConnectionString))
-            //            {
-            //                connection.Open();
-            //                SqlCommand command = new SqlCommand($"BACKUP DATABASE [QL_THITRACNGHIEM] TO DISK = '{backupFilePath}'", connection);
-            //                command.ExecuteNonQuery();
-            //                XtraMessageBox.Show("Dữ liệu đã được sao lưu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //            }
-            //        }
-            //        catch (SqlException sqlEx)
-            //        {
-            //            XtraMessageBox.Show($"Lỗi SQL: {sqlEx.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //        }
-            //        catch (Exception ex)
-            //        {
-            //            XtraMessageBox.Show($"Có lỗi xảy ra: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //        }
-            //    }
-            //}
-
             frmBackUp fmBackUp = new frmBackUp();
             fmBackUp.ShowDialog();
         }
 
+        /// <summary>
+        /// Đóng tab đang mở
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void xtraTabControl1_CloseButtonClick(object sender, EventArgs e)
         {
             DevExpress.XtraTab.ViewInfo.ClosePageButtonEventArgs arg = e as DevExpress.XtraTab.ViewInfo.ClosePageButtonEventArgs;
             xtraTabControl1.TabPages.Remove(arg.Page as DevExpress.XtraTab.XtraTabPage);
         }
 
+        /// <summary>
+        /// Phục hồi csdl
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mn_Restore_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmRestore fmRestore = new frmRestore();

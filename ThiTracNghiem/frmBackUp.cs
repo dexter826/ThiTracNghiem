@@ -20,11 +20,6 @@ namespace ThiTracNghiem
             btn_Backup.Enabled = false;
         }
 
-        private void txt_file_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn_Browse_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog dialog = new FolderBrowserDialog();

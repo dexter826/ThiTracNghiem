@@ -12,6 +12,7 @@ namespace ThiTracNghiem
 {
     public partial class frmTestResult : Form
     {
+        private bool isSwitchingToMain = false;
         public frmTestResult(int correctAnswer, float mark)
         {
             InitializeComponent();
@@ -47,13 +48,14 @@ namespace ThiTracNghiem
 
             try
             {
-                BTestHistory.SaveResult(testHistory);
+                BTestHistory.SaveResult(testHistory); // Lưu kết quả thi vào cơ sở dữ liệu
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
         protected override void OnPaintBackground(PaintEventArgs e)
         {
             Rectangle rc = ClientRectangle;
@@ -66,7 +68,7 @@ namespace ThiTracNghiem
                 e.Graphics.FillRectangle(brush, rc);
             }
         }
-        private bool isSwitchingToMain = false;
+
         private void btn_Ok_Click(object sender, EventArgs e)
         {
             if (!Session.LogonUser.RoldId.Equals("User"))

@@ -19,7 +19,7 @@ namespace ThiTracNghiem
         DataTable dtQuestion = null;
         private bool isRaiseSelectedEvent = false;
         private bool isUpdatingOption = false; // Biến cờ để ngăn việc kích hoạt sự kiện đệ quy
-        private bool isSwitchingToMain = false;
+        private bool isSwitchingToMain = false; //Cờ cho phép chuyển về màn hình chính sau khi làm bài thi.
 
         public frmTest()
         {
@@ -58,7 +58,7 @@ namespace ThiTracNghiem
             try
             {
                 dtQuestion = BQuestion.GetQuesTionForTest(Session.SubjectID, Session.NumberOfQuestion);
-                dtQuestion.Columns.Add("SelectedOption");
+                dtQuestion.Columns.Add("SelectedOption"); //"SelectedOption" để lưu đáp án người dùng chọn.
                 lsb_Question.DataSource = dtQuestion;
                 lsb_Question.DisplayMember = "QuestionIndex";
                 lsb_Question.ValueMember = "QuestionID";
@@ -73,6 +73,10 @@ namespace ThiTracNghiem
             }
         }
 
+        /// <summary>
+        /// Lấy đáp án đã chọn
+        /// </summary>
+        /// <returns></returns>
         private string GetSelectOption()
         {
             string result = string.Empty;
@@ -87,6 +91,9 @@ namespace ThiTracNghiem
             return result;
         }
 
+        /// <summary>
+        /// Tải đáp án đã chọn trước đó
+        /// </summary>
         private void LoadPrevSelectOption()
         {
             string precSelected = dtQuestion.Rows[selectedIndex]["SelectedOption"].ToString();
@@ -100,20 +107,20 @@ namespace ThiTracNghiem
                 rdb_OptionD.Checked = true;
         }
 
+        /// <summary>
+        /// Cập nhật số câu hỏi đã hoàn thành
+        /// </summary>
         private void UpdateCompletedQuestionsCount()
         {
             int completedQuestions = dtQuestion.AsEnumerable().Count(row => !string.IsNullOrEmpty(row["SelectedOption"].ToString()));
             lb_socau.Text = $"Số câu đã làm: {completedQuestions}/{Session.NumberOfQuestion}";
         }
 
+        /// <summary>
+        /// Lưu đáp án đã chọn
+        /// </summary>
         private void SaveCurrentSelected()
         {
-            //if (selectedIndex >= 0 && selectedIndex < dtQuestion.Rows.Count)
-            //{
-            //    dtQuestion.Rows[selectedIndex]["SelectedOption"] = GetSelectOption();
-            //    UpdateCompletedQuestionsCount(); // Cập nhật số câu đã làm
-            //}
-
             if (isUpdatingOption) // Kiểm tra nếu đang cập nhật, tránh đệ quy
                 return;
 
@@ -166,12 +173,22 @@ namespace ThiTracNghiem
             }
         }
 
+        /// <summary>
+        /// Khi chọn câu hỏi trong lsb_Question, sẽ hiển thị chi tiết câu hỏi đó.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lsb_Question_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (isRaiseSelectedEvent)
                 ShowDetailQuestion();
         }
 
+        /// <summary>
+        /// Các sự kiện chuyển câu hỏi
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_FirstQuestion_Click(object sender, EventArgs e)
         {
             lsb_Question.SelectedIndex = 0;
@@ -194,6 +211,11 @@ namespace ThiTracNghiem
                 lsb_Question.SelectedIndex = selectedIndex - 1;
         }
 
+        /// <summary>
+        /// Đếm ngược thời gian
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void timerTest_Tick(object sender, EventArgs e)
         {
             //giảm dần thời gian
@@ -206,6 +228,9 @@ namespace ThiTracNghiem
                 FinishTest();
         }
 
+        /// <summary>
+        /// Kết thúc bài thi
+        /// </summary>
         private void FinishTest()
         {
             isRaiseSelectedEvent = false;

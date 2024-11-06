@@ -13,6 +13,7 @@ namespace ThiTracNghiem
 {
     public partial class frmLeaderBoard : Form
     {
+        private bool isSwitchingToMain = false;
         public frmLeaderBoard()
         {
             InitializeComponent();
@@ -30,7 +31,7 @@ namespace ThiTracNghiem
                 e.Graphics.FillRectangle(brush, rc);
             }
         }
-        private bool isSwitchingToMain = false;
+
         private void btn_Ok_Click(object sender, EventArgs e)
         {
             if (!Session.LogonUser.RoldId.Equals("User"))
@@ -42,6 +43,7 @@ namespace ThiTracNghiem
                 frmTest frmTest = Application.OpenForms.OfType<frmTest>().FirstOrDefault();
                 if (frmTest != null)
                 {
+                    //Nếu tìm thấy, gọi SetSwitchingToMainFlag(isSwitchingToMain) để thiết lập cờ chuyển đổi.
                     frmTest.SetSwitchingToMainFlag(isSwitchingToMain);
                 }
 
@@ -58,18 +60,15 @@ namespace ThiTracNghiem
             }
         }
 
-        private void lbll_LeaderBoard_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-        }
-
         private void frmLeaderBoard_Load(object sender, EventArgs e)
         {
             try
             {
+                //Tạo một đối tượng TestHistory và gán SubjectID từ session hiện tại.
                 TestHistory testHistory = new TestHistory();
                 testHistory.SubjectID = Session.SubjectID;
-                grv_DataUser.AutoGenerateColumns = false;
+                grv_DataUser.AutoGenerateColumns = false; //Đặt AutoGenerateColumns của grv_DataUser thành false để bạn có thể kiểm soát cách hiển thị các cột.
+                //Lấy dữ liệu bảng xếp hạng từ lớp BTestHistory.GetLeaderBoard(testHistory) và thiết lập nguồn dữ liệu cho grv_DataUser.
                 grv_DataUser.DataSource = BTestHistory.GetLeaderBoard(testHistory);
             }
             catch (Exception ex)
@@ -80,6 +79,7 @@ namespace ThiTracNghiem
 
         private void grv_DataUser_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
         {
+            //Thiết lập giá trị cho cột "STT" (Số thứ tự) của mỗi dòng, thêm tiền tố "0" nếu chỉ số dòng nhỏ hơn 10 để đảm bảo có 2 chữ số.
             grv_DataUser["STT", e.RowIndex].Value = (e.RowIndex < 10 ? "0" : string.Empty) + (e.RowIndex + 1);
         }
     }

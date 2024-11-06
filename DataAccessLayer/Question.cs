@@ -39,6 +39,7 @@ namespace DataAccessLayer
                 throw ex;
             }
         }
+
         public static void UpdateQuestion (Question editQuestion)
         {
             try
@@ -59,6 +60,7 @@ namespace DataAccessLayer
                 throw ex;
             }
         }
+
         public static void DeleteQuestion(int questionId)
         {
             try
@@ -70,6 +72,7 @@ namespace DataAccessLayer
                 throw ex;
             }
         }
+
         public static DataTable Search(string keyword)
         {
             try
@@ -82,6 +85,7 @@ namespace DataAccessLayer
                 throw ex;
             }
         }
+
         public static DataTable GetQuesTionForTest(string subjectId, int numberQuestion)
         {
             try
@@ -97,6 +101,7 @@ namespace DataAccessLayer
                 throw ex;
             }
         }
+
         public static Question GetOne(int questionId)
         {
             try

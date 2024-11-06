@@ -20,11 +20,6 @@ namespace ThiTracNghiem
             btn_Restore.Enabled = false;
         }
 
-        private void txt_file_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn_Browse_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFile = new OpenFileDialog();
