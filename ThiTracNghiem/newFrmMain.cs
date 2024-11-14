@@ -1,6 +1,8 @@
 ﻿using DevExpress.XtraEditors;
 using System;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using TestCore;
 using ThiTracNghiem.Common;
@@ -27,7 +29,7 @@ namespace ThiTracNghiem
             {
                 if (tab.Text == strTabName)
                 {
-                    xtraTabControl1.SelectedTabPage = tab; 
+                    xtraTabControl1.SelectedTabPage = tab;
                     return;
                 }
             }
@@ -37,8 +39,8 @@ namespace ThiTracNghiem
             ucContent.Dock = DockStyle.Fill;
             newTab.Controls.Add(ucContent);
 
-            xtraTabControl1.TabPages.Add(newTab); 
-            xtraTabControl1.SelectedTabPage = newTab; 
+            xtraTabControl1.TabPages.Add(newTab);
+            xtraTabControl1.SelectedTabPage = newTab;
         }
         /// <summary>
         /// Menu thay đổi mật khẩu
@@ -208,6 +210,20 @@ namespace ThiTracNghiem
                 mn_ManageUser.Enabled = false;
                 mn_Restore.Enabled = false;
                 barButtonItem1.Enabled = false;
+            }
+        }
+
+        private void xtraTabControl1_Paint(object sender, PaintEventArgs e)
+        {
+            if (xtraTabControl1.TabPages.Count == 0 && xtraTabControl1.BackgroundImage != null)
+            {
+                // Xác định hình chữ nhật đích là khu vực khách của điều khiển
+                Rectangle destRect = xtraTabControl1.ClientRectangle;
+
+                // Vẽ hình nền, kéo dài để phù hợp với toàn bộ vùng khách của điều khiển
+                e.Graphics.DrawImage(xtraTabControl1.BackgroundImage, destRect, 0, 0,
+                                      xtraTabControl1.BackgroundImage.Width, xtraTabControl1.BackgroundImage.Height,
+                                      GraphicsUnit.Pixel);
             }
         }
     }
