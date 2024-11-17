@@ -95,5 +95,11 @@ namespace ThiTracNghiem
         {
             txt_MatKhau.IconLeft = Properties.Resources.lock___Copy;
         }
+
+        private void lbl_ForgetPass_Click(object sender, EventArgs e)
+        {
+            frmForgotPassword frmForgotPassword = new frmForgotPassword();
+            frmForgotPassword.ShowDialog();
+        }
     }
 }

@@ -767,3 +767,23 @@ SELECT [RoleID]
   FROM [dbo].[UserRole]
 
 GO
+
+CREATE PROCEDURE GetPasswordByEmail
+    @Email NVARCHAR(100)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT Password
+    FROM UserAccount
+    WHERE Email = @Email;
+END;
+go
+
+CREATE PROCEDURE CheckEmailExists
+    @Email NVARCHAR(100)
+AS
+BEGIN
+    SELECT CASE WHEN EXISTS (SELECT 1 FROM UserAccount WHERE Email = @Email) THEN 1 ELSE 0 END AS Exist
+END
+go

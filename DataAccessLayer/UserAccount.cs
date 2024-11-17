@@ -14,7 +14,7 @@ namespace DataAccessLayer
         public static bool IsExistsAccount(UserAccount user)
         {
             bool isExist = false;
-            
+
             SqlConnection sqlConnection = new SqlConnection(TestCore.ConnectionString.strCon);
             try
             {
@@ -64,7 +64,7 @@ namespace DataAccessLayer
                 sqlConnection.Close();
             }
         }
-        //
+
         public static void AddNewUser(UserAccount newUser)
         {
             try
@@ -92,7 +92,7 @@ namespace DataAccessLayer
             }
         }
 
-        public static void UpdateUser (UserAccount editUser)
+        public static void UpdateUser(UserAccount editUser)
         {
             try
             {
@@ -150,7 +150,7 @@ namespace DataAccessLayer
                 SqlDataReader reader = SqlHelper.ExecuteReader(TestCore.ConnectionString.strCon, CommandType.StoredProcedure, "UserAccount_GetInforUser",
                                                            new SqlParameter("@Username", username));
                 UserAccount userAccount = new UserAccount();
-                if(reader.Read())
+                if (reader.Read())
                 {
                     userAccount.Username = reader["Username"].ToString();
                     userAccount.Fullname = reader["Fullname"].ToString();
@@ -167,5 +167,52 @@ namespace DataAccessLayer
                 throw ex;
             }
         }
+
+        public static UserAccount GetPasswordByEmail(string email)
+        {
+            try
+            {
+                SqlDataReader reader = SqlHelper.ExecuteReader(TestCore.ConnectionString.strCon, CommandType.StoredProcedure, "GetPasswordByEmail",
+                                                               new SqlParameter("@Email", email));
+
+                UserAccount userAccount = null;
+
+                if (reader.Read())
+                {
+                    userAccount = new UserAccount
+                    {
+                        Password = reader["Password"].ToString()
+                    };
+                }
+
+                reader.Close();
+                return userAccount;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static bool IsEmailExists(string email)
+        {
+            try
+            {
+                SqlDataReader reader = SqlHelper.ExecuteReader(TestCore.ConnectionString.strCon, CommandType.StoredProcedure, "CheckEmailExists",
+                                                               new SqlParameter("@Email", email));
+                bool exists = false;
+                if (reader.Read())
+                {
+                    exists = Convert.ToBoolean(reader["Exist"]);
+                }
+                reader.Close();
+                return exists;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

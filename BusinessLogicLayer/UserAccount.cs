@@ -43,5 +43,15 @@ namespace BusinessLogicLayer
         {
             return DUserAccount.GetInforUser(username);
         }
+
+        public static UserAccount GetPasswordByEmail(string email)
+        {
+            return DUserAccount.GetPasswordByEmail(email);
+        }
+
+        public static bool IsEmailExists(string email)
+        {
+            return DUserAccount.IsEmailExists(email);
+        }
     }
 }
