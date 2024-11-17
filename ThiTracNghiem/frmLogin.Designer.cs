@@ -47,33 +47,33 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(479, 148);
+            this.label1.Location = new System.Drawing.Point(548, 148);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(313, 35);
+            this.label1.Size = new System.Drawing.Size(193, 35);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Đăng nhập hệ thống";
+            this.label1.Text = "ĐĂNG NHẬP";
             // 
             // btn_DangNhap
             // 
             this.btn_DangNhap.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_DangNhap.BackColor = System.Drawing.Color.Transparent;
-            this.btn_DangNhap.BorderColor = System.Drawing.Color.White;
+            this.btn_DangNhap.BorderColor = System.Drawing.Color.Transparent;
             this.btn_DangNhap.BorderRadius = 20;
+            this.btn_DangNhap.BorderThickness = 2;
             this.btn_DangNhap.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(50)))), ((int)(((byte)(255)))));
             this.btn_DangNhap.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
             this.btn_DangNhap.ForeColor = System.Drawing.Color.White;
-            this.btn_DangNhap.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(50)))), ((int)(((byte)(255)))));
+            this.btn_DangNhap.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.btn_DangNhap.HoverState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
             this.btn_DangNhap.HoverState.FillColor = System.Drawing.Color.White;
             this.btn_DangNhap.HoverState.FillColor2 = System.Drawing.Color.White;
-            this.btn_DangNhap.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(50)))), ((int)(((byte)(255)))));
+            this.btn_DangNhap.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.btn_DangNhap.Location = new System.Drawing.Point(458, 340);
             this.btn_DangNhap.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.btn_DangNhap.Name = "btn_DangNhap";
             this.btn_DangNhap.ShadowDecoration.BorderRadius = 20;
             this.btn_DangNhap.ShadowDecoration.Depth = 20;
-            this.btn_DangNhap.ShadowDecoration.Enabled = true;
             this.btn_DangNhap.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(5, 0, 5, 5);
             this.btn_DangNhap.Size = new System.Drawing.Size(174, 47);
             this.btn_DangNhap.TabIndex = 5;
@@ -84,22 +84,22 @@
             // 
             this.btn_Thoat.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Thoat.BackColor = System.Drawing.Color.Transparent;
-            this.btn_Thoat.BorderColor = System.Drawing.Color.White;
+            this.btn_Thoat.BorderColor = System.Drawing.Color.Transparent;
             this.btn_Thoat.BorderRadius = 20;
+            this.btn_Thoat.BorderThickness = 2;
             this.btn_Thoat.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btn_Thoat.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(50)))), ((int)(((byte)(255)))));
             this.btn_Thoat.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Thoat.ForeColor = System.Drawing.Color.White;
-            this.btn_Thoat.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(50)))), ((int)(((byte)(255)))));
+            this.btn_Thoat.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.btn_Thoat.HoverState.FillColor = System.Drawing.Color.White;
             this.btn_Thoat.HoverState.FillColor2 = System.Drawing.Color.White;
-            this.btn_Thoat.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(50)))), ((int)(((byte)(255)))));
+            this.btn_Thoat.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.btn_Thoat.Location = new System.Drawing.Point(644, 340);
             this.btn_Thoat.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.btn_Thoat.Name = "btn_Thoat";
             this.btn_Thoat.ShadowDecoration.BorderRadius = 20;
             this.btn_Thoat.ShadowDecoration.Depth = 20;
-            this.btn_Thoat.ShadowDecoration.Enabled = true;
             this.btn_Thoat.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(5, 0, 5, 5);
             this.btn_Thoat.Size = new System.Drawing.Size(175, 47);
             this.btn_Thoat.TabIndex = 6;
@@ -122,7 +122,7 @@
             // pictureEdit1
             // 
             this.pictureEdit1.EditValue = global::ThiTracNghiem.Properties.Resources.hello;
-            this.pictureEdit1.Location = new System.Drawing.Point(571, 4);
+            this.pictureEdit1.Location = new System.Drawing.Point(591, 4);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;

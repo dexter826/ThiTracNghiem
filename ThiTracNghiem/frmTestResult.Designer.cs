@@ -76,10 +76,16 @@
             // 
             this.btn_Ok.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Ok.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Ok.BorderColor = System.Drawing.Color.Transparent;
             this.btn_Ok.BorderRadius = 10;
+            this.btn_Ok.BorderThickness = 2;
             this.btn_Ok.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(50)))), ((int)(((byte)(255)))));
             this.btn_Ok.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Ok.ForeColor = System.Drawing.Color.White;
+            this.btn_Ok.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.btn_Ok.HoverState.FillColor = System.Drawing.Color.White;
+            this.btn_Ok.HoverState.FillColor2 = System.Drawing.Color.White;
+            this.btn_Ok.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.btn_Ok.Location = new System.Drawing.Point(474, 320);
             this.btn_Ok.Name = "btn_Ok";
             this.btn_Ok.Size = new System.Drawing.Size(124, 55);

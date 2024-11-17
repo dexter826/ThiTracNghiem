@@ -168,10 +168,16 @@
             // 
             this.btn_Start.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Start.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Start.BorderColor = System.Drawing.Color.Transparent;
             this.btn_Start.BorderRadius = 20;
+            this.btn_Start.BorderThickness = 2;
             this.btn_Start.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(50)))), ((int)(((byte)(255)))));
             this.btn_Start.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Start.ForeColor = System.Drawing.Color.White;
+            this.btn_Start.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.btn_Start.HoverState.FillColor = System.Drawing.Color.White;
+            this.btn_Start.HoverState.FillColor2 = System.Drawing.Color.White;
+            this.btn_Start.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.btn_Start.Location = new System.Drawing.Point(105, 346);
             this.btn_Start.Name = "btn_Start";
             this.btn_Start.ShadowDecoration.BorderRadius = 20;
@@ -187,10 +193,16 @@
             // 
             this.btn_Exit.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Exit.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Exit.BorderColor = System.Drawing.Color.Transparent;
             this.btn_Exit.BorderRadius = 20;
+            this.btn_Exit.BorderThickness = 2;
             this.btn_Exit.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(50)))), ((int)(((byte)(255)))));
             this.btn_Exit.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Exit.ForeColor = System.Drawing.Color.White;
+            this.btn_Exit.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.btn_Exit.HoverState.FillColor = System.Drawing.Color.White;
+            this.btn_Exit.HoverState.FillColor2 = System.Drawing.Color.White;
+            this.btn_Exit.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.btn_Exit.Location = new System.Drawing.Point(283, 346);
             this.btn_Exit.Name = "btn_Exit";
             this.btn_Exit.ShadowDecoration.BorderRadius = 20;

@@ -42,7 +42,7 @@
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(51, 35);
             this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(192, 30);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(152, 24);
             this.guna2HtmlLabel1.TabIndex = 0;
             this.guna2HtmlLabel1.Text = "Đường dẫn lưu file";
             // 
@@ -71,13 +71,18 @@
             // btn_Backup
             // 
             this.btn_Backup.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Backup.BorderColor = System.Drawing.Color.Transparent;
             this.btn_Backup.BorderRadius = 10;
+            this.btn_Backup.BorderThickness = 2;
             this.btn_Backup.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btn_Backup.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_Backup.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btn_Backup.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_Backup.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Backup.ForeColor = System.Drawing.Color.White;
+            this.btn_Backup.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.btn_Backup.HoverState.FillColor = System.Drawing.Color.White;
+            this.btn_Backup.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.btn_Backup.Image = global::ThiTracNghiem.Properties.Resources.cloud_backup;
             this.btn_Backup.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_Backup.ImageOffset = new System.Drawing.Point(0, 18);
@@ -124,7 +129,7 @@
             this.Appearance.BackColor = System.Drawing.Color.White;
             this.Appearance.Options.UseBackColor = true;
             this.Appearance.Options.UseFont = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(890, 169);
             this.Controls.Add(this.btn_Backup);
@@ -137,7 +142,7 @@
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(892, 209);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(892, 209);
+            this.MinimumSize = new System.Drawing.Size(892, 201);
             this.Name = "frmBackUp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sao lưu dữ liệu";

@@ -42,7 +42,7 @@
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(84, 35);
             this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(91, 30);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(73, 24);
             this.guna2HtmlLabel1.TabIndex = 0;
             this.guna2HtmlLabel1.Text = "Chọn file";
             // 
@@ -71,13 +71,18 @@
             // btn_Restore
             // 
             this.btn_Restore.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Restore.BorderColor = System.Drawing.Color.Transparent;
             this.btn_Restore.BorderRadius = 10;
+            this.btn_Restore.BorderThickness = 2;
             this.btn_Restore.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btn_Restore.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_Restore.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btn_Restore.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_Restore.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Restore.ForeColor = System.Drawing.Color.White;
+            this.btn_Restore.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.btn_Restore.HoverState.FillColor = System.Drawing.Color.White;
+            this.btn_Restore.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.btn_Restore.Image = global::ThiTracNghiem.Properties.Resources.restore;
             this.btn_Restore.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_Restore.ImageOffset = new System.Drawing.Point(0, 18);
@@ -124,7 +129,7 @@
             this.Appearance.BackColor = System.Drawing.Color.White;
             this.Appearance.Options.UseBackColor = true;
             this.Appearance.Options.UseFont = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(890, 169);
             this.Controls.Add(this.btn_Restore);
@@ -137,7 +142,7 @@
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(892, 209);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(892, 209);
+            this.MinimumSize = new System.Drawing.Size(892, 201);
             this.Name = "frmRestore";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Khôi phục dữ liệu";
