@@ -145,26 +145,7 @@ namespace ThiTracNghiem
         /// <param name="isEnable"></param>
         private void SetEnableControl(bool isEnable = true)
         {
-            //Nếu isEnable là true, tất cả các điều khiển sẽ được kích hoạt (Enabled = true).
-            //Nếu isEnable là false, tất cả các điều khiển sẽ bị vô hiệu hóa(Enabled = false).
-            foreach (Control ctrl in grb_Infor.Controls)
-            {
-                if (ctrl is TextBox)
-                {
-                    TextBox txtInput = (TextBox)ctrl;
-                    txtInput.Enabled = isEnable;
-                }
-                else if (ctrl is DateTimePicker)
-                {
-                    DateTimePicker dpkInput = ctrl as DateTimePicker;
-                    dpkInput.Enabled = isEnable;
-                }
-                else if (ctrl is ComboBox)
-                {
-                    ComboBox cmbInput = ctrl as ComboBox;
-                    cmbInput.Enabled = isEnable;
-                }
-            }
+            grb_Infor.Enabled = isEnable;
         }
         /// <summary>
         /// Phương thức xử lý sự kiện khi người dùng nhấn nút "Thêm mới":

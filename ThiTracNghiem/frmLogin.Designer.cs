@@ -32,13 +32,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btn_DangNhap = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.btn_Thoat = new Guna.UI2.WinForms.Guna2GradientTileButton();
-            this.pictureEdit2 = new DevExpress.XtraEditors.PictureEdit();
+            this.lbl_ForgetPass = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.txt_MatKhau = new Guna.UI2.WinForms.Guna2TextBox();
             this.txt_TaiKhoan = new Guna.UI2.WinForms.Guna2TextBox();
-            this.lbl_ForgetPass = new DevExpress.XtraEditors.HyperlinkLabelControl();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).BeginInit();
+            this.pictureEdit2 = new DevExpress.XtraEditors.PictureEdit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -106,18 +106,19 @@
             this.btn_Thoat.Text = "Thoát";
             this.btn_Thoat.Click += new System.EventHandler(this.btn_Thoat_Click);
             // 
-            // pictureEdit2
+            // lbl_ForgetPass
             // 
-            this.pictureEdit2.EditValue = global::ThiTracNghiem.Properties.Resources.Security_Research;
-            this.pictureEdit2.Location = new System.Drawing.Point(-58, -66);
-            this.pictureEdit2.Name = "pictureEdit2";
-            this.pictureEdit2.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.pictureEdit2.Properties.Appearance.Options.UseBackColor = true;
-            this.pictureEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pictureEdit2.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit2.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
-            this.pictureEdit2.Size = new System.Drawing.Size(559, 544);
-            this.pictureEdit2.TabIndex = 11;
+            this.lbl_ForgetPass.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ForgetPass.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.lbl_ForgetPass.Appearance.Options.UseFont = true;
+            this.lbl_ForgetPass.Appearance.Options.UseForeColor = true;
+            this.lbl_ForgetPass.Location = new System.Drawing.Point(725, 313);
+            this.lbl_ForgetPass.Name = "lbl_ForgetPass";
+            this.lbl_ForgetPass.Size = new System.Drawing.Size(94, 17);
+            this.lbl_ForgetPass.TabIndex = 12;
+            this.lbl_ForgetPass.Text = "Quên mật khẩu?";
+            this.lbl_ForgetPass.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Question;
+            this.lbl_ForgetPass.Click += new System.EventHandler(this.lbl_ForgetPass_Click);
             // 
             // pictureEdit1
             // 
@@ -186,19 +187,18 @@
             this.txt_TaiKhoan.Enter += new System.EventHandler(this.txt_TaiKhoan_Enter);
             this.txt_TaiKhoan.Leave += new System.EventHandler(this.txt_TaiKhoan_Leave);
             // 
-            // lbl_ForgetPass
+            // pictureEdit2
             // 
-            this.lbl_ForgetPass.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ForgetPass.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.lbl_ForgetPass.Appearance.Options.UseFont = true;
-            this.lbl_ForgetPass.Appearance.Options.UseForeColor = true;
-            this.lbl_ForgetPass.Location = new System.Drawing.Point(725, 313);
-            this.lbl_ForgetPass.Name = "lbl_ForgetPass";
-            this.lbl_ForgetPass.Size = new System.Drawing.Size(94, 17);
-            this.lbl_ForgetPass.TabIndex = 12;
-            this.lbl_ForgetPass.Text = "Quên mật khẩu?";
-            this.lbl_ForgetPass.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Question;
-            this.lbl_ForgetPass.Click += new System.EventHandler(this.lbl_ForgetPass_Click);
+            this.pictureEdit2.EditValue = global::ThiTracNghiem.Properties.Resources.toolxox_com_iscout_6nje7zxhVN_upscayl_4x_ultramix_balanced;
+            this.pictureEdit2.Location = new System.Drawing.Point(-10, -65);
+            this.pictureEdit2.Name = "pictureEdit2";
+            this.pictureEdit2.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.pictureEdit2.Properties.Appearance.Options.UseBackColor = true;
+            this.pictureEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pictureEdit2.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit2.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
+            this.pictureEdit2.Size = new System.Drawing.Size(473, 544);
+            this.pictureEdit2.TabIndex = 11;
             // 
             // frmLogin
             // 
@@ -227,8 +227,8 @@
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hệ thống thi trắc nghiệm";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

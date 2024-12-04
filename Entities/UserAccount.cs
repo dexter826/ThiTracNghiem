@@ -22,7 +22,7 @@ namespace Entities
         public string Address { get; set; }
         public DateTime Birthday { get; set; }
         public string Note { get; set; }
-        
+        public byte[] Image { get; set; }
         public string CreatedBy { get; set; }
         public string ModifiedBy { get; set; }
         public DateTime CreatedAt { get; set; }

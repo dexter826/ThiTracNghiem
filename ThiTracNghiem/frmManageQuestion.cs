@@ -60,7 +60,7 @@ namespace ThiTracNghiem
         /// </summary>
         /// <param name="question"></param>
         /// <returns></returns>
-        private bool IsValidQuestion(Question question)
+        private static bool IsValidQuestion(Question question)
         {
             string strMessage = string.Empty;
             if (string.IsNullOrEmpty(question.QContent))
@@ -129,24 +129,7 @@ namespace ThiTracNghiem
         /// <param name="isEnable"></param>
         private void SetEnableControl(bool isEnable = true)
         {
-            foreach (Control ctrl in grb_Infor.Controls)
-            {
-                if (ctrl is TextBox)
-                {
-                    TextBox txtInput = (TextBox)ctrl;
-                    txtInput.Enabled = isEnable;
-                }
-                else if (ctrl is DateTimePicker)
-                {
-                    DateTimePicker dpkInput = ctrl as DateTimePicker;
-                    dpkInput.Enabled = isEnable;
-                }
-                else if (ctrl is ComboBox)
-                {
-                    ComboBox cmbInput = ctrl as ComboBox;
-                    cmbInput.Enabled = isEnable;
-                }
-            }
+            grb_Infor.Enabled = isEnable;
         }
 
         private void btn_Add_Click(object sender, EventArgs e)

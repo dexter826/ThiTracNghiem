@@ -360,5 +360,11 @@
   <ItemGroup>
     <None Include="Resources\mail.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\No-Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolxox.com-iscout-6nje7zxhVN_upscayl_4x_ultramix_balanced.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

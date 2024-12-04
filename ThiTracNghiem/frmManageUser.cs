@@ -4,6 +4,7 @@ using System;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using ThiTracNghiem.Common;
@@ -35,22 +36,26 @@ namespace ThiTracNghiem
             }
         }
 
-        /// <summary>
-        /// Phương thức lấy thông tin người dùng từ các trường nhập liệu trên giao diện
-        /// </summary>
-        /// <returns></returns>
+        private static byte[] ImageToByteArray(Image image)
+        {
+            MemoryStream m = new MemoryStream();
+            image.Save(m, System.Drawing.Imaging.ImageFormat.Png);
+            return m.ToArray();
+        }
+
         private UserAccount GetUserInfor()
         {
             UserAccount useraccount = new UserAccount();
             useraccount.Birthday = dtp_Birthday.Value;
             useraccount.Address = txt_Address.Text.Trim();
             useraccount.CreatedAt = DateTime.Now;
-            useraccount.CreatedBy = Session.LogonUser.Username; ;
+            useraccount.CreatedBy = Session.LogonUser.Username;
             useraccount.Email = txt_Email.Text.Trim();
             useraccount.Fullname = txt_Fullname.Text.Trim();
             useraccount.ModifiedAt = DateTime.Now;
-            useraccount.ModifiedBy = Session.LogonUser.Username; ;
-            useraccount.Note = "new year";
+            useraccount.ModifiedBy = Session.LogonUser.Username;
+            useraccount.Note = txt_Note.Text.Trim();
+            useraccount.Image = ImageToByteArray(ptb_Avatar.Image);
             useraccount.Password = txt_Password.Text.Trim();
             useraccount.PhoneNumber = txt_PhoneMumber.Text.Trim();
             useraccount.RoldId = cbb_Role.SelectedValue.ToString();
@@ -142,6 +147,7 @@ namespace ThiTracNghiem
             try
             {
                 BUserAccount.AddNewUser(newUser);
+                DevExpress.XtraEditors.XtraMessageBox.Show("Thêm người dùng mới thành công!", "Thông báo!");
                 LoadData();
             }
             catch (Exception ex)
@@ -158,28 +164,22 @@ namespace ThiTracNghiem
         {
             btn_Save.Visible = btn_Cancel.Visible = isSaveCancel;
             btn_Add.Visible = btn_Edit.Visible = btn_Delete.Visible = !isSaveCancel;
+            ptb_NoImage.Visible = !isSaveCancel;
+            ptb_Avatar.Visible = isSaveCancel;
         }
 
-        private void SetEnableControl(bool isEnable = true)
+        private void SetEnableControl(bool isEnabled = true)
         {
-            foreach (Control ctrl in grb_Infor.Controls)
-            {
-                if (ctrl is TextBox)
-                {
-                    TextBox txtInput = (TextBox)ctrl;
-                    txtInput.Enabled = isEnable;
-                }
-                else if (ctrl is DateTimePicker)
-                {
-                    DateTimePicker dpkInput = ctrl as DateTimePicker;
-                    dpkInput.Enabled = isEnable;
-                }
-                else if (ctrl is ComboBox)
-                {
-                    ComboBox cmbInput = ctrl as ComboBox;
-                    cmbInput.Enabled = isEnable;
-                }
-            }
+            txt_UserID.Enabled = isEnabled;
+            cbb_Role.Enabled = isEnabled;
+            txt_Username.Enabled = isEnabled;
+            txt_Fullname.Enabled = isEnabled;
+            txt_Password.Enabled = isEnabled;
+            txt_Email.Enabled = isEnabled;
+            txt_PhoneMumber.Enabled = isEnabled;
+            txt_Address.Enabled = isEnabled;
+            txt_Note.Enabled = isEnabled;
+            btn_UploadImg.Enabled = isEnabled;
         }
 
         private void btn_Add_Click(object sender, EventArgs e)
@@ -195,6 +195,8 @@ namespace ThiTracNghiem
             txt_Email.Clear();
             txt_PhoneMumber.Clear();
             txt_Address.Clear();
+            txt_Note.Clear();
+            ptb_Avatar.Image = null;
         }
 
         private void frmManageUser_Load(object sender, EventArgs e)
@@ -239,6 +241,14 @@ namespace ThiTracNghiem
             grv_DataUser["STT", e.RowIndex].Value = (e.RowIndex < 9 ? "0" : string.Empty) + (e.RowIndex + 1);
         }
 
+        private static Image ConvertByteArrayToImage(byte[] byteArray)
+        {
+            using (var ms = new MemoryStream(byteArray))
+            {
+                return System.Drawing.Image.FromStream(ms);
+            }
+        }
+
         private void ShowDetailData(int rowIndex)
         {
             try
@@ -252,7 +262,20 @@ namespace ThiTracNghiem
                 txt_Address.Text = row.Cells["Address"].Value.ToString();
                 txt_Password.Text = row.Cells["Password"].Value.ToString();
                 cbb_Role.SelectedValue = row.Cells["RoleID"].Value.ToString();
+                txt_Note.Text = row.Cells["Note"].Value.ToString();
                 dtp_Birthday.Text = row.Cells["Birthday"].FormattedValue.ToString();
+                if (row.Cells["Image"].Value is byte[] imageBytes)
+                {
+                    ptb_Avatar.Image = ConvertByteArrayToImage(imageBytes);
+                    ptb_NoImage.Visible = false;
+                    ptb_Avatar.Visible = true;
+                }
+                else
+                {
+                    ptb_Avatar.Image = null;
+                    ptb_Avatar.Visible = false;
+                    ptb_NoImage.Visible = true;
+                }
             }
             catch (Exception ex)
             {
@@ -316,7 +339,7 @@ namespace ThiTracNghiem
             }
             catch (Exception ex)
             {
-                DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "Thông báo lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);            
+                DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "Thông báo lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -345,7 +368,7 @@ namespace ThiTracNghiem
 
         private void txt_Search_Leave(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(txt_Search.Text.Trim()))
+            if (string.IsNullOrEmpty(txt_Search.Text.Trim()))
             {
                 txt_Search.Text = strMessageInputSearch;
             }
@@ -375,6 +398,8 @@ namespace ThiTracNghiem
             }
             ShowHideButton(false);
             SetEnableControl(false);
+            ptb_NoImage.Visible = false;
+            ptb_Avatar.Visible = true;
         }
 
         /// <summary>
@@ -411,6 +436,26 @@ namespace ThiTracNghiem
             {
                 DevExpress.XtraEditors.XtraMessageBox.Show("Email không hợp lệ!", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txt_Email.Focus();
+            }
+        }
+
+        private void btn_UploadImg_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = "c:\\";
+                openFileDialog.Filter = "PNG files (*.png) | *.png";
+                openFileDialog.FilterIndex = 1;
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Get the path of specified file
+                    string filePath = openFileDialog.FileName;
+
+                    // Load the image into the picture box
+                    ptb_Avatar.Image = System.Drawing.Image.FromFile(filePath);
+                }
             }
         }
     }

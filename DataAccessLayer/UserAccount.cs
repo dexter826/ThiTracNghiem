@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Entities;
-using System.Data.SqlClient;
+﻿using Entities;
+using System;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace DataAccessLayer
 {
@@ -20,7 +16,7 @@ namespace DataAccessLayer
             {
                 sqlConnection.Open();
                 SqlCommand sqlCommand = new SqlCommand("UserAccount_CheckExist", sqlConnection);
-                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.Parameters.AddWithValue("@Username", user.Username);
                 sqlCommand.Parameters.AddWithValue("@Password", user.Password);
 
@@ -71,7 +67,7 @@ namespace DataAccessLayer
             {
                 SqlHelper.ExecuteNonQuery(TestCore.ConnectionString.strCon, "UserAccount_Insert", newUser.RoldId, newUser.Username,
                     newUser.Password, newUser.Fullname, newUser.Email, newUser.PhoneNumber, newUser.Address,
-                    newUser.Birthday, newUser.Note, newUser.CreatedBy, newUser.ModifiedBy);
+                    newUser.Birthday, newUser.Note,newUser.Image, newUser.CreatedBy, newUser.ModifiedBy);
             }
             catch (Exception ex)
             {
@@ -107,6 +103,7 @@ namespace DataAccessLayer
                                                     editUser.Address,
                                                     editUser.Birthday,
                                                     editUser.Note,
+                                                    editUser.Image,
                                                     editUser.ModifiedBy);
             }
             catch (Exception ex)
@@ -158,6 +155,7 @@ namespace DataAccessLayer
                     userAccount.UsertId = int.Parse(reader["UserID"].ToString());
                     userAccount.Address = reader["Address"].ToString();
                     userAccount.RoldId = reader["RoleID"].ToString();
+                    userAccount.Image = reader["Image"] as byte[];
                 }
                 reader.Close();
                 return userAccount;

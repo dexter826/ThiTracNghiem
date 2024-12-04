@@ -143,6 +143,16 @@ namespace ThiTracNghiem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap No_Image {
+            get {
+                object obj = ResourceManager.GetObject("No-Image", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap option {
             get {
                 object obj = ResourceManager.GetObject("option", resourceCulture);
@@ -236,6 +246,16 @@ namespace ThiTracNghiem.Properties {
         internal static System.Drawing.Bitmap Security_Research {
             get {
                 object obj = ResourceManager.GetObject("Security Research", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap toolxox_com_iscout_6nje7zxhVN_upscayl_4x_ultramix_balanced {
+            get {
+                object obj = ResourceManager.GetObject("toolxox.com-iscout-6nje7zxhVN_upscayl_4x_ultramix_balanced", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

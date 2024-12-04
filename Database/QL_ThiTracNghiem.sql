@@ -61,6 +61,7 @@ CREATE TABLE [dbo].[UserAccount] (
     [Address] NVARCHAR(150) NULL,
     [Birthday] DATETIME NULL,
     [Note] NVARCHAR(50) NULL,
+	[Image] image,
     [CreatedBy] VARCHAR(50) NULL,
     [CreatedAt] DATETIME NULL,
     [ModifiedBy] VARCHAR(50) NULL,
@@ -638,6 +639,7 @@ SELECT [UserID]
       ,[Address]
       ,[Birthday]
       ,[Note]
+	  ,[Image]
       ,[CreatedBy]
       ,[CreatedAt]
       ,[ModifiedBy]
@@ -656,7 +658,8 @@ CREATE procedure [dbo].[UserAccount_Insert]
     @PhoneNumber varchar(50),
     @Address nvarchar(150),
     @Birthday datetime,
-    @Note varchar(50),
+    @Note nvarchar(50),
+	@Image image,
     @CreatedBy varchar(50),
     @ModifiedBy varchar(50)
 AS
@@ -672,6 +675,7 @@ INSERT INTO [dbo].[UserAccount]
            [Address],
            [Birthday],
            [Note],
+		   [Image],
            [CreatedBy],
            [CreatedAt],
            [ModifiedBy],
@@ -686,14 +690,14 @@ INSERT INTO [dbo].[UserAccount]
            @Address,
            @Birthday,
            @Note,
+		   @Image,
            @CreatedBy,
 		   GETDATE(),
            @ModifiedBy,
 		   GETDATE())
 end
-
-
 GO
+
 /****** Object:  StoredProcedure [dbo].[UserAccount_Search]    Script Date: 06/11/2024 12:58:46 CH ******/
 CREATE procedure [dbo].[UserAccount_Search]
 @Keyword nvarchar(200),
@@ -709,6 +713,7 @@ SELECT UserID
       ,Address
       ,Birthday
       ,Note
+	  ,Image
       ,CreatedBy
       ,CreatedAt
       ,ModifiedBy
@@ -739,6 +744,7 @@ SELECT UserID
       ,Address
       ,Birthday
       ,Note
+	  ,Image
       ,CreatedBy
       ,CreatedAt
       ,ModifiedBy
@@ -758,7 +764,8 @@ Create procedure [dbo].[UserAccount_Update]
     @PhoneNumber varchar(50),
     @Address nvarchar(150),
     @Birthday datetime,
-    @Note varchar(50),
+    @Note nvarchar(50),
+	@Image image,
     @ModifiedBy varchar(50)
 AS
 Begin
@@ -772,6 +779,7 @@ Begin
       ,[Address] = @Address
       ,[Birthday] = @Birthday
       ,[Note] = @Note
+	  ,[Image] = @Image
       ,[ModifiedBy] = @ModifiedBy
       ,[ModifiedAt] = GETDATE()
 	  where UserID = @UserID
