@@ -4,6 +4,7 @@ using System;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using ThiTracNghiem.Common;
 
@@ -64,7 +65,7 @@ namespace ThiTracNghiem
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        private bool IsValidUser(UserAccount user)
+        private static bool IsValidUser(UserAccount user)
         {
             string strMessage = string.Empty;
             if (string.IsNullOrEmpty(user.Username))
@@ -98,10 +99,29 @@ namespace ThiTracNghiem
             //kiểm tra hợp lệ
             if (!string.IsNullOrEmpty(strMessage))
             {
-                MessageBox.Show(strMessage, "Lỗi nhập liệu!\n", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                DevExpress.XtraEditors.XtraMessageBox.Show(strMessage, "Lỗi nhập liệu!\n", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             return true;
+        }
+
+        /// <summary>
+        /// Phương thức kiểm tra trùng khóa chính khi thêm user mới
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        private static bool IsDuplicateUser(string username)
+        {
+            var users = BUserAccount.GetAll();
+            foreach (DataRow user in users.Rows)
+            {
+                if (user["Username"].ToString().Equals(username, StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         /// <summary>
@@ -111,7 +131,14 @@ namespace ThiTracNghiem
         {
             var newUser = GetUserInfor();
             if (!IsValidUser(newUser))
-                return; // thoát
+                return;
+
+            if (IsDuplicateUser(newUser.Username))
+            {
+                DevExpress.XtraEditors.XtraMessageBox.Show("Tài khoản đã tồn tại!", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
                 BUserAccount.AddNewUser(newUser);
@@ -119,7 +146,7 @@ namespace ThiTracNghiem
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                DevExpress.XtraEditors.XtraMessageBox.Show("Error: " + ex.Message);
             }
         }
 
@@ -162,6 +189,12 @@ namespace ThiTracNghiem
             SetEnableControl(true);
             txt_UserID.Text = "0";
             txt_UserID.ReadOnly = true;
+            txt_Username.Clear();
+            txt_Fullname.Clear();
+            txt_Password.Clear();
+            txt_Email.Clear();
+            txt_PhoneMumber.Clear();
+            txt_Address.Clear();
         }
 
         private void frmManageUser_Load(object sender, EventArgs e)
@@ -197,7 +230,7 @@ namespace ThiTracNghiem
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Thông báo lỗi!");
+                DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "Thông báo lỗi!");
             }
         }
 
@@ -223,7 +256,7 @@ namespace ThiTracNghiem
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Thông báo lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "Thông báo lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -245,12 +278,12 @@ namespace ThiTracNghiem
             try
             {
                 BUserAccount.UpdateUser(editUser);
-                MessageBox.Show("Cập nhật thành công!", "Thông báo!");
+                DevExpress.XtraEditors.XtraMessageBox.Show("Cập nhật thành công!", "Thông báo!");
                 LoadData();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                DevExpress.XtraEditors.XtraMessageBox.Show("Error: " + ex.Message);
             }
         }
 
@@ -267,23 +300,23 @@ namespace ThiTracNghiem
             int.TryParse(txt_UserID.Text, out int userId);
             if (userId == 0)
             {
-                MessageBox.Show("Vui lòng chọn người dùng cần xóa!", "Thông báo");
+                DevExpress.XtraEditors.XtraMessageBox.Show("Vui lòng chọn người dùng cần xóa!", "Thông báo");
                 return;
             }
 
             try
             {
                 string fullname = txt_Fullname.Text.Trim();
-                if (MessageBox.Show($"Bạn có chắc muốn xóa người dùng \"{fullname}\"?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (DevExpress.XtraEditors.XtraMessageBox.Show($"Bạn có chắc muốn xóa người dùng \"{fullname}\"?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     BUserAccount.DeleteUser(userId);
-                    MessageBox.Show("Xóa thành công!", "Thông báo");
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Xóa thành công!", "Thông báo");
                     LoadData();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Thông báo lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);            
+                DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "Thông báo lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);            
             }
         }
 
@@ -301,7 +334,7 @@ namespace ThiTracNghiem
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Thông báo lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "Thông báo lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -342,6 +375,43 @@ namespace ThiTracNghiem
             }
             ShowHideButton(false);
             SetEnableControl(false);
+        }
+
+        /// <summary>
+        /// Kiểm tra số điện thoại hợp lệ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txt_PhoneMumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_PhoneMumber_Leave(object sender, EventArgs e)
+        {
+            if (txt_PhoneMumber.Text.Length != 10)
+            {
+                DevExpress.XtraEditors.XtraMessageBox.Show("Số điện thoại không hợp lệ!", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_PhoneMumber.Focus();
+            }
+        }
+
+        /// <summary>
+        /// Kiểm tra email hợp lệ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txt_Email_Leave(object sender, EventArgs e)
+        {
+            string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            if (!Regex.IsMatch(txt_Email.Text.Trim(), emailPattern))
+            {
+                DevExpress.XtraEditors.XtraMessageBox.Show("Email không hợp lệ!", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_Email.Focus();
+            }
         }
     }
 }

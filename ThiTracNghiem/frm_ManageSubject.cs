@@ -1,6 +1,7 @@
 ﻿using BusinessLogicLayer;
 using Entities;
 using System;
+using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
@@ -57,7 +58,7 @@ namespace ThiTracNghiem
         /// </summary>
         /// <param name="subject"></param>
         /// <returns></returns>
-        private bool IsValidInfor(Subject subject)
+        private static bool IsValidInfor(Subject subject)
         {
             string strMessage = string.Empty;
             if (string.IsNullOrEmpty(subject.SubjectName))
@@ -72,17 +73,50 @@ namespace ThiTracNghiem
             //kiểm tra hợp lệ
             if (!string.IsNullOrEmpty(strMessage))
             {
-                MessageBox.Show(strMessage, "Lỗi nhập liệu!\n", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                DevExpress.XtraEditors.XtraMessageBox.Show(strMessage, "Lỗi nhập liệu!\n", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             return true;
         }
 
+        /// <summary>
+        /// Phương thức kiểm tra trùng khóa
+        /// </summary>
+        /// <param name="subjectId"></param>
+        /// <param name="subjectName"></param>
+        /// <returns></returns>
+        private bool IsDuplicateSubject(string subjectId, string subjectName)
+        {
+            var subjects = BSubject.GetAll();
+            foreach (DataRow row in subjects.Rows)
+            {
+                var subject = new Subject
+                {
+                    SubjectId = row["SubjectId"].ToString(),
+                    SubjectName = row["SubjectName"].ToString()
+                };
+                if (subject.SubjectId.Equals(subjectId, StringComparison.OrdinalIgnoreCase) || subject.SubjectName.Equals(subjectName, StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        /// <summary>
+        /// Phương thức để thêm môn thi vào cơ sở dữ liệu.
+        /// </summary>
         private void AddNewSubject()
         {
             var newSubject = GetSubjectInfor();
             if (!IsValidInfor(newSubject))
                 return; // thoát
+
+            if (IsDuplicateSubject(newSubject.SubjectId, newSubject.SubjectName))
+            {
+                DevExpress.XtraEditors.XtraMessageBox.Show("Mã môn thi hoặc tên môn thi đã tồn tại!", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
                 BSubject.AddNewSubject(newSubject);
@@ -90,7 +124,7 @@ namespace ThiTracNghiem
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                DevExpress.XtraEditors.XtraMessageBox.Show("Error: " + ex.Message);
             }
         }
         /// <summary>
@@ -170,7 +204,7 @@ namespace ThiTracNghiem
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Thông báo lỗi!");
+                DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "Thông báo lỗi!");
             }
         }
         /// <summary>
@@ -199,7 +233,7 @@ namespace ThiTracNghiem
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Thông báo lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "Thông báo lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         /// <summary>
@@ -231,12 +265,12 @@ namespace ThiTracNghiem
             try
             {
                 BSubject.UpdateSubject(editSubject);
-                MessageBox.Show("Cập nhật thành công!", "Thông báo!");
+                DevExpress.XtraEditors.XtraMessageBox.Show("Cập nhật thành công!", "Thông báo!");
                 LoadData();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                DevExpress.XtraEditors.XtraMessageBox.Show("Error: " + ex.Message);
             }
         }
 
@@ -256,23 +290,23 @@ namespace ThiTracNghiem
             string subjectId = txt_SubjectId.Text.Trim();
             if (string.IsNullOrEmpty(subjectId) || rowIndex < 0)
             {
-                MessageBox.Show("Vui lòng chọn môn thi cần xóa!", "Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                DevExpress.XtraEditors.XtraMessageBox.Show("Vui lòng chọn môn thi cần xóa!", "Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 return;
             }
 
             try
             {
                 string fullname = txt_SubjectName.Text.Trim();
-                if (MessageBox.Show($"Bạn có chắc muốn xóa môn thi \"{fullname}\"?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (DevExpress.XtraEditors.XtraMessageBox.Show($"Bạn có chắc muốn xóa môn thi \"{fullname}\"?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     BSubject.DeleteSubject(subjectId);
-                    MessageBox.Show("Xóa thành công!", "Thông báo");
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Xóa thành công!", "Thông báo");
                     LoadData();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Thông báo lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "Thông báo lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -289,7 +323,7 @@ namespace ThiTracNghiem
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Thông báo lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "Thông báo lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         /// <summary>

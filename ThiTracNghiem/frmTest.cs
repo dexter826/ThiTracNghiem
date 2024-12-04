@@ -278,7 +278,7 @@ namespace ThiTracNghiem
             // Hiển thị hộp thoại xác nhận nếu là "User"
             if (Session.LogonUser.RoldId.Equals("User"))
             {
-                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn dừng làm bài không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = XtraMessageBox.Show("Bạn có chắc chắn muốn dừng làm bài không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.No)
                 {
                     e.Cancel = true; // Hủy quá trình đóng form

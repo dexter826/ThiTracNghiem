@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraSplashScreen;
 using System;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -15,7 +16,6 @@ namespace ThiTracNghiem
         {
             InitializeComponent();
             lbl_HelloUser.Text = $"Xin chào, {ThiTracNghiem.Common.Session.LogonUser.Fullname}";
-
         }
         /// <summary>
         /// Tạo tab page

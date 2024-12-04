@@ -152,8 +152,11 @@ INSERT INTO [dbo].[UserRole] ([RoleID], [RoleName], [Description]) VALUES
 
 INSERT INTO [dbo].[UserAccount] ([RoleID], [Username], [Password], [Fullname], [Email], [PhoneNumber], [Address], [Birthday], [Note]) VALUES 
 (N'Admin', N'admin', N'123', N'Admin', N'admin@gmail.com', N'0777999496', N'Hà Nội', '2004-03-09', N'Quản lý hệ thống'),
-(N'Teacher', N'teacher1', N'123', N'Nguyễn Phương Nhi', N'nhinho@gmail.com', N'0987654321', N'TP.HCM', '1980-04-01', N'Giáo viên Khoa CNTT'),
-(N'User', N'user1', N'123', N'Trần Công Minh', N'tcongminh1604@gmail.com', N'0954876214', N'Hà Nội', '2004-04-25', N'Sinh viên lớp KTPM');
+(N'Teacher', N'teacher', N'123', N'Nguyễn Phương Nhi', N'nhinho@gmail.com', N'0987654321', N'TP.HCM', '1980-04-01', N'Giáo viên Khoa CNTT'),
+(N'User', N'2001222641', N'123', N'Trần Công Minh', N'tcongminh1604@gmail.com', N'0777999496', N'TP.HCM', '2004-04-25', N'Sinh viên lớp KTPM'),
+(N'User', N'2001225676', N'123', N'Lê Đức Trung', N'leductrungd2x@gmail.com', N'0902792548', N'TP.HCM', '2004-04-25', N'Sinh viên lớp ATTT'),
+(N'User', N'2001202264', N'123', N'Vương Cường Thuận', N'cuongthuan22@gmail.com', N'0902850644', N'TP.HCM', '2004-04-25', N'Sinh viên lớp CNPM')
+
 
 INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'ATTT', N'Giao thức nào mã hóa dữ liệu từ đầu đến cuối?', N'TLS', N'FTP', N'HTTP', N'SSH', N'SSH')
 INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'ATTT', N'Giao thức nào sử dụng cổng 443 để truyền tải dữ liệu an toàn?', N'TLS', N'FTP', N'HTTP', N'SSH', N'TLS')
@@ -175,6 +178,12 @@ INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC
 INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'ATTT', N'Giao thức nào được sử dụng để truyền tải dữ liệu trong các hệ thống quản lý cơ sở dữ liệu?', N'TLS', N'FTP', N'HTTP', N'SSH', N'TLS')
 INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'ATTT', N'Giao thức nào được sử dụng để truyền tải dữ liệu trong các ứng dụng di động?', N'TLS', N'FTP', N'HTTP', N'SSH', N'TLS')
 INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'ATTT', N'Giao thức nào đảm bảo an toàn khi truyền tải dữ liệu trong các hệ thống IoT?', N'TLS', N'FTP', N'HTTP', N'SSH', N'TLS')
+INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'ATTT', N'Tiện ích nào sau đây là một phương thức bảo mật truy cập từ xa tốt hơn telnet ?', N'SSL', N'SSH', N'IPSec', N'VPN', N'SSH')
+INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'ATTT', N'Thiết bị nào được sử dụng để cho phép các máy trạm không dây truy cập vào một mạng LAN rộng ?', N'802.11b', N'Tường lửa', N'Điểm truy cập không dây (Wiless Access Point)', N'VPN', N'VPN')
+INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'ATTT', N'Kỹ thuật tìm kiếm lỗ hổng Acunetix  Web Vulnerability Scanner ra đời năm nào?', N'2004', N'2005', N'2006', N'2007', N'2004')
+INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'ATTT', N'Một số lỗ hổng bảo mật trên di động là gì?', N'Native apps', N'Web apps', N'Hybrid apps', N'tất cả đều đúng', N'tất cả đều đúng')
+
+
 
 INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'CSDL', N'Lệnh nào được dùng để thêm dữ liệu vào bảng?', N'INSERT', N'UPDATE', N'DELETE', N'SELECT', N'INSERT')
 INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'CSDL', N'Lệnh nào được dùng để cập nhật dữ liệu trong bảng?', N'INSERT', N'UPDATE', N'DELETE', N'SELECT', N'UPDATE')
@@ -195,6 +204,12 @@ INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC
 INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'CSDL', N'Lệnh nào được dùng để thêm ràng buộc vào bảng?', N'ADD CONSTRAINT', N'ALTER TABLE', N'INSERT CONSTRAINT', N'UPDATE CONSTRAINT', N'ALTER TABLE')
 INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'CSDL', N'Lệnh nào được dùng để xóa ràng buộc khỏi bảng?', N'DROP CONSTRAINT', N'ALTER TABLE', N'DELETE CONSTRAINT', N'UPDATE CONSTRAINT', N'ALTER TABLE')
 INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'CSDL', N'Lệnh nào được dùng để sao lưu cơ sở dữ liệu?', N'BACKUP DATABASE', N'RESTORE DATABASE', N'SAVE DATABASE', N'COPY DATABASE', N'BACKUP DATABASE')
+INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'CSDL', N'Mệnh đề HAVING chỉ có thể được sử dụng với:', N'INSERT', N'JOIN', N'DELETE', N'SELECT', N'SELECT')
+INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'CSDL', N'Hàm nào dưới đây là hàm tập hợp trong SQL?', N'AVG', N'LEN', N'JOIN', N'LEFT', N'AVG')
+INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'CSDL', N'Nếu không chỉ định ASC hoặc DESC sau mệnh đề ORDER BY thì từ khóa nào được sử dụng theo mặc định?', N'ASC', N'DESC', N'DOWN', N'Không có giá trị mặc định', N'ASC')
+INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'CSDL', N'Đâu không phải là một từ khóa hoặc mệnh đề trong SQL?', N'INSERT', N'DESC', N'DELETE', N'INVERT', N'INVERT')
+INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'CSDL', N'Trong các hàm dưới đây, đâu là hàm tập hợp trong SQL?', N'CURDATE()', N'COUNT', N'AVERAGE', N'MAXIMUM', N'COUNT')
+INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'CSDL', N'Từ khóa SQL nào được sử dụng để chỉ truy xuất các giá trị duy nhất?', N'DISTINCTIVE', N'UNIQUE', N'DISTINCT', N'DIFFERENT', N'DISTINCT')
 
 INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'CTDLGT', N'Thuật toán nào có độ phức tạp trung bình là O(n log n)?', N'Quick Sort', N'Bubble Sort', N'Selection Sort', N'Insertion Sort', N'Quick Sort')
 INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'CTDLGT', N'Thuật toán nào có độ phức tạp thời gian là O(n^2)?', N'Bubble Sort', N'Quick Sort', N'Merge Sort', N'Heap Sort', N'Bubble Sort')
@@ -216,6 +231,11 @@ INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC
 INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'CTDLGT', N'Thuật toán nào có độ phức tạp thời gian là O(n^2)?', N'Selection Sort', N'Quick Sort', N'Merge Sort', N'Heap Sort', N'Selection Sort')
 INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'CTDLGT', N'Thuật toán nào sử dụng cấu trúc dữ liệu hàng đợi?', N'Breadth-First Search', N'Bubble Sort', N'Selection Sort', N'Insertion Sort', N'Breadth-First Search')
 INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'CTDLGT', N'Thuật toán nào có độ phức tạp thời gian là O(n^3)?', N'Floyd-Warshall', N'Quick Sort', N'Merge Sort', N'Heap Sort', N'Floyd-Warshall')
+INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'CTDLGT', N'Danh sách tuyến tính dạng ngăn xếp làm việc theo nguyên tắc:', N'FIFO', N'LILO', N'LIFO', N'FOLO', N'LIFO')
+INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'CTDLGT', N'Để thêm một đối tượng x bất kỳ vào Stack, thao tác thường dùng là:', N'EMPTY(x)', N'TOP(x)', N'PUSH(x)', N'POP(x)', N'PUSH(x)')
+INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'CTDLGT', N'Để lấy loại bỏ một đối tượng ra khỏi Stack, thao tác thường dùng là:', N'FULL(x)', N'EMPTY(x)', N'POP(x)', N'PUSH(x)', N'POP(x)')
+INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'CTDLGT', N'Để biểu diễn Stack, ta thường sử dụng kiểu dữ liệu nào sau đây?', N'Kiểu bản ghi', N'Danh sách móc nối và mảng dữ liệu', N'Danh sách móc nối', N'Mảng dữ liệu', N'Danh sách móc nối và mảng dữ liệu')
+
 go
 -------------------------------THủ Tục------------------------------------
 Create procedure [dbo].[Question_Delete]
@@ -694,13 +714,18 @@ SELECT UserID
       ,ModifiedBy
       ,ModifiedAt
   FROM dbo.UserAccount
-  Where Username like '%'+@Keyword+'%' 
-	or Fullname like N'%'+@Keyword+'%'
-	or PhoneNumber like '%'+@Keyword+'%'
-	or Email like '%'+@Keyword+'%'
-	or Address like N'%'+@Keyword+'%'
-	and (@RoleID = 'all' Or RoleID = @RoleID)
+  WHERE 
+(
+    Username LIKE '%'+@Keyword+'%' 
+    OR Fullname LIKE N'%'+@Keyword+'%'
+    OR PhoneNumber LIKE '%'+@Keyword+'%'
+    OR Email LIKE '%'+@Keyword+'%'
+    OR Address LIKE N'%'+@Keyword+'%'
+)
+AND (@RoleID = 'all' OR RoleID = @RoleID)
+
 GO
+
 /****** Object:  StoredProcedure [dbo].[UserAccount_SelectAll]    Script Date: 06/11/2024 12:58:46 CH ******/
 create procedure [dbo].[UserAccount_SelectAll]
 as

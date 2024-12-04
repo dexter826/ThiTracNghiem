@@ -87,7 +87,7 @@ namespace ThiTracNghiem
             //kiểm tra hợp lệ
             if (!string.IsNullOrEmpty(strMessage))
             {
-                MessageBox.Show(strMessage, "Lỗi nhập liệu!\n", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                DevExpress.XtraEditors.XtraMessageBox.Show(strMessage, "Lỗi nhập liệu!\n", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             return true;
@@ -110,7 +110,7 @@ namespace ThiTracNghiem
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                DevExpress.XtraEditors.XtraMessageBox.Show("Error: " + ex.Message);
             }
         }
 
@@ -179,7 +179,7 @@ namespace ThiTracNghiem
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Thông báo lỗi!");
+                DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "Thông báo lỗi!");
             }
         }
 
@@ -207,7 +207,7 @@ namespace ThiTracNghiem
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Thông báo lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "Thông báo lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         /// <summary>
@@ -233,12 +233,12 @@ namespace ThiTracNghiem
             try
             {
                 BQuestion.UpdateQuestion(editUser);
-                MessageBox.Show("Cập nhật thành công!", "Thông báo!");
+                DevExpress.XtraEditors.XtraMessageBox.Show("Cập nhật thành công!", "Thông báo!");
                 LoadData();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                DevExpress.XtraEditors.XtraMessageBox.Show("Error: " + ex.Message);
             }
         }
 
@@ -255,23 +255,23 @@ namespace ThiTracNghiem
             int.TryParse(txt_QuestionId.Text, out int userId);
             if (userId == 0)
             {
-                MessageBox.Show("Vui lòng chọn câu hỏi cần xóa!", "Thông báo");
+                DevExpress.XtraEditors.XtraMessageBox.Show("Vui lòng chọn câu hỏi cần xóa!", "Thông báo");
                 return;
             }
 
             try
             {
                 string fullname = txt_QContent.Text.Trim();
-                if (MessageBox.Show($"Bạn có chắc muốn xóa câu hỏi \"{fullname}\"?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (DevExpress.XtraEditors.XtraMessageBox.Show($"Bạn có chắc muốn xóa câu hỏi \"{fullname}\"?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     BQuestion.DeleteQuestion(userId);
-                    MessageBox.Show("Xóa thành công!", "Thông báo");
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Xóa thành công!", "Thông báo");
                     LoadData();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Thông báo lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);            
+                DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "Thông báo lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);            
             }
         }
 
@@ -288,7 +288,7 @@ namespace ThiTracNghiem
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Thông báo lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "Thông báo lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -26,7 +26,7 @@ namespace ThiTracNghiem
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        private bool IsValidUserInfor(UserAccount user)
+        private static bool IsValidUserInfor(UserAccount user)
         {
             if (string.IsNullOrEmpty(user.Username))
             {

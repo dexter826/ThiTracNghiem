@@ -57,6 +57,7 @@
             // 
             // txt_SubjectId
             // 
+            this.txt_SubjectId.BorderRadius = 5;
             this.txt_SubjectId.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_SubjectId.DefaultText = "";
             this.txt_SubjectId.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -103,7 +104,7 @@
             this.grv_DataUser.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(242)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -118,7 +119,7 @@
             this.Description});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(246)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
@@ -145,14 +146,14 @@
             this.grv_DataUser.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(222)))), ((int)(((byte)(251)))));
             this.grv_DataUser.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(242)))));
             this.grv_DataUser.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.grv_DataUser.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grv_DataUser.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grv_DataUser.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.grv_DataUser.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.grv_DataUser.ThemeStyle.HeaderStyle.Height = 30;
             this.grv_DataUser.ThemeStyle.ReadOnly = true;
             this.grv_DataUser.ThemeStyle.RowsStyle.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.grv_DataUser.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.grv_DataUser.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grv_DataUser.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grv_DataUser.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.White;
             this.grv_DataUser.ThemeStyle.RowsStyle.Height = 30;
             this.grv_DataUser.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(246)))));
@@ -203,7 +204,7 @@
             this.label2.Location = new System.Drawing.Point(22, 53);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 18);
+            this.label2.Size = new System.Drawing.Size(105, 23);
             this.label2.TabIndex = 0;
             this.label2.Text = "Mã môn thi";
             // 
@@ -213,12 +214,13 @@
             this.label7.Location = new System.Drawing.Point(369, 53);
             this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(80, 18);
+            this.label7.Size = new System.Drawing.Size(101, 23);
             this.label7.TabIndex = 2;
             this.label7.Text = "Tên mô thi";
             // 
             // txt_SubjectName
             // 
+            this.txt_SubjectName.BorderRadius = 5;
             this.txt_SubjectName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_SubjectName.DefaultText = "";
             this.txt_SubjectName.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -237,12 +239,13 @@
             this.label10.Location = new System.Drawing.Point(841, 53);
             this.label10.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(46, 18);
+            this.label10.Size = new System.Drawing.Size(57, 23);
             this.label10.TabIndex = 4;
             this.label10.Text = "Mô tả";
             // 
             // txt_SubjectDesb
             // 
+            this.txt_SubjectDesb.BorderRadius = 5;
             this.txt_SubjectDesb.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_SubjectDesb.DefaultText = "";
             this.txt_SubjectDesb.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -404,7 +407,7 @@
             // 
             // frmManageSubject
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btn_Cancel);
             this.Controls.Add(this.btn_Save);

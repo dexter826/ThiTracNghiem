@@ -79,14 +79,6 @@ namespace ThiTracNghiem
                 xtraReport.DataSource = dtData;
                 xtraReport.DataMember = "";
                 xtraReport.ShowPreview();
-                //// Mở hộp thoại in
-                //using (var printDialog = new PrintDialog())
-                //{
-                //    if (printDialog.ShowDialog() == DialogResult.OK)
-                //    {
-                //        xtraReport.PrintDialog();
-                //    }
-                //}
             }
             catch (Exception ex)
             {
