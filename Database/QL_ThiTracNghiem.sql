@@ -143,9 +143,9 @@ Go
 
 --------------------------------------------------insert------------------------------------------
 INSERT INTO [dbo].[Subject] ([SubjectID], [SubjectName], [Description]) VALUES 
-(N'ATTT', N'An toàn thông tin', N'Học về bảo mật và an toàn thông tin'),
-(N'CSDL', N'Cơ sở dữ liệu', N'Nghiên cứu về hệ thống quản lý cơ sở dữ liệu'),
-(N'CTDLGT', N'Cấu trúc dữ liệu và Giải thuật', N'Nghiên cứu về cấu trúc dữ liệu và thuật toán')
+(N'ATTT', N'An toàn thông tin', 10,N'Học về bảo mật và an toàn thông tin'),
+(N'CSDL', N'Cơ sở dữ liệu', 10,N'Nghiên cứu về hệ thống quản lý cơ sở dữ liệu'),
+(N'CTDLGT', N'Cấu trúc dữ liệu và Giải thuật', 20,N'Nghiên cứu về cấu trúc dữ liệu và thuật toán')
 
 INSERT INTO [dbo].[UserRole] ([RoleID], [RoleName], [Description]) VALUES 
 (N'Admin', N'Admin', N'Quản trị hệ thống'),
@@ -184,7 +184,6 @@ INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC
 INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'ATTT', N'Thiết bị nào được sử dụng để cho phép các máy trạm không dây truy cập vào một mạng LAN rộng ?', N'802.11b', N'Tường lửa', N'Điểm truy cập không dây (Wiless Access Point)', N'VPN', N'VPN')
 INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'ATTT', N'Kỹ thuật tìm kiếm lỗ hổng Acunetix  Web Vulnerability Scanner ra đời năm nào?', N'2004', N'2005', N'2006', N'2007', N'2004')
 INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'ATTT', N'Một số lỗ hổng bảo mật trên di động là gì?', N'Native apps', N'Web apps', N'Hybrid apps', N'tất cả đều đúng', N'tất cả đều đúng')
-
 
 
 INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'CSDL', N'Lệnh nào được dùng để thêm dữ liệu vào bảng?', N'INSERT', N'UPDATE', N'DELETE', N'SELECT', N'INSERT')
