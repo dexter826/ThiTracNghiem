@@ -55,7 +55,15 @@ namespace ThiTracNghiem
             useraccount.ModifiedAt = DateTime.Now;
             useraccount.ModifiedBy = Session.LogonUser.Username;
             useraccount.Note = txt_Note.Text.Trim();
-            useraccount.Image = ImageToByteArray(ptb_Avatar.Image);
+            //useraccount.Image = ImageToByteArray(ptb_Avatar.Image);
+            if (ptb_Avatar.Image != null)
+            {
+                useraccount.Image = ImageToByteArray(ptb_Avatar.Image);
+            }
+            else
+            {
+                useraccount.Image = null;
+            }
             useraccount.Password = txt_Password.Text.Trim();
             useraccount.PhoneNumber = txt_PhoneMumber.Text.Trim();
             useraccount.RoldId = cbb_Role.SelectedValue.ToString();
@@ -388,6 +396,23 @@ namespace ThiTracNghiem
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
+            //Ktra số điện thoại hợp lệ
+            if (txt_PhoneMumber.Text.Length != 10)
+            {
+                DevExpress.XtraEditors.XtraMessageBox.Show("Số điện thoại không hợp lệ!", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_PhoneMumber.Focus();
+                return;
+            }
+
+            //Kiểm tra email hợp lệ
+            string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            if (!Regex.IsMatch(txt_Email.Text.Trim(), emailPattern))
+            {
+                DevExpress.XtraEditors.XtraMessageBox.Show("Email không hợp lệ!", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_Email.Focus();
+                return;
+            }
+
             if (isAddNew)
             {
                 AddNewUser();
@@ -412,30 +437,6 @@ namespace ThiTracNghiem
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
-            }
-        }
-
-        private void txt_PhoneMumber_Leave(object sender, EventArgs e)
-        {
-            if (txt_PhoneMumber.Text.Length != 10)
-            {
-                DevExpress.XtraEditors.XtraMessageBox.Show("Số điện thoại không hợp lệ!", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txt_PhoneMumber.Focus();
-            }
-        }
-
-        /// <summary>
-        /// Kiểm tra email hợp lệ
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void txt_Email_Leave(object sender, EventArgs e)
-        {
-            string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
-            if (!Regex.IsMatch(txt_Email.Text.Trim(), emailPattern))
-            {
-                DevExpress.XtraEditors.XtraMessageBox.Show("Email không hợp lệ!", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txt_Email.Focus();
             }
         }
 

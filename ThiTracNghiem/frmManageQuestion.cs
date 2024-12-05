@@ -83,6 +83,14 @@ namespace ThiTracNghiem
             {
                 strMessage += "Lựa chọn D không được để trống!\n";
             }
+            if (string.IsNullOrEmpty(question.Answer))
+            {
+                strMessage += "Đáp án không được để trống!\n";
+            }
+            else if (question.Answer != question.OptionA && question.Answer != question.OptionB && question.Answer != question.OptionC && question.Answer != question.OptionD)
+            {
+                strMessage += "Đáp án phải trùng với một trong các lựa chọn A, B, C, hoặc D!\n";
+            }
 
             //kiểm tra hợp lệ
             if (!string.IsNullOrEmpty(strMessage))
@@ -106,6 +114,7 @@ namespace ThiTracNghiem
             {
                 //Thêm câu hỏi mới vào cơ sở dữ liệu thông qua BQuestion.AddNewQuestion.
                 BQuestion.AddNewQuestion(newQuestion);
+                DevExpress.XtraEditors.XtraMessageBox.Show("Thông báo", "Thêm mới thành công!");
                 LoadData();
             }
             catch (Exception ex)
@@ -139,6 +148,12 @@ namespace ThiTracNghiem
             SetEnableControl(true);
             txt_QuestionId.Text = "0";
             txt_QuestionId.ReadOnly = true;
+            txt_QContent.Clear();
+            txt_CorrectAnswer.Clear();
+            txt_OptionA.Clear();
+            txt_OptionB.Clear();
+            txt_OptionC.Clear();
+            txt_OptionD.Clear();
         }
 
         private void frmManageQuestion_Load(object sender, EventArgs e)
@@ -254,7 +269,7 @@ namespace ThiTracNghiem
             }
             catch (Exception ex)
             {
-                DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "Thông báo lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);            
+                DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "Thông báo lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -282,7 +297,7 @@ namespace ThiTracNghiem
 
         private void txt_Search_Leave(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(txt_Search.Text.Trim()))
+            if (string.IsNullOrEmpty(txt_Search.Text.Trim()))
             {
                 txt_Search.Text = strMessageInputSearch;
             }

@@ -125,7 +125,7 @@
             this.cbb_NumberOfQuestion.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.cbb_NumberOfQuestion.Name = "cbb_NumberOfQuestion";
             this.cbb_NumberOfQuestion.Size = new System.Drawing.Size(315, 36);
-            this.cbb_NumberOfQuestion.StartIndex = 2;
+            this.cbb_NumberOfQuestion.StartIndex = 1;
             this.cbb_NumberOfQuestion.TabIndex = 4;
             this.cbb_NumberOfQuestion.SelectedIndexChanged += new System.EventHandler(this.cbb_NumberOfQuestion_SelectedIndexChanged);
             // 
@@ -136,9 +136,9 @@
             this.txt_Time.BorderRadius = 5;
             this.txt_Time.BorderThickness = 2;
             this.txt_Time.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_Time.DefaultText = "30";
+            this.txt_Time.DefaultText = "";
             this.txt_Time.Enabled = false;
-            this.txt_Time.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Time.Font = new System.Drawing.Font("Tahoma", 11.25F);
             this.txt_Time.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_Time.Location = new System.Drawing.Point(195, 293);
             this.txt_Time.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);

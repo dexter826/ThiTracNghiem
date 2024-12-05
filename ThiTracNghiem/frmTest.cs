@@ -8,6 +8,7 @@ using System.Linq;
 using System.Windows.Forms;
 using ThiTracNghiem.Common;
 using DevExpress.XtraEditors;
+using System.IO;
 
 
 namespace ThiTracNghiem
@@ -39,12 +40,32 @@ namespace ThiTracNghiem
             }
         }
 
+        private static Image ConvertByteArrayToImage(byte[] byteArray)
+        {
+            using (var ms = new MemoryStream(byteArray))
+            {
+                return System.Drawing.Image.FromStream(ms);
+            }
+        }
+
         private void frmTest_Load(object sender, EventArgs e)
         {
             txt_Name.Text = Session.LogonUser.Fullname;
             txt_Birthday.Text = Session.LogonUser.Birthday.ToString("dd/MM/yyyy");
             txt_Subject.Text = Session.SubjectName;
             txt_CountQuestion.Text = Session.NumberOfQuestion.ToString();
+            if (Session.LogonUser.Image != null)
+            {
+                ptb_Avatar.Image = ConvertByteArrayToImage(Session.LogonUser.Image);
+                ptb_NoImage.Visible = false;
+                ptb_Avatar.Visible = true;
+            }
+            else
+            {
+                ptb_Avatar.Image = null;
+                ptb_Avatar.Visible = false;
+                ptb_NoImage.Visible = true;
+            }
             LoadData();
             remainTime = Session.TestTime * 60; //đổi sang phút
             timerTest.Enabled = true;

@@ -55,7 +55,11 @@
             this.btn_NextQuestion = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.btn_LastQuestion = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.btn_PreviousQuestion = new Guna.UI2.WinForms.Guna2GradientTileButton();
+            this.ptb_Avatar = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.ptb_NoImage = new Guna.UI2.WinForms.Guna2PictureBox();
             this.grb_Infor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_Avatar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_NoImage)).BeginInit();
             this.SuspendLayout();
             // 
             // lsb_Question
@@ -67,15 +71,16 @@
             this.lsb_Question.Location = new System.Drawing.Point(0, 0);
             this.lsb_Question.Margin = new System.Windows.Forms.Padding(4);
             this.lsb_Question.Name = "lsb_Question";
-            this.lsb_Question.Size = new System.Drawing.Size(261, 652);
+            this.lsb_Question.Size = new System.Drawing.Size(261, 670);
             this.lsb_Question.TabIndex = 0;
             this.lsb_Question.SelectedIndexChanged += new System.EventHandler(this.lsb_Question_SelectedIndexChanged);
             // 
             // grb_Infor
             // 
-            this.grb_Infor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grb_Infor.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.grb_Infor.BackColor = System.Drawing.Color.Transparent;
+            this.grb_Infor.Controls.Add(this.ptb_NoImage);
+            this.grb_Infor.Controls.Add(this.ptb_Avatar);
             this.grb_Infor.Controls.Add(this.label5);
             this.grb_Infor.Controls.Add(this.txt_CountQuestion);
             this.grb_Infor.Controls.Add(this.label4);
@@ -89,7 +94,7 @@
             this.grb_Infor.Margin = new System.Windows.Forms.Padding(4);
             this.grb_Infor.Name = "grb_Infor";
             this.grb_Infor.Padding = new System.Windows.Forms.Padding(4);
-            this.grb_Infor.Size = new System.Drawing.Size(623, 140);
+            this.grb_Infor.Size = new System.Drawing.Size(768, 183);
             this.grb_Infor.TabIndex = 1;
             this.grb_Infor.TabStop = false;
             // 
@@ -98,7 +103,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(327, 89);
+            this.label5.Location = new System.Drawing.Point(462, 106);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(119, 18);
@@ -114,7 +119,7 @@
             this.txt_CountQuestion.DefaultText = "";
             this.txt_CountQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_CountQuestion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_CountQuestion.Location = new System.Drawing.Point(449, 86);
+            this.txt_CountQuestion.Location = new System.Drawing.Point(584, 103);
             this.txt_CountQuestion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txt_CountQuestion.Name = "txt_CountQuestion";
             this.txt_CountQuestion.PasswordChar = '\0';
@@ -130,7 +135,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 88);
+            this.label4.Location = new System.Drawing.Point(148, 105);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 18);
@@ -146,7 +151,7 @@
             this.txt_Subject.DefaultText = "";
             this.txt_Subject.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Subject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_Subject.Location = new System.Drawing.Point(85, 85);
+            this.txt_Subject.Location = new System.Drawing.Point(220, 102);
             this.txt_Subject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txt_Subject.Name = "txt_Subject";
             this.txt_Subject.PasswordChar = '\0';
@@ -162,7 +167,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(328, 37);
+            this.label3.Location = new System.Drawing.Point(463, 54);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 18);
@@ -178,7 +183,7 @@
             this.txt_Birthday.DefaultText = "";
             this.txt_Birthday.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Birthday.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_Birthday.Location = new System.Drawing.Point(449, 33);
+            this.txt_Birthday.Location = new System.Drawing.Point(584, 50);
             this.txt_Birthday.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txt_Birthday.Name = "txt_Birthday";
             this.txt_Birthday.PasswordChar = '\0';
@@ -194,7 +199,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(13, 39);
+            this.label2.Location = new System.Drawing.Point(148, 56);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 18);
@@ -210,7 +215,7 @@
             this.txt_Name.DefaultText = "";
             this.txt_Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_Name.Location = new System.Drawing.Point(85, 32);
+            this.txt_Name.Location = new System.Drawing.Point(220, 49);
             this.txt_Name.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txt_Name.Name = "txt_Name";
             this.txt_Name.PasswordChar = '\0';
@@ -225,7 +230,7 @@
             // 
             this.lbl_Question.AutoSize = true;
             this.lbl_Question.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Question.Location = new System.Drawing.Point(292, 168);
+            this.lbl_Question.Location = new System.Drawing.Point(296, 206);
             this.lbl_Question.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_Question.Name = "lbl_Question";
             this.lbl_Question.Size = new System.Drawing.Size(56, 18);
@@ -247,7 +252,7 @@
             this.btn_FirstQuestion.HoverState.CustomBorderColor = System.Drawing.Color.Navy;
             this.btn_FirstQuestion.HoverState.FillColor = System.Drawing.Color.SteelBlue;
             this.btn_FirstQuestion.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(82)))), ((int)(((byte)(152)))));
-            this.btn_FirstQuestion.Location = new System.Drawing.Point(297, 585);
+            this.btn_FirstQuestion.Location = new System.Drawing.Point(370, 624);
             this.btn_FirstQuestion.Margin = new System.Windows.Forms.Padding(4);
             this.btn_FirstQuestion.Name = "btn_FirstQuestion";
             this.btn_FirstQuestion.PressedColor = System.Drawing.Color.Transparent;
@@ -270,7 +275,7 @@
             this.rdb_OptionA.CheckedState.BorderThickness = 3;
             this.rdb_OptionA.CheckedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(47)))), ((int)(((byte)(151)))));
             this.rdb_OptionA.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdb_OptionA.Location = new System.Drawing.Point(299, 348);
+            this.rdb_OptionA.Location = new System.Drawing.Point(299, 411);
             this.rdb_OptionA.Margin = new System.Windows.Forms.Padding(4);
             this.rdb_OptionA.Name = "rdb_OptionA";
             this.rdb_OptionA.Size = new System.Drawing.Size(118, 23);
@@ -290,7 +295,7 @@
             this.rdb_OptionC.CheckedState.BorderThickness = 3;
             this.rdb_OptionC.CheckedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(47)))), ((int)(((byte)(151)))));
             this.rdb_OptionC.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdb_OptionC.Location = new System.Drawing.Point(299, 474);
+            this.rdb_OptionC.Location = new System.Drawing.Point(299, 521);
             this.rdb_OptionC.Margin = new System.Windows.Forms.Padding(4);
             this.rdb_OptionC.Name = "rdb_OptionC";
             this.rdb_OptionC.Size = new System.Drawing.Size(118, 23);
@@ -310,7 +315,7 @@
             this.rdb_OptionD.CheckedState.BorderThickness = 3;
             this.rdb_OptionD.CheckedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(47)))), ((int)(((byte)(151)))));
             this.rdb_OptionD.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdb_OptionD.Location = new System.Drawing.Point(299, 537);
+            this.rdb_OptionD.Location = new System.Drawing.Point(299, 576);
             this.rdb_OptionD.Margin = new System.Windows.Forms.Padding(4);
             this.rdb_OptionD.Name = "rdb_OptionD";
             this.rdb_OptionD.Size = new System.Drawing.Size(118, 23);
@@ -329,7 +334,7 @@
             this.rdb_OptionB.CheckedState.BorderThickness = 3;
             this.rdb_OptionB.CheckedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(47)))), ((int)(((byte)(151)))));
             this.rdb_OptionB.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdb_OptionB.Location = new System.Drawing.Point(299, 411);
+            this.rdb_OptionB.Location = new System.Drawing.Point(299, 466);
             this.rdb_OptionB.Margin = new System.Windows.Forms.Padding(4);
             this.rdb_OptionB.Name = "rdb_OptionB";
             this.rdb_OptionB.Size = new System.Drawing.Size(118, 23);
@@ -354,7 +359,7 @@
             this.btn_NopBai.HoverState.CustomBorderColor = System.Drawing.Color.Navy;
             this.btn_NopBai.HoverState.FillColor = System.Drawing.Color.SteelBlue;
             this.btn_NopBai.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(82)))), ((int)(((byte)(152)))));
-            this.btn_NopBai.Location = new System.Drawing.Point(877, 585);
+            this.btn_NopBai.Location = new System.Drawing.Point(1022, 624);
             this.btn_NopBai.Margin = new System.Windows.Forms.Padding(4);
             this.btn_NopBai.Name = "btn_NopBai";
             this.btn_NopBai.PressedColor = System.Drawing.Color.Transparent;
@@ -379,14 +384,14 @@
             this.rtxt_Question.DefaultText = "";
             this.rtxt_Question.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtxt_Question.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rtxt_Question.Location = new System.Drawing.Point(269, 198);
+            this.rtxt_Question.Location = new System.Drawing.Point(269, 228);
             this.rtxt_Question.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rtxt_Question.Name = "rtxt_Question";
             this.rtxt_Question.PasswordChar = '\0';
             this.rtxt_Question.PlaceholderText = "";
             this.rtxt_Question.ReadOnly = true;
             this.rtxt_Question.SelectedText = "";
-            this.rtxt_Question.Size = new System.Drawing.Size(739, 126);
+            this.rtxt_Question.Size = new System.Drawing.Size(884, 165);
             this.rtxt_Question.TabIndex = 5;
             // 
             // label6
@@ -395,7 +400,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(896, 65);
+            this.label6.Location = new System.Drawing.Point(1041, 65);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(115, 18);
@@ -412,7 +417,7 @@
             this.txt_Time.DefaultText = "10:00";
             this.txt_Time.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Time.ForeColor = System.Drawing.Color.Red;
-            this.txt_Time.Location = new System.Drawing.Point(900, 87);
+            this.txt_Time.Location = new System.Drawing.Point(1045, 87);
             this.txt_Time.Margin = new System.Windows.Forms.Padding(4);
             this.txt_Time.Name = "txt_Time";
             this.txt_Time.PasswordChar = '\0';
@@ -436,7 +441,8 @@
             this.lb_socau.Appearance.ForeColor = System.Drawing.Color.White;
             this.lb_socau.Appearance.Options.UseFont = true;
             this.lb_socau.Appearance.Options.UseForeColor = true;
-            this.lb_socau.Location = new System.Drawing.Point(873, 169);
+            this.lb_socau.Location = new System.Drawing.Point(1026, 207);
+            this.lb_socau.Margin = new System.Windows.Forms.Padding(5);
             this.lb_socau.Name = "lb_socau";
             this.lb_socau.Size = new System.Drawing.Size(86, 17);
             this.lb_socau.TabIndex = 15;
@@ -457,7 +463,7 @@
             this.btn_NextQuestion.HoverState.CustomBorderColor = System.Drawing.Color.Navy;
             this.btn_NextQuestion.HoverState.FillColor = System.Drawing.Color.SteelBlue;
             this.btn_NextQuestion.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(82)))), ((int)(((byte)(152)))));
-            this.btn_NextQuestion.Location = new System.Drawing.Point(575, 585);
+            this.btn_NextQuestion.Location = new System.Drawing.Point(648, 624);
             this.btn_NextQuestion.Margin = new System.Windows.Forms.Padding(4);
             this.btn_NextQuestion.Name = "btn_NextQuestion";
             this.btn_NextQuestion.PressedColor = System.Drawing.Color.Transparent;
@@ -486,7 +492,7 @@
             this.btn_LastQuestion.HoverState.CustomBorderColor = System.Drawing.Color.Navy;
             this.btn_LastQuestion.HoverState.FillColor = System.Drawing.Color.SteelBlue;
             this.btn_LastQuestion.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(82)))), ((int)(((byte)(152)))));
-            this.btn_LastQuestion.Location = new System.Drawing.Point(704, 585);
+            this.btn_LastQuestion.Location = new System.Drawing.Point(777, 624);
             this.btn_LastQuestion.Margin = new System.Windows.Forms.Padding(4);
             this.btn_LastQuestion.Name = "btn_LastQuestion";
             this.btn_LastQuestion.PressedColor = System.Drawing.Color.Transparent;
@@ -515,7 +521,7 @@
             this.btn_PreviousQuestion.HoverState.CustomBorderColor = System.Drawing.Color.Navy;
             this.btn_PreviousQuestion.HoverState.FillColor = System.Drawing.Color.SteelBlue;
             this.btn_PreviousQuestion.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(82)))), ((int)(((byte)(152)))));
-            this.btn_PreviousQuestion.Location = new System.Drawing.Point(440, 585);
+            this.btn_PreviousQuestion.Location = new System.Drawing.Point(513, 624);
             this.btn_PreviousQuestion.Margin = new System.Windows.Forms.Padding(4);
             this.btn_PreviousQuestion.Name = "btn_PreviousQuestion";
             this.btn_PreviousQuestion.PressedColor = System.Drawing.Color.Transparent;
@@ -529,11 +535,36 @@
             this.btn_PreviousQuestion.Text = "< Câu trước";
             this.btn_PreviousQuestion.Click += new System.EventHandler(this.btn_PreviousQuestion_Click);
             // 
+            // ptb_Avatar
+            // 
+            this.ptb_Avatar.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ptb_Avatar.BackColor = System.Drawing.Color.Transparent;
+            this.ptb_Avatar.FillColor = System.Drawing.Color.Gainsboro;
+            this.ptb_Avatar.ImageRotate = 0F;
+            this.ptb_Avatar.Location = new System.Drawing.Point(30, 26);
+            this.ptb_Avatar.Name = "ptb_Avatar";
+            this.ptb_Avatar.Size = new System.Drawing.Size(93, 140);
+            this.ptb_Avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptb_Avatar.TabIndex = 21;
+            this.ptb_Avatar.TabStop = false;
+            // 
+            // ptb_NoImage
+            // 
+            this.ptb_NoImage.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ptb_NoImage.Image = global::ThiTracNghiem.Properties.Resources.No_Image;
+            this.ptb_NoImage.ImageRotate = 0F;
+            this.ptb_NoImage.Location = new System.Drawing.Point(30, 26);
+            this.ptb_NoImage.Name = "ptb_NoImage";
+            this.ptb_NoImage.Size = new System.Drawing.Size(93, 140);
+            this.ptb_NoImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptb_NoImage.TabIndex = 22;
+            this.ptb_NoImage.TabStop = false;
+            // 
             // frmTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1021, 647);
+            this.ClientSize = new System.Drawing.Size(1166, 686);
             this.Controls.Add(this.btn_LastQuestion);
             this.Controls.Add(this.btn_PreviousQuestion);
             this.Controls.Add(this.btn_NextQuestion);
@@ -552,6 +583,7 @@
             this.Controls.Add(this.lsb_Question);
             this.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimizeBox = false;
@@ -559,10 +591,13 @@
             this.Name = "frmTest";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Làm bài thi trắc nghiệm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmTest_FormClosing);
             this.Load += new System.EventHandler(this.frmTest_Load);
             this.grb_Infor.ResumeLayout(false);
             this.grb_Infor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_Avatar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_NoImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -595,5 +630,7 @@
         private Guna.UI2.WinForms.Guna2GradientTileButton btn_NextQuestion;
         private Guna.UI2.WinForms.Guna2GradientTileButton btn_LastQuestion;
         private Guna.UI2.WinForms.Guna2GradientTileButton btn_PreviousQuestion;
+        private Guna.UI2.WinForms.Guna2PictureBox ptb_Avatar;
+        private Guna.UI2.WinForms.Guna2PictureBox ptb_NoImage;
     }
 }

@@ -37,6 +37,18 @@
             this.txt_UserID = new Guna.UI2.WinForms.Guna2TextBox();
             this.btn_Add = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.grv_DataUser = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Birthday = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Image = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -56,7 +68,9 @@
             this.btn_Edit = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.btn_Search = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.grb_Infor = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.ptb_NoImage = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btn_UploadImg = new Guna.UI2.WinForms.Guna2GradientTileButton();
+            this.ptb_Avatar = new Guna.UI2.WinForms.Guna2PictureBox();
             this.txt_Note = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbb_Role = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -65,20 +79,6 @@
             this.btn_Cancel = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.btn_Save = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.cbb_RoleFilter = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Birthday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Image = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ptb_NoImage = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.ptb_Avatar = new Guna.UI2.WinForms.Guna2PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.grv_DataUser)).BeginInit();
             this.grb_Infor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_NoImage)).BeginInit();
@@ -209,6 +209,113 @@
             this.grv_DataUser.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.grv_DataUser_RowEnter);
             this.grv_DataUser.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.grv_DataUser_RowPrePaint);
             // 
+            // STT
+            // 
+            this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.STT.DefaultCellStyle = dataGridViewCellStyle21;
+            this.STT.HeaderText = "STT";
+            this.STT.MinimumWidth = 6;
+            this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
+            this.STT.Width = 40;
+            // 
+            // Fullname
+            // 
+            this.Fullname.DataPropertyName = "Fullname";
+            this.Fullname.HeaderText = "Họ và tên";
+            this.Fullname.MinimumWidth = 6;
+            this.Fullname.Name = "Fullname";
+            this.Fullname.ReadOnly = true;
+            // 
+            // Username
+            // 
+            this.Username.DataPropertyName = "Username";
+            this.Username.HeaderText = "Tài khoản";
+            this.Username.MinimumWidth = 6;
+            this.Username.Name = "Username";
+            this.Username.ReadOnly = true;
+            // 
+            // UserId
+            // 
+            this.UserId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.UserId.DataPropertyName = "UserID";
+            this.UserId.HeaderText = "Mã người dùng";
+            this.UserId.MinimumWidth = 6;
+            this.UserId.Name = "UserId";
+            this.UserId.ReadOnly = true;
+            this.UserId.Width = 150;
+            // 
+            // PhoneNumber
+            // 
+            this.PhoneNumber.DataPropertyName = "PhoneNumber";
+            this.PhoneNumber.HeaderText = "Số điện thoại";
+            this.PhoneNumber.MinimumWidth = 6;
+            this.PhoneNumber.Name = "PhoneNumber";
+            this.PhoneNumber.ReadOnly = true;
+            // 
+            // Email
+            // 
+            this.Email.DataPropertyName = "Email";
+            this.Email.HeaderText = "Email";
+            this.Email.MinimumWidth = 6;
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            // 
+            // Address
+            // 
+            this.Address.DataPropertyName = "Address";
+            this.Address.HeaderText = "Địa chỉ";
+            this.Address.MinimumWidth = 6;
+            this.Address.Name = "Address";
+            this.Address.ReadOnly = true;
+            // 
+            // Birthday
+            // 
+            this.Birthday.DataPropertyName = "Birthday";
+            dataGridViewCellStyle22.Format = "d";
+            dataGridViewCellStyle22.NullValue = "dd/MM/yyyy";
+            this.Birthday.DefaultCellStyle = dataGridViewCellStyle22;
+            this.Birthday.HeaderText = "Ngày sinh";
+            this.Birthday.MinimumWidth = 6;
+            this.Birthday.Name = "Birthday";
+            this.Birthday.ReadOnly = true;
+            // 
+            // Password
+            // 
+            this.Password.DataPropertyName = "Password";
+            this.Password.HeaderText = "Mật khẩu";
+            this.Password.MinimumWidth = 6;
+            this.Password.Name = "Password";
+            this.Password.ReadOnly = true;
+            this.Password.Visible = false;
+            // 
+            // RoleId
+            // 
+            this.RoleId.DataPropertyName = "RoleID";
+            this.RoleId.HeaderText = "Chức vụ";
+            this.RoleId.MinimumWidth = 6;
+            this.RoleId.Name = "RoleId";
+            this.RoleId.ReadOnly = true;
+            // 
+            // Image
+            // 
+            this.Image.DataPropertyName = "Image";
+            this.Image.HeaderText = "Image";
+            this.Image.MinimumWidth = 6;
+            this.Image.Name = "Image";
+            this.Image.ReadOnly = true;
+            this.Image.Visible = false;
+            // 
+            // Note
+            // 
+            this.Note.DataPropertyName = "Note";
+            this.Note.HeaderText = "Note";
+            this.Note.MinimumWidth = 6;
+            this.Note.Name = "Note";
+            this.Note.ReadOnly = true;
+            this.Note.Visible = false;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -271,7 +378,6 @@
             this.txt_Email.SelectedText = "";
             this.txt_Email.Size = new System.Drawing.Size(253, 36);
             this.txt_Email.TabIndex = 11;
-            this.txt_Email.Leave += new System.EventHandler(this.txt_Email_Leave);
             // 
             // txt_Password
             // 
@@ -399,7 +505,6 @@
             this.txt_PhoneMumber.Size = new System.Drawing.Size(246, 36);
             this.txt_PhoneMumber.TabIndex = 13;
             this.txt_PhoneMumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_PhoneMumber_KeyPress);
-            this.txt_PhoneMumber.Leave += new System.EventHandler(this.txt_PhoneMumber_Leave);
             // 
             // btn_Delete
             // 
@@ -502,6 +607,17 @@
             this.grb_Infor.TabStop = false;
             this.grb_Infor.Text = "Thông tin người dùng";
             // 
+            // ptb_NoImage
+            // 
+            this.ptb_NoImage.Image = global::ThiTracNghiem.Properties.Resources.No_Image;
+            this.ptb_NoImage.ImageRotate = 0F;
+            this.ptb_NoImage.Location = new System.Drawing.Point(1190, 44);
+            this.ptb_NoImage.Name = "ptb_NoImage";
+            this.ptb_NoImage.Size = new System.Drawing.Size(107, 160);
+            this.ptb_NoImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptb_NoImage.TabIndex = 19;
+            this.ptb_NoImage.TabStop = false;
+            // 
             // btn_UploadImg
             // 
             this.btn_UploadImg.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -517,10 +633,22 @@
             this.btn_UploadImg.ShadowDecoration.BorderRadius = 15;
             this.btn_UploadImg.ShadowDecoration.Depth = 10;
             this.btn_UploadImg.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(5, 0, 5, 5);
-            this.btn_UploadImg.Size = new System.Drawing.Size(113, 37);
+            this.btn_UploadImg.Size = new System.Drawing.Size(107, 37);
             this.btn_UploadImg.TabIndex = 20;
             this.btn_UploadImg.Text = "UPLOAD";
             this.btn_UploadImg.Click += new System.EventHandler(this.btn_UploadImg_Click);
+            // 
+            // ptb_Avatar
+            // 
+            this.ptb_Avatar.BackColor = System.Drawing.Color.Transparent;
+            this.ptb_Avatar.FillColor = System.Drawing.Color.Gainsboro;
+            this.ptb_Avatar.ImageRotate = 0F;
+            this.ptb_Avatar.Location = new System.Drawing.Point(1190, 46);
+            this.ptb_Avatar.Name = "ptb_Avatar";
+            this.ptb_Avatar.Size = new System.Drawing.Size(107, 160);
+            this.ptb_Avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptb_Avatar.TabIndex = 20;
+            this.ptb_Avatar.TabStop = false;
             // 
             // txt_Note
             // 
@@ -661,134 +789,6 @@
             this.cbb_RoleFilter.Name = "cbb_RoleFilter";
             this.cbb_RoleFilter.Size = new System.Drawing.Size(135, 36);
             this.cbb_RoleFilter.TabIndex = 18;
-            // 
-            // STT
-            // 
-            this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.STT.DefaultCellStyle = dataGridViewCellStyle21;
-            this.STT.HeaderText = "STT";
-            this.STT.MinimumWidth = 6;
-            this.STT.Name = "STT";
-            this.STT.ReadOnly = true;
-            this.STT.Width = 40;
-            // 
-            // Fullname
-            // 
-            this.Fullname.DataPropertyName = "Fullname";
-            this.Fullname.HeaderText = "Họ và tên";
-            this.Fullname.MinimumWidth = 6;
-            this.Fullname.Name = "Fullname";
-            this.Fullname.ReadOnly = true;
-            // 
-            // Username
-            // 
-            this.Username.DataPropertyName = "Username";
-            this.Username.HeaderText = "Tài khoản";
-            this.Username.MinimumWidth = 6;
-            this.Username.Name = "Username";
-            this.Username.ReadOnly = true;
-            // 
-            // UserId
-            // 
-            this.UserId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.UserId.DataPropertyName = "UserID";
-            this.UserId.HeaderText = "Mã người dùng";
-            this.UserId.MinimumWidth = 6;
-            this.UserId.Name = "UserId";
-            this.UserId.ReadOnly = true;
-            this.UserId.Width = 150;
-            // 
-            // PhoneNumber
-            // 
-            this.PhoneNumber.DataPropertyName = "PhoneNumber";
-            this.PhoneNumber.HeaderText = "Số điện thoại";
-            this.PhoneNumber.MinimumWidth = 6;
-            this.PhoneNumber.Name = "PhoneNumber";
-            this.PhoneNumber.ReadOnly = true;
-            // 
-            // Email
-            // 
-            this.Email.DataPropertyName = "Email";
-            this.Email.HeaderText = "Email";
-            this.Email.MinimumWidth = 6;
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            // 
-            // Address
-            // 
-            this.Address.DataPropertyName = "Address";
-            this.Address.HeaderText = "Địa chỉ";
-            this.Address.MinimumWidth = 6;
-            this.Address.Name = "Address";
-            this.Address.ReadOnly = true;
-            // 
-            // Birthday
-            // 
-            this.Birthday.DataPropertyName = "Birthday";
-            dataGridViewCellStyle22.Format = "d";
-            dataGridViewCellStyle22.NullValue = "dd/MM/yyyy";
-            this.Birthday.DefaultCellStyle = dataGridViewCellStyle22;
-            this.Birthday.HeaderText = "Ngày sinh";
-            this.Birthday.MinimumWidth = 6;
-            this.Birthday.Name = "Birthday";
-            this.Birthday.ReadOnly = true;
-            // 
-            // Password
-            // 
-            this.Password.DataPropertyName = "Password";
-            this.Password.HeaderText = "Mật khẩu";
-            this.Password.MinimumWidth = 6;
-            this.Password.Name = "Password";
-            this.Password.ReadOnly = true;
-            this.Password.Visible = false;
-            // 
-            // RoleId
-            // 
-            this.RoleId.DataPropertyName = "RoleID";
-            this.RoleId.HeaderText = "Chức vụ";
-            this.RoleId.MinimumWidth = 6;
-            this.RoleId.Name = "RoleId";
-            this.RoleId.ReadOnly = true;
-            // 
-            // Image
-            // 
-            this.Image.DataPropertyName = "Image";
-            this.Image.HeaderText = "Image";
-            this.Image.Name = "Image";
-            this.Image.ReadOnly = true;
-            this.Image.Visible = false;
-            // 
-            // Note
-            // 
-            this.Note.DataPropertyName = "Note";
-            this.Note.HeaderText = "Note";
-            this.Note.Name = "Note";
-            this.Note.ReadOnly = true;
-            this.Note.Visible = false;
-            // 
-            // ptb_NoImage
-            // 
-            this.ptb_NoImage.Image = global::ThiTracNghiem.Properties.Resources.No_Image;
-            this.ptb_NoImage.ImageRotate = 0F;
-            this.ptb_NoImage.Location = new System.Drawing.Point(1190, 44);
-            this.ptb_NoImage.Name = "ptb_NoImage";
-            this.ptb_NoImage.Size = new System.Drawing.Size(113, 160);
-            this.ptb_NoImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptb_NoImage.TabIndex = 19;
-            this.ptb_NoImage.TabStop = false;
-            // 
-            // ptb_Avatar
-            // 
-            this.ptb_Avatar.BackColor = System.Drawing.Color.Transparent;
-            this.ptb_Avatar.FillColor = System.Drawing.Color.Gainsboro;
-            this.ptb_Avatar.ImageRotate = 0F;
-            this.ptb_Avatar.Location = new System.Drawing.Point(1190, 46);
-            this.ptb_Avatar.Name = "ptb_Avatar";
-            this.ptb_Avatar.Size = new System.Drawing.Size(113, 160);
-            this.ptb_Avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptb_Avatar.TabIndex = 20;
-            this.ptb_Avatar.TabStop = false;
             // 
             // frmManageUser
             // 

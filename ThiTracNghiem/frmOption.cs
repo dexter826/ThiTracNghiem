@@ -92,6 +92,10 @@ namespace ThiTracNghiem
                 txt_Time.Enabled = true;
                 txt_Time.ReadOnly = false;
             }
+
+            int numberOfQuestions;
+            bool isValid = int.TryParse(cbb_NumberOfQuestion.Text, out numberOfQuestions);
+            txt_Time.Text = isValid ? (numberOfQuestions + 10).ToString() : string.Empty;
         }
 
         /// <summary>

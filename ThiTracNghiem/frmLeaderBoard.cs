@@ -56,7 +56,7 @@ namespace ThiTracNghiem
             }
             else
             {
-                Application.ExitThread(); // Thoát nếu là User
+                this.Close();
             }
         }
 
