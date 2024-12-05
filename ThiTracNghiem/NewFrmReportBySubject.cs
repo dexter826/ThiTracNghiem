@@ -5,6 +5,7 @@ using System.Data;
 using System.Windows.Forms;
 using ThiTracNghiem.Common;
 using DevExpress.XtraEditors;
+using Entities;
 
 
 namespace ThiTracNghiem
@@ -91,14 +92,12 @@ namespace ThiTracNghiem
                 xtraReport.DataSource = dtData;
                 xtraReport.DataMember = "";
                 xtraReport.ShowPreview();
-                //// Mở hộp thoại in
-                //using (var printDialog = new PrintDialog())
-                //{
-                //    if (printDialog.ShowDialog() == DialogResult.OK)
-                //    {
-                //        xtraReport.PrintDialog();
-                //    }
-                //}
+
+                // Thiết lập các tham số cho báo cáo
+                DateTime dtNow = DateTime.Now;
+                string reportPalace = string.Format("TP.HCM, ngày {0} tháng {1} năm {2}", dtNow.Day, dtNow.Month, dtNow.Year);
+                xtraReport.Parameters["ReportPalace"].Value = reportPalace;
+                xtraReport.Parameters["CreatedBy"].Value = Session.LogonUser.Fullname;
             }
             catch (Exception ex)
             {
@@ -115,12 +114,20 @@ namespace ThiTracNghiem
                 xtraReport.DataSource = dtData;
                 xtraReport.DataMember = "";
 
+                // Thiết lập các tham số cho báo cáo
+                DateTime dtNow = DateTime.Now;
+                string reportPalace = string.Format("TP.HCM, ngày {0} tháng {1} năm {2}", dtNow.Day, dtNow.Month, dtNow.Year);
+                xtraReport.Parameters["ReportPalace"].Value = reportPalace;
+                xtraReport.Parameters["CreatedBy"].Value = Session.LogonUser.Fullname;
+
+                string subjectName = cbb_MonThi.Text;
+
                 // Mở hộp thoại lưu file
                 using (var saveFileDialog = new SaveFileDialog())
                 {
                     saveFileDialog.Filter = "PDF Files (*.pdf)|*.pdf";
                     saveFileDialog.Title = "Save a PDF File";
-                    saveFileDialog.FileName = "Report.pdf"; // Đặt tên mặc định cho file
+                    saveFileDialog.FileName = $"Báo cáo điểm thi môn {subjectName}.pdf";
 
                     if (saveFileDialog.ShowDialog() == DialogResult.OK)
                     {

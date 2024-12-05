@@ -128,5 +128,35 @@ namespace DataAccessLayer
                 throw ex;
             }
         }
+
+        public static int GetTotalQuestion(string subjectId)
+        {
+            try
+            {
+                // Tạo tham số đầu ra
+                SqlParameter outputParam = new SqlParameter
+                {
+                    ParameterName = "@TotalQuestions",
+                    SqlDbType = SqlDbType.Int,
+                    Direction = ParameterDirection.Output
+                };
+
+                // Thực thi stored procedure
+                SqlHelper.ExecuteNonQuery(
+                    TestCore.ConnectionString.strCon,
+                    CommandType.StoredProcedure,
+                    "Question_GetTotalQuestionsBySubject",
+                    new SqlParameter("@SubjectID", subjectId), // Tham số đầu vào
+                    outputParam // Tham số đầu ra
+                );
+
+                // Lấy giá trị từ tham số đầu ra
+                return Convert.ToInt32(outputParam.Value);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

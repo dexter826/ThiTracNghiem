@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTest));
             this.lsb_Question = new System.Windows.Forms.ListBox();
             this.grb_Infor = new System.Windows.Forms.GroupBox();
+            this.ptb_NoImage = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.ptb_Avatar = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txt_CountQuestion = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -55,11 +57,9 @@
             this.btn_NextQuestion = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.btn_LastQuestion = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.btn_PreviousQuestion = new Guna.UI2.WinForms.Guna2GradientTileButton();
-            this.ptb_Avatar = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.ptb_NoImage = new Guna.UI2.WinForms.Guna2PictureBox();
             this.grb_Infor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_Avatar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_NoImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_Avatar)).BeginInit();
             this.SuspendLayout();
             // 
             // lsb_Question
@@ -97,6 +97,33 @@
             this.grb_Infor.Size = new System.Drawing.Size(768, 183);
             this.grb_Infor.TabIndex = 1;
             this.grb_Infor.TabStop = false;
+            // 
+            // ptb_NoImage
+            // 
+            this.ptb_NoImage.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ptb_NoImage.BorderRadius = 3;
+            this.ptb_NoImage.Image = global::ThiTracNghiem.Properties.Resources.No_Image;
+            this.ptb_NoImage.ImageRotate = 0F;
+            this.ptb_NoImage.Location = new System.Drawing.Point(30, 26);
+            this.ptb_NoImage.Name = "ptb_NoImage";
+            this.ptb_NoImage.Size = new System.Drawing.Size(93, 140);
+            this.ptb_NoImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptb_NoImage.TabIndex = 22;
+            this.ptb_NoImage.TabStop = false;
+            // 
+            // ptb_Avatar
+            // 
+            this.ptb_Avatar.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ptb_Avatar.BackColor = System.Drawing.Color.Transparent;
+            this.ptb_Avatar.BorderRadius = 3;
+            this.ptb_Avatar.FillColor = System.Drawing.Color.Gainsboro;
+            this.ptb_Avatar.ImageRotate = 0F;
+            this.ptb_Avatar.Location = new System.Drawing.Point(30, 26);
+            this.ptb_Avatar.Name = "ptb_Avatar";
+            this.ptb_Avatar.Size = new System.Drawing.Size(93, 140);
+            this.ptb_Avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptb_Avatar.TabIndex = 21;
+            this.ptb_Avatar.TabStop = false;
             // 
             // label5
             // 
@@ -535,31 +562,6 @@
             this.btn_PreviousQuestion.Text = "< Câu trước";
             this.btn_PreviousQuestion.Click += new System.EventHandler(this.btn_PreviousQuestion_Click);
             // 
-            // ptb_Avatar
-            // 
-            this.ptb_Avatar.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.ptb_Avatar.BackColor = System.Drawing.Color.Transparent;
-            this.ptb_Avatar.FillColor = System.Drawing.Color.Gainsboro;
-            this.ptb_Avatar.ImageRotate = 0F;
-            this.ptb_Avatar.Location = new System.Drawing.Point(30, 26);
-            this.ptb_Avatar.Name = "ptb_Avatar";
-            this.ptb_Avatar.Size = new System.Drawing.Size(93, 140);
-            this.ptb_Avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptb_Avatar.TabIndex = 21;
-            this.ptb_Avatar.TabStop = false;
-            // 
-            // ptb_NoImage
-            // 
-            this.ptb_NoImage.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.ptb_NoImage.Image = global::ThiTracNghiem.Properties.Resources.No_Image;
-            this.ptb_NoImage.ImageRotate = 0F;
-            this.ptb_NoImage.Location = new System.Drawing.Point(30, 26);
-            this.ptb_NoImage.Name = "ptb_NoImage";
-            this.ptb_NoImage.Size = new System.Drawing.Size(93, 140);
-            this.ptb_NoImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptb_NoImage.TabIndex = 22;
-            this.ptb_NoImage.TabStop = false;
-            // 
             // frmTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -596,8 +598,8 @@
             this.Load += new System.EventHandler(this.frmTest_Load);
             this.grb_Infor.ResumeLayout(false);
             this.grb_Infor.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_Avatar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_NoImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_Avatar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

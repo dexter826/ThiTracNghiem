@@ -45,6 +45,7 @@ namespace ThiTracNghiem
             Subject subject = new Subject();
             subject.SubjectId = txt_SubjectId.Text.Trim();
             subject.SubjectName = txt_SubjectName.Text.Trim();
+            subject.QuesQuantity = int.Parse(cbb_NumberOfQuestion.Text);
             subject.Description = txt_SubjectDesb.Text.Trim();
 
             subject.CreatedAt = DateTime.Now;
@@ -120,6 +121,7 @@ namespace ThiTracNghiem
             try
             {
                 BSubject.AddNewSubject(newSubject);
+                DevExpress.XtraEditors.XtraMessageBox.Show("Thêm mới môn thi mới thành công!", "Thông báo!");
                 LoadData();
             }
             catch (Exception ex)
@@ -210,6 +212,7 @@ namespace ThiTracNghiem
                 DataGridViewRow row = grv_DataUser.Rows[rowIndex];
                 txt_SubjectId.Text = row.Cells["SubjectID"].Value.ToString();
                 txt_SubjectName.Text = row.Cells["SubjectName"].Value.ToString();
+                cbb_NumberOfQuestion.Text = row.Cells["QuesQuantity"].Value.ToString();
                 txt_SubjectDesb.Text = row.Cells["Description"].Value.ToString();
             }
             catch (Exception ex)

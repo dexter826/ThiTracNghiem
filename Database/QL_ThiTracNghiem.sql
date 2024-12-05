@@ -25,6 +25,7 @@ CREATE TABLE [dbo].[Question] (
 CREATE TABLE [dbo].[Subject] (
     [SubjectID] VARCHAR(50) NOT NULL,
     [SubjectName] NVARCHAR(50) NULL,
+	[QuesQuantity] INT NULL,
     [Description] NVARCHAR(50) NULL,
     [CreatedBy] VARCHAR(50) NULL,
     [CreatedAt] DATETIME NULL,
@@ -386,6 +387,19 @@ UPDATE [dbo].[Question]
  WHERE QuestionID = @QuestionID
 GO
 
+--Kiểm tra số lượng câu hỏi của SubjectID
+CREATE PROCEDURE [dbo].[Question_GetTotalQuestionsBySubject]
+    @SubjectID VARCHAR(50), -- Mã môn học đầu vào
+    @TotalQuestions INT OUTPUT -- Tổng số câu hỏi (giá trị trả về)
+AS
+BEGIN
+    -- Đếm số lượng câu hỏi theo SubjectID
+    SELECT @TotalQuestions = COUNT(*)
+    FROM Question
+    WHERE SubjectID = @SubjectID;
+END;
+GO
+
 create procedure [dbo].[Subject_Delete]
 @SubjectID varchar(50)
 as
@@ -397,6 +411,7 @@ GO
 create procedure [dbo].[Subject_Insert]
 @SubjectID varchar(50),
 @SubjectName nvarchar(50),
+@QuesQuantity int,
 @Description nvarchar(50),
 @CreatedBy varchar(50),
 @ModifiedBy varchar(50)
@@ -404,6 +419,7 @@ as
 INSERT INTO [dbo].[Subject]
            ([SubjectID],
            [SubjectName],
+		   [QuesQuantity],
            [Description],
            [CreatedBy],
            [CreatedAt],
@@ -412,6 +428,7 @@ INSERT INTO [dbo].[Subject]
      VALUES
            (@SubjectID,
            @SubjectName,
+		   @QuesQuantity,
            @Description,
            @CreatedBy,
            Getdate(),
@@ -424,6 +441,7 @@ CREATE procedure [dbo].[Subject_Search]
 as
 SELECT [SubjectID]
       ,[SubjectName]
+	  ,[QuesQuantity]
       ,[Description]
       ,[CreatedBy]
       ,[CreatedAt]
@@ -439,6 +457,7 @@ Create procedure [dbo].[Subject_SelectAll]
 As
 SELECT [SubjectID]
       ,[SubjectName]
+	  ,[QuesQuantity]
       ,[Description]
       ,[CreatedBy]
       ,[CreatedAt]
@@ -451,12 +470,14 @@ GO
 create procedure [dbo].[Subject_Update]
 @SubjectID varchar(50),
 @SubjectName nvarchar(50),
+@QuesQuantity int,
 @Description nvarchar(50),
 @ModifiedBy varchar(50)
 as
 
 UPDATE [dbo].[Subject]
    SET [SubjectName] = @SubjectName 
+		,[QuesQuantity] = @QuesQuantity
       ,[Description] = @Description
       ,[ModifiedBy] = @ModifiedBy 
       ,[ModifiedAt] = GETDATE()
@@ -516,6 +537,12 @@ SELECT [TestId]
       ,[ModifiedAt]
   FROM [dbo].[TestHistory] T
   where SubjectID = @SubjectID
+  AND NOT EXISTS (
+            SELECT 1 
+            FROM UserAccount UA 
+            WHERE UA.UserID = T.UserID 
+              AND UA.RoleID IN ('Admin', 'Teacher')
+        );
 end
 GO
 
@@ -552,23 +579,31 @@ where CRoot.MarkIndex = (select min(MarkIndex)
 end
 GO
 
-/****** Object:  StoredProcedure [dbo].[TestHistory_ReportByTime]    Script Date: 06/11/2024 12:58:46 CH ******/
-CREATE proc [dbo].[TestHistory_ReportByTime]
-@StartDate datetime,
-@EndDate datetime
-as
-begin
-SELECT [TestId]
-	  ,(Select Fullname from UserAccount where UserID = T.UserID) Fullname
-	  ,(Select SubjectName from Subject where SubjectID = T.SubjectID) SubjectName
-      ,Convert(varchar(10),[TestDate],103) TestDate
-      ,[CorrectAnswer]
-      ,[TotalQuestion]
-      ,[Mark]
-  FROM [dbo].[TestHistory] T
-  where DATEDIFF(day,@StartDate,TestDate)>=0
-  And DATEDIFF(day,TestDate,@EndDate)>=0
-end
+CREATE PROC [dbo].[TestHistory_ReportByTime]
+    @StartDate DATETIME,
+    @EndDate DATETIME
+AS
+BEGIN
+    SELECT 
+        [TestId],
+        (SELECT Fullname FROM UserAccount WHERE UserID = T.UserID) AS Fullname,
+        (SELECT SubjectName FROM Subject WHERE SubjectID = T.SubjectID) AS SubjectName,
+        CONVERT(VARCHAR(10), [TestDate], 103) AS TestDate,
+        [CorrectAnswer],
+        [TotalQuestion],
+        [Mark]
+    FROM 
+        [dbo].[TestHistory] T
+    WHERE 
+        DATEDIFF(DAY, @StartDate, TestDate) >= 0
+        AND DATEDIFF(DAY, TestDate, @EndDate) >= 0
+        AND NOT EXISTS (
+            SELECT 1 
+            FROM UserAccount UA 
+            WHERE UA.UserID = T.UserID 
+              AND UA.RoleID IN ('Admin', 'Teacher')
+        );
+END;
 GO
 
 /****** Object:  StoredProcedure [dbo].[TestHistory_SelectAll]    Script Date: 06/11/2024 12:58:46 CH ******/

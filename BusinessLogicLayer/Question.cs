@@ -39,5 +39,9 @@ namespace BusinessLogicLayer
         {
             return DQuestion.GetOne(questionId);
         }
+        public static int GetTotalQuestion(string subjectId)
+        {
+            return DQuestion.GetTotalQuestion(subjectId);
+        }
     }
 }

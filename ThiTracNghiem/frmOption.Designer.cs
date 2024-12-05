@@ -33,12 +33,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cbb_Subject = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.cbb_NumberOfQuestion = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txt_Time = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btn_Start = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.btn_Exit = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
+            this.txt_NumberQuestion = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,6 +86,7 @@
             this.cbb_Subject.Name = "cbb_Subject";
             this.cbb_Subject.Size = new System.Drawing.Size(315, 36);
             this.cbb_Subject.TabIndex = 2;
+            this.cbb_Subject.SelectedIndexChanged += new System.EventHandler(this.cbb_Subject_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -99,35 +100,6 @@
             this.label3.Size = new System.Drawing.Size(130, 18);
             this.label3.TabIndex = 3;
             this.label3.Text = "Số lượng câu hỏi";
-            // 
-            // cbb_NumberOfQuestion
-            // 
-            this.cbb_NumberOfQuestion.BackColor = System.Drawing.Color.Transparent;
-            this.cbb_NumberOfQuestion.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbb_NumberOfQuestion.BorderRadius = 5;
-            this.cbb_NumberOfQuestion.BorderThickness = 2;
-            this.cbb_NumberOfQuestion.DisplayMember = "10";
-            this.cbb_NumberOfQuestion.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbb_NumberOfQuestion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbb_NumberOfQuestion.Enabled = false;
-            this.cbb_NumberOfQuestion.FocusedColor = System.Drawing.Color.Empty;
-            this.cbb_NumberOfQuestion.Font = new System.Drawing.Font("Tahoma", 11.25F);
-            this.cbb_NumberOfQuestion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbb_NumberOfQuestion.FormattingEnabled = true;
-            this.cbb_NumberOfQuestion.ItemHeight = 30;
-            this.cbb_NumberOfQuestion.Items.AddRange(new object[] {
-            "45",
-            "10",
-            "20",
-            "30",
-            "60"});
-            this.cbb_NumberOfQuestion.Location = new System.Drawing.Point(195, 241);
-            this.cbb_NumberOfQuestion.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.cbb_NumberOfQuestion.Name = "cbb_NumberOfQuestion";
-            this.cbb_NumberOfQuestion.Size = new System.Drawing.Size(315, 36);
-            this.cbb_NumberOfQuestion.StartIndex = 1;
-            this.cbb_NumberOfQuestion.TabIndex = 4;
-            this.cbb_NumberOfQuestion.SelectedIndexChanged += new System.EventHandler(this.cbb_NumberOfQuestion_SelectedIndexChanged);
             // 
             // txt_Time
             // 
@@ -226,17 +198,39 @@
             this.pictureEdit1.Size = new System.Drawing.Size(325, 174);
             this.pictureEdit1.TabIndex = 9;
             // 
+            // txt_NumberQuestion
+            // 
+            this.txt_NumberQuestion.BackColor = System.Drawing.Color.Transparent;
+            this.txt_NumberQuestion.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_NumberQuestion.BorderRadius = 5;
+            this.txt_NumberQuestion.BorderThickness = 2;
+            this.txt_NumberQuestion.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_NumberQuestion.DefaultText = "";
+            this.txt_NumberQuestion.Enabled = false;
+            this.txt_NumberQuestion.Font = new System.Drawing.Font("Tahoma", 11.25F);
+            this.txt_NumberQuestion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_NumberQuestion.Location = new System.Drawing.Point(195, 242);
+            this.txt_NumberQuestion.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.txt_NumberQuestion.Name = "txt_NumberQuestion";
+            this.txt_NumberQuestion.PasswordChar = '\0';
+            this.txt_NumberQuestion.PlaceholderText = "";
+            this.txt_NumberQuestion.ReadOnly = true;
+            this.txt_NumberQuestion.SelectedText = "";
+            this.txt_NumberQuestion.Size = new System.Drawing.Size(315, 35);
+            this.txt_NumberQuestion.TabIndex = 10;
+            this.txt_NumberQuestion.TextChanged += new System.EventHandler(this.txt_NumberQuestion_TextChanged);
+            // 
             // frmOption
             // 
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(549, 416);
+            this.Controls.Add(this.txt_NumberQuestion);
             this.Controls.Add(this.btn_Exit);
             this.Controls.Add(this.btn_Start);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txt_Time);
-            this.Controls.Add(this.cbb_NumberOfQuestion);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cbb_Subject);
             this.Controls.Add(this.label2);
@@ -265,11 +259,11 @@
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2ComboBox cbb_Subject;
         private System.Windows.Forms.Label label3;
-        private Guna.UI2.WinForms.Guna2ComboBox cbb_NumberOfQuestion;
         private Guna.UI2.WinForms.Guna2TextBox txt_Time;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2GradientTileButton btn_Start;
         private Guna.UI2.WinForms.Guna2GradientTileButton btn_Exit;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
+        private Guna.UI2.WinForms.Guna2TextBox txt_NumberQuestion;
     }
 }

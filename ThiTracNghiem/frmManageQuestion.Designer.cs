@@ -36,6 +36,15 @@
             this.txt_QuestionId = new Guna.UI2.WinForms.Guna2TextBox();
             this.btn_Add = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.grv_DataUser = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QuestionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubjectID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OptionA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OptionB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OptionC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OptionD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Answer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -58,15 +67,6 @@
             this.txt_Search = new Guna.UI2.WinForms.Guna2TextBox();
             this.btn_Cancel = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.btn_Save = new Guna.UI2.WinForms.Guna2GradientTileButton();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QuestionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SubjectID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OptionA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OptionB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OptionC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OptionD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Answer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grv_DataUser)).BeginInit();
             this.grb_Infor.SuspendLayout();
             this.SuspendLayout();
@@ -112,21 +112,23 @@
             this.grv_DataUser.AllowUserToAddRows = false;
             this.grv_DataUser.AllowUserToDeleteRows = false;
             this.grv_DataUser.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(223)))), ((int)(((byte)(251)))));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gainsboro;
             this.grv_DataUser.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.grv_DataUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grv_DataUser.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(242)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(131)))), ((int)(((byte)(251)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.grv_DataUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.grv_DataUser.ColumnHeadersHeight = 30;
+            this.grv_DataUser.ColumnHeadersHeight = 40;
             this.grv_DataUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.grv_DataUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.STT,
@@ -138,15 +140,15 @@
             this.OptionC,
             this.OptionD,
             this.Answer});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grv_DataUser.DefaultCellStyle = dataGridViewCellStyle5;
-            this.grv_DataUser.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(222)))), ((int)(((byte)(251)))));
+            this.grv_DataUser.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.grv_DataUser.Location = new System.Drawing.Point(5, 362);
             this.grv_DataUser.Margin = new System.Windows.Forms.Padding(5);
             this.grv_DataUser.Name = "grv_DataUser";
@@ -154,33 +156,116 @@
             this.grv_DataUser.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.grv_DataUser.RowHeadersVisible = false;
             this.grv_DataUser.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.grv_DataUser.RowTemplate.Height = 35;
+            this.grv_DataUser.RowTemplate.Height = 40;
             this.grv_DataUser.Size = new System.Drawing.Size(1207, 295);
             this.grv_DataUser.TabIndex = 7;
-            this.grv_DataUser.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Blue;
-            this.grv_DataUser.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(223)))), ((int)(((byte)(251)))));
+            this.grv_DataUser.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.grv_DataUser.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.grv_DataUser.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
             this.grv_DataUser.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
             this.grv_DataUser.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
             this.grv_DataUser.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.grv_DataUser.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(222)))), ((int)(((byte)(251)))));
-            this.grv_DataUser.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(242)))));
+            this.grv_DataUser.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.grv_DataUser.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.grv_DataUser.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.grv_DataUser.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grv_DataUser.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grv_DataUser.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.grv_DataUser.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.grv_DataUser.ThemeStyle.HeaderStyle.Height = 30;
+            this.grv_DataUser.ThemeStyle.HeaderStyle.Height = 40;
             this.grv_DataUser.ThemeStyle.ReadOnly = true;
-            this.grv_DataUser.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
+            this.grv_DataUser.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.grv_DataUser.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.grv_DataUser.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grv_DataUser.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.White;
-            this.grv_DataUser.ThemeStyle.RowsStyle.Height = 35;
-            this.grv_DataUser.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(250)))));
-            this.grv_DataUser.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.grv_DataUser.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grv_DataUser.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.grv_DataUser.ThemeStyle.RowsStyle.Height = 40;
+            this.grv_DataUser.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.grv_DataUser.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.grv_DataUser.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.grv_DataUser_RowEnter);
             this.grv_DataUser.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.grv_DataUser_RowPrePaint);
+            // 
+            // STT
+            // 
+            this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.STT.DefaultCellStyle = dataGridViewCellStyle3;
+            this.STT.HeaderText = "STT";
+            this.STT.MinimumWidth = 6;
+            this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
+            this.STT.Width = 50;
+            // 
+            // QuestionID
+            // 
+            this.QuestionID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.QuestionID.DataPropertyName = "QuestionID";
+            this.QuestionID.HeaderText = "Mã câu hỏi";
+            this.QuestionID.MinimumWidth = 6;
+            this.QuestionID.Name = "QuestionID";
+            this.QuestionID.ReadOnly = true;
+            this.QuestionID.Width = 120;
+            // 
+            // SubjectID
+            // 
+            this.SubjectID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.SubjectID.DataPropertyName = "SubjectID";
+            this.SubjectID.HeaderText = "Môn thi";
+            this.SubjectID.MinimumWidth = 6;
+            this.SubjectID.Name = "SubjectID";
+            this.SubjectID.ReadOnly = true;
+            this.SubjectID.Width = 110;
+            // 
+            // QContent
+            // 
+            this.QContent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.QContent.DataPropertyName = "QContent";
+            this.QContent.HeaderText = "Nội dung câu hỏi";
+            this.QContent.MinimumWidth = 6;
+            this.QContent.Name = "QContent";
+            this.QContent.ReadOnly = true;
+            this.QContent.Width = 300;
+            // 
+            // OptionA
+            // 
+            this.OptionA.DataPropertyName = "OptionA";
+            this.OptionA.HeaderText = "Lựa chọn A";
+            this.OptionA.MinimumWidth = 6;
+            this.OptionA.Name = "OptionA";
+            this.OptionA.ReadOnly = true;
+            // 
+            // OptionB
+            // 
+            this.OptionB.DataPropertyName = "OptionB";
+            this.OptionB.HeaderText = "Lựa chọn B";
+            this.OptionB.MinimumWidth = 6;
+            this.OptionB.Name = "OptionB";
+            this.OptionB.ReadOnly = true;
+            // 
+            // OptionC
+            // 
+            this.OptionC.DataPropertyName = "OptionC";
+            this.OptionC.HeaderText = "Lựa chọn C";
+            this.OptionC.MinimumWidth = 6;
+            this.OptionC.Name = "OptionC";
+            this.OptionC.ReadOnly = true;
+            // 
+            // OptionD
+            // 
+            this.OptionD.DataPropertyName = "OptionD";
+            dataGridViewCellStyle4.Format = "d";
+            dataGridViewCellStyle4.NullValue = "dd/MM/yyyy";
+            this.OptionD.DefaultCellStyle = dataGridViewCellStyle4;
+            this.OptionD.HeaderText = "Lựa chọn D";
+            this.OptionD.MinimumWidth = 6;
+            this.OptionD.Name = "OptionD";
+            this.OptionD.ReadOnly = true;
+            // 
+            // Answer
+            // 
+            this.Answer.DataPropertyName = "Answer";
+            this.Answer.HeaderText = "Đáp án đúng";
+            this.Answer.MinimumWidth = 6;
+            this.Answer.Name = "Answer";
+            this.Answer.ReadOnly = true;
             // 
             // label2
             // 
@@ -534,90 +619,6 @@
             this.btn_Save.Text = "Lưu";
             this.btn_Save.Visible = false;
             this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
-            // 
-            // STT
-            // 
-            this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.STT.DefaultCellStyle = dataGridViewCellStyle3;
-            this.STT.HeaderText = "STT";
-            this.STT.MinimumWidth = 6;
-            this.STT.Name = "STT";
-            this.STT.ReadOnly = true;
-            this.STT.Width = 50;
-            // 
-            // QuestionID
-            // 
-            this.QuestionID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.QuestionID.DataPropertyName = "QuestionID";
-            this.QuestionID.HeaderText = "Mã câu hỏi";
-            this.QuestionID.MinimumWidth = 6;
-            this.QuestionID.Name = "QuestionID";
-            this.QuestionID.ReadOnly = true;
-            this.QuestionID.Width = 120;
-            // 
-            // SubjectID
-            // 
-            this.SubjectID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.SubjectID.DataPropertyName = "SubjectID";
-            this.SubjectID.HeaderText = "Môn thi";
-            this.SubjectID.MinimumWidth = 6;
-            this.SubjectID.Name = "SubjectID";
-            this.SubjectID.ReadOnly = true;
-            this.SubjectID.Width = 110;
-            // 
-            // QContent
-            // 
-            this.QContent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.QContent.DataPropertyName = "QContent";
-            this.QContent.HeaderText = "Nội dung câu hỏi";
-            this.QContent.MinimumWidth = 6;
-            this.QContent.Name = "QContent";
-            this.QContent.ReadOnly = true;
-            this.QContent.Width = 300;
-            // 
-            // OptionA
-            // 
-            this.OptionA.DataPropertyName = "OptionA";
-            this.OptionA.HeaderText = "Lựa chọn A";
-            this.OptionA.MinimumWidth = 6;
-            this.OptionA.Name = "OptionA";
-            this.OptionA.ReadOnly = true;
-            // 
-            // OptionB
-            // 
-            this.OptionB.DataPropertyName = "OptionB";
-            this.OptionB.HeaderText = "Lựa chọn B";
-            this.OptionB.MinimumWidth = 6;
-            this.OptionB.Name = "OptionB";
-            this.OptionB.ReadOnly = true;
-            // 
-            // OptionC
-            // 
-            this.OptionC.DataPropertyName = "OptionC";
-            this.OptionC.HeaderText = "Lựa chọn C";
-            this.OptionC.MinimumWidth = 6;
-            this.OptionC.Name = "OptionC";
-            this.OptionC.ReadOnly = true;
-            // 
-            // OptionD
-            // 
-            this.OptionD.DataPropertyName = "OptionD";
-            dataGridViewCellStyle4.Format = "d";
-            dataGridViewCellStyle4.NullValue = "dd/MM/yyyy";
-            this.OptionD.DefaultCellStyle = dataGridViewCellStyle4;
-            this.OptionD.HeaderText = "Lựa chọn D";
-            this.OptionD.MinimumWidth = 6;
-            this.OptionD.Name = "OptionD";
-            this.OptionD.ReadOnly = true;
-            // 
-            // Answer
-            // 
-            this.Answer.DataPropertyName = "Answer";
-            this.Answer.HeaderText = "Đáp án đúng";
-            this.Answer.MinimumWidth = 6;
-            this.Answer.Name = "Answer";
-            this.Answer.ReadOnly = true;
             // 
             // frmManageQuestion
             // 

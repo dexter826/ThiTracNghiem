@@ -79,6 +79,15 @@ namespace ThiTracNghiem
                 xtraReport.DataSource = dtData;
                 xtraReport.DataMember = "";
                 xtraReport.ShowPreview();
+
+                string reportTime = string.Format("Từ ngày {0} đến ngày {1}", startDate.ToString("dd/MM/yyyy"), endDate.ToString("dd/MM/yyyy"));
+                xtraReport.Parameters["ReportTime"].Value = reportTime;
+
+                DateTime dtNow = DateTime.Now;
+                string reportPalace = string.Format("TP.HCM, ngày {0} tháng {1} năm {2}", dtNow.Day, dtNow.Month, dtNow.Year);
+                xtraReport.Parameters["ReportPalace"].Value = reportPalace;
+
+                xtraReport.Parameters["CreatedBy"].Value = Session.LogonUser.Fullname;
             }
             catch (Exception ex)
             {
@@ -98,12 +107,24 @@ namespace ThiTracNghiem
                 xtraReport.DataSource = dtData;
                 xtraReport.DataMember = "";
 
+                string reportTime = string.Format("Từ ngày {0} đến ngày {1}", startDate.ToString("dd/MM/yyyy"), endDate.ToString("dd/MM/yyyy"));
+                xtraReport.Parameters["ReportTime"].Value = reportTime;
+
+                DateTime dtNow = DateTime.Now;
+                string reportPalace = string.Format("TP.HCM, ngày {0} tháng {1} năm {2}", dtNow.Day, dtNow.Month, dtNow.Year);
+                xtraReport.Parameters["ReportPalace"].Value = reportPalace;
+                xtraReport.Parameters["CreatedBy"].Value = Session.LogonUser.Fullname;
+
+                string DayStart = startDate.ToString("dd-MM-yyyy");
+                string DayEnd = endDate.ToString("dd-MM-yyyy");
+
                 // Mở hộp thoại lưu file
                 using (var saveFileDialog = new SaveFileDialog())
                 {
                     saveFileDialog.Filter = "PDF Files (*.pdf)|*.pdf";
                     saveFileDialog.Title = "Save a PDF File";
-                    saveFileDialog.FileName = "Report.pdf"; // Đặt tên mặc định cho file
+                    saveFileDialog.FileName = $"Báo cáo điểm thi từ ngày {DayStart}_{DayEnd}.pdf"; // Đặt tên mặc định cho file
+
 
                     if (saveFileDialog.ShowDialog() == DialogResult.OK)
                     {

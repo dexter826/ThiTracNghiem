@@ -10,6 +10,7 @@ namespace Entities
     {
         public string SubjectId { get; set; }
         public string SubjectName { get; set; }
+        public int QuesQuantity { get; set; }
         public string Description { get; set; }
         public string CreatedBy { get; set; }
         public string ModifiedBy { get; set; }

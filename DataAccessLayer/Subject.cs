@@ -18,6 +18,7 @@ namespace DataAccessLayer
                 SqlHelper.ExecuteNonQuery(TestCore.ConnectionString.strCon, "Subject_Insert",
                                                     newSubject.SubjectId,
                                                     newSubject.SubjectName,
+                                                    newSubject.QuesQuantity,
                                                     newSubject.Description,
                                                     newSubject.CreatedBy,
                                                     newSubject.ModifiedBy);
@@ -48,6 +49,7 @@ namespace DataAccessLayer
                 SqlHelper.ExecuteNonQuery(TestCore.ConnectionString.strCon, "Subject_Update",
                                                     editSubject.SubjectId,
                                                     editSubject.SubjectName,
+                                                    editSubject.QuesQuantity,
                                                     editSubject.Description,
                                                     editSubject.ModifiedBy);
             }

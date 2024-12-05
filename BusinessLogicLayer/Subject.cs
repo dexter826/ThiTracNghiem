@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogicLayer
 {
-    public class BSubject
+    public static class BSubject
     {
         public static void AddNewSubject(Subject newSubject)
         {
