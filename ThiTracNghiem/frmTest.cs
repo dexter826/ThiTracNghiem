@@ -22,9 +22,69 @@ namespace ThiTracNghiem
         private bool isUpdatingOption = false; // Biến cờ để ngăn việc kích hoạt sự kiện đệ quy
         private bool isSwitchingToMain = false; //Cờ cho phép chuyển về màn hình chính sau khi làm bài thi.
 
+        /// <summary>
+        /// Xử lý sự kiện phím tắt
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="keyData"></param>
+        /// <returns></returns>
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.A)
+            {
+                rdb_OptionA.Checked = true;
+                SaveCurrentSelected();
+                return true;
+            }
+            else if (keyData == Keys.B)
+            {
+                rdb_OptionB.Checked = true;
+                SaveCurrentSelected();
+                return true;
+            }
+            else if (keyData == Keys.C)
+            {
+                rdb_OptionC.Checked = true;
+                SaveCurrentSelected();
+                return true;
+            }
+            else if (keyData == Keys.D)
+            {
+                rdb_OptionD.Checked = true;
+                SaveCurrentSelected();
+                return true;
+            }
+            else if (keyData == Keys.Right || keyData == Keys.PageDown)
+            {
+                // Chuyển sang câu hỏi tiếp theo
+                if (selectedIndex < Session.NumberOfQuestion - 1)
+                {
+                    isRaiseSelectedEvent = false;
+                    lsb_Question.SelectedIndex = selectedIndex + 1;
+                    isRaiseSelectedEvent = true;
+                    ShowDetailQuestion();
+                }
+                return true;
+            }
+            else if (keyData == Keys.Left || keyData == Keys.PageUp)
+            {
+                // Quay lại câu hỏi trước đó
+                if (selectedIndex > 0)
+                {
+                    isRaiseSelectedEvent = false;
+                    lsb_Question.SelectedIndex = selectedIndex - 1;
+                    isRaiseSelectedEvent = true;
+                    ShowDetailQuestion();
+                }
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
         public frmTest()
         {
             InitializeComponent();
+            this.KeyPreview = true;
             SetStyle(ControlStyles.ResizeRedraw, true);
         }
         protected override void OnPaintBackground(PaintEventArgs e)
@@ -154,10 +214,16 @@ namespace ThiTracNghiem
 
                 UpdateCompletedQuestionsCount(); // Cập nhật số câu đã làm
 
+                // Yêu cầu lsb_Question vẽ lại
+                lsb_Question.Invalidate();
+
                 isUpdatingOption = false; // Hủy cờ sau khi hoàn thành
             }
         }
-        
+
+        /// <summary>
+        /// Hiển thị chi tiết câu hỏi
+        /// </summary>
         private void ShowDetailQuestion()
         {
             try
@@ -361,6 +427,42 @@ namespace ThiTracNghiem
             {
                 SaveCurrentSelected();
             }
+        }
+
+        private void lsb_Question_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index < 0 || e.Index >= dtQuestion.Rows.Count)
+                return;
+
+            Graphics g = e.Graphics;
+
+            // Lấy DataRow của câu hỏi hiện tại
+            DataRow row = dtQuestion.Rows[e.Index];
+
+            // Lấy text hiển thị (số thứ tự câu hỏi)
+            string text = row["QuestionIndex"].ToString();
+
+            // Kiểm tra xem câu hỏi đã được trả lời chưa
+            bool isAnswered = !string.IsNullOrEmpty(row["SelectedOption"].ToString());
+
+            // Xác định màu chữ
+            Color textColor = isAnswered ? Color.Green : Color.Black;
+
+            // Vẽ nền mục được chọn
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+            {
+                g.FillRectangle(new SolidBrush(SystemColors.Highlight), e.Bounds);
+            }
+            else
+            {
+                g.FillRectangle(new SolidBrush(e.BackColor), e.Bounds);
+            }
+
+            // Vẽ text
+            TextRenderer.DrawText(g, text, e.Font, e.Bounds, textColor, TextFormatFlags.Left);
+
+            // Vẽ khung focus nếu cần
+            e.DrawFocusRectangle();
         }
     }
 }

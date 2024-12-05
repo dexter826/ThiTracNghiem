@@ -66,13 +66,15 @@
             // 
             this.lsb_Question.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.lsb_Question.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.lsb_Question.FormattingEnabled = true;
             this.lsb_Question.ItemHeight = 18;
             this.lsb_Question.Location = new System.Drawing.Point(0, 0);
             this.lsb_Question.Margin = new System.Windows.Forms.Padding(4);
             this.lsb_Question.Name = "lsb_Question";
-            this.lsb_Question.Size = new System.Drawing.Size(261, 670);
+            this.lsb_Question.Size = new System.Drawing.Size(261, 688);
             this.lsb_Question.TabIndex = 0;
+            this.lsb_Question.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lsb_Question_DrawItem);
             this.lsb_Question.SelectedIndexChanged += new System.EventHandler(this.lsb_Question_SelectedIndexChanged);
             // 
             // grb_Infor
@@ -423,7 +425,7 @@
             // 
             // label6
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -436,12 +438,12 @@
             // 
             // txt_Time
             // 
-            this.txt_Time.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_Time.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_Time.BackColor = System.Drawing.Color.Transparent;
             this.txt_Time.BorderRadius = 5;
             this.txt_Time.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
             this.txt_Time.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_Time.DefaultText = "10:00";
+            this.txt_Time.DefaultText = "__:__";
             this.txt_Time.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Time.ForeColor = System.Drawing.Color.Red;
             this.txt_Time.Location = new System.Drawing.Point(1045, 87);
