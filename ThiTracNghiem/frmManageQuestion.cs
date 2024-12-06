@@ -1,8 +1,13 @@
 ﻿using BusinessLogicLayer;
 using Entities;
+using OfficeOpenXml;
 using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using ThiTracNghiem.Common;
 
@@ -60,51 +65,42 @@ namespace ThiTracNghiem
         /// </summary>
         /// <param name="question"></param>
         /// <returns></returns>
-        private static bool IsValidQuestion(Question question)
+        private static bool IsValidQuestion(Question question, out string errorMessage)
         {
-            string strMessage = string.Empty;
+            errorMessage = string.Empty;
+
             if (string.IsNullOrEmpty(question.QContent))
             {
-                strMessage = "Nội dung câu hỏi không được để trống!\n";
+                errorMessage = "Nội dung câu hỏi không được để trống!";
+                return false;
             }
-            if (string.IsNullOrEmpty(question.OptionA))
+            if (string.IsNullOrEmpty(question.OptionA) || string.IsNullOrEmpty(question.OptionB) ||
+                string.IsNullOrEmpty(question.OptionC) || string.IsNullOrEmpty(question.OptionD))
             {
-                strMessage += "Lựa chọn A không được để trống!\n";
-            }
-            if (string.IsNullOrEmpty(question.OptionB))
-            {
-                strMessage += "Lựa chọn B không được để trống!\n";
-            }
-            if (string.IsNullOrEmpty(question.OptionC))
-            {
-                strMessage += "Lựa chọn C không được để trống!\n";
-            }
-            if (string.IsNullOrEmpty(question.OptionD))
-            {
-                strMessage += "Lựa chọn D không được để trống!\n";
+                errorMessage = "Tất cả các lựa chọn A, B, C, D không được để trống!";
+                return false;
             }
             if (question.OptionA == question.OptionB || question.OptionA == question.OptionC || question.OptionA == question.OptionD ||
-        question.OptionB == question.OptionC || question.OptionB == question.OptionD || question.OptionC == question.OptionD)
+                question.OptionB == question.OptionC || question.OptionB == question.OptionD || question.OptionC == question.OptionD)
             {
-                strMessage += "Phát hiện có lựa chọn bị trùng\nVui lòng kiểm tra lại!\n";
+                errorMessage = "Các lựa chọn A, B, C, D không được trùng nhau!";
+                return false;
             }
             if (string.IsNullOrEmpty(question.Answer))
             {
-                strMessage += "Đáp án không được để trống!\n";
-            }
-            else if (question.Answer != question.OptionA && question.Answer != question.OptionB && question.Answer != question.OptionC && question.Answer != question.OptionD)
-            {
-                strMessage += "Đáp án phải trùng với một trong các lựa chọn A, B, C, hoặc D!\n";
-            }
-
-            //kiểm tra hợp lệ
-            if (!string.IsNullOrEmpty(strMessage))
-            {
-                DevExpress.XtraEditors.XtraMessageBox.Show(strMessage, "Lỗi nhập liệu!\n", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                errorMessage = "Đáp án không được để trống!";
                 return false;
             }
+            if (question.Answer != question.OptionA && question.Answer != question.OptionB &&
+                question.Answer != question.OptionC && question.Answer != question.OptionD)
+            {
+                errorMessage = "Đáp án phải trùng với một trong các lựa chọn A, B, C, hoặc D!";
+                return false;
+            }
+
             return true;
         }
+
 
         /// <summary>
         /// Phương thức thêm câu hỏi
@@ -113,8 +109,11 @@ namespace ThiTracNghiem
         {
             var newQuestion = GetQuestionInfor();
             //kiểm tra tính hợp lệ của câu hỏi
-            if (!IsValidQuestion(newQuestion))
+            if (!IsValidQuestion(newQuestion, out string errorMessage))
+            {
+                DevExpress.XtraEditors.XtraMessageBox.Show(errorMessage, "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return; // thoát
+            }
             try
             {
                 //Thêm câu hỏi mới vào cơ sở dữ liệu thông qua BQuestion.AddNewQuestion.
@@ -159,6 +158,7 @@ namespace ThiTracNghiem
             txt_OptionB.Clear();
             txt_OptionC.Clear();
             txt_OptionD.Clear();
+            btn_ImportExcel.Visible = true;
         }
 
         private void frmManageQuestion_Load(object sender, EventArgs e)
@@ -231,8 +231,11 @@ namespace ThiTracNghiem
         private void UpdateQuestion()
         {
             var editUser = GetQuestionInfor();
-            if (!IsValidQuestion(editUser))
+            if (!IsValidQuestion(editUser, out string errorMessage))
+            {
+                DevExpress.XtraEditors.XtraMessageBox.Show(errorMessage, "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return; // thoát
+            }
             try
             {
                 BQuestion.UpdateQuestion(editUser);
@@ -318,6 +321,7 @@ namespace ThiTracNghiem
             ShowHideButton(false);
             ShowDetailData(rowIndex);
             SetEnableControl(false);
+            btn_ImportExcel.Visible = false;
         }
 
         private void btn_Save_Click(object sender, EventArgs e)
@@ -332,6 +336,114 @@ namespace ThiTracNghiem
             }
             ShowHideButton(false);
             SetEnableControl(false);
+            btn_ImportExcel.Visible = false;
+        }
+
+        private static DataTable ReadExcelFile(string filePath)
+        {
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
+            using (var package = new ExcelPackage(new FileInfo(filePath)))
+            {
+                var worksheet = package.Workbook.Worksheets[0];
+                var table = new DataTable();
+
+                // Lấy tiêu đề cột
+                for (int col = 1; col <= worksheet.Dimension.End.Column; col++)
+                {
+                    table.Columns.Add(worksheet.Cells[1, col].Text);
+                }
+
+                // Lấy dữ liệu từ hàng thứ 2 trở đi
+                for (int row = 2; row <= worksheet.Dimension.End.Row; row++)
+                {
+                    var dataRow = table.NewRow();
+                    for (int col = 1; col <= worksheet.Dimension.End.Column; col++)
+                    {
+                        dataRow[col - 1] = worksheet.Cells[row, col].Text;
+                    }
+                    table.Rows.Add(dataRow);
+                }
+
+                return table;
+            }
+        }
+
+        private void btn_ImportExcel_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Excel Files|*.xls;*.xlsx",
+                Title = "Chọn file Excel"
+            };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+
+                try
+                {
+                    // Đọc dữ liệu từ file Excel
+                    var dataTable = ReadExcelFile(filePath);
+
+                    // Lưu danh sách lỗi để hiển thị
+                    List<string> errorMessages = new List<string>();
+                    int rowIndex = 2; // Bắt đầu từ dòng 2 (do dòng 1 là tiêu đề)
+
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        // Tạo đối tượng Question từ dữ liệu Excel
+                        Question question = new Question
+                        {
+                            QContent = row[0].ToString().Trim(),
+                            OptionA = row[1].ToString().Trim(),
+                            OptionB = row[2].ToString().Trim(),
+                            OptionC = row[3].ToString().Trim(),
+                            OptionD = row[4].ToString().Trim(),
+                            Answer = row[5].ToString().Trim(),
+                            SubjectID = row[6].ToString().Trim(),
+                            CreatedAt = DateTime.Now,
+                            CreatedBy = Session.LogonUser.Username
+                        };
+
+                        // Kiểm tra mã môn thi tồn tại
+                        if (!BSubject.IsSubjectExist(question.SubjectID))
+                        {
+                            errorMessages.Add($"Dòng {rowIndex}: Mã môn thi '{question.SubjectID}' không tồn tại.");
+                        }
+                        else if (!IsValidQuestion(question, out string error))
+                        {
+                            // Kiểm tra tính hợp lệ của câu hỏi
+                            errorMessages.Add($"Dòng {rowIndex}: {error}");
+                        }
+                        else
+                        {
+                            // Thêm vào cơ sở dữ liệu nếu hợp lệ
+                            BQuestion.AddNewQuestion(question);
+                        }
+
+                        rowIndex++;
+                    }
+
+                    // Hiển thị kết quả
+                    if (errorMessages.Any())
+                    {
+                        string allErrors = string.Join("\n", errorMessages);
+                        DevExpress.XtraEditors.XtraMessageBox.Show($"Đã có lỗi trong file Excel:\n{allErrors}", "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        DevExpress.XtraEditors.XtraMessageBox.Show("Nhập dữ liệu thành công!", "Thông báo");
+                        ShowHideButton(false);
+                    }
+
+                    LoadData(); // Tải lại dữ liệu
+                }
+                catch (Exception ex)
+                {
+                    DevExpress.XtraEditors.XtraMessageBox.Show($"Lỗi khi nhập file Excel: {ex.Message}", "Thông báo lỗi");
+                }
+            }
         }
     }
 }

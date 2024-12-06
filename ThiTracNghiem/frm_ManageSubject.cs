@@ -91,6 +91,7 @@ namespace ThiTracNghiem
         /// <param name="subjectId"></param>
         /// <param name="subjectName"></param>
         /// <returns></returns>
+        /// 
         private bool IsDuplicateSubject(string subjectId, string subjectName)
         {
             var subjects = BSubject.GetAll();
@@ -115,7 +116,7 @@ namespace ThiTracNghiem
         {
             var newSubject = GetSubjectInfor();
             if (!IsValidInfor(newSubject))
-                return; // thoát
+                return;
 
             if (IsDuplicateSubject(newSubject.SubjectId, newSubject.SubjectName))
             {
@@ -134,6 +135,7 @@ namespace ThiTracNghiem
                 DevExpress.XtraEditors.XtraMessageBox.Show("Error: " + ex.Message);
             }
         }
+
         /// <summary>
         /// Phương thức điều khiển việc hiển thị các nút bấm
         /// </summary>
@@ -154,6 +156,7 @@ namespace ThiTracNghiem
         {
             grb_Infor.Enabled = isEnable;
         }
+
         /// <summary>
         /// Phương thức xử lý sự kiện khi người dùng nhấn nút "Thêm mới":
         /// </summary>
@@ -180,6 +183,7 @@ namespace ThiTracNghiem
             //Vô hiệu hóa tất cả các điều khiển nhập liệu.
             SetEnableControl(false);
         }
+
         /// <summary>
         /// Phương thức tải dữ liệu môn thi từ cơ sở dữ liệu:
         /// </summary>
@@ -350,6 +354,13 @@ namespace ThiTracNghiem
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txt_TimeLimit.Text))
+            {
+                DevExpress.XtraEditors.XtraMessageBox.Show("Vui lòng nhập thời gian thi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_TimeLimit.Focus();
+                return;
+            }
+
             //Nếu đang thêm môn thi mới, gọi phương thức AddNewSubject().
             if (isAddNew)
             {

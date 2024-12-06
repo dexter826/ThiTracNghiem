@@ -137,6 +137,7 @@
             this.Controls.Add(this.guna2HtmlLabel1);
             this.Controls.Add(this.btn_Browse);
             this.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.IconOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("frmBackUp.IconOptions.SvgImage")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;

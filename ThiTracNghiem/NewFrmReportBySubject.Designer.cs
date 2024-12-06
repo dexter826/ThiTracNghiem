@@ -221,7 +221,7 @@
             this.cbb_MonThi.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbb_MonThi.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbb_MonThi.FocusedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbb_MonThi.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbb_MonThi.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbb_MonThi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbb_MonThi.FormattingEnabled = true;
             this.cbb_MonThi.ItemHeight = 25;
@@ -238,10 +238,10 @@
             this.btn_XemBaoCao.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_XemBaoCao.BackColor = System.Drawing.Color.Transparent;
             this.btn_XemBaoCao.BorderColor = System.Drawing.Color.Transparent;
-            this.btn_XemBaoCao.BorderRadius = 10;
+            this.btn_XemBaoCao.BorderRadius = 8;
             this.btn_XemBaoCao.BorderThickness = 2;
-            this.btn_XemBaoCao.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(50)))), ((int)(((byte)(255)))));
-            this.btn_XemBaoCao.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_XemBaoCao.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(138)))), ((int)(((byte)(236)))));
+            this.btn_XemBaoCao.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_XemBaoCao.ForeColor = System.Drawing.Color.White;
             this.btn_XemBaoCao.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.btn_XemBaoCao.HoverState.FillColor = System.Drawing.Color.White;
@@ -265,7 +265,7 @@
             // 
             // 
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.labelX1.Location = new System.Drawing.Point(70, 21);
             this.labelX1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -1422,10 +1422,10 @@
             this.btn_Print.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_Print.BackColor = System.Drawing.Color.Transparent;
             this.btn_Print.BorderColor = System.Drawing.Color.Transparent;
-            this.btn_Print.BorderRadius = 10;
+            this.btn_Print.BorderRadius = 8;
             this.btn_Print.BorderThickness = 2;
-            this.btn_Print.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(50)))), ((int)(((byte)(255)))));
-            this.btn_Print.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Print.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(138)))), ((int)(((byte)(236)))));
+            this.btn_Print.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Print.ForeColor = System.Drawing.Color.White;
             this.btn_Print.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.btn_Print.HoverState.FillColor = System.Drawing.Color.White;
@@ -1447,10 +1447,10 @@
             this.btn_ExportPDF.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_ExportPDF.BackColor = System.Drawing.Color.Transparent;
             this.btn_ExportPDF.BorderColor = System.Drawing.Color.Transparent;
-            this.btn_ExportPDF.BorderRadius = 10;
+            this.btn_ExportPDF.BorderRadius = 8;
             this.btn_ExportPDF.BorderThickness = 2;
-            this.btn_ExportPDF.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(50)))), ((int)(((byte)(255)))));
-            this.btn_ExportPDF.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ExportPDF.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(138)))), ((int)(((byte)(236)))));
+            this.btn_ExportPDF.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ExportPDF.ForeColor = System.Drawing.Color.White;
             this.btn_ExportPDF.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.btn_ExportPDF.HoverState.FillColor = System.Drawing.Color.White;

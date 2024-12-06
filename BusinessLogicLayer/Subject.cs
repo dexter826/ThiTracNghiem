@@ -31,5 +31,10 @@ namespace BusinessLogicLayer
         {
             return DSubject.Search(keyword);
         }
+
+        public static bool IsSubjectExist(string subjectId)
+        {
+            return DSubject.IsSubjectExist(subjectId);
+        }
     }
 }

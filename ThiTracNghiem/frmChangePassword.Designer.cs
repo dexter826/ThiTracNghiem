@@ -36,6 +36,12 @@
             this.btn_Thoat = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.txt_NewPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.txt_ConfirmNewPassword = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btn_ShowPasswordCurrent = new DevExpress.XtraEditors.PictureEdit();
+            this.btn_ShowNewPass = new DevExpress.XtraEditors.PictureEdit();
+            this.btn_ShowReNewPass = new DevExpress.XtraEditors.PictureEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_ShowPasswordCurrent.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_ShowNewPass.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_ShowReNewPass.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -197,6 +203,48 @@
             this.txt_ConfirmNewPassword.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txt_ConfirmNewPassword.TabIndex = 8;
             // 
+            // btn_ShowPasswordCurrent
+            // 
+            this.btn_ShowPasswordCurrent.EditValue = global::ThiTracNghiem.Properties.Resources.closeeye;
+            this.btn_ShowPasswordCurrent.Location = new System.Drawing.Point(448, 152);
+            this.btn_ShowPasswordCurrent.Name = "btn_ShowPasswordCurrent";
+            this.btn_ShowPasswordCurrent.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.btn_ShowPasswordCurrent.Properties.Appearance.Options.UseBackColor = true;
+            this.btn_ShowPasswordCurrent.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.btn_ShowPasswordCurrent.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.btn_ShowPasswordCurrent.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
+            this.btn_ShowPasswordCurrent.Size = new System.Drawing.Size(30, 24);
+            this.btn_ShowPasswordCurrent.TabIndex = 14;
+            this.btn_ShowPasswordCurrent.Click += new System.EventHandler(this.btn_ShowPasswordCurrent_Click);
+            // 
+            // btn_ShowNewPass
+            // 
+            this.btn_ShowNewPass.EditValue = global::ThiTracNghiem.Properties.Resources.closeeye;
+            this.btn_ShowNewPass.Location = new System.Drawing.Point(448, 208);
+            this.btn_ShowNewPass.Name = "btn_ShowNewPass";
+            this.btn_ShowNewPass.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.btn_ShowNewPass.Properties.Appearance.Options.UseBackColor = true;
+            this.btn_ShowNewPass.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.btn_ShowNewPass.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.btn_ShowNewPass.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
+            this.btn_ShowNewPass.Size = new System.Drawing.Size(30, 24);
+            this.btn_ShowNewPass.TabIndex = 15;
+            this.btn_ShowNewPass.Click += new System.EventHandler(this.btn_ShowNewPass_Click);
+            // 
+            // btn_ShowReNewPass
+            // 
+            this.btn_ShowReNewPass.EditValue = global::ThiTracNghiem.Properties.Resources.closeeye;
+            this.btn_ShowReNewPass.Location = new System.Drawing.Point(448, 264);
+            this.btn_ShowReNewPass.Name = "btn_ShowReNewPass";
+            this.btn_ShowReNewPass.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.btn_ShowReNewPass.Properties.Appearance.Options.UseBackColor = true;
+            this.btn_ShowReNewPass.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.btn_ShowReNewPass.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.btn_ShowReNewPass.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
+            this.btn_ShowReNewPass.Size = new System.Drawing.Size(30, 24);
+            this.btn_ShowReNewPass.TabIndex = 16;
+            this.btn_ShowReNewPass.Click += new System.EventHandler(this.btn_ShowReNewPass_Click);
+            // 
             // frmChangePassword
             // 
             this.AcceptButton = this.btn_Update;
@@ -207,6 +255,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_Thoat;
             this.ClientSize = new System.Drawing.Size(553, 412);
+            this.Controls.Add(this.btn_ShowReNewPass);
+            this.Controls.Add(this.btn_ShowNewPass);
+            this.Controls.Add(this.btn_ShowPasswordCurrent);
             this.Controls.Add(this.txt_ConfirmNewPassword);
             this.Controls.Add(this.txt_NewPassword);
             this.Controls.Add(this.btn_Thoat);
@@ -223,6 +274,9 @@
             this.Name = "frmChangePassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thay đổi mật khẩu";
+            ((System.ComponentModel.ISupportInitialize)(this.btn_ShowPasswordCurrent.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_ShowNewPass.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_ShowReNewPass.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -237,5 +291,8 @@
         private Guna.UI2.WinForms.Guna2GradientTileButton btn_Thoat;
         private Guna.UI2.WinForms.Guna2TextBox txt_NewPassword;
         private Guna.UI2.WinForms.Guna2TextBox txt_ConfirmNewPassword;
+        private DevExpress.XtraEditors.PictureEdit btn_ShowPasswordCurrent;
+        private DevExpress.XtraEditors.PictureEdit btn_ShowNewPass;
+        private DevExpress.XtraEditors.PictureEdit btn_ShowReNewPass;
     }
 }

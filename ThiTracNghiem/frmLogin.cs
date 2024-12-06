@@ -101,5 +101,19 @@ namespace ThiTracNghiem
             frmForgotPassword frmForgotPassword = new frmForgotPassword();
             frmForgotPassword.ShowDialog();
         }
+
+        private void btn_ShowPassword_Click(object sender, EventArgs e)
+        {
+            if (txt_MatKhau.PasswordChar == '*')
+            {
+                txt_MatKhau.PasswordChar = '\0';
+                btn_ShowPassword.Image = Properties.Resources.eye;
+            }
+            else
+            {
+                txt_MatKhau.PasswordChar = '*';
+                btn_ShowPassword.Image = Properties.Resources.closeeye;
+            }
+        }
     }
 }

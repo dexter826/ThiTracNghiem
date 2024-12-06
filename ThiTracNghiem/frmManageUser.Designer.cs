@@ -68,17 +68,17 @@
             this.btn_Edit = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.btn_Search = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.grb_Infor = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.ptb_NoImage = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.btn_UploadImg = new Guna.UI2.WinForms.Guna2GradientTileButton();
-            this.ptb_Avatar = new Guna.UI2.WinForms.Guna2PictureBox();
             this.txt_Note = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbb_Role = new Guna.UI2.WinForms.Guna2ComboBox();
             this.dtp_Birthday = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.txt_Search = new Guna.UI2.WinForms.Guna2TextBox();
             this.btn_Cancel = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.btn_Save = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.cbb_RoleFilter = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.txt_Search = new Guna.UI2.WinForms.Guna2TextBox();
+            this.ptb_NoImage = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.btn_UploadImg = new Guna.UI2.WinForms.Guna2GradientTileButton();
+            this.ptb_Avatar = new Guna.UI2.WinForms.Guna2PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.grv_DataUser)).BeginInit();
             this.grb_Infor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_NoImage)).BeginInit();
@@ -105,9 +105,9 @@
             this.btn_Add.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Add.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_Add.BackColor = System.Drawing.Color.Transparent;
-            this.btn_Add.BorderRadius = 20;
-            this.btn_Add.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(50)))), ((int)(((byte)(255)))));
-            this.btn_Add.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Add.BorderRadius = 8;
+            this.btn_Add.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(138)))), ((int)(((byte)(236)))));
+            this.btn_Add.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Add.ForeColor = System.Drawing.Color.White;
             this.btn_Add.Location = new System.Drawing.Point(435, 277);
             this.btn_Add.Margin = new System.Windows.Forms.Padding(5);
@@ -511,9 +511,9 @@
             this.btn_Delete.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Delete.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_Delete.BackColor = System.Drawing.Color.Transparent;
-            this.btn_Delete.BorderRadius = 20;
-            this.btn_Delete.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(50)))), ((int)(((byte)(255)))));
-            this.btn_Delete.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Delete.BorderRadius = 8;
+            this.btn_Delete.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(138)))), ((int)(((byte)(236)))));
+            this.btn_Delete.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Delete.ForeColor = System.Drawing.Color.White;
             this.btn_Delete.Location = new System.Drawing.Point(775, 277);
             this.btn_Delete.Margin = new System.Windows.Forms.Padding(5);
@@ -532,9 +532,9 @@
             this.btn_Edit.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Edit.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_Edit.BackColor = System.Drawing.Color.Transparent;
-            this.btn_Edit.BorderRadius = 20;
-            this.btn_Edit.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(50)))), ((int)(((byte)(255)))));
-            this.btn_Edit.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Edit.BorderRadius = 8;
+            this.btn_Edit.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(138)))), ((int)(((byte)(236)))));
+            this.btn_Edit.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Edit.ForeColor = System.Drawing.Color.White;
             this.btn_Edit.Location = new System.Drawing.Point(605, 277);
             this.btn_Edit.Margin = new System.Windows.Forms.Padding(5);
@@ -552,9 +552,9 @@
             // 
             this.btn_Search.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Search.BackColor = System.Drawing.Color.Transparent;
-            this.btn_Search.BorderRadius = 15;
-            this.btn_Search.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(50)))), ((int)(((byte)(255)))));
-            this.btn_Search.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Search.BorderRadius = 8;
+            this.btn_Search.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(138)))), ((int)(((byte)(236)))));
+            this.btn_Search.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Search.ForeColor = System.Drawing.Color.White;
             this.btn_Search.Location = new System.Drawing.Point(520, 331);
             this.btn_Search.Margin = new System.Windows.Forms.Padding(5);
@@ -606,51 +606,6 @@
             this.grb_Infor.TabIndex = 0;
             this.grb_Infor.TabStop = false;
             this.grb_Infor.Text = "Thông tin người dùng";
-            // 
-            // ptb_NoImage
-            // 
-            this.ptb_NoImage.BorderRadius = 5;
-            this.ptb_NoImage.Image = global::ThiTracNghiem.Properties.Resources.No_Image;
-            this.ptb_NoImage.ImageRotate = 0F;
-            this.ptb_NoImage.Location = new System.Drawing.Point(1190, 44);
-            this.ptb_NoImage.Name = "ptb_NoImage";
-            this.ptb_NoImage.Size = new System.Drawing.Size(107, 160);
-            this.ptb_NoImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptb_NoImage.TabIndex = 19;
-            this.ptb_NoImage.TabStop = false;
-            // 
-            // btn_UploadImg
-            // 
-            this.btn_UploadImg.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btn_UploadImg.BackColor = System.Drawing.Color.Transparent;
-            this.btn_UploadImg.BorderRadius = 4;
-            this.btn_UploadImg.FillColor = System.Drawing.Color.Silver;
-            this.btn_UploadImg.FillColor2 = System.Drawing.Color.Silver;
-            this.btn_UploadImg.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_UploadImg.ForeColor = System.Drawing.Color.Black;
-            this.btn_UploadImg.Location = new System.Drawing.Point(1190, 212);
-            this.btn_UploadImg.Margin = new System.Windows.Forms.Padding(5);
-            this.btn_UploadImg.Name = "btn_UploadImg";
-            this.btn_UploadImg.ShadowDecoration.BorderRadius = 15;
-            this.btn_UploadImg.ShadowDecoration.Depth = 10;
-            this.btn_UploadImg.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(5, 0, 5, 5);
-            this.btn_UploadImg.Size = new System.Drawing.Size(107, 37);
-            this.btn_UploadImg.TabIndex = 20;
-            this.btn_UploadImg.Text = "UPLOAD";
-            this.btn_UploadImg.Click += new System.EventHandler(this.btn_UploadImg_Click);
-            // 
-            // ptb_Avatar
-            // 
-            this.ptb_Avatar.BackColor = System.Drawing.Color.Transparent;
-            this.ptb_Avatar.BorderRadius = 5;
-            this.ptb_Avatar.FillColor = System.Drawing.Color.Gainsboro;
-            this.ptb_Avatar.ImageRotate = 0F;
-            this.ptb_Avatar.Location = new System.Drawing.Point(1190, 46);
-            this.ptb_Avatar.Name = "ptb_Avatar";
-            this.ptb_Avatar.Size = new System.Drawing.Size(107, 160);
-            this.ptb_Avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptb_Avatar.TabIndex = 20;
-            this.ptb_Avatar.TabStop = false;
             // 
             // txt_Note
             // 
@@ -712,33 +667,14 @@
             this.dtp_Birthday.TabIndex = 15;
             this.dtp_Birthday.Value = new System.DateTime(2024, 10, 1, 17, 28, 8, 142);
             // 
-            // txt_Search
-            // 
-            this.txt_Search.BorderRadius = 8;
-            this.txt_Search.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_Search.DefaultText = "";
-            this.txt_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Search.Location = new System.Drawing.Point(162, 331);
-            this.txt_Search.Margin = new System.Windows.Forms.Padding(5);
-            this.txt_Search.Multiline = true;
-            this.txt_Search.Name = "txt_Search";
-            this.txt_Search.PasswordChar = '\0';
-            this.txt_Search.PlaceholderText = "Nhập nội dung cần tìm...";
-            this.txt_Search.SelectedText = "";
-            this.txt_Search.Size = new System.Drawing.Size(348, 37);
-            this.txt_Search.TabIndex = 5;
-            this.txt_Search.Enter += new System.EventHandler(this.txt_Search_Enter);
-            this.txt_Search.Leave += new System.EventHandler(this.txt_Search_Leave);
-            this.txt_Search.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.txt_Search_MouseDoubleClick);
-            // 
             // btn_Cancel
             // 
             this.btn_Cancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Cancel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_Cancel.BackColor = System.Drawing.Color.Transparent;
-            this.btn_Cancel.BorderRadius = 20;
-            this.btn_Cancel.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(50)))), ((int)(((byte)(255)))));
-            this.btn_Cancel.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Cancel.BorderRadius = 8;
+            this.btn_Cancel.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(138)))), ((int)(((byte)(236)))));
+            this.btn_Cancel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Cancel.ForeColor = System.Drawing.Color.White;
             this.btn_Cancel.Location = new System.Drawing.Point(686, 278);
             this.btn_Cancel.Margin = new System.Windows.Forms.Padding(5);
@@ -758,9 +694,9 @@
             this.btn_Save.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Save.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_Save.BackColor = System.Drawing.Color.Transparent;
-            this.btn_Save.BorderRadius = 20;
-            this.btn_Save.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(50)))), ((int)(((byte)(255)))));
-            this.btn_Save.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Save.BorderRadius = 8;
+            this.btn_Save.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(138)))), ((int)(((byte)(236)))));
+            this.btn_Save.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Save.ForeColor = System.Drawing.Color.White;
             this.btn_Save.Location = new System.Drawing.Point(525, 278);
             this.btn_Save.Margin = new System.Windows.Forms.Padding(5);
@@ -791,6 +727,74 @@
             this.cbb_RoleFilter.Name = "cbb_RoleFilter";
             this.cbb_RoleFilter.Size = new System.Drawing.Size(135, 36);
             this.cbb_RoleFilter.TabIndex = 18;
+            // 
+            // txt_Search
+            // 
+            this.txt_Search.BorderRadius = 8;
+            this.txt_Search.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_Search.DefaultText = "";
+            this.txt_Search.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Search.IconLeft = global::ThiTracNghiem.Properties.Resources.search_grey;
+            this.txt_Search.IconLeftOffset = new System.Drawing.Point(5, 0);
+            this.txt_Search.Location = new System.Drawing.Point(162, 331);
+            this.txt_Search.Margin = new System.Windows.Forms.Padding(5);
+            this.txt_Search.Multiline = true;
+            this.txt_Search.Name = "txt_Search";
+            this.txt_Search.PasswordChar = '\0';
+            this.txt_Search.PlaceholderText = "Nhập nội dung cần tìm...";
+            this.txt_Search.SelectedText = "";
+            this.txt_Search.Size = new System.Drawing.Size(348, 37);
+            this.txt_Search.TabIndex = 5;
+            this.txt_Search.Enter += new System.EventHandler(this.txt_Search_Enter);
+            this.txt_Search.Leave += new System.EventHandler(this.txt_Search_Leave);
+            this.txt_Search.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.txt_Search_MouseDoubleClick);
+            // 
+            // ptb_NoImage
+            // 
+            this.ptb_NoImage.BorderRadius = 5;
+            this.ptb_NoImage.Image = global::ThiTracNghiem.Properties.Resources.No_Image;
+            this.ptb_NoImage.ImageRotate = 0F;
+            this.ptb_NoImage.Location = new System.Drawing.Point(1190, 44);
+            this.ptb_NoImage.Name = "ptb_NoImage";
+            this.ptb_NoImage.Size = new System.Drawing.Size(107, 160);
+            this.ptb_NoImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptb_NoImage.TabIndex = 19;
+            this.ptb_NoImage.TabStop = false;
+            // 
+            // btn_UploadImg
+            // 
+            this.btn_UploadImg.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btn_UploadImg.BackColor = System.Drawing.Color.Transparent;
+            this.btn_UploadImg.BorderColor = System.Drawing.Color.DimGray;
+            this.btn_UploadImg.BorderRadius = 4;
+            this.btn_UploadImg.BorderThickness = 1;
+            this.btn_UploadImg.FillColor = System.Drawing.Color.Silver;
+            this.btn_UploadImg.FillColor2 = System.Drawing.Color.Silver;
+            this.btn_UploadImg.Font = new System.Drawing.Font("Tahoma", 11.25F);
+            this.btn_UploadImg.ForeColor = System.Drawing.Color.Black;
+            this.btn_UploadImg.Image = global::ThiTracNghiem.Properties.Resources.upload_img;
+            this.btn_UploadImg.Location = new System.Drawing.Point(1207, 212);
+            this.btn_UploadImg.Margin = new System.Windows.Forms.Padding(5);
+            this.btn_UploadImg.Name = "btn_UploadImg";
+            this.btn_UploadImg.ShadowDecoration.BorderRadius = 15;
+            this.btn_UploadImg.ShadowDecoration.Depth = 10;
+            this.btn_UploadImg.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(5, 0, 5, 5);
+            this.btn_UploadImg.Size = new System.Drawing.Size(73, 29);
+            this.btn_UploadImg.TabIndex = 20;
+            this.btn_UploadImg.Click += new System.EventHandler(this.btn_UploadImg_Click);
+            // 
+            // ptb_Avatar
+            // 
+            this.ptb_Avatar.BackColor = System.Drawing.Color.Transparent;
+            this.ptb_Avatar.BorderRadius = 5;
+            this.ptb_Avatar.FillColor = System.Drawing.Color.Gainsboro;
+            this.ptb_Avatar.ImageRotate = 0F;
+            this.ptb_Avatar.Location = new System.Drawing.Point(1190, 46);
+            this.ptb_Avatar.Name = "ptb_Avatar";
+            this.ptb_Avatar.Size = new System.Drawing.Size(107, 160);
+            this.ptb_Avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptb_Avatar.TabIndex = 20;
+            this.ptb_Avatar.TabStop = false;
             // 
             // frmManageUser
             // 

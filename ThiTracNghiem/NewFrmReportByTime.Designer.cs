@@ -45,9 +45,9 @@
             // 
             // 
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX2.Location = new System.Drawing.Point(344, 13);
-            this.labelX2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.labelX2.Margin = new System.Windows.Forms.Padding(2);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(79, 24);
             this.labelX2.TabIndex = 2;
@@ -62,15 +62,15 @@
             this.btn_XemBaoCao.BorderColor = System.Drawing.Color.Transparent;
             this.btn_XemBaoCao.BorderRadius = 5;
             this.btn_XemBaoCao.BorderThickness = 2;
-            this.btn_XemBaoCao.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(50)))), ((int)(((byte)(255)))));
-            this.btn_XemBaoCao.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_XemBaoCao.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(138)))), ((int)(((byte)(236)))));
+            this.btn_XemBaoCao.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_XemBaoCao.ForeColor = System.Drawing.Color.White;
             this.btn_XemBaoCao.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.btn_XemBaoCao.HoverState.FillColor = System.Drawing.Color.White;
             this.btn_XemBaoCao.HoverState.FillColor2 = System.Drawing.Color.White;
             this.btn_XemBaoCao.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.btn_XemBaoCao.Location = new System.Drawing.Point(612, 7);
-            this.btn_XemBaoCao.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_XemBaoCao.Margin = new System.Windows.Forms.Padding(2);
             this.btn_XemBaoCao.Name = "btn_XemBaoCao";
             this.btn_XemBaoCao.ShadowDecoration.BorderRadius = 5;
             this.btn_XemBaoCao.ShadowDecoration.Depth = 10;
@@ -88,9 +88,9 @@
             // 
             // 
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX1.Location = new System.Drawing.Point(97, 13);
-            this.labelX1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.labelX1.Margin = new System.Windows.Forms.Padding(2);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(88, 24);
             this.labelX1.TabIndex = 0;
@@ -105,15 +105,15 @@
             this.btn_ExportPDF.BorderColor = System.Drawing.Color.Transparent;
             this.btn_ExportPDF.BorderRadius = 5;
             this.btn_ExportPDF.BorderThickness = 2;
-            this.btn_ExportPDF.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(50)))), ((int)(((byte)(255)))));
-            this.btn_ExportPDF.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ExportPDF.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(138)))), ((int)(((byte)(236)))));
+            this.btn_ExportPDF.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ExportPDF.ForeColor = System.Drawing.Color.White;
             this.btn_ExportPDF.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.btn_ExportPDF.HoverState.FillColor = System.Drawing.Color.White;
             this.btn_ExportPDF.HoverState.FillColor2 = System.Drawing.Color.White;
             this.btn_ExportPDF.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.btn_ExportPDF.Location = new System.Drawing.Point(911, 7);
-            this.btn_ExportPDF.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_ExportPDF.Margin = new System.Windows.Forms.Padding(2);
             this.btn_ExportPDF.Name = "btn_ExportPDF";
             this.btn_ExportPDF.ShadowDecoration.BorderRadius = 5;
             this.btn_ExportPDF.ShadowDecoration.Depth = 10;
@@ -132,15 +132,15 @@
             this.btn_Print.BorderColor = System.Drawing.Color.Transparent;
             this.btn_Print.BorderRadius = 5;
             this.btn_Print.BorderThickness = 2;
-            this.btn_Print.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(50)))), ((int)(((byte)(255)))));
-            this.btn_Print.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Print.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(138)))), ((int)(((byte)(236)))));
+            this.btn_Print.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Print.ForeColor = System.Drawing.Color.White;
             this.btn_Print.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.btn_Print.HoverState.FillColor = System.Drawing.Color.White;
             this.btn_Print.HoverState.FillColor2 = System.Drawing.Color.White;
             this.btn_Print.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.btn_Print.Location = new System.Drawing.Point(756, 7);
-            this.btn_Print.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Print.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Print.Name = "btn_Print";
             this.btn_Print.ShadowDecoration.BorderRadius = 5;
             this.btn_Print.ShadowDecoration.Depth = 10;
@@ -197,7 +197,7 @@
             this.documentViewer1.DocumentSource = typeof(ThiTracNghiem.XtraReportByTime);
             this.documentViewer1.IsMetric = true;
             this.documentViewer1.Location = new System.Drawing.Point(12, 50);
-            this.documentViewer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.documentViewer1.Margin = new System.Windows.Forms.Padding(4);
             this.documentViewer1.Name = "documentViewer1";
             this.documentViewer1.Size = new System.Drawing.Size(1138, 669);
             this.documentViewer1.TabIndex = 7;
@@ -214,7 +214,7 @@
             this.Controls.Add(this.labelX2);
             this.Controls.Add(this.btn_XemBaoCao);
             this.Controls.Add(this.labelX1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(1154, 708);
             this.Name = "NewFrmReportByTime";
             this.Size = new System.Drawing.Size(1155, 708);

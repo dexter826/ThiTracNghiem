@@ -70,10 +70,10 @@
             this.btn_Ok.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Ok.BackColor = System.Drawing.Color.Transparent;
             this.btn_Ok.BorderColor = System.Drawing.Color.Transparent;
-            this.btn_Ok.BorderRadius = 20;
+            this.btn_Ok.BorderRadius = 8;
             this.btn_Ok.BorderThickness = 2;
-            this.btn_Ok.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.btn_Ok.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Ok.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(138)))), ((int)(((byte)(236)))));
+            this.btn_Ok.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Ok.ForeColor = System.Drawing.Color.White;
             this.btn_Ok.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.btn_Ok.HoverState.FillColor = System.Drawing.Color.White;
@@ -260,6 +260,7 @@
             this.Controls.Add(this.btn_Ok);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;

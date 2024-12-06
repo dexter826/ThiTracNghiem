@@ -79,8 +79,8 @@
             this.btn_Ok.BorderColor = System.Drawing.Color.Transparent;
             this.btn_Ok.BorderRadius = 10;
             this.btn_Ok.BorderThickness = 2;
-            this.btn_Ok.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(50)))), ((int)(((byte)(255)))));
-            this.btn_Ok.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Ok.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(138)))), ((int)(((byte)(236)))));
+            this.btn_Ok.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Ok.ForeColor = System.Drawing.Color.White;
             this.btn_Ok.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.btn_Ok.HoverState.FillColor = System.Drawing.Color.White;
@@ -95,7 +95,8 @@
             // 
             // txt_Name
             // 
-            this.txt_Name.BackColor = System.Drawing.Color.White;
+            this.txt_Name.BackColor = System.Drawing.Color.Transparent;
+            this.txt_Name.BorderRadius = 5;
             this.txt_Name.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_Name.DefaultText = "";
             this.txt_Name.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -112,7 +113,8 @@
             // 
             // txt_Birthday
             // 
-            this.txt_Birthday.BackColor = System.Drawing.Color.White;
+            this.txt_Birthday.BackColor = System.Drawing.Color.Transparent;
+            this.txt_Birthday.BorderRadius = 5;
             this.txt_Birthday.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_Birthday.DefaultText = "";
             this.txt_Birthday.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -139,7 +141,8 @@
             // 
             // txt_SubjectName
             // 
-            this.txt_SubjectName.BackColor = System.Drawing.Color.White;
+            this.txt_SubjectName.BackColor = System.Drawing.Color.Transparent;
+            this.txt_SubjectName.BorderRadius = 5;
             this.txt_SubjectName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_SubjectName.DefaultText = "";
             this.txt_SubjectName.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -166,7 +169,8 @@
             // 
             // txt_NumberOfQuestion
             // 
-            this.txt_NumberOfQuestion.BackColor = System.Drawing.Color.White;
+            this.txt_NumberOfQuestion.BackColor = System.Drawing.Color.Transparent;
+            this.txt_NumberOfQuestion.BorderRadius = 5;
             this.txt_NumberOfQuestion.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_NumberOfQuestion.DefaultText = "";
             this.txt_NumberOfQuestion.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -193,7 +197,8 @@
             // 
             // txt_CorrectAnswer
             // 
-            this.txt_CorrectAnswer.BackColor = System.Drawing.Color.White;
+            this.txt_CorrectAnswer.BackColor = System.Drawing.Color.Transparent;
+            this.txt_CorrectAnswer.BorderRadius = 5;
             this.txt_CorrectAnswer.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_CorrectAnswer.DefaultText = "";
             this.txt_CorrectAnswer.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -220,7 +225,8 @@
             // 
             // txt_Mark
             // 
-            this.txt_Mark.BackColor = System.Drawing.Color.White;
+            this.txt_Mark.BackColor = System.Drawing.Color.Transparent;
+            this.txt_Mark.BorderRadius = 5;
             this.txt_Mark.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_Mark.DefaultText = "";
             this.txt_Mark.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -247,7 +253,8 @@
             // 
             // txt_Rate
             // 
-            this.txt_Rate.BackColor = System.Drawing.Color.White;
+            this.txt_Rate.BackColor = System.Drawing.Color.Transparent;
+            this.txt_Rate.BorderRadius = 5;
             this.txt_Rate.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_Rate.DefaultText = "";
             this.txt_Rate.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -336,6 +343,7 @@
             this.Controls.Add(this.pictureEdit2);
             this.Controls.Add(this.pictureEdit1);
             this.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1087, 441);

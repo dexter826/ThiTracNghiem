@@ -94,5 +94,47 @@ namespace ThiTracNghiem
                 XtraMessageBox.Show("Error: " + ex.Message);
             }
         }
+
+        private void btn_ShowPasswordCurrent_Click(object sender, EventArgs e)
+        {
+            if (txt_MatKhau.PasswordChar == '*')
+            {
+                txt_MatKhau.PasswordChar = '\0';
+                btn_ShowPasswordCurrent.Image = Properties.Resources.eye;
+            }
+            else
+            {
+                txt_MatKhau.PasswordChar = '*';
+                btn_ShowPasswordCurrent.Image = Properties.Resources.closeeye;
+            }
+        }
+
+        private void btn_ShowNewPass_Click(object sender, EventArgs e)
+        {
+            if (txt_MatKhau.PasswordChar == '*')
+            {
+                txt_NewPassword.PasswordChar = '\0';
+                btn_ShowNewPass.Image = Properties.Resources.eye;
+            }
+            else
+            {
+                txt_NewPassword.PasswordChar = '*';
+                btn_ShowNewPass.Image = Properties.Resources.closeeye;
+            }
+        }
+
+        private void btn_ShowReNewPass_Click(object sender, EventArgs e)
+        {
+            if (txt_MatKhau.PasswordChar == '*')
+            {
+                txt_ConfirmNewPassword.PasswordChar = '\0';
+                btn_ShowReNewPass.Image = Properties.Resources.eye;
+            }
+            else
+            {
+                txt_ConfirmNewPassword.PasswordChar = '*';
+                btn_ShowReNewPass.Image = Properties.Resources.closeeye;
+            }
+        }
     }
 }

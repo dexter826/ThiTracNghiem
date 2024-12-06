@@ -141,10 +141,10 @@
             this.btn_Start.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Start.BackColor = System.Drawing.Color.Transparent;
             this.btn_Start.BorderColor = System.Drawing.Color.Transparent;
-            this.btn_Start.BorderRadius = 20;
+            this.btn_Start.BorderRadius = 8;
             this.btn_Start.BorderThickness = 2;
-            this.btn_Start.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(50)))), ((int)(((byte)(255)))));
-            this.btn_Start.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Start.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(138)))), ((int)(((byte)(236)))));
+            this.btn_Start.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Start.ForeColor = System.Drawing.Color.White;
             this.btn_Start.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.btn_Start.HoverState.FillColor = System.Drawing.Color.White;
@@ -166,10 +166,10 @@
             this.btn_Exit.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Exit.BackColor = System.Drawing.Color.Transparent;
             this.btn_Exit.BorderColor = System.Drawing.Color.Transparent;
-            this.btn_Exit.BorderRadius = 20;
+            this.btn_Exit.BorderRadius = 8;
             this.btn_Exit.BorderThickness = 2;
-            this.btn_Exit.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(50)))), ((int)(((byte)(255)))));
-            this.btn_Exit.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Exit.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(138)))), ((int)(((byte)(236)))));
+            this.btn_Exit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Exit.ForeColor = System.Drawing.Color.White;
             this.btn_Exit.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.btn_Exit.HoverState.FillColor = System.Drawing.Color.White;

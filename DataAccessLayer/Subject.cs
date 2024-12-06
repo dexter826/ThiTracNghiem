@@ -43,7 +43,7 @@ namespace DataAccessLayer
             }
         }
 
-        public static void UpdateSubject (Subject editSubject)
+        public static void UpdateSubject(Subject editSubject)
         {
             try
             {
@@ -85,5 +85,24 @@ namespace DataAccessLayer
                 throw ex;
             }
         }
+
+        public static bool IsSubjectExist(string subjectID)
+        {
+            try
+            {
+                // Gọi thủ tục "sp_IsSubjectExist" với tham số @SubjectID
+                object result = SqlHelper.ExecuteScalar(TestCore.ConnectionString.strCon, CommandType.StoredProcedure, "Subject_IsSubjectExist",
+                                                                                                        new SqlParameter("@SubjectID", subjectID)
+                );
+
+                // Kiểm tra kết quả trả về
+                return result != null && Convert.ToInt32(result) == 1;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

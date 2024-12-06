@@ -37,8 +37,10 @@
             this.txt_MatKhau = new Guna.UI2.WinForms.Guna2TextBox();
             this.txt_TaiKhoan = new Guna.UI2.WinForms.Guna2TextBox();
             this.pictureEdit2 = new DevExpress.XtraEditors.PictureEdit();
+            this.btn_ShowPassword = new DevExpress.XtraEditors.PictureEdit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_ShowPassword.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -200,6 +202,20 @@
             this.pictureEdit2.Size = new System.Drawing.Size(473, 544);
             this.pictureEdit2.TabIndex = 11;
             // 
+            // btn_ShowPassword
+            // 
+            this.btn_ShowPassword.EditValue = global::ThiTracNghiem.Properties.Resources.closeeye;
+            this.btn_ShowPassword.Location = new System.Drawing.Point(789, 273);
+            this.btn_ShowPassword.Name = "btn_ShowPassword";
+            this.btn_ShowPassword.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.btn_ShowPassword.Properties.Appearance.Options.UseBackColor = true;
+            this.btn_ShowPassword.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.btn_ShowPassword.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.btn_ShowPassword.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
+            this.btn_ShowPassword.Size = new System.Drawing.Size(30, 24);
+            this.btn_ShowPassword.TabIndex = 13;
+            this.btn_ShowPassword.Click += new System.EventHandler(this.btn_ShowPassword_Click);
+            // 
             // frmLogin
             // 
             this.AcceptButton = this.btn_DangNhap;
@@ -210,6 +226,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_Thoat;
             this.ClientSize = new System.Drawing.Size(879, 446);
+            this.Controls.Add(this.btn_ShowPassword);
             this.Controls.Add(this.lbl_ForgetPass);
             this.Controls.Add(this.pictureEdit1);
             this.Controls.Add(this.label1);
@@ -219,6 +236,7 @@
             this.Controls.Add(this.txt_TaiKhoan);
             this.Controls.Add(this.pictureEdit2);
             this.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("frmLogin.IconOptions.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.MaximizeBox = false;
@@ -229,6 +247,7 @@
             this.Text = "Hệ thống thi trắc nghiệm";
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_ShowPassword.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,5 +263,6 @@
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevExpress.XtraEditors.PictureEdit pictureEdit2;
         private DevExpress.XtraEditors.HyperlinkLabelControl lbl_ForgetPass;
+        private DevExpress.XtraEditors.PictureEdit btn_ShowPassword;
     }
 }

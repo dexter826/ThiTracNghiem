@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.Utils.Extensions;
+using DevExpress.XtraEditors;
 using DevExpress.XtraSplashScreen;
 using System;
 using System.Data.SqlClient;
@@ -225,6 +226,12 @@ namespace ThiTracNghiem
                                       xtraTabControl1.BackgroundImage.Width, xtraTabControl1.BackgroundImage.Height,
                                       GraphicsUnit.Pixel);
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblTime.Text = DateTime.Now.ToString("HH:mm:ss");
+            lblDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
     }
 }

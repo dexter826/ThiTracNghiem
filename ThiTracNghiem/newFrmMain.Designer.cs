@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(newFrmMain));
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
@@ -62,6 +63,9 @@
             this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
+            this.lblTime = new DevExpress.XtraEditors.LabelControl();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lblDate = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.SuspendLayout();
@@ -304,7 +308,7 @@
             this.ribbonPage4});
             this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(1540, 169);
+            this.ribbonControl1.Size = new System.Drawing.Size(1540, 145);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             this.ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             this.ribbonControl1.TransparentEditorsMode = DevExpress.Utils.DefaultBoolean.True;
@@ -350,22 +354,58 @@
             this.xtraTabControl1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.xtraTabControl1.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPageHeaders;
             this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraTabControl1.Location = new System.Drawing.Point(0, 169);
+            this.xtraTabControl1.Location = new System.Drawing.Point(0, 145);
             this.xtraTabControl1.Margin = new System.Windows.Forms.Padding(12);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.ShowTabHeader = DevExpress.Utils.DefaultBoolean.True;
-            this.xtraTabControl1.Size = new System.Drawing.Size(1540, 676);
+            this.xtraTabControl1.Size = new System.Drawing.Size(1540, 700);
             this.xtraTabControl1.TabIndex = 7;
             this.xtraTabControl1.CloseButtonClick += new System.EventHandler(this.xtraTabControl1_CloseButtonClick);
             this.xtraTabControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.xtraTabControl1_Paint);
             // 
+            // lblTime
+            // 
+            this.lblTime.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(109)))), ((int)(((byte)(156)))));
+            this.lblTime.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.Appearance.ForeColor = System.Drawing.Color.White;
+            this.lblTime.Appearance.Options.UseBackColor = true;
+            this.lblTime.Appearance.Options.UseFont = true;
+            this.lblTime.Appearance.Options.UseForeColor = true;
+            this.lblTime.Location = new System.Drawing.Point(634, 6);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(31, 16);
+            this.lblTime.TabIndex = 9;
+            this.lblTime.Text = "Time";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // lblDate
+            // 
+            this.lblDate.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(109)))), ((int)(((byte)(156)))));
+            this.lblDate.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Appearance.ForeColor = System.Drawing.Color.White;
+            this.lblDate.Appearance.Options.UseBackColor = true;
+            this.lblDate.Appearance.Options.UseFont = true;
+            this.lblDate.Appearance.Options.UseForeColor = true;
+            this.lblDate.Location = new System.Drawing.Point(634, 23);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(29, 16);
+            this.lblDate.TabIndex = 10;
+            this.lblDate.Text = "Date";
+            // 
             // newFrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1540, 845);
+            this.Controls.Add(this.lblDate);
+            this.Controls.Add(this.lblTime);
             this.Controls.Add(this.xtraTabControl1);
             this.Controls.Add(this.lbl_HelloUser);
             this.Controls.Add(this.ribbonControl1);
@@ -420,5 +460,8 @@
         private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup12;
         private DevExpress.XtraBars.BarButtonItem mn_Restore;
+        private DevExpress.XtraEditors.LabelControl lblTime;
+        private System.Windows.Forms.Timer timer1;
+        private DevExpress.XtraEditors.LabelControl lblDate;
     }
 }

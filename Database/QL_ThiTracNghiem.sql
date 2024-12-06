@@ -492,6 +492,17 @@ UPDATE [dbo].[Subject]
 
 GO
 
+CREATE PROCEDURE [dbo].[Subject_IsSubjectExist]
+    @SubjectID NVARCHAR(50)
+AS
+BEGIN
+    IF EXISTS (SELECT 1 FROM Subject WHERE SubjectID = @SubjectID)
+        RETURN 1
+    ELSE
+        RETURN 0
+END
+go
+
 create proc [dbo].[TestHistory_Insert]
 	@UserID int
     ,@SubjectID varchar(50)

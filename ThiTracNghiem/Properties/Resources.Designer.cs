@@ -93,6 +93,16 @@ namespace ThiTracNghiem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add {
+            get {
+                object obj = ResourceManager.GetObject("add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Backup_Database {
             get {
                 object obj = ResourceManager.GetObject("Backup_Database", resourceCulture);
@@ -103,9 +113,29 @@ namespace ThiTracNghiem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap closeeye {
+            get {
+                object obj = ResourceManager.GetObject("closeeye", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cloud_backup {
             get {
                 object obj = ResourceManager.GetObject("cloud backup", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap eye {
+            get {
+                object obj = ResourceManager.GetObject("eye", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -243,6 +273,16 @@ namespace ThiTracNghiem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap search_grey {
+            get {
+                object obj = ResourceManager.GetObject("search_grey", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Security_Research {
             get {
                 object obj = ResourceManager.GetObject("Security Research", resourceCulture);
@@ -256,6 +296,16 @@ namespace ThiTracNghiem.Properties {
         internal static System.Drawing.Bitmap toolxox_com_iscout_6nje7zxhVN_upscayl_4x_ultramix_balanced {
             get {
                 object obj = ResourceManager.GetObject("toolxox.com-iscout-6nje7zxhVN_upscayl_4x_ultramix_balanced", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap upload_img {
+            get {
+                object obj = ResourceManager.GetObject("upload_img", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
