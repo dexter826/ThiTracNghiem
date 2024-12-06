@@ -26,6 +26,7 @@ CREATE TABLE [dbo].[Subject] (
     [SubjectID] VARCHAR(50) NOT NULL,
     [SubjectName] NVARCHAR(50) NULL,
 	[QuesQuantity] INT NULL,
+	[TimeLimit] INT NULL,
     [Description] NVARCHAR(50) NULL,
     [CreatedBy] VARCHAR(50) NULL,
     [CreatedAt] DATETIME NULL,
@@ -411,6 +412,7 @@ create procedure [dbo].[Subject_Insert]
 @SubjectID varchar(50),
 @SubjectName nvarchar(50),
 @QuesQuantity int,
+@TimeLimit int,
 @Description nvarchar(50),
 @CreatedBy varchar(50),
 @ModifiedBy varchar(50)
@@ -419,6 +421,7 @@ INSERT INTO [dbo].[Subject]
            ([SubjectID],
            [SubjectName],
 		   [QuesQuantity],
+		   [TimeLimit],
            [Description],
            [CreatedBy],
            [CreatedAt],
@@ -428,6 +431,7 @@ INSERT INTO [dbo].[Subject]
            (@SubjectID,
            @SubjectName,
 		   @QuesQuantity,
+		   @TimeLimit,
            @Description,
            @CreatedBy,
            Getdate(),
@@ -441,6 +445,7 @@ as
 SELECT [SubjectID]
       ,[SubjectName]
 	  ,[QuesQuantity]
+	  ,[TimeLimit]
       ,[Description]
       ,[CreatedBy]
       ,[CreatedAt]
@@ -457,6 +462,7 @@ As
 SELECT [SubjectID]
       ,[SubjectName]
 	  ,[QuesQuantity]
+	  ,[TimeLimit]
       ,[Description]
       ,[CreatedBy]
       ,[CreatedAt]
@@ -470,6 +476,7 @@ create procedure [dbo].[Subject_Update]
 @SubjectID varchar(50),
 @SubjectName nvarchar(50),
 @QuesQuantity int,
+@TimeLimit int,
 @Description nvarchar(50),
 @ModifiedBy varchar(50)
 as
@@ -477,6 +484,7 @@ as
 UPDATE [dbo].[Subject]
    SET [SubjectName] = @SubjectName 
 		,[QuesQuantity] = @QuesQuantity
+		,[TimeLimit] = @TimeLimit
       ,[Description] = @Description
       ,[ModifiedBy] = @ModifiedBy 
       ,[ModifiedAt] = GETDATE()

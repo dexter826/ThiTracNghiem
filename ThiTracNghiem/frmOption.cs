@@ -43,12 +43,6 @@ namespace ThiTracNghiem
                 return;
             }
 
-            //if (cbb_NumberOfQuestion.StartIndex == -1)
-            //{
-            //    XtraMessageBox.Show("Vui lòng chọn số lượng câu hỏi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    return;
-            //}
-
             try
             {
                 Session.SubjectName = cbb_Subject.Text;
@@ -77,7 +71,7 @@ namespace ThiTracNghiem
             {
                 var subjects = BSubject.GetAll();
                 var filteredSubjects = subjects.AsEnumerable()
-                    .Where(row => BQuestion.GetTotalQuestion(row["SubjectID"].ToString()) > 0)
+                    .Where(row => BQuestion.GetTotalQuestion(row["SubjectID"].ToString()) >= Convert.ToInt32(row["QuesQuantity"]))
                     .CopyToDataTable();
 
                 cbb_Subject.DataSource = filteredSubjects;
@@ -88,6 +82,7 @@ namespace ThiTracNghiem
                 {
                     var selectedSubject = filteredSubjects.Rows[0];
                     txt_NumberQuestion.Text = selectedSubject["QuesQuantity"].ToString();
+                    txt_Time.Text = selectedSubject["TimeLimit"].ToString();
                 }
             }
             catch (Exception ex)
@@ -105,10 +100,6 @@ namespace ThiTracNghiem
                 txt_Time.Enabled = true;
                 txt_Time.ReadOnly = false;
             }
-
-            int numberOfQuestions;
-            bool isValid = int.TryParse(txt_NumberQuestion.Text, out numberOfQuestions);
-            txt_Time.Text = isValid ? (numberOfQuestions + 10).ToString() : string.Empty;
         }
 
         private void txt_Time_KeyPress(object sender, KeyPressEventArgs e)
@@ -117,14 +108,6 @@ namespace ThiTracNghiem
             {
                 e.Handled = true;
             }
-        }
-
-        private void txt_NumberQuestion_TextChanged(object sender, EventArgs e)
-        {
-            int numberOfQuestions;
-            bool isValid = int.TryParse(txt_NumberQuestion.Text, out numberOfQuestions);
-
-            txt_Time.Text = isValid ? (numberOfQuestions + 10).ToString() : string.Empty;
         }
 
         private void cbb_Subject_SelectedIndexChanged(object sender, EventArgs e)
@@ -139,6 +122,7 @@ namespace ThiTracNghiem
                 if (selectedSubject != null)
                 {
                     txt_NumberQuestion.Text = selectedSubject["QuesQuantity"].ToString();
+                    txt_Time.Text = selectedSubject["TimeLimit"].ToString();
                 }
             }
         }

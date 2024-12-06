@@ -83,6 +83,11 @@ namespace ThiTracNghiem
             {
                 strMessage += "Lựa chọn D không được để trống!\n";
             }
+            if (question.OptionA == question.OptionB || question.OptionA == question.OptionC || question.OptionA == question.OptionD ||
+        question.OptionB == question.OptionC || question.OptionB == question.OptionD || question.OptionC == question.OptionD)
+            {
+                strMessage += "Phát hiện có lựa chọn bị trùng\nVui lòng kiểm tra lại!\n";
+            }
             if (string.IsNullOrEmpty(question.Answer))
             {
                 strMessage += "Đáp án không được để trống!\n";
@@ -114,7 +119,7 @@ namespace ThiTracNghiem
             {
                 //Thêm câu hỏi mới vào cơ sở dữ liệu thông qua BQuestion.AddNewQuestion.
                 BQuestion.AddNewQuestion(newQuestion);
-                DevExpress.XtraEditors.XtraMessageBox.Show("Thông báo", "Thêm mới thành công!");
+                DevExpress.XtraEditors.XtraMessageBox.Show("Thêm câu hỏi mới thành công", "Thông báo");
                 LoadData();
             }
             catch (Exception ex)
@@ -231,7 +236,7 @@ namespace ThiTracNghiem
             try
             {
                 BQuestion.UpdateQuestion(editUser);
-                DevExpress.XtraEditors.XtraMessageBox.Show("Cập nhật thành công!", "Thông báo!");
+                DevExpress.XtraEditors.XtraMessageBox.Show("Cập nhật câu hỏi thành công!", "Thông báo!");
                 LoadData();
             }
             catch (Exception ex)

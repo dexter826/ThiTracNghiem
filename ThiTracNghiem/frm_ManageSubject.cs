@@ -46,6 +46,7 @@ namespace ThiTracNghiem
             subject.SubjectId = txt_SubjectId.Text.Trim();
             subject.SubjectName = txt_SubjectName.Text.Trim();
             subject.QuesQuantity = int.Parse(cbb_NumberOfQuestion.Text);
+            subject.TimeLimit = int.Parse(txt_TimeLimit.Text);
             subject.Description = txt_SubjectDesb.Text.Trim();
 
             subject.CreatedAt = DateTime.Now;
@@ -69,6 +70,10 @@ namespace ThiTracNghiem
             if (string.IsNullOrEmpty(subject.SubjectId))
             {
                 strMessage += "Mã môn thi không được để trống!\n";
+            }
+            if (subject.TimeLimit <= 0)
+            {
+                strMessage += "Vui lòng nhập thời gian thi hợp lệ\n";
             }
 
             //kiểm tra hợp lệ
@@ -165,6 +170,7 @@ namespace ThiTracNghiem
             txt_SubjectDesb.Clear();
             txt_SubjectId.ReadOnly = false;
             txt_SubjectId.Enabled = true;
+            txt_SubjectId.Focus();
         }
 
         private void frmManageSubject_Load(object sender, EventArgs e)
@@ -213,6 +219,7 @@ namespace ThiTracNghiem
                 txt_SubjectId.Text = row.Cells["SubjectID"].Value.ToString();
                 txt_SubjectName.Text = row.Cells["SubjectName"].Value.ToString();
                 cbb_NumberOfQuestion.Text = row.Cells["QuesQuantity"].Value.ToString();
+                txt_TimeLimit.Text = row.Cells["TimeLimit"].Value.ToString();
                 txt_SubjectDesb.Text = row.Cells["Description"].Value.ToString();
             }
             catch (Exception ex)

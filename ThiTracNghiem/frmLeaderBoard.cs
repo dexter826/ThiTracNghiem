@@ -34,30 +34,7 @@ namespace ThiTracNghiem
 
         private void btn_Ok_Click(object sender, EventArgs e)
         {
-            if (!Session.LogonUser.RoldId.Equals("User"))
-            {
-                // Đặt cờ để bỏ qua xác nhận đóng form
-                isSwitchingToMain = true;
-
-                // Tìm form frmTest và đặt giá trị cờ isSwitchingToMain
-                frmTest frmTest = Application.OpenForms.OfType<frmTest>().FirstOrDefault();
-                if (frmTest != null)
-                {
-                    //Nếu tìm thấy, gọi SetSwitchingToMainFlag(isSwitchingToMain) để thiết lập cờ chuyển đổi.
-                    frmTest.SetSwitchingToMainFlag(isSwitchingToMain);
-                }
-
-                // Ẩn form hiện tại (frmTestResult)
-                this.Hide();
-
-                // Mở frmMain
-                newFrmMain frmMain = new newFrmMain();
-                frmMain.Show();
-            }
-            else
-            {
-                this.Close();
-            }
+            this.Close();
         }
 
         private void frmLeaderBoard_Load(object sender, EventArgs e)

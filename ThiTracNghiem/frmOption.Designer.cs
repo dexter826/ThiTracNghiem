@@ -218,7 +218,6 @@
             this.txt_NumberQuestion.SelectedText = "";
             this.txt_NumberQuestion.Size = new System.Drawing.Size(315, 35);
             this.txt_NumberQuestion.TabIndex = 10;
-            this.txt_NumberQuestion.TextChanged += new System.EventHandler(this.txt_NumberQuestion_TextChanged);
             // 
             // frmOption
             // 

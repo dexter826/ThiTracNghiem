@@ -19,6 +19,7 @@ namespace DataAccessLayer
                                                     newSubject.SubjectId,
                                                     newSubject.SubjectName,
                                                     newSubject.QuesQuantity,
+                                                    newSubject.TimeLimit,
                                                     newSubject.Description,
                                                     newSubject.CreatedBy,
                                                     newSubject.ModifiedBy);
@@ -50,6 +51,7 @@ namespace DataAccessLayer
                                                     editSubject.SubjectId,
                                                     editSubject.SubjectName,
                                                     editSubject.QuesQuantity,
+                                                    editSubject.TimeLimit,
                                                     editSubject.Description,
                                                     editSubject.ModifiedBy);
             }
