@@ -90,17 +90,33 @@ namespace DataAccessLayer
         {
             try
             {
-                // Gọi thủ tục "sp_IsSubjectExist" với tham số @SubjectID
-                object result = SqlHelper.ExecuteScalar(TestCore.ConnectionString.strCon, CommandType.StoredProcedure, "Subject_IsSubjectExist",
-                                                                                                        new SqlParameter("@SubjectID", subjectID)
-                );
+                using (SqlConnection conn = new SqlConnection(TestCore.ConnectionString.strCon))
+                {
+                    using (SqlCommand cmd = new SqlCommand("Subject_IsSubjectExist", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
 
-                // Kiểm tra kết quả trả về
-                return result != null && Convert.ToInt32(result) == 1;
+                        // Thêm tham số đầu vào
+                        cmd.Parameters.Add(new SqlParameter("@SubjectID", SqlDbType.VarChar, 50)).Value = subjectID;
+
+                        // Thêm tham số đầu ra
+                        var outputParam = new SqlParameter("@IsExist", SqlDbType.Bit)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+                        cmd.Parameters.Add(outputParam);
+
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+
+                        // Lấy giá trị từ tham số đầu ra
+                        return (bool)outputParam.Value;
+                    }
+                }
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new Exception("Error checking subject existence: " + ex.Message);
             }
         }
 

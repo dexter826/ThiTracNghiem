@@ -143,22 +143,22 @@ ALTER TABLE [dbo].[UserAccount] CHECK CONSTRAINT [FK_UserAccount_UserRole];
 Go
 
 --------------------------------------------------insert------------------------------------------
-INSERT INTO [dbo].[Subject] ([SubjectID], [SubjectName], [Description]) VALUES 
-(N'ATTT', N'An toàn thông tin', 10,N'Học về bảo mật và an toàn thông tin'),
-(N'CSDL', N'Cơ sở dữ liệu', 10,N'Nghiên cứu về hệ thống quản lý cơ sở dữ liệu'),
-(N'CTDLGT', N'Cấu trúc dữ liệu và Giải thuật', 20,N'Nghiên cứu về cấu trúc dữ liệu và thuật toán')
+INSERT INTO [dbo].[Subject] ([SubjectID], [SubjectName],[QuesQuantity],[TimeLimit] [Description]) VALUES 
+(N'ATTT', N'An toàn thông tin', 10, 20, N'Học về bảo mật và an toàn thông tin'),
+(N'CSDL', N'Cơ sở dữ liệu', 10,20,N'Nghiên cứu về hệ thống quản lý cơ sở dữ liệu'),
+(N'CTDLGT', N'Cấu trúc dữ liệu và Giải thuật', 20,30,N'Nghiên cứu về cấu trúc dữ liệu và thuật toán')
 
 INSERT INTO [dbo].[UserRole] ([RoleID], [RoleName], [Description]) VALUES 
 (N'Admin', N'Admin', N'Quản trị hệ thống'),
 (N'Teacher', N'Giáo viên', N'Quản lý lớp học và nội dung bài thi'),
 (N'User', N'Sinh viên', N'Người dùng thực hiện bài thi');
 
-INSERT INTO [dbo].[UserAccount] ([RoleID], [Username], [Password], [Fullname], [Email], [PhoneNumber], [Address], [Birthday], [Note]) VALUES 
-(N'Admin', N'admin', N'123', N'Admin', N'admin@gmail.com', N'0777999496', N'Hà Nội', '2004-03-09', N'Quản lý hệ thống'),
-(N'Teacher', N'teacher', N'123', N'Nguyễn Phương Nhi', N'nhinho@gmail.com', N'0987654321', N'TP.HCM', '1980-04-01', N'Giáo viên Khoa CNTT'),
-(N'User', N'2001222641', N'123', N'Trần Công Minh', N'tcongminh1604@gmail.com', N'0777999496', N'TP.HCM', '2004-04-25', N'Sinh viên lớp KTPM'),
-(N'User', N'2001225676', N'123', N'Lê Đức Trung', N'leductrungd2x@gmail.com', N'0902792548', N'TP.HCM', '2004-04-25', N'Sinh viên lớp ATTT'),
-(N'User', N'2001202264', N'123', N'Vương Cường Thuận', N'cuongthuan22@gmail.com', N'0902850644', N'TP.HCM', '2004-04-25', N'Sinh viên lớp CNPM')
+INSERT INTO [dbo].[UserAccount] ([RoleID], [Username], [Password], [Fullname], [Email], [PhoneNumber], [Address], [Birthday], [Note], [Image]) VALUES 
+(N'Admin', N'admin', N'123', N'Admin', N'admin@gmail.com', N'0777999496', N'Hà Nội', '2004-03-09', N'Quản lý hệ thống',null),
+(N'Teacher', N'teacher', N'123', N'Nguyễn Phương Nhi', N'nhinho@gmail.com', N'0987654321', N'TP.HCM', '1980-04-01', N'Giáo viên Khoa CNTT',null),
+(N'User', N'2001222641', N'123', N'Trần Công Minh', N'tcongminh1604@gmail.com', N'0777999496', N'TP.HCM', '2004-04-25', N'Sinh viên lớp KTPM',null),
+(N'User', N'2001225676', N'123', N'Lê Đức Trung', N'leductrungd2x@gmail.com', N'0902792548', N'TP.HCM', '2004-04-25', N'Sinh viên lớp ATTT',null),
+(N'User', N'2001202264', N'123', N'Vương Cường Thuận', N'cuongthuan22@gmail.com', N'0902850644', N'TP.HCM', '2004-04-25', N'Sinh viên lớp CNPM',null)
 
 
 INSERT [dbo].[Question] ([SubjectID], [QContent], [OptionA], [OptionB], [OptionC], [OptionD], [Answer]) VALUES (N'ATTT', N'Giao thức nào mã hóa dữ liệu từ đầu đến cuối?', N'TLS', N'FTP', N'HTTP', N'SSH', N'SSH')
@@ -493,15 +493,14 @@ UPDATE [dbo].[Subject]
 GO
 
 CREATE PROCEDURE [dbo].[Subject_IsSubjectExist]
-    @SubjectID NVARCHAR(50)
+    @SubjectID VARCHAR(50),
+    @IsExist BIT OUTPUT
 AS
 BEGIN
-    IF EXISTS (SELECT 1 FROM Subject WHERE SubjectID = @SubjectID)
-        RETURN 1
-    ELSE
-        RETURN 0
+    SET @IsExist = CASE WHEN EXISTS (SELECT 1 FROM Subject WHERE SubjectID = @SubjectID) THEN 1 ELSE 0 END
 END
-go
+GO
+
 
 create proc [dbo].[TestHistory_Insert]
 	@UserID int

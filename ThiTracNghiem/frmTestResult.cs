@@ -12,7 +12,7 @@ namespace ThiTracNghiem
 {
     public partial class frmTestResult : Form
     {
-        private bool isSwitchingToMain = false;
+        private bool isMainFormOpened = false;
         public frmTestResult(int correctAnswer, float mark)
         {
             InitializeComponent();
@@ -71,19 +71,7 @@ namespace ThiTracNghiem
 
         private void btn_Ok_Click(object sender, EventArgs e)
         {
-            if (Session.LogonUser.RoldId.Equals("User"))
-            {
-                Application.Exit(); // Thoát hẳn khỏi ứng dụng nếu là User
-            }
-            else
-            {
-                // Ẩn form hiện tại (frmTestResult)
-                this.Hide();
-
-                // Mở lại frmMain cho quyền Admin
-                newFrmMain frmMain = new newFrmMain();
-                frmMain.Show();
-            }
+            Application.ExitThread();
         }
 
         private void lbll_LeaderBoard_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
