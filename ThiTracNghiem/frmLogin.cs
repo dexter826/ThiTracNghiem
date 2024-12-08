@@ -8,13 +8,24 @@ using ThiTracNghiem.Common;
 
 namespace ThiTracNghiem
 {
-    public partial class frmLogin : XtraForm
+    public partial class frmLogin : Form
     {
         public bool IsLoginSuccess = false;
 
         public frmLogin()
         {
             InitializeComponent();
+        }
+
+        private const int CS_DropShadow = 0x00020000;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle = CS_DropShadow;
+                return cp;
+            }
         }
 
         private void btn_Thoat_Click(object sender, EventArgs e)
@@ -114,6 +125,11 @@ namespace ThiTracNghiem
                 txt_MatKhau.PasswordChar = '*';
                 btn_ShowPassword.Image = Properties.Resources.closeeye;
             }
+        }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

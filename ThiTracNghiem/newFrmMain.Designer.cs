@@ -66,8 +66,10 @@
             this.lblTime = new DevExpress.XtraEditors.LabelControl();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblDate = new DevExpress.XtraEditors.LabelControl();
+            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // barButtonItem3
@@ -322,7 +324,7 @@
             this.lbl_HelloUser.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lbl_HelloUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_HelloUser.ForeColor = System.Drawing.Color.White;
-            this.lbl_HelloUser.Location = new System.Drawing.Point(1247, 2);
+            this.lbl_HelloUser.Location = new System.Drawing.Point(1247, 4);
             this.lbl_HelloUser.Name = "lbl_HelloUser";
             this.lbl_HelloUser.Size = new System.Drawing.Size(250, 35);
             this.lbl_HelloUser.TabIndex = 3;
@@ -366,14 +368,14 @@
             // lblTime
             // 
             this.lblTime.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(109)))), ((int)(((byte)(156)))));
-            this.lblTime.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTime.Appearance.ForeColor = System.Drawing.Color.White;
             this.lblTime.Appearance.Options.UseBackColor = true;
             this.lblTime.Appearance.Options.UseFont = true;
             this.lblTime.Appearance.Options.UseForeColor = true;
             this.lblTime.Location = new System.Drawing.Point(634, 6);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(31, 16);
+            this.lblTime.Size = new System.Drawing.Size(31, 17);
             this.lblTime.TabIndex = 9;
             this.lblTime.Text = "Time";
             // 
@@ -386,16 +388,30 @@
             // lblDate
             // 
             this.lblDate.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(109)))), ((int)(((byte)(156)))));
-            this.lblDate.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDate.Appearance.ForeColor = System.Drawing.Color.White;
             this.lblDate.Appearance.Options.UseBackColor = true;
             this.lblDate.Appearance.Options.UseFont = true;
             this.lblDate.Appearance.Options.UseForeColor = true;
             this.lblDate.Location = new System.Drawing.Point(634, 23);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(29, 16);
+            this.lblDate.Size = new System.Drawing.Size(30, 17);
             this.lblDate.TabIndex = 10;
             this.lblDate.Text = "Date";
+            // 
+            // pictureEdit1
+            // 
+            this.pictureEdit1.EditValue = global::ThiTracNghiem.Properties.Resources.Cat2;
+            this.pictureEdit1.Location = new System.Drawing.Point(969, -80);
+            this.pictureEdit1.MenuManager = this.ribbonControl1;
+            this.pictureEdit1.Name = "pictureEdit1";
+            this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(109)))), ((int)(((byte)(156)))));
+            this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
+            this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
+            this.pictureEdit1.Size = new System.Drawing.Size(272, 120);
+            this.pictureEdit1.TabIndex = 12;
             // 
             // newFrmMain
             // 
@@ -404,6 +420,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1540, 845);
+            this.Controls.Add(this.pictureEdit1);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.xtraTabControl1);
@@ -420,6 +437,7 @@
             this.Load += new System.EventHandler(this.newFrmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -463,5 +481,6 @@
         private DevExpress.XtraEditors.LabelControl lblTime;
         private System.Windows.Forms.Timer timer1;
         private DevExpress.XtraEditors.LabelControl lblDate;
+        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
     }
 }
