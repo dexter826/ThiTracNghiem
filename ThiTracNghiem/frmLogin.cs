@@ -131,5 +131,10 @@ namespace ThiTracNghiem
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void btn_Exit_Click(object sender, EventArgs e)
+        {
+            Application.ExitThread();
+        }
     }
 }

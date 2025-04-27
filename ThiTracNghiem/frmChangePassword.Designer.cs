@@ -52,7 +52,7 @@
             this.label1.Location = new System.Drawing.Point(139, 25);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(275, 37);
+            this.label1.Size = new System.Drawing.Size(341, 45);
             this.label1.TabIndex = 0;
             this.label1.Text = "Thay đổi mật khẩu";
             // 
@@ -109,10 +109,10 @@
             this.btn_Update.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Update.BackColor = System.Drawing.Color.Transparent;
             this.btn_Update.BorderColor = System.Drawing.Color.Transparent;
-            this.btn_Update.BorderRadius = 20;
+            this.btn_Update.BorderRadius = 8;
             this.btn_Update.BorderThickness = 2;
-            this.btn_Update.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(50)))), ((int)(((byte)(255)))));
-            this.btn_Update.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Update.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(138)))), ((int)(((byte)(236)))));
+            this.btn_Update.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Update.ForeColor = System.Drawing.Color.White;
             this.btn_Update.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.btn_Update.HoverState.FillColor = System.Drawing.Color.White;
@@ -123,6 +123,7 @@
             this.btn_Update.Name = "btn_Update";
             this.btn_Update.ShadowDecoration.BorderRadius = 20;
             this.btn_Update.ShadowDecoration.Depth = 10;
+            this.btn_Update.ShadowDecoration.Enabled = true;
             this.btn_Update.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(5, 0, 5, 5);
             this.btn_Update.Size = new System.Drawing.Size(166, 54);
             this.btn_Update.TabIndex = 9;
@@ -134,11 +135,11 @@
             this.btn_Thoat.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Thoat.BackColor = System.Drawing.Color.Transparent;
             this.btn_Thoat.BorderColor = System.Drawing.Color.Transparent;
-            this.btn_Thoat.BorderRadius = 20;
+            this.btn_Thoat.BorderRadius = 8;
             this.btn_Thoat.BorderThickness = 2;
             this.btn_Thoat.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btn_Thoat.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(50)))), ((int)(((byte)(255)))));
-            this.btn_Thoat.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Thoat.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(138)))), ((int)(((byte)(236)))));
+            this.btn_Thoat.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Thoat.ForeColor = System.Drawing.Color.White;
             this.btn_Thoat.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.btn_Thoat.HoverState.FillColor = System.Drawing.Color.White;
@@ -149,6 +150,7 @@
             this.btn_Thoat.Name = "btn_Thoat";
             this.btn_Thoat.ShadowDecoration.BorderRadius = 20;
             this.btn_Thoat.ShadowDecoration.Depth = 10;
+            this.btn_Thoat.ShadowDecoration.Enabled = true;
             this.btn_Thoat.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(5, 0, 5, 5);
             this.btn_Thoat.Size = new System.Drawing.Size(166, 54);
             this.btn_Thoat.TabIndex = 10;
@@ -251,7 +253,7 @@
             this.Appearance.BackColor = System.Drawing.Color.White;
             this.Appearance.Options.UseBackColor = true;
             this.Appearance.Options.UseFont = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_Thoat;
             this.ClientSize = new System.Drawing.Size(553, 412);
@@ -269,7 +271,7 @@
             this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("frmChangePassword.IconOptions.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(569, 451);
+            this.MaximumSize = new System.Drawing.Size(569, 452);
             this.MinimumSize = new System.Drawing.Size(555, 444);
             this.Name = "frmChangePassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

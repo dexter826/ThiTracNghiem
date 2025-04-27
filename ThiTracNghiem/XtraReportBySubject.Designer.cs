@@ -673,11 +673,11 @@
             this.xrLabel6.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "?ReportPalace")});
             this.xrLabel6.Font = new DevExpress.Drawing.DXFont("times New Roman", 12F, DevExpress.Drawing.DXFontStyle.Italic);
-            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(390.2941F, 31.58348F);
+            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(376.9608F, 31.58356F);
             this.xrLabel6.Multiline = true;
             this.xrLabel6.Name = "xrLabel6";
             this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel6.SizeF = new System.Drawing.SizeF(249.7058F, 23F);
+            this.xrLabel6.SizeF = new System.Drawing.SizeF(273.0391F, 23F);
             this.xrLabel6.StylePriority.UseFont = false;
             this.xrLabel6.Text = "xrLabel6";
             // 

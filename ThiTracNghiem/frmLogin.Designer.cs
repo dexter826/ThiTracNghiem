@@ -40,6 +40,7 @@
             this.txt_MatKhau = new Guna.UI2.WinForms.Guna2TextBox();
             this.txt_TaiKhoan = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.btn_Exit = new Guna.UI2.WinForms.Guna2ImageButton();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -166,7 +167,7 @@
             this.btnMinimize.ImageOffset = new System.Drawing.Point(0, 0);
             this.btnMinimize.ImageRotate = 0F;
             this.btnMinimize.ImageSize = new System.Drawing.Size(23, 23);
-            this.btnMinimize.Location = new System.Drawing.Point(847, 4);
+            this.btnMinimize.Location = new System.Drawing.Point(813, 2);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.PressedState.ImageSize = new System.Drawing.Size(23, 23);
             this.btnMinimize.Size = new System.Drawing.Size(29, 31);
@@ -238,6 +239,21 @@
             this.guna2PictureBox2.TabIndex = 17;
             this.guna2PictureBox2.TabStop = false;
             // 
+            // btn_Exit
+            // 
+            this.btn_Exit.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btn_Exit.HoverState.ImageSize = new System.Drawing.Size(24, 24);
+            this.btn_Exit.Image = global::ThiTracNghiem.Properties.Resources.closess;
+            this.btn_Exit.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btn_Exit.ImageRotate = 0F;
+            this.btn_Exit.ImageSize = new System.Drawing.Size(23, 23);
+            this.btn_Exit.Location = new System.Drawing.Point(848, 2);
+            this.btn_Exit.Name = "btn_Exit";
+            this.btn_Exit.PressedState.ImageSize = new System.Drawing.Size(23, 23);
+            this.btn_Exit.Size = new System.Drawing.Size(29, 31);
+            this.btn_Exit.TabIndex = 18;
+            this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
+            // 
             // frmLogin
             // 
             this.AcceptButton = this.btn_DangNhap;
@@ -246,6 +262,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btn_Thoat;
             this.ClientSize = new System.Drawing.Size(881, 478);
+            this.Controls.Add(this.btn_Exit);
             this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.btn_ShowPassword);
             this.Controls.Add(this.btnMinimize);
@@ -285,5 +302,6 @@
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
+        private Guna.UI2.WinForms.Guna2ImageButton btn_Exit;
     }
 }
