@@ -118,27 +118,15 @@ namespace DataAccessLayer
             }
         }
 
-        public static DataTable GetQuesTionForTest(string subjectId, int numberQuestion, int? examId = null)
+        public static DataTable GetQuesTionForTest(string subjectId, int examId)
         {
             try
             {
-                if (examId.HasValue)
-                {
-                    DataTable dtDate = SqlHelper.ExecuteData(TestCore.ConnectionString.strCon, CommandType.StoredProcedure,
-                                                                "Question_GetQuestionForTest",
-                                                                new SqlParameter("@SubjectID", subjectId),
-                                                                new SqlParameter("@NumberOfQuestion", numberQuestion),
-                                                                new SqlParameter("@ExamID", examId.Value));
-                    return dtDate;
-                }
-                else
-                {
-                    DataTable dtDate = SqlHelper.ExecuteData(TestCore.ConnectionString.strCon, CommandType.StoredProcedure,
-                                                                "Question_GetQuestionForTest",
-                                                                new SqlParameter("@SubjectID", subjectId),
-                                                                new SqlParameter("@NumberOfQuestion", numberQuestion));
-                    return dtDate;
-                }
+                DataTable dtDate = SqlHelper.ExecuteData(TestCore.ConnectionString.strCon, CommandType.StoredProcedure,
+                                                            "Question_GetQuestionForTest",
+                                                            new SqlParameter("@SubjectID", subjectId),
+                                                            new SqlParameter("@ExamID", examId));
+                return dtDate;
             }
             catch (Exception ex)
             {

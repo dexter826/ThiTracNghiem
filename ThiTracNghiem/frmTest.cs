@@ -138,7 +138,8 @@ namespace ThiTracNghiem
         {
             try
             {
-                dtQuestion = BQuestion.GetQuesTionForTest(Session.SubjectID, Session.NumberOfQuestion);
+                // Lấy câu hỏi từ đề thi đã chọn
+                dtQuestion = BQuestion.GetQuesTionForTest(Session.SubjectID, Session.ExamID);
                 dtQuestion.Columns.Add("SelectedOption"); //"SelectedOption" để lưu đáp án người dùng chọn.
                 lsb_Question.DataSource = dtQuestion;
                 lsb_Question.DisplayMember = "QuestionIndex";
@@ -363,7 +364,7 @@ namespace ThiTracNghiem
         private void frmTest_FormClosing(object sender, FormClosingEventArgs e)
         {
             // Hiển thị hộp thoại xác nhận nếu là "User"
-            if (Session.LogonUser.RoldId.Equals("User"))
+            if (Session.LogonUser.RoleID.Equals("User"))
             {
                 DialogResult result = XtraMessageBox.Show("Bạn có chắc chắn muốn dừng làm bài không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.No)

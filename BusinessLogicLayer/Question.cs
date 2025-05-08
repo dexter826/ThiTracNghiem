@@ -40,9 +40,9 @@ namespace BusinessLogicLayer
         {
             return DQuestion.Search(keyword);
         }
-        public static DataTable GetQuesTionForTest(string subjectId, int numberQuestion, int? examId = null)
+        public static DataTable GetQuesTionForTest(string subjectId, int examId)
         {
-            return DQuestion.GetQuesTionForTest(subjectId, numberQuestion, examId);
+            return DQuestion.GetQuesTionForTest(subjectId, examId);
         }
         public static Question GetOne(int questionId)
         {

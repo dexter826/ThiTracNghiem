@@ -12,7 +12,6 @@ namespace ThiTracNghiem
 {
     public partial class frmTestResult : Form
     {
-        private bool isMainFormOpened = false;
         public frmTestResult(int correctAnswer, float mark)
         {
             InitializeComponent();
@@ -37,7 +36,7 @@ namespace ThiTracNghiem
             //lưu điểm vào dtbase
             TestHistory testHistory = new TestHistory()
             {
-                UserId = Session.LogonUser.UsertId,
+                UserId = Session.LogonUser.UserID,
                 SubjectID = Session.SubjectID,
                 TestDate = DateTime.Now,
                 CorrectAnswer = correctAnswer,

@@ -14,5 +14,6 @@ namespace ThiTracNghiem.Common
         public static string SubjectID = string.Empty;
         public static int TestTime = 10;
         public static int NumberOfQuestion = 10;
+        public static int ExamID = 0;
     }
 }

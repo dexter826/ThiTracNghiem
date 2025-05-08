@@ -39,8 +39,7 @@
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubjectName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubjectID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QuesQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TimeLimit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -51,20 +50,16 @@
             this.btn_Edit = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.btn_Search = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.grb_Infor = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txt_TimeLimit = new Guna.UI2.WinForms.Guna2NumericUpDown();
-            this.cbb_NumberOfQuestion = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+
             this.btn_Cancel = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.btn_Save = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.txt_Search = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.grv_DataUser)).BeginInit();
             this.grb_Infor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_TimeLimit)).BeginInit();
             this.SuspendLayout();
-            // 
+            //
             // txt_SubjectId
-            // 
+            //
             this.txt_SubjectId.BorderRadius = 5;
             this.txt_SubjectId.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_SubjectId.DefaultText = "";
@@ -78,9 +73,9 @@
             this.txt_SubjectId.SelectedText = "";
             this.txt_SubjectId.Size = new System.Drawing.Size(120, 36);
             this.txt_SubjectId.TabIndex = 1;
-            // 
+            //
             // btn_Add
-            // 
+            //
             this.btn_Add.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Add.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_Add.BackColor = System.Drawing.Color.Transparent;
@@ -99,9 +94,9 @@
             this.btn_Add.TabIndex = 2;
             this.btn_Add.Text = "Thêm";
             this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
-            // 
+            //
             // grv_DataUser
-            // 
+            //
             this.grv_DataUser.AllowUserToAddRows = false;
             this.grv_DataUser.AllowUserToDeleteRows = false;
             this.grv_DataUser.AllowUserToResizeRows = false;
@@ -110,8 +105,8 @@
             dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Gainsboro;
             this.grv_DataUser.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
-            this.grv_DataUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.grv_DataUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grv_DataUser.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -128,8 +123,6 @@
             this.STT,
             this.SubjectName,
             this.SubjectID,
-            this.QuesQuantity,
-            this.TimeLimit,
             this.Description});
             dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
@@ -180,9 +173,9 @@
             this.grv_DataUser.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.grv_DataUser.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.grv_DataUser_RowEnter);
             this.grv_DataUser.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.grv_DataUser_RowPrePaint);
-            // 
+            //
             // STT
-            // 
+            //
             this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.STT.DefaultCellStyle = dataGridViewCellStyle13;
@@ -191,17 +184,17 @@
             this.STT.Name = "STT";
             this.STT.ReadOnly = true;
             this.STT.Width = 40;
-            // 
+            //
             // SubjectName
-            // 
+            //
             this.SubjectName.DataPropertyName = "SubjectName";
             this.SubjectName.HeaderText = "Tên môn thi";
             this.SubjectName.MinimumWidth = 6;
             this.SubjectName.Name = "SubjectName";
             this.SubjectName.ReadOnly = true;
-            // 
+            //
             // SubjectID
-            // 
+            //
             this.SubjectID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.SubjectID.DataPropertyName = "SubjectID";
             this.SubjectID.HeaderText = "Mã môn thi";
@@ -209,37 +202,18 @@
             this.SubjectID.Name = "SubjectID";
             this.SubjectID.ReadOnly = true;
             this.SubjectID.Width = 150;
-            // 
-            // QuesQuantity
-            // 
-            this.QuesQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.QuesQuantity.DataPropertyName = "QuesQuantity";
-            this.QuesQuantity.HeaderText = "Số lượng câu hỏi";
-            this.QuesQuantity.MinimumWidth = 6;
-            this.QuesQuantity.Name = "QuesQuantity";
-            this.QuesQuantity.ReadOnly = true;
-            this.QuesQuantity.Width = 113;
-            // 
-            // TimeLimit
-            // 
-            this.TimeLimit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.TimeLimit.DataPropertyName = "TimeLimit";
-            this.TimeLimit.HeaderText = "Thời gian";
-            this.TimeLimit.MinimumWidth = 6;
-            this.TimeLimit.Name = "TimeLimit";
-            this.TimeLimit.ReadOnly = true;
-            this.TimeLimit.Width = 85;
-            // 
+
+            //
             // Description
-            // 
+            //
             this.Description.DataPropertyName = "Description";
             this.Description.HeaderText = "Mô tả";
             this.Description.MinimumWidth = 6;
             this.Description.Name = "Description";
             this.Description.ReadOnly = true;
-            // 
+            //
             // label2
-            // 
+            //
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(59, 55);
@@ -248,9 +222,9 @@
             this.label2.Size = new System.Drawing.Size(85, 20);
             this.label2.TabIndex = 0;
             this.label2.Text = "Mã môn thi";
-            // 
+            //
             // label7
-            // 
+            //
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(301, 55);
@@ -259,9 +233,9 @@
             this.label7.Size = new System.Drawing.Size(79, 20);
             this.label7.TabIndex = 2;
             this.label7.Text = "Tên mô thi";
-            // 
+            //
             // txt_SubjectName
-            // 
+            //
             this.txt_SubjectName.BorderRadius = 5;
             this.txt_SubjectName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_SubjectName.DefaultText = "";
@@ -275,9 +249,9 @@
             this.txt_SubjectName.SelectedText = "";
             this.txt_SubjectName.Size = new System.Drawing.Size(289, 36);
             this.txt_SubjectName.TabIndex = 3;
-            // 
+            //
             // label10
-            // 
+            //
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(77, 100);
@@ -286,9 +260,9 @@
             this.label10.Size = new System.Drawing.Size(48, 20);
             this.label10.TabIndex = 4;
             this.label10.Text = "Mô tả";
-            // 
+            //
             // txt_SubjectDesb
-            // 
+            //
             this.txt_SubjectDesb.BorderRadius = 5;
             this.txt_SubjectDesb.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_SubjectDesb.DefaultText = "";
@@ -302,9 +276,9 @@
             this.txt_SubjectDesb.SelectedText = "";
             this.txt_SubjectDesb.Size = new System.Drawing.Size(986, 36);
             this.txt_SubjectDesb.TabIndex = 5;
-            // 
+            //
             // btn_Delete
-            // 
+            //
             this.btn_Delete.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Delete.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_Delete.BackColor = System.Drawing.Color.Transparent;
@@ -323,9 +297,9 @@
             this.btn_Delete.TabIndex = 4;
             this.btn_Delete.Text = "Xóa";
             this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
-            // 
+            //
             // btn_Edit
-            // 
+            //
             this.btn_Edit.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Edit.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_Edit.BackColor = System.Drawing.Color.Transparent;
@@ -344,9 +318,9 @@
             this.btn_Edit.TabIndex = 3;
             this.btn_Edit.Text = "Sửa";
             this.btn_Edit.Click += new System.EventHandler(this.btn_Edit_Click);
-            // 
+            //
             // btn_Search
-            // 
+            //
             this.btn_Search.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Search.BackColor = System.Drawing.Color.Transparent;
             this.btn_Search.BorderRadius = 8;
@@ -364,16 +338,13 @@
             this.btn_Search.TabIndex = 6;
             this.btn_Search.Text = "Tìm kiếm";
             this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
-            // 
+            //
             // grb_Infor
-            // 
+            //
             this.grb_Infor.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.grb_Infor.BackColor = System.Drawing.Color.Transparent;
             this.grb_Infor.BorderRadius = 10;
-            this.grb_Infor.Controls.Add(this.label3);
-            this.grb_Infor.Controls.Add(this.txt_TimeLimit);
-            this.grb_Infor.Controls.Add(this.cbb_NumberOfQuestion);
-            this.grb_Infor.Controls.Add(this.label1);
+
             this.grb_Infor.Controls.Add(this.label10);
             this.grb_Infor.Controls.Add(this.txt_SubjectDesb);
             this.grb_Infor.Controls.Add(this.label7);
@@ -390,74 +361,10 @@
             this.grb_Infor.TabIndex = 1;
             this.grb_Infor.TabStop = false;
             this.grb_Infor.Text = "Thông tin môn thi";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(960, 55);
-            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 20);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Thời gian";
-            // 
-            // txt_TimeLimit
-            // 
-            this.txt_TimeLimit.BackColor = System.Drawing.Color.Transparent;
-            this.txt_TimeLimit.BorderColor = System.Drawing.Color.Silver;
-            this.txt_TimeLimit.BorderRadius = 5;
-            this.txt_TimeLimit.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_TimeLimit.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.txt_TimeLimit.ForeColor = System.Drawing.Color.Gray;
-            this.txt_TimeLimit.Location = new System.Drawing.Point(1047, 46);
-            this.txt_TimeLimit.Name = "txt_TimeLimit";
-            this.txt_TimeLimit.Size = new System.Drawing.Size(100, 36);
-            this.txt_TimeLimit.TabIndex = 8;
-            this.txt_TimeLimit.UpDownButtonForeColor = System.Drawing.Color.White;
-            // 
-            // cbb_NumberOfQuestion
-            // 
-            this.cbb_NumberOfQuestion.BackColor = System.Drawing.Color.Transparent;
-            this.cbb_NumberOfQuestion.BorderColor = System.Drawing.Color.DarkGray;
-            this.cbb_NumberOfQuestion.BorderRadius = 5;
-            this.cbb_NumberOfQuestion.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbb_NumberOfQuestion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbb_NumberOfQuestion.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbb_NumberOfQuestion.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbb_NumberOfQuestion.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbb_NumberOfQuestion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cbb_NumberOfQuestion.ItemHeight = 30;
-            this.cbb_NumberOfQuestion.Items.AddRange(new object[] {
-            "10",
-            "15",
-            "20",
-            "25",
-            "30",
-            "35",
-            "40",
-            "45",
-            "50",
-            "55",
-            "60"});
-            this.cbb_NumberOfQuestion.Location = new System.Drawing.Point(845, 46);
-            this.cbb_NumberOfQuestion.Name = "cbb_NumberOfQuestion";
-            this.cbb_NumberOfQuestion.Size = new System.Drawing.Size(95, 36);
-            this.cbb_NumberOfQuestion.TabIndex = 7;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(710, 55);
-            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 20);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Số lượng câu hỏi";
-            // 
+
+            //
             // btn_Cancel
-            // 
+            //
             this.btn_Cancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Cancel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_Cancel.BackColor = System.Drawing.Color.Transparent;
@@ -477,9 +384,9 @@
             this.btn_Cancel.Text = "Hủy";
             this.btn_Cancel.Visible = false;
             this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
-            // 
+            //
             // btn_Save
-            // 
+            //
             this.btn_Save.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Save.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_Save.BackColor = System.Drawing.Color.Transparent;
@@ -499,9 +406,9 @@
             this.btn_Save.Text = "Lưu";
             this.btn_Save.Visible = false;
             this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
-            // 
+            //
             // txt_Search
-            // 
+            //
             this.txt_Search.BorderRadius = 8;
             this.txt_Search.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_Search.DefaultText = "";
@@ -520,9 +427,9 @@
             this.txt_Search.Enter += new System.EventHandler(this.txt_Search_Enter);
             this.txt_Search.Leave += new System.EventHandler(this.txt_Search_Leave);
             this.txt_Search.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.txt_Search_MouseDoubleClick);
-            // 
+            //
             // frmManageSubject
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btn_Cancel);
@@ -542,7 +449,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grv_DataUser)).EndInit();
             this.grb_Infor.ResumeLayout(false);
             this.grb_Infor.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_TimeLimit)).EndInit();
+
             this.ResumeLayout(false);
 
         }
@@ -563,15 +470,9 @@
         private Guna.UI2.WinForms.Guna2TextBox txt_Search;
         private Guna.UI2.WinForms.Guna2GradientTileButton btn_Cancel;
         private Guna.UI2.WinForms.Guna2GradientTileButton btn_Save;
-        private Guna.UI2.WinForms.Guna2ComboBox cbb_NumberOfQuestion;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubjectName;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubjectID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn QuesQuantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TimeLimit;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
-        private System.Windows.Forms.Label label3;
-        private Guna.UI2.WinForms.Guna2NumericUpDown txt_TimeLimit;
     }
 }

@@ -8,8 +8,8 @@ namespace Entities
 {
     public class UserAccount
     {
-        public int UsertId { get; set; }
-        public string RoldId { get; set; }
+        public int UserID { get; set; }
+        public string RoleID { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public string NewPassword { get; set; }

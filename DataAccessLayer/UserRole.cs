@@ -15,7 +15,7 @@ namespace DataAccessLayer
         {
             try
             {
-                SqlHelper.ExecuteNonQuery(TestCore.ConnectionString.strCon, "UserAccount_Insert", newUser.RoldId, newUser.Username,
+                SqlHelper.ExecuteNonQuery(TestCore.ConnectionString.strCon, "UserAccount_Insert", newUser.RoleID, newUser.Username,
                     newUser.Password, newUser.Fullname, newUser.Email, newUser.PhoneNumber, newUser.Address,
                     newUser.Birthday, newUser.Note, newUser.CreatedBy, newUser.ModifiedBy);
             }
@@ -38,13 +38,13 @@ namespace DataAccessLayer
             }
         }
 
-        public static void UpdateUser (UserAccount editUser)
+        public static void UpdateUser(UserAccount editUser)
         {
             try
             {
                 SqlHelper.ExecuteNonQuery(TestCore.ConnectionString.strCon, "UserAccount_Update",
-                                                    editUser.UsertId,
-                                                    editUser.RoldId,
+                                                    editUser.UserID,
+                                                    editUser.RoleID,
                                                     editUser.Username,
                                                     editUser.Password,
                                                     editUser.Fullname,

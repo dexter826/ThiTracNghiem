@@ -43,6 +43,12 @@ namespace ThiTracNghiem
                 return;
             }
 
+            if (cbb_Exam.SelectedValue == null || cbb_Exam.DataSource == null)
+            {
+                XtraMessageBox.Show("Vui lòng chọn đề thi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
                 Session.SubjectName = cbb_Subject.Text;
@@ -51,6 +57,10 @@ namespace ThiTracNghiem
                 Session.NumberOfQuestion = numberOfQuestion;
                 int.TryParse(txt_Time.Text, out int time);
                 Session.TestTime = time;
+
+                // Lưu thông tin đề thi đã chọn
+                int examId = Convert.ToInt32(cbb_Exam.SelectedValue);
+                Session.ExamID = examId;
 
                 frmTest fmTest = new frmTest();
                 this.Hide();
@@ -69,20 +79,57 @@ namespace ThiTracNghiem
         {
             try
             {
+                // Lấy danh sách môn học
                 var subjects = BSubject.GetAll();
-                var filteredSubjects = subjects.AsEnumerable()
-                    .Where(row => BQuestion.GetTotalQuestion(row["SubjectID"].ToString()) >= Convert.ToInt32(row["QuesQuantity"]))
-                    .CopyToDataTable();
-
-                cbb_Subject.DataSource = filteredSubjects;
+                cbb_Subject.DataSource = subjects;
                 cbb_Subject.DisplayMember = "SubjectName";
                 cbb_Subject.ValueMember = "SubjectID";
 
-                if (filteredSubjects != null && filteredSubjects.Rows.Count > 0)
+                if (subjects != null && subjects.Rows.Count > 0)
                 {
-                    var selectedSubject = filteredSubjects.Rows[0];
-                    txt_NumberQuestion.Text = selectedSubject["QuesQuantity"].ToString();
-                    txt_Time.Text = selectedSubject["TimeLimit"].ToString();
+                    // Chọn môn học đầu tiên
+                    cbb_Subject.SelectedIndex = 0;
+                    // Tải danh sách đề thi của môn học đầu tiên
+                    LoadExams(cbb_Subject.SelectedValue.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Thông báo lỗi!");
+            }
+        }
+
+        private void LoadExams(string subjectId)
+        {
+            try
+            {
+                // Lấy danh sách đề thi đã được duyệt của môn học
+                var exams = BExam.GetByStatus("Approved");
+                var filteredExams = exams.AsEnumerable()
+                    .Where(row => row["SubjectID"].ToString() == subjectId)
+                    .CopyToDataTable();
+
+                if (filteredExams != null && filteredExams.Rows.Count > 0)
+                {
+                    cbb_Exam.DataSource = filteredExams;
+                    cbb_Exam.DisplayMember = "ExamName";
+                    cbb_Exam.ValueMember = "ExamID";
+
+                    // Chọn đề thi đầu tiên
+                    cbb_Exam.SelectedIndex = 0;
+
+                    // Hiển thị thông tin của đề thi đầu tiên
+                    var selectedExam = filteredExams.Rows[0];
+                    txt_NumberQuestion.Text = selectedExam["TotalQuestion"].ToString();
+                    txt_Time.Text = selectedExam["TimeLimit"].ToString();
+                }
+                else
+                {
+                    // Nếu không có đề thi nào, xóa dữ liệu cũ
+                    cbb_Exam.DataSource = null;
+                    txt_NumberQuestion.Text = "";
+                    txt_Time.Text = "";
+                    MessageBox.Show("Không có đề thi nào cho môn học này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -94,7 +141,7 @@ namespace ThiTracNghiem
         private void frmOption_Load(object sender, EventArgs e)
         {
             LoadData();
-            if (!Session.LogonUser.RoldId.Equals("User"))
+            if (!Session.LogonUser.RoleID.Equals("User"))
             {
                 txt_NumberQuestion.Enabled = true;
                 txt_Time.Enabled = true;
@@ -115,14 +162,25 @@ namespace ThiTracNghiem
             if (cbb_Subject.SelectedValue != null)
             {
                 var selectedSubjectID = cbb_Subject.SelectedValue.ToString();
-                var subjects = BSubject.GetAll();
-                var selectedSubject = subjects.AsEnumerable()
-                    .FirstOrDefault(row => row["SubjectID"].ToString() == selectedSubjectID);
+                LoadExams(selectedSubjectID);
+            }
+        }
 
-                if (selectedSubject != null)
+        private void cbb_Exam_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbb_Exam.SelectedValue != null && cbb_Exam.DataSource != null)
+            {
+                try
                 {
-                    txt_NumberQuestion.Text = selectedSubject["QuesQuantity"].ToString();
-                    txt_Time.Text = selectedSubject["TimeLimit"].ToString();
+                    int examId = Convert.ToInt32(cbb_Exam.SelectedValue);
+                    var exam = BExam.GetById(examId);
+
+                    txt_NumberQuestion.Text = exam.TotalQuestion.ToString();
+                    txt_Time.Text = exam.TimeLimit.ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi lấy thông tin đề thi: " + ex.Message, "Thông báo lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

@@ -25,9 +25,9 @@ namespace DataAccessLayer
                                                     testHistory.Mark,
                                                     testHistory.CreatedBy);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -39,9 +39,9 @@ namespace DataAccessLayer
                                                                            new SqlParameter("@SubjectID", testHistory.SubjectID));
                 return dtData;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -53,9 +53,9 @@ namespace DataAccessLayer
                                                                            new SqlParameter("@SubjectID", subjectId));
                 return dtData;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -68,9 +68,9 @@ namespace DataAccessLayer
                                                                            new SqlParameter("@EndDate", endDate));
                 return dtData;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
     }

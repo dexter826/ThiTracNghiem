@@ -34,7 +34,7 @@ namespace ThiTracNghiem
                 // Đóng SplashScreen
                 SplashScreenManager.CloseForm();
 
-                if (Session.LogonUser.RoldId.Equals("User"))
+                if (Session.LogonUser.RoleID.Equals("User"))
                     Application.Run(new frmOption());
                 else
                     Application.Run(new newFrmMain());

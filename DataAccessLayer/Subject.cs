@@ -18,15 +18,13 @@ namespace DataAccessLayer
                 SqlHelper.ExecuteNonQuery(TestCore.ConnectionString.strCon, "Subject_Insert",
                                                     newSubject.SubjectId,
                                                     newSubject.SubjectName,
-                                                    newSubject.QuesQuantity,
-                                                    newSubject.TimeLimit,
                                                     newSubject.Description,
                                                     newSubject.CreatedBy,
                                                     newSubject.ModifiedBy);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -50,8 +48,6 @@ namespace DataAccessLayer
                 SqlHelper.ExecuteNonQuery(TestCore.ConnectionString.strCon, "Subject_Update",
                                                     editSubject.SubjectId,
                                                     editSubject.SubjectName,
-                                                    editSubject.QuesQuantity,
-                                                    editSubject.TimeLimit,
                                                     editSubject.Description,
                                                     editSubject.ModifiedBy);
             }

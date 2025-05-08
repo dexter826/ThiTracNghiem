@@ -45,14 +45,11 @@ namespace ThiTracNghiem
             Subject subject = new Subject();
             subject.SubjectId = txt_SubjectId.Text.Trim();
             subject.SubjectName = txt_SubjectName.Text.Trim();
-            subject.QuesQuantity = int.Parse(cbb_NumberOfQuestion.Text);
-            subject.TimeLimit = int.Parse(txt_TimeLimit.Text);
             subject.Description = txt_SubjectDesb.Text.Trim();
-
             subject.CreatedAt = DateTime.Now;
-            subject.CreatedBy = Session.LogonUser.Username; ;
+            subject.CreatedBy = Session.LogonUser.Username;
             subject.ModifiedAt = DateTime.Now;
-            subject.ModifiedBy = Session.LogonUser.Username; ;
+            subject.ModifiedBy = Session.LogonUser.Username;
             return subject;
         }
         /// <summary>
@@ -71,10 +68,6 @@ namespace ThiTracNghiem
             {
                 strMessage += "Mã môn thi không được để trống!\n";
             }
-            if (subject.TimeLimit <= 0)
-            {
-                strMessage += "Vui lòng nhập thời gian thi hợp lệ\n";
-            }
 
             //kiểm tra hợp lệ
             if (!string.IsNullOrEmpty(strMessage))
@@ -91,7 +84,7 @@ namespace ThiTracNghiem
         /// <param name="subjectId"></param>
         /// <param name="subjectName"></param>
         /// <returns></returns>
-        /// 
+        ///
         private bool IsDuplicateSubject(string subjectId, string subjectName)
         {
             var subjects = BSubject.GetAll();
@@ -222,8 +215,6 @@ namespace ThiTracNghiem
                 DataGridViewRow row = grv_DataUser.Rows[rowIndex];
                 txt_SubjectId.Text = row.Cells["SubjectID"].Value.ToString();
                 txt_SubjectName.Text = row.Cells["SubjectName"].Value.ToString();
-                cbb_NumberOfQuestion.Text = row.Cells["QuesQuantity"].Value.ToString();
-                txt_TimeLimit.Text = row.Cells["TimeLimit"].Value.ToString();
                 txt_SubjectDesb.Text = row.Cells["Description"].Value.ToString();
             }
             catch (Exception ex)
@@ -285,7 +276,7 @@ namespace ThiTracNghiem
             string subjectId = txt_SubjectId.Text.Trim();
             if (string.IsNullOrEmpty(subjectId) || rowIndex < 0)
             {
-                DevExpress.XtraEditors.XtraMessageBox.Show("Vui lòng chọn môn thi cần xóa!", "Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                DevExpress.XtraEditors.XtraMessageBox.Show("Vui lòng chọn môn thi cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -354,13 +345,6 @@ namespace ThiTracNghiem
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txt_TimeLimit.Text))
-            {
-                DevExpress.XtraEditors.XtraMessageBox.Show("Vui lòng nhập thời gian thi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txt_TimeLimit.Focus();
-                return;
-            }
-
             //Nếu đang thêm môn thi mới, gọi phương thức AddNewSubject().
             if (isAddNew)
             {

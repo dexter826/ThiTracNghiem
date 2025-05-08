@@ -137,11 +137,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Session.cs" />
+    <Compile Include="frmApproveExam.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmApproveExam.Designer.cs">
+      <DependentUpon>frmApproveExam.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBackUp.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmBackUp.Designer.cs">
       <DependentUpon>frmBackUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCreateExam.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmCreateExam.Designer.cs">
+      <DependentUpon>frmCreateExam.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLoad.cs">
       <SubType>Form</SubType>
@@ -154,6 +166,12 @@
     </Compile>
     <Compile Include="frmRestore.Designer.cs">
       <DependentUpon>frmRestore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTeacherSubject.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmTeacherSubject.Designer.cs">
+      <DependentUpon>frmTeacherSubject.cs</DependentUpon>
     </Compile>
     <Compile Include="newFrmMain.cs">
       <SubType>Form</SubType>
@@ -252,8 +270,14 @@
     <Compile Include="XtraReportByTime.Designer.cs">
       <DependentUpon>XtraReportByTime.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmApproveExam.resx">
+      <DependentUpon>frmApproveExam.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmBackUp.resx">
       <DependentUpon>frmBackUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCreateExam.resx">
+      <DependentUpon>frmCreateExam.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmForgotPassword.resx">
       <DependentUpon>frmForgotPassword.cs</DependentUpon>
@@ -263,6 +287,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRestore.resx">
       <DependentUpon>frmRestore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTeacherSubject.resx">
+      <DependentUpon>frmTeacherSubject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="newFrmMain.resx">
       <DependentUpon>newFrmMain.cs</DependentUpon>

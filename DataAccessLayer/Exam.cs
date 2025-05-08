@@ -35,9 +35,9 @@ namespace DataAccessLayer
                 // Lấy giá trị từ tham số đầu ra
                 return Convert.ToInt32(outputParam.Value);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -53,9 +53,9 @@ namespace DataAccessLayer
                                                     exam.TotalQuestion,
                                                     exam.ModifiedBy);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -65,9 +65,9 @@ namespace DataAccessLayer
             {
                 SqlHelper.ExecuteNonQuery(TestCore.ConnectionString.strCon, "Exam_Delete", examId);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -78,9 +78,9 @@ namespace DataAccessLayer
                 DataTable dtData = SqlHelper.ExecuteData(TestCore.ConnectionString.strCon, CommandType.StoredProcedure, "Exam_SelectAll");
                 return dtData;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -88,14 +88,14 @@ namespace DataAccessLayer
         {
             try
             {
-                DataTable dtData = SqlHelper.ExecuteData(TestCore.ConnectionString.strCon, CommandType.StoredProcedure, 
+                DataTable dtData = SqlHelper.ExecuteData(TestCore.ConnectionString.strCon, CommandType.StoredProcedure,
                                                         "Exam_GetByTeacher",
                                                         new SqlParameter("@UserID", userId));
                 return dtData;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -103,14 +103,14 @@ namespace DataAccessLayer
         {
             try
             {
-                DataTable dtData = SqlHelper.ExecuteData(TestCore.ConnectionString.strCon, CommandType.StoredProcedure, 
+                DataTable dtData = SqlHelper.ExecuteData(TestCore.ConnectionString.strCon, CommandType.StoredProcedure,
                                                         "Exam_GetByStatus",
                                                         new SqlParameter("@Status", status));
                 return dtData;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -123,9 +123,9 @@ namespace DataAccessLayer
                                                     status,
                                                     approvedBy);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -156,9 +156,9 @@ namespace DataAccessLayer
                 reader.Close();
                 return exam;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
     }
