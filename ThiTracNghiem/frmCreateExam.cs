@@ -47,12 +47,12 @@ namespace ThiTracNghiem
                 }
                 else
                 {
-                    MessageBox.Show("Bạn chưa được phân công môn học nào!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Bạn chưa được phân công môn học nào!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi tải danh sách môn học: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DevExpress.XtraEditors.XtraMessageBox.Show("Lỗi khi tải danh sách môn học: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -77,12 +77,12 @@ namespace ThiTracNghiem
                 else
                 {
                     cbb_Chapter.DataSource = null;
-                    MessageBox.Show("Không có chương nào cho môn học này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Không có chương nào cho môn học này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi tải danh sách chương: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DevExpress.XtraEditors.XtraMessageBox.Show("Lỗi khi tải danh sách chương: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -130,7 +130,7 @@ namespace ThiTracNghiem
             {
                 if (cbb_Subject.SelectedValue == null || cbb_Chapter.SelectedValue == null)
                 {
-                    MessageBox.Show("Vui lòng chọn môn học và chương!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Vui lòng chọn môn học và chương!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -142,6 +142,43 @@ namespace ThiTracNghiem
 
                 if (dtQuestions != null && dtQuestions.Rows.Count > 0)
                 {
+                    // Nếu có từ khóa tìm kiếm, lọc kết quả
+                    string keyword = txt_SearchKeyword.Text.Trim();
+                    if (!string.IsNullOrEmpty(keyword))
+                    {
+                        // Tạo bảng tạm để lưu kết quả lọc
+                        DataTable filteredTable = dtQuestions.Clone();
+
+                        // Tìm kiếm trong các cột
+                        foreach (DataRow row in dtQuestions.Rows)
+                        {
+                            bool match = false;
+
+                            // Tìm trong nội dung câu hỏi
+                            if (row["QContent"] != null && row["QContent"].ToString().ToLower().Contains(keyword.ToLower()))
+                                match = true;
+
+                            // Tìm trong các đáp án
+                            else if (row["OptionA"] != null && row["OptionA"].ToString().ToLower().Contains(keyword.ToLower()))
+                                match = true;
+                            else if (row["OptionB"] != null && row["OptionB"].ToString().ToLower().Contains(keyword.ToLower()))
+                                match = true;
+                            else if (row["OptionC"] != null && row["OptionC"].ToString().ToLower().Contains(keyword.ToLower()))
+                                match = true;
+                            else if (row["OptionD"] != null && row["OptionD"].ToString().ToLower().Contains(keyword.ToLower()))
+                                match = true;
+                            else if (row["Answer"] != null && row["Answer"].ToString().ToLower().Contains(keyword.ToLower()))
+                                match = true;
+
+                            // Nếu tìm thấy, thêm vào bảng kết quả
+                            if (match)
+                                filteredTable.ImportRow(row);
+                        }
+
+                        // Sử dụng bảng đã lọc
+                        dtQuestions = filteredTable;
+                    }
+
                     // Thêm cột STT
                     if (!dtQuestions.Columns.Contains("STT"))
                     {
@@ -156,26 +193,42 @@ namespace ThiTracNghiem
                         // Sắp xếp lại thứ tự cột
                         dtQuestions.Columns["STT"].SetOrdinal(0);
                     }
+                    else
+                    {
+                        // Cập nhật lại STT nếu đã có cột
+                        for (int i = 0; i < dtQuestions.Rows.Count; i++)
+                        {
+                            dtQuestions.Rows[i]["STT"] = i + 1;
+                        }
+                    }
 
-                    grv_Questions.DataSource = dtQuestions;
+                    if (dtQuestions.Rows.Count > 0)
+                    {
+                        grv_Questions.DataSource = dtQuestions;
 
-                    // Ẩn cột QuestionID
-                    if (grv_Questions.Columns["QuestionID"] != null)
-                        grv_Questions.Columns["QuestionID"].Visible = false;
+                        // Ẩn cột QuestionID
+                        if (grv_Questions.Columns["QuestionID"] != null)
+                            grv_Questions.Columns["QuestionID"].Visible = false;
 
-                    // Ẩn cột SubjectID
-                    if (grv_Questions.Columns["SubjectID"] != null)
-                        grv_Questions.Columns["SubjectID"].Visible = false;
+                        // Ẩn cột SubjectID
+                        if (grv_Questions.Columns["SubjectID"] != null)
+                            grv_Questions.Columns["SubjectID"].Visible = false;
+                    }
+                    else
+                    {
+                        grv_Questions.DataSource = null;
+                        DevExpress.XtraEditors.XtraMessageBox.Show("Không tìm thấy câu hỏi nào phù hợp với từ khóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 else
                 {
                     grv_Questions.DataSource = null;
-                    MessageBox.Show("Không tìm thấy câu hỏi nào!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Không tìm thấy câu hỏi nào!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi tìm kiếm câu hỏi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DevExpress.XtraEditors.XtraMessageBox.Show("Lỗi khi tìm kiếm câu hỏi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -185,7 +238,7 @@ namespace ThiTracNghiem
             {
                 if (grv_Questions.SelectedRows.Count == 0)
                 {
-                    MessageBox.Show("Vui lòng chọn câu hỏi cần thêm vào đề thi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Vui lòng chọn câu hỏi cần thêm vào đề thi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -227,7 +280,7 @@ namespace ThiTracNghiem
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi thêm câu hỏi vào đề thi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DevExpress.XtraEditors.XtraMessageBox.Show("Lỗi khi thêm câu hỏi vào đề thi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -237,7 +290,7 @@ namespace ThiTracNghiem
             {
                 if (grv_SelectedQuestions.SelectedRows.Count == 0)
                 {
-                    MessageBox.Show("Vui lòng chọn câu hỏi cần xóa khỏi đề thi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Vui lòng chọn câu hỏi cần xóa khỏi đề thi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -269,7 +322,7 @@ namespace ThiTracNghiem
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi xóa câu hỏi khỏi đề thi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DevExpress.XtraEditors.XtraMessageBox.Show("Lỗi khi xóa câu hỏi khỏi đề thi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -290,25 +343,25 @@ namespace ThiTracNghiem
                 // Kiểm tra dữ liệu đầu vào
                 if (string.IsNullOrEmpty(txt_ExamName.Text))
                 {
-                    MessageBox.Show("Vui lòng nhập tên đề thi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Vui lòng nhập tên đề thi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 if (cbb_Subject.SelectedValue == null)
                 {
-                    MessageBox.Show("Vui lòng chọn môn học!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Vui lòng chọn môn học!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 if (txt_TimeLimit.Value <= 0)
                 {
-                    MessageBox.Show("Thời gian làm bài phải lớn hơn 0!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Thời gian làm bài phải lớn hơn 0!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 if (dtSelectedQuestions.Rows.Count == 0)
                 {
-                    MessageBox.Show("Vui lòng thêm câu hỏi vào đề thi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Vui lòng thêm câu hỏi vào đề thi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -335,7 +388,7 @@ namespace ThiTracNghiem
                 }
 
                 string message = status == "Draft" ? "Lưu đề thi thành công!" : "Gửi đề thi để duyệt thành công!";
-                MessageBox.Show(message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DevExpress.XtraEditors.XtraMessageBox.Show(message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Xóa dữ liệu đã nhập
                 txt_ExamName.Text = "";
@@ -346,7 +399,7 @@ namespace ThiTracNghiem
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi lưu đề thi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DevExpress.XtraEditors.XtraMessageBox.Show("Lỗi khi lưu đề thi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -45,21 +45,34 @@
             this.cbb_Chapter = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btn_Search = new Guna.UI2.WinForms.Guna2Button();
+            this.txt_SearchKeyword = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.grv_Questions = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.grv_SelectedQuestions = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QuestionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubjectID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Chapter = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OptionA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OptionB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OptionC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OptionD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Answer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_AddToExam = new Guna.UI2.WinForms.Guna2Button();
             this.btn_RemoveFromExam = new Guna.UI2.WinForms.Guna2Button();
             this.btn_Save = new Guna.UI2.WinForms.Guna2Button();
             this.btn_Submit = new Guna.UI2.WinForms.Guna2Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grv_SelectedQuestions = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.colSelectedSTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSelectedQuestionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSelectedSubjectID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSelectedQContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSelectedChapter = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSelectedOptionA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSelectedOptionB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSelectedOptionC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSelectedOptionD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSelectedAnswer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txt_TimeLimit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_TotalQuestion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grv_Questions)).BeginInit();
@@ -195,6 +208,32 @@
             this.btn_Search.TabIndex = 11;
             this.btn_Search.Text = "Tìm kiếm";
             this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
+
+            // txt_SearchKeyword
+            this.txt_SearchKeyword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_SearchKeyword.DefaultText = "";
+            this.txt_SearchKeyword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_SearchKeyword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_SearchKeyword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_SearchKeyword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_SearchKeyword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_SearchKeyword.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_SearchKeyword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_SearchKeyword.Location = new System.Drawing.Point(755, 92);
+            this.txt_SearchKeyword.Name = "txt_SearchKeyword";
+            this.txt_SearchKeyword.PasswordChar = '\0';
+            this.txt_SearchKeyword.PlaceholderText = "Nhập từ khóa tìm kiếm...";
+            this.txt_SearchKeyword.SelectedText = "";
+            this.txt_SearchKeyword.Size = new System.Drawing.Size(200, 28);
+            this.txt_SearchKeyword.TabIndex = 12;
+
+            // guna2HtmlLabel6
+            this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel6.Location = new System.Drawing.Point(755, 71);
+            this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
+            this.guna2HtmlLabel6.Size = new System.Drawing.Size(83, 15);
+            this.guna2HtmlLabel6.TabIndex = 13;
+            this.guna2HtmlLabel6.Text = "Từ khóa tìm kiếm";
             //
             // grv_Questions
             //
@@ -208,17 +247,19 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.grv_Questions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.grv_Questions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grv_Questions.ColumnHeadersHeight = 54;
+            this.grv_Questions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.grv_Questions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6,
-            this.Column7,
-            this.Column8,
-            this.Column9});
+            this.STT,
+            this.QuestionID,
+            this.SubjectID,
+            this.QContent,
+            this.Chapter,
+            this.OptionA,
+            this.OptionB,
+            this.OptionC,
+            this.OptionD,
+            this.Answer});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -244,7 +285,7 @@
             this.grv_Questions.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.grv_Questions.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grv_Questions.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.grv_Questions.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grv_Questions.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.grv_Questions.ThemeStyle.HeaderStyle.Height = 54;
             this.grv_Questions.ThemeStyle.ReadOnly = false;
             this.grv_Questions.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
@@ -255,54 +296,66 @@
             this.grv_Questions.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.grv_Questions.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             //
-            // grv_SelectedQuestions
+            // STT
             //
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.grv_SelectedQuestions.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grv_SelectedQuestions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.grv_SelectedQuestions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grv_SelectedQuestions.DefaultCellStyle = dataGridViewCellStyle6;
-            this.grv_SelectedQuestions.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.grv_SelectedQuestions.Location = new System.Drawing.Point(553, 175);
-            this.grv_SelectedQuestions.Name = "grv_SelectedQuestions";
-            this.grv_SelectedQuestions.RowHeadersVisible = false;
-            this.grv_SelectedQuestions.Size = new System.Drawing.Size(459, 269);
-            this.grv_SelectedQuestions.TabIndex = 13;
-            this.grv_SelectedQuestions.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.grv_SelectedQuestions.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.grv_SelectedQuestions.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.grv_SelectedQuestions.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.grv_SelectedQuestions.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.grv_SelectedQuestions.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.grv_SelectedQuestions.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.grv_SelectedQuestions.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.grv_SelectedQuestions.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.grv_SelectedQuestions.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grv_SelectedQuestions.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.grv_SelectedQuestions.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grv_SelectedQuestions.ThemeStyle.HeaderStyle.Height = 4;
-            this.grv_SelectedQuestions.ThemeStyle.ReadOnly = false;
-            this.grv_SelectedQuestions.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.grv_SelectedQuestions.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.grv_SelectedQuestions.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grv_SelectedQuestions.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.grv_SelectedQuestions.ThemeStyle.RowsStyle.Height = 22;
-            this.grv_SelectedQuestions.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.grv_SelectedQuestions.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.STT.DataPropertyName = "STT";
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            //
+            // QuestionID
+            //
+            this.QuestionID.DataPropertyName = "QuestionID";
+            this.QuestionID.HeaderText = "Mã câu hỏi";
+            this.QuestionID.Name = "QuestionID";
+            this.QuestionID.Visible = false;
+            //
+            // SubjectID
+            //
+            this.SubjectID.HeaderText = "Mã môn học";
+            this.SubjectID.Name = "SubjectID";
+            this.SubjectID.Visible = false;
+            //
+            // QContent
+            //
+            this.QContent.DataPropertyName = "QContent";
+            this.QContent.HeaderText = "Nội dung câu hỏi";
+            this.QContent.Name = "QContent";
+            //
+            // Chapter
+            //
+            this.Chapter.DataPropertyName = "Chapter";
+            this.Chapter.HeaderText = "Chương";
+            this.Chapter.Name = "Chapter";
+            //
+            // OptionA
+            //
+            this.OptionA.DataPropertyName = "OptionA";
+            this.OptionA.HeaderText = "Đáp án A";
+            this.OptionA.Name = "OptionA";
+            //
+            // OptionB
+            //
+            this.OptionB.DataPropertyName = "OptionB";
+            this.OptionB.HeaderText = "Đáp án B";
+            this.OptionB.Name = "OptionB";
+            //
+            // OptionC
+            //
+            this.OptionC.DataPropertyName = "OptionC";
+            this.OptionC.HeaderText = "Đáp án C";
+            this.OptionC.Name = "OptionC";
+            //
+            // OptionD
+            //
+            this.OptionD.DataPropertyName = "OptionD";
+            this.OptionD.HeaderText = "Đáp án D";
+            this.OptionD.Name = "OptionD";
+            //
+            // Answer
+            //
+            this.Answer.DataPropertyName = "Answer";
+            this.Answer.HeaderText = "Đáp án đúng";
+            this.Answer.Name = "Answer";
             //
             // btn_AddToExam
             //
@@ -316,8 +369,8 @@
             this.btn_AddToExam.Name = "btn_AddToExam";
             this.btn_AddToExam.Size = new System.Drawing.Size(121, 28);
             this.btn_AddToExam.TabIndex = 14;
-            this.btn_AddToExam.Click += new System.EventHandler(this.btn_AddToExam_Click);
             this.btn_AddToExam.Text = "Thêm câu hỏi";
+            this.btn_AddToExam.Click += new System.EventHandler(this.btn_AddToExam_Click);
             //
             // btn_RemoveFromExam
             //
@@ -331,8 +384,8 @@
             this.btn_RemoveFromExam.Name = "btn_RemoveFromExam";
             this.btn_RemoveFromExam.Size = new System.Drawing.Size(121, 28);
             this.btn_RemoveFromExam.TabIndex = 15;
-            this.btn_RemoveFromExam.Click += new System.EventHandler(this.btn_RemoveFromExam_Click);
             this.btn_RemoveFromExam.Text = "Xóa câu hỏi";
+            this.btn_RemoveFromExam.Click += new System.EventHandler(this.btn_RemoveFromExam_Click);
             //
             // btn_Save
             //
@@ -346,8 +399,8 @@
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(121, 28);
             this.btn_Save.TabIndex = 16;
-            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             this.btn_Save.Text = "Lưu";
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             //
             // btn_Submit
             //
@@ -361,66 +414,144 @@
             this.btn_Submit.Name = "btn_Submit";
             this.btn_Submit.Size = new System.Drawing.Size(121, 28);
             this.btn_Submit.TabIndex = 17;
-            this.btn_Submit.Click += new System.EventHandler(this.btn_Submit_Click);
             this.btn_Submit.Text = "Gửi";
+            this.btn_Submit.Click += new System.EventHandler(this.btn_Submit_Click);
             //
-            // Column1
+            // grv_SelectedQuestions
             //
-            this.Column1.HeaderText = "STT";
-            this.Column1.Name = "Column1";
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.grv_SelectedQuestions.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grv_SelectedQuestions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.grv_SelectedQuestions.ColumnHeadersHeight = 54;
+            this.grv_SelectedQuestions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.grv_SelectedQuestions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colSelectedSTT,
+            this.colSelectedQuestionID,
+            this.colSelectedSubjectID,
+            this.colSelectedQContent,
+            this.colSelectedChapter,
+            this.colSelectedOptionA,
+            this.colSelectedOptionB,
+            this.colSelectedOptionC,
+            this.colSelectedOptionD,
+            this.colSelectedAnswer});
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grv_SelectedQuestions.DefaultCellStyle = dataGridViewCellStyle6;
+            this.grv_SelectedQuestions.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.grv_SelectedQuestions.Location = new System.Drawing.Point(542, 175);
+            this.grv_SelectedQuestions.Name = "grv_SelectedQuestions";
+            this.grv_SelectedQuestions.RowHeadersVisible = false;
+            this.grv_SelectedQuestions.Size = new System.Drawing.Size(477, 269);
+            this.grv_SelectedQuestions.TabIndex = 18;
+            this.grv_SelectedQuestions.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.grv_SelectedQuestions.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.grv_SelectedQuestions.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.grv_SelectedQuestions.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.grv_SelectedQuestions.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.grv_SelectedQuestions.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.grv_SelectedQuestions.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.grv_SelectedQuestions.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.grv_SelectedQuestions.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.grv_SelectedQuestions.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grv_SelectedQuestions.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.grv_SelectedQuestions.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.grv_SelectedQuestions.ThemeStyle.HeaderStyle.Height = 54;
+            this.grv_SelectedQuestions.ThemeStyle.ReadOnly = false;
+            this.grv_SelectedQuestions.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.grv_SelectedQuestions.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.grv_SelectedQuestions.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grv_SelectedQuestions.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.grv_SelectedQuestions.ThemeStyle.RowsStyle.Height = 22;
+            this.grv_SelectedQuestions.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.grv_SelectedQuestions.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             //
-            // Column2
+            // colSelectedSTT
             //
-            this.Column2.HeaderText = "QuestionID";
-            this.Column2.Name = "Column2";
-            this.Column2.Visible = false;
+            this.colSelectedSTT.DataPropertyName = "STT";
+            this.colSelectedSTT.HeaderText = "STT";
+            this.colSelectedSTT.Name = "colSelectedSTT";
             //
-            // Column3
+            // colSelectedQuestionID
             //
-            this.Column3.HeaderText = "Nội dung câu hỏi";
-            this.Column3.Name = "Column3";
+            this.colSelectedQuestionID.DataPropertyName = "QuestionID";
+            this.colSelectedQuestionID.HeaderText = "Mã câu hỏi";
+            this.colSelectedQuestionID.Name = "colSelectedQuestionID";
+            this.colSelectedQuestionID.Visible = false;
             //
-            // Column4
+            // colSelectedSubjectID
             //
-            this.Column4.HeaderText = "Chương";
-            this.Column4.Name = "Column4";
+            this.colSelectedSubjectID.HeaderText = "Mã môn học";
+            this.colSelectedSubjectID.Name = "colSelectedSubjectID";
+            this.colSelectedSubjectID.Visible = false;
             //
-            // Column5
+            // colSelectedQContent
             //
-            this.Column5.HeaderText = "Đáp án A";
-            this.Column5.Name = "Column5";
+            this.colSelectedQContent.DataPropertyName = "QContent";
+            this.colSelectedQContent.HeaderText = "Nội dung câu hỏi";
+            this.colSelectedQContent.Name = "colSelectedQContent";
             //
-            // Column6
+            // colSelectedChapter
             //
-            this.Column6.HeaderText = "Đáp án B";
-            this.Column6.Name = "Column6";
+            this.colSelectedChapter.DataPropertyName = "Chapter";
+            this.colSelectedChapter.HeaderText = "Chương";
+            this.colSelectedChapter.Name = "colSelectedChapter";
             //
-            // Column7
+            // colSelectedOptionA
             //
-            this.Column7.HeaderText = "Đáp án C";
-            this.Column7.Name = "Column7";
+            this.colSelectedOptionA.DataPropertyName = "OptionA";
+            this.colSelectedOptionA.HeaderText = "Đáp án A";
+            this.colSelectedOptionA.Name = "colSelectedOptionA";
             //
-            // Column8
+            // colSelectedOptionB
             //
-            this.Column8.HeaderText = "Đáp án D";
-            this.Column8.Name = "Column8";
+            this.colSelectedOptionB.DataPropertyName = "OptionB";
+            this.colSelectedOptionB.HeaderText = "Đáp án B";
+            this.colSelectedOptionB.Name = "colSelectedOptionB";
             //
-            // Column9
+            // colSelectedOptionC
             //
-            this.Column9.HeaderText = "Đáp án đúng";
-            this.Column9.Name = "Column9";
+            this.colSelectedOptionC.DataPropertyName = "OptionC";
+            this.colSelectedOptionC.HeaderText = "Đáp án C";
+            this.colSelectedOptionC.Name = "colSelectedOptionC";
+            //
+            // colSelectedOptionD
+            //
+            this.colSelectedOptionD.DataPropertyName = "OptionD";
+            this.colSelectedOptionD.HeaderText = "Đáp án D";
+            this.colSelectedOptionD.Name = "colSelectedOptionD";
+            //
+            // colSelectedAnswer
+            //
+            this.colSelectedAnswer.DataPropertyName = "Answer";
+            this.colSelectedAnswer.HeaderText = "Đáp án đúng";
+            this.colSelectedAnswer.Name = "colSelectedAnswer";
             //
             // frmCreateExam
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.grv_SelectedQuestions);
             this.Controls.Add(this.btn_Submit);
             this.Controls.Add(this.btn_Save);
             this.Controls.Add(this.btn_RemoveFromExam);
             this.Controls.Add(this.btn_AddToExam);
-            this.Controls.Add(this.grv_SelectedQuestions);
             this.Controls.Add(this.grv_Questions);
             this.Controls.Add(this.btn_Search);
+            this.Controls.Add(this.txt_SearchKeyword);
+            this.Controls.Add(this.guna2HtmlLabel6);
             this.Controls.Add(this.guna2HtmlLabel5);
             this.Controls.Add(this.cbb_Chapter);
             this.Controls.Add(this.guna2HtmlLabel4);
@@ -432,8 +563,8 @@
             this.Controls.Add(this.guna2HtmlLabel1);
             this.Controls.Add(this.txt_ExamName);
             this.Name = "frmCreateExam";
-            this.Load += new System.EventHandler(this.frmCreateExam_Load);
             this.Size = new System.Drawing.Size(1090, 578);
+            this.Load += new System.EventHandler(this.frmCreateExam_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txt_TimeLimit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_TotalQuestion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grv_Questions)).EndInit();
@@ -457,19 +588,32 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
         private Guna.UI2.WinForms.Guna2Button btn_Search;
         private Guna.UI2.WinForms.Guna2DataGridView grv_Questions;
-        private Guna.UI2.WinForms.Guna2DataGridView grv_SelectedQuestions;
         private Guna.UI2.WinForms.Guna2Button btn_AddToExam;
         private Guna.UI2.WinForms.Guna2Button btn_RemoveFromExam;
         private Guna.UI2.WinForms.Guna2Button btn_Save;
         private Guna.UI2.WinForms.Guna2Button btn_Submit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private Guna.UI2.WinForms.Guna2TextBox txt_SearchKeyword;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QuestionID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SubjectID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QContent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Chapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OptionA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OptionB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OptionC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OptionD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Answer;
+        private Guna.UI2.WinForms.Guna2DataGridView grv_SelectedQuestions;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSelectedSTT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSelectedQuestionID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSelectedSubjectID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSelectedQContent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSelectedChapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSelectedOptionA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSelectedOptionB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSelectedOptionC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSelectedOptionD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSelectedAnswer;
     }
 }

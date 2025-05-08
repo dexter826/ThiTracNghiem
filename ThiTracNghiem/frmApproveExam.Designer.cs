@@ -38,19 +38,19 @@
             this.btn_Approve = new Guna.UI2.WinForms.Guna2Button();
             this.btn_Reject = new Guna.UI2.WinForms.Guna2Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExamID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExamName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubjectName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TimeLimit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalQuestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grv_Exams)).BeginInit();
             this.SuspendLayout();
-            //
+            // 
             // cbb_Status
-            //
+            // 
             this.cbb_Status.BackColor = System.Drawing.Color.Transparent;
             this.cbb_Status.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbb_Status.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -64,18 +64,18 @@
             this.cbb_Status.Size = new System.Drawing.Size(140, 36);
             this.cbb_Status.TabIndex = 0;
             this.cbb_Status.SelectedIndexChanged += new System.EventHandler(this.cbb_Status_SelectedIndexChanged);
-            //
+            // 
             // guna2HtmlLabel1
-            //
+            // 
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(80, 50);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(51, 15);
             this.guna2HtmlLabel1.TabIndex = 1;
             this.guna2HtmlLabel1.Text = "Trạng thái";
-            //
+            // 
             // grv_Exams
-            //
+            // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.grv_Exams.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -86,17 +86,18 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.grv_Exams.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.grv_Exams.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grv_Exams.ColumnHeadersHeight = 15;
+            this.grv_Exams.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.grv_Exams.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6,
-            this.Column7,
-            this.Column8,
-            this.Column9});
+            this.ExamID,
+            this.ExamName,
+            this.SubjectName,
+            this.TimeLimit,
+            this.TotalQuestion,
+            this.CreatedBy,
+            this.CreatedAt,
+            this.Status});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -122,7 +123,7 @@
             this.grv_Exams.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.grv_Exams.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grv_Exams.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.grv_Exams.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grv_Exams.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.grv_Exams.ThemeStyle.HeaderStyle.Height = 15;
             this.grv_Exams.ThemeStyle.ReadOnly = false;
             this.grv_Exams.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
@@ -133,9 +134,9 @@
             this.grv_Exams.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.grv_Exams.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.grv_Exams.SelectionChanged += new System.EventHandler(this.grv_Exams_SelectionChanged);
-            //
+            // 
             // btn_ViewDetail
-            //
+            // 
             this.btn_ViewDetail.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btn_ViewDetail.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_ViewDetail.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -146,11 +147,11 @@
             this.btn_ViewDetail.Name = "btn_ViewDetail";
             this.btn_ViewDetail.Size = new System.Drawing.Size(121, 27);
             this.btn_ViewDetail.TabIndex = 3;
-            this.btn_ViewDetail.Click += new System.EventHandler(this.btn_ViewDetail_Click);
             this.btn_ViewDetail.Text = "Xem chi tiết";
-            //
+            this.btn_ViewDetail.Click += new System.EventHandler(this.btn_ViewDetail_Click);
+            // 
             // btn_Approve
-            //
+            // 
             this.btn_Approve.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btn_Approve.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_Approve.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -161,11 +162,11 @@
             this.btn_Approve.Name = "btn_Approve";
             this.btn_Approve.Size = new System.Drawing.Size(119, 27);
             this.btn_Approve.TabIndex = 4;
-            this.btn_Approve.Click += new System.EventHandler(this.btn_Approve_Click);
             this.btn_Approve.Text = "Duyệt";
-            //
+            this.btn_Approve.Click += new System.EventHandler(this.btn_Approve_Click);
+            // 
             // btn_Reject
-            //
+            // 
             this.btn_Reject.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btn_Reject.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_Reject.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -176,57 +177,65 @@
             this.btn_Reject.Name = "btn_Reject";
             this.btn_Reject.Size = new System.Drawing.Size(119, 27);
             this.btn_Reject.TabIndex = 5;
-            this.btn_Reject.Click += new System.EventHandler(this.btn_Reject_Click);
             this.btn_Reject.Text = "Từ chối";
-            //
+            this.btn_Reject.Click += new System.EventHandler(this.btn_Reject_Click);
+            // 
             // Column1
-            //
+            // 
             this.Column1.HeaderText = "STT";
             this.Column1.Name = "Column1";
-            //
-            // Column2
-            //
-            this.Column2.HeaderText = "ExamID";
-            this.Column2.Name = "Column2";
-            this.Column2.Visible = false;
-            //
-            // Column3
-            //
-            this.Column3.HeaderText = "Tên đề thi";
-            this.Column3.Name = "Column3";
-            //
-            // Column4
-            //
-            this.Column4.HeaderText = "Môn học";
-            this.Column4.Name = "Column4";
-            //
-            // Column5
-            //
-            this.Column5.HeaderText = "Thời gian làm bài";
-            this.Column5.Name = "Column5";
-            //
-            // Column6
-            //
-            this.Column6.HeaderText = "Số lượng câu hỏi";
-            this.Column6.Name = "Column6";
-            //
-            // Column7
-            //
-            this.Column7.HeaderText = "Người tạo";
-            this.Column7.Name = "Column7";
-            //
-            // Column8
-            //
-            this.Column8.HeaderText = "Ngày tạo";
-            this.Column8.Name = "Column8";
-            //
-            // Column9
-            //
-            this.Column9.HeaderText = "Trạng thái";
-            this.Column9.Name = "Column9";
-            //
+            // 
+            // ExamID
+            // 
+            this.ExamID.DataPropertyName = "ExamID";
+            this.ExamID.HeaderText = "Mã đề thi";
+            this.ExamID.Name = "ExamID";
+            this.ExamID.Visible = false;
+            // 
+            // ExamName
+            // 
+            this.ExamName.DataPropertyName = "ExamName";
+            this.ExamName.HeaderText = "Tên đề thi";
+            this.ExamName.Name = "ExamName";
+            // 
+            // SubjectName
+            // 
+            this.SubjectName.DataPropertyName = "SubjectName";
+            this.SubjectName.HeaderText = "Môn học";
+            this.SubjectName.Name = "SubjectName";
+            // 
+            // TimeLimit
+            // 
+            this.TimeLimit.DataPropertyName = "TimeLimit";
+            this.TimeLimit.HeaderText = "Thời gian làm bài";
+            this.TimeLimit.Name = "TimeLimit";
+            // 
+            // TotalQuestion
+            // 
+            this.TotalQuestion.DataPropertyName = "TotalQuestion";
+            this.TotalQuestion.HeaderText = "Số lượng câu hỏi";
+            this.TotalQuestion.Name = "TotalQuestion";
+            // 
+            // CreatedBy
+            // 
+            this.CreatedBy.DataPropertyName = "CreatedBy";
+            this.CreatedBy.HeaderText = "Người tạo";
+            this.CreatedBy.Name = "CreatedBy";
+            // 
+            // CreatedAt
+            // 
+            this.CreatedAt.DataPropertyName = "CreatedAt";
+            this.CreatedAt.HeaderText = "Ngày tạo";
+            this.CreatedAt.Name = "CreatedAt";
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "Trạng thái";
+            this.Status.Name = "Status";
+            // 
             // frmApproveExam
-            //
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btn_Reject);
@@ -253,13 +262,13 @@
         private Guna.UI2.WinForms.Guna2Button btn_Approve;
         private Guna.UI2.WinForms.Guna2Button btn_Reject;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ExamID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ExamName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SubjectName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TimeLimit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalQuestion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CreatedBy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CreatedAt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
     }
 }

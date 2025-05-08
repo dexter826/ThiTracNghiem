@@ -43,7 +43,7 @@ namespace ThiTracNghiem
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi tải danh sách giáo viên: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DevExpress.XtraEditors.XtraMessageBox.Show("Lỗi khi tải danh sách giáo viên: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -60,7 +60,7 @@ namespace ThiTracNghiem
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi tải danh sách môn học: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DevExpress.XtraEditors.XtraMessageBox.Show("Lỗi khi tải danh sách môn học: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -70,34 +70,73 @@ namespace ThiTracNghiem
             {
                 if (cbb_Teacher.SelectedValue != null)
                 {
-                    int teacherId = Convert.ToInt32(cbb_Teacher.SelectedValue);
+                    int teacherId;
+                    if (cbb_Teacher.SelectedValue is DataRowView)
+                    {
+                        teacherId = Convert.ToInt32(((DataRowView)cbb_Teacher.SelectedValue)["UserID"]);
+                    }
+                    else
+                    {
+                        teacherId = Convert.ToInt32(cbb_Teacher.SelectedValue);
+                    }
                     var teacherSubjects = BTeacherSubject.GetByTeacher(teacherId);
 
-                    // Thêm cột STT
+                    // Thêm cột STT và Fullname
                     if (teacherSubjects.Rows.Count > 0)
                     {
+                        // Thêm cột STT
                         DataColumn sttColumn = new DataColumn("STT", typeof(int));
                         teacherSubjects.Columns.Add(sttColumn);
+
+                        // Thêm cột Fullname
+                        if (!teacherSubjects.Columns.Contains("Fullname"))
+                        {
+                            DataColumn fullnameColumn = new DataColumn("Fullname", typeof(string));
+                            teacherSubjects.Columns.Add(fullnameColumn);
+                        }
+
+                        // Lấy thông tin giáo viên
+                        var teachers = BUserAccount.GetAll();
+                        var teacherRow = teachers.AsEnumerable()
+                            .FirstOrDefault(row => Convert.ToInt32(row["UserID"]) == teacherId);
+
+                        string teacherName = teacherRow != null ? teacherRow["Fullname"].ToString() : "Unknown";
 
                         for (int i = 0; i < teacherSubjects.Rows.Count; i++)
                         {
                             teacherSubjects.Rows[i]["STT"] = i + 1;
+                            teacherSubjects.Rows[i]["Fullname"] = teacherName;
                         }
 
                         // Sắp xếp lại thứ tự cột
                         teacherSubjects.Columns["STT"].SetOrdinal(0);
                     }
 
+                    // Thiết lập không tự động tạo cột
+                    grv_TeacherSubject.AutoGenerateColumns = false;
+
+                    // Ánh xạ các cột trong DataGridView với các cột trong DataTable
+                    grv_TeacherSubject.Columns["Column1"].DataPropertyName = "STT";
+                    grv_TeacherSubject.Columns["Column2"].DataPropertyName = "ID";
+
+                    // Cột tên giáo viên - đã thêm vào DataTable
+                    grv_TeacherSubject.Columns["Column3"].DataPropertyName = "Fullname";
+
+                    grv_TeacherSubject.Columns["Column4"].DataPropertyName = "SubjectID";
+                    grv_TeacherSubject.Columns["Column5"].DataPropertyName = "SubjectName";
+                    grv_TeacherSubject.Columns["Column6"].DataPropertyName = "CreatedAt";
+                    grv_TeacherSubject.Columns["Column7"].DataPropertyName = "CreatedBy";
+
+                    // Gán DataSource
                     grv_TeacherSubject.DataSource = teacherSubjects;
 
                     // Ẩn cột ID
-                    if (grv_TeacherSubject.Columns["ID"] != null)
-                        grv_TeacherSubject.Columns["ID"].Visible = false;
+                    grv_TeacherSubject.Columns["Column2"].Visible = false;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi tải danh sách phân công: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DevExpress.XtraEditors.XtraMessageBox.Show("Lỗi khi tải danh sách phân công: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -112,17 +151,34 @@ namespace ThiTracNghiem
             {
                 if (cbb_Teacher.SelectedValue == null || guna2ComboBox1.SelectedValue == null)
                 {
-                    MessageBox.Show("Vui lòng chọn giáo viên và môn học!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Vui lòng chọn giáo viên và môn học!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                int teacherId = Convert.ToInt32(cbb_Teacher.SelectedValue);
-                string subjectId = guna2ComboBox1.SelectedValue.ToString();
+                int teacherId;
+                if (cbb_Teacher.SelectedValue is DataRowView)
+                {
+                    teacherId = Convert.ToInt32(((DataRowView)cbb_Teacher.SelectedValue)["UserID"]);
+                }
+                else
+                {
+                    teacherId = Convert.ToInt32(cbb_Teacher.SelectedValue);
+                }
+
+                string subjectId;
+                if (guna2ComboBox1.SelectedValue is DataRowView)
+                {
+                    subjectId = ((DataRowView)guna2ComboBox1.SelectedValue)["SubjectID"].ToString();
+                }
+                else
+                {
+                    subjectId = guna2ComboBox1.SelectedValue.ToString();
+                }
 
                 // Kiểm tra xem giáo viên đã được phân công môn học này chưa
                 if (BTeacherSubject.IsTeacherAssigned(teacherId, subjectId))
                 {
-                    MessageBox.Show("Giáo viên đã được phân công môn học này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Giáo viên đã được phân công môn học này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -136,14 +192,14 @@ namespace ThiTracNghiem
                 };
 
                 BTeacherSubject.AddTeacherSubject(teacherSubject);
-                MessageBox.Show("Phân công môn học thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DevExpress.XtraEditors.XtraMessageBox.Show("Phân công môn học thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Tải lại danh sách phân công
                 LoadTeacherSubjects();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi phân công môn học: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DevExpress.XtraEditors.XtraMessageBox.Show("Lỗi khi phân công môn học: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -153,23 +209,23 @@ namespace ThiTracNghiem
             {
                 if (grv_TeacherSubject.SelectedRows.Count == 0)
                 {
-                    MessageBox.Show("Vui lòng chọn phân công cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Vui lòng chọn phân công cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                if (MessageBox.Show("Bạn có chắc chắn muốn xóa phân công này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                if (DevExpress.XtraEditors.XtraMessageBox.Show("Bạn có chắc chắn muốn xóa phân công này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                     return;
 
                 int id = Convert.ToInt32(grv_TeacherSubject.SelectedRows[0].Cells["ID"].Value);
                 BTeacherSubject.DeleteTeacherSubject(id);
-                MessageBox.Show("Xóa phân công thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DevExpress.XtraEditors.XtraMessageBox.Show("Xóa phân công thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Tải lại danh sách phân công
                 LoadTeacherSubjects();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi xóa phân công: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DevExpress.XtraEditors.XtraMessageBox.Show("Lỗi khi xóa phân công: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -208,7 +208,7 @@ namespace ThiTracNghiem
                 txt_OptionB.Text = row.Cells["OptionB"].Value.ToString();
                 txt_OptionC.Text = row.Cells["OptionC"].Value.ToString();
                 txt_OptionD.Text = row.Cells["OptionD"].Value.ToString();
-                txt_Chapter.Text = row.Cells["Chapter"] != null && row.Cells["Chapter"].Value != DBNull.Value ? row.Cells["Chapter"].Value.ToString() : "";
+                txt_Chapter.Text = row.Cells["colChapter"] != null && row.Cells["colChapter"].Value != DBNull.Value ? row.Cells["colChapter"].Value.ToString() : "";
                 cbb_Subject.SelectedValue = row.Cells["SubjectID"].Value.ToString();
             }
             catch (Exception ex)

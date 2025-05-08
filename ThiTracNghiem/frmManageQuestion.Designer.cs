@@ -35,16 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txt_QuestionId = new Guna.UI2.WinForms.Guna2TextBox();
             this.grv_DataUser = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QuestionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SubjectID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OptionA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OptionB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OptionC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OptionD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Answer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Chapter = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -63,14 +53,24 @@
             this.btn_Edit = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.btn_Search = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.grb_Infor = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txt_Chapter = new Guna.UI2.WinForms.Guna2TextBox();
             this.cbb_Subject = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btn_Cancel = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.btn_Save = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.btn_ImportExcel = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.btn_Add = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.txt_Search = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txt_Chapter = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QuestionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubjectID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OptionA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OptionB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OptionC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OptionD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Answer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colChapter = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grv_DataUser)).BeginInit();
             this.grb_Infor.SuspendLayout();
             this.SuspendLayout();
@@ -122,7 +122,8 @@
             this.OptionB,
             this.OptionC,
             this.OptionD,
-            this.Answer});
+            this.Answer,
+            this.colChapter});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -166,97 +167,6 @@
             this.grv_DataUser.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.grv_DataUser_RowEnter);
             this.grv_DataUser.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.grv_DataUser_RowPrePaint);
             //
-            // STT
-            //
-            this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.STT.DefaultCellStyle = dataGridViewCellStyle3;
-            this.STT.HeaderText = "STT";
-            this.STT.MinimumWidth = 6;
-            this.STT.Name = "STT";
-            this.STT.ReadOnly = true;
-            this.STT.Width = 50;
-            //
-            // QuestionID
-            //
-            this.QuestionID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.QuestionID.DataPropertyName = "QuestionID";
-            this.QuestionID.HeaderText = "Mã câu hỏi";
-            this.QuestionID.MinimumWidth = 6;
-            this.QuestionID.Name = "QuestionID";
-            this.QuestionID.ReadOnly = true;
-            this.QuestionID.Width = 120;
-            //
-            // SubjectID
-            //
-            this.SubjectID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.SubjectID.DataPropertyName = "SubjectID";
-            this.SubjectID.HeaderText = "Môn thi";
-            this.SubjectID.MinimumWidth = 6;
-            this.SubjectID.Name = "SubjectID";
-            this.SubjectID.ReadOnly = true;
-            this.SubjectID.Width = 110;
-            //
-            // QContent
-            //
-            this.QContent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.QContent.DataPropertyName = "QContent";
-            this.QContent.HeaderText = "Nội dung câu hỏi";
-            this.QContent.MinimumWidth = 6;
-            this.QContent.Name = "QContent";
-            this.QContent.ReadOnly = true;
-            this.QContent.Width = 300;
-            //
-            // OptionA
-            //
-            this.OptionA.DataPropertyName = "OptionA";
-            this.OptionA.HeaderText = "Lựa chọn A";
-            this.OptionA.MinimumWidth = 6;
-            this.OptionA.Name = "OptionA";
-            this.OptionA.ReadOnly = true;
-            //
-            // OptionB
-            //
-            this.OptionB.DataPropertyName = "OptionB";
-            this.OptionB.HeaderText = "Lựa chọn B";
-            this.OptionB.MinimumWidth = 6;
-            this.OptionB.Name = "OptionB";
-            this.OptionB.ReadOnly = true;
-            //
-            // OptionC
-            //
-            this.OptionC.DataPropertyName = "OptionC";
-            this.OptionC.HeaderText = "Lựa chọn C";
-            this.OptionC.MinimumWidth = 6;
-            this.OptionC.Name = "OptionC";
-            this.OptionC.ReadOnly = true;
-            //
-            // OptionD
-            //
-            this.OptionD.DataPropertyName = "OptionD";
-            dataGridViewCellStyle4.Format = "d";
-            dataGridViewCellStyle4.NullValue = "dd/MM/yyyy";
-            this.OptionD.DefaultCellStyle = dataGridViewCellStyle4;
-            this.OptionD.HeaderText = "Lựa chọn D";
-            this.OptionD.MinimumWidth = 6;
-            this.OptionD.Name = "OptionD";
-            this.OptionD.ReadOnly = true;
-            //
-            // Answer
-            //
-            this.Answer.DataPropertyName = "Answer";
-            this.Answer.HeaderText = "Đáp án đúng";
-            this.Answer.MinimumWidth = 6;
-            this.Answer.Name = "Answer";
-            this.Answer.ReadOnly = true;
-            //
-            // Chapter
-            //
-            this.Chapter.DataPropertyName = "Chapter";
-            this.Chapter.HeaderText = "Chương";
-            this.Chapter.MinimumWidth = 6;
-            this.Chapter.Name = "Chapter";
-            this.Chapter.ReadOnly = true;
             //
             // label2
             //
@@ -533,6 +443,32 @@
             this.grb_Infor.TabStop = false;
             this.grb_Infor.Text = "Thông tin câu hỏi";
             //
+            // label1
+            //
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(24, 102);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 20);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Chương";
+            //
+            // txt_Chapter
+            //
+            this.txt_Chapter.BorderRadius = 5;
+            this.txt_Chapter.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_Chapter.DefaultText = "";
+            this.txt_Chapter.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Chapter.Location = new System.Drawing.Point(120, 94);
+            this.txt_Chapter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_Chapter.Name = "txt_Chapter";
+            this.txt_Chapter.PasswordChar = '\0';
+            this.txt_Chapter.PlaceholderText = "";
+            this.txt_Chapter.SelectedText = "";
+            this.txt_Chapter.Size = new System.Drawing.Size(219, 36);
+            this.txt_Chapter.TabIndex = 16;
+            //
             // cbb_Subject
             //
             this.cbb_Subject.BackColor = System.Drawing.Color.Transparent;
@@ -661,31 +597,97 @@
             this.txt_Search.Leave += new System.EventHandler(this.txt_Search_Leave);
             this.txt_Search.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.txt_Search_MouseDoubleClick);
             //
-            // txt_Chapter
+            // STT
             //
-            this.txt_Chapter.BorderRadius = 5;
-            this.txt_Chapter.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_Chapter.DefaultText = "";
-            this.txt_Chapter.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Chapter.Location = new System.Drawing.Point(120, 94);
-            this.txt_Chapter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_Chapter.Name = "txt_Chapter";
-            this.txt_Chapter.PasswordChar = '\0';
-            this.txt_Chapter.PlaceholderText = "";
-            this.txt_Chapter.SelectedText = "";
-            this.txt_Chapter.Size = new System.Drawing.Size(219, 36);
-            this.txt_Chapter.TabIndex = 16;
+            this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.STT.DefaultCellStyle = dataGridViewCellStyle3;
+            this.STT.HeaderText = "STT";
+            this.STT.MinimumWidth = 6;
+            this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
+            this.STT.Width = 50;
             //
-            // label1
+            // QuestionID
             //
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(24, 102);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 20);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Chương";
+            this.QuestionID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.QuestionID.DataPropertyName = "QuestionID";
+            this.QuestionID.HeaderText = "Mã câu hỏi";
+            this.QuestionID.MinimumWidth = 6;
+            this.QuestionID.Name = "QuestionID";
+            this.QuestionID.ReadOnly = true;
+            this.QuestionID.Visible = false;
+            this.QuestionID.Width = 120;
+            //
+            // SubjectID
+            //
+            this.SubjectID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.SubjectID.DataPropertyName = "SubjectID";
+            this.SubjectID.HeaderText = "Môn thi";
+            this.SubjectID.MinimumWidth = 6;
+            this.SubjectID.Name = "SubjectID";
+            this.SubjectID.ReadOnly = true;
+            this.SubjectID.Width = 110;
+            //
+            // QContent
+            //
+            this.QContent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.QContent.DataPropertyName = "QContent";
+            this.QContent.HeaderText = "Nội dung câu hỏi";
+            this.QContent.MinimumWidth = 6;
+            this.QContent.Name = "QContent";
+            this.QContent.ReadOnly = true;
+            this.QContent.Width = 300;
+            //
+            // OptionA
+            //
+            this.OptionA.DataPropertyName = "OptionA";
+            this.OptionA.HeaderText = "Lựa chọn A";
+            this.OptionA.MinimumWidth = 6;
+            this.OptionA.Name = "OptionA";
+            this.OptionA.ReadOnly = true;
+            //
+            // OptionB
+            //
+            this.OptionB.DataPropertyName = "OptionB";
+            this.OptionB.HeaderText = "Lựa chọn B";
+            this.OptionB.MinimumWidth = 6;
+            this.OptionB.Name = "OptionB";
+            this.OptionB.ReadOnly = true;
+            //
+            // OptionC
+            //
+            this.OptionC.DataPropertyName = "OptionC";
+            this.OptionC.HeaderText = "Lựa chọn C";
+            this.OptionC.MinimumWidth = 6;
+            this.OptionC.Name = "OptionC";
+            this.OptionC.ReadOnly = true;
+            //
+            // OptionD
+            //
+            this.OptionD.DataPropertyName = "OptionD";
+            dataGridViewCellStyle4.Format = "d";
+            dataGridViewCellStyle4.NullValue = "dd/MM/yyyy";
+            this.OptionD.DefaultCellStyle = dataGridViewCellStyle4;
+            this.OptionD.HeaderText = "Lựa chọn D";
+            this.OptionD.MinimumWidth = 6;
+            this.OptionD.Name = "OptionD";
+            this.OptionD.ReadOnly = true;
+            //
+            // Answer
+            //
+            this.Answer.DataPropertyName = "Answer";
+            this.Answer.HeaderText = "Đáp án đúng";
+            this.Answer.MinimumWidth = 6;
+            this.Answer.Name = "Answer";
+            this.Answer.ReadOnly = true;
+            //
+            // colChapter
+            //
+            this.colChapter.DataPropertyName = "Chapter";
+            this.colChapter.HeaderText = "Chương";
+            this.colChapter.Name = "colChapter";
+            this.colChapter.ReadOnly = true;
             //
             // frmManageQuestion
             //
@@ -739,6 +741,10 @@
         private Guna.UI2.WinForms.Guna2GradientTileButton btn_Cancel;
         private Guna.UI2.WinForms.Guna2GradientTileButton btn_Save;
         private Guna.UI2.WinForms.Guna2ComboBox cbb_Subject;
+
+        private Guna.UI2.WinForms.Guna2GradientTileButton btn_ImportExcel;
+        private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2TextBox txt_Chapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn QuestionID;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubjectID;
@@ -748,9 +754,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn OptionC;
         private System.Windows.Forms.DataGridViewTextBoxColumn OptionD;
         private System.Windows.Forms.DataGridViewTextBoxColumn Answer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Chapter;
-        private Guna.UI2.WinForms.Guna2GradientTileButton btn_ImportExcel;
-        private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2TextBox txt_Chapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colChapter;
     }
 }

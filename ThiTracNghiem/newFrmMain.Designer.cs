@@ -289,7 +289,7 @@
             //
             this.mn_TeacherSubject.Caption = "Phân công môn học";
             this.mn_TeacherSubject.Id = 24;
-            this.mn_TeacherSubject.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("mn_ManageSubject.ImageOptions.LargeImage")));
+            this.mn_TeacherSubject.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("mn_ManageSubject.ImageOptions.SvgImage")));
             this.mn_TeacherSubject.Name = "mn_TeacherSubject";
             this.mn_TeacherSubject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.mn_TeacherSubject_ItemClick);
             //
