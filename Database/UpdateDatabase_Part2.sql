@@ -33,7 +33,7 @@ BEGIN
            ,GETDATE()
            ,@CreatedBy
            ,GETDATE())
-    
+
     SET @ExamID = SCOPE_IDENTITY()
 END
 GO
@@ -67,7 +67,7 @@ BEGIN
     -- Xóa các câu hỏi trong đề thi
     DELETE FROM [dbo].[ExamQuestion]
     WHERE [ExamID] = @ExamID
-    
+
     -- Xóa đề thi
     DELETE FROM [dbo].[Exam]
     WHERE [ExamID] = @ExamID
@@ -267,7 +267,7 @@ BEGIN
           ,[ModifiedAt]
       FROM [dbo].[Question]
       WHERE [SubjectID] = @SubjectID
-      AND ([Chapter] = @Chapter OR (@Chapter = 'All' AND [Chapter] IS NOT NULL))
+      AND (@Chapter = 'All' OR [Chapter] = @Chapter)
 END
 GO
 
@@ -308,7 +308,7 @@ BEGIN
                 ,[Chapter]
             FROM [dbo].[Question]
             WHERE SubjectID = @SubjectID
-            ORDER BY NEWID() 
+            ORDER BY NEWID()
         ) AS TempQuestion
     END
     ELSE

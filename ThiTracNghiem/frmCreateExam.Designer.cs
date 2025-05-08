@@ -301,6 +301,7 @@
             this.STT.DataPropertyName = "STT";
             this.STT.HeaderText = "STT";
             this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
             //
             // QuestionID
             //
@@ -311,6 +312,7 @@
             //
             // SubjectID
             //
+            this.SubjectID.DataPropertyName = "SubjectID";
             this.SubjectID.HeaderText = "Mã môn học";
             this.SubjectID.Name = "SubjectID";
             this.SubjectID.Visible = false;

@@ -25,8 +25,27 @@ namespace ThiTracNghiem
 
         private void frmCreateExam_Load(object sender, EventArgs e)
         {
+            // Thiết lập thuộc tính cho DataGridView
+            SetupDataGridViews();
+
+            // Tải dữ liệu
             LoadSubjects();
             InitializeSelectedQuestionsTable();
+        }
+
+        private void SetupDataGridViews()
+        {
+            // Thiết lập thuộc tính cho grv_Questions
+            grv_Questions.AutoGenerateColumns = false;
+            grv_Questions.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            grv_Questions.MultiSelect = true;
+            grv_Questions.ReadOnly = true;
+
+            // Thiết lập thuộc tính cho grv_SelectedQuestions
+            grv_SelectedQuestions.AutoGenerateColumns = false;
+            grv_SelectedQuestions.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            grv_SelectedQuestions.MultiSelect = true;
+            grv_SelectedQuestions.ReadOnly = true;
         }
 
         private void LoadSubjects()
@@ -204,7 +223,38 @@ namespace ThiTracNghiem
 
                     if (dtQuestions.Rows.Count > 0)
                     {
-                        grv_Questions.DataSource = dtQuestions;
+                        // Tạo DataTable mới để hiển thị
+                        DataTable displayTable = new DataTable();
+                        displayTable.Columns.Add("STT", typeof(int));
+                        displayTable.Columns.Add("QuestionID", typeof(int));
+                        displayTable.Columns.Add("SubjectID", typeof(string));
+                        displayTable.Columns.Add("QContent", typeof(string));
+                        displayTable.Columns.Add("Chapter", typeof(string));
+                        displayTable.Columns.Add("OptionA", typeof(string));
+                        displayTable.Columns.Add("OptionB", typeof(string));
+                        displayTable.Columns.Add("OptionC", typeof(string));
+                        displayTable.Columns.Add("OptionD", typeof(string));
+                        displayTable.Columns.Add("Answer", typeof(string));
+
+                        // Sao chép dữ liệu từ dtQuestions sang displayTable
+                        foreach (DataRow row in dtQuestions.Rows)
+                        {
+                            DataRow newRow = displayTable.NewRow();
+                            newRow["STT"] = row["STT"];
+                            newRow["QuestionID"] = row["QuestionID"];
+                            newRow["SubjectID"] = row["SubjectID"];
+                            newRow["QContent"] = row["QContent"];
+                            newRow["Chapter"] = row["Chapter"] != DBNull.Value ? row["Chapter"] : DBNull.Value;
+                            newRow["OptionA"] = row["OptionA"];
+                            newRow["OptionB"] = row["OptionB"];
+                            newRow["OptionC"] = row["OptionC"];
+                            newRow["OptionD"] = row["OptionD"];
+                            newRow["Answer"] = row["Answer"];
+                            displayTable.Rows.Add(newRow);
+                        }
+
+                        // Thiết lập DataSource
+                        grv_Questions.DataSource = displayTable;
 
                         // Ẩn cột QuestionID
                         if (grv_Questions.Columns["QuestionID"] != null)
