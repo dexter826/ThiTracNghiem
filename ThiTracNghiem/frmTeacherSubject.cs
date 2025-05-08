@@ -54,9 +54,9 @@ namespace ThiTracNghiem
                 // Lấy danh sách môn học
                 var subjects = BSubject.GetAll();
 
-                guna2ComboBox1.DataSource = subjects;
-                guna2ComboBox1.DisplayMember = "SubjectName";
-                guna2ComboBox1.ValueMember = "SubjectID";
+                cbb_Subject.DataSource = subjects;
+                cbb_Subject.DisplayMember = "SubjectName";
+                cbb_Subject.ValueMember = "SubjectID";
             }
             catch (Exception ex)
             {
@@ -149,7 +149,7 @@ namespace ThiTracNghiem
         {
             try
             {
-                if (cbb_Teacher.SelectedValue == null || guna2ComboBox1.SelectedValue == null)
+                if (cbb_Teacher.SelectedValue == null || cbb_Subject.SelectedValue == null)
                 {
                     DevExpress.XtraEditors.XtraMessageBox.Show("Vui lòng chọn giáo viên và môn học!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
@@ -166,13 +166,13 @@ namespace ThiTracNghiem
                 }
 
                 string subjectId;
-                if (guna2ComboBox1.SelectedValue is DataRowView)
+                if (cbb_Subject.SelectedValue is DataRowView)
                 {
-                    subjectId = ((DataRowView)guna2ComboBox1.SelectedValue)["SubjectID"].ToString();
+                    subjectId = ((DataRowView)cbb_Subject.SelectedValue)["SubjectID"].ToString();
                 }
                 else
                 {
-                    subjectId = guna2ComboBox1.SelectedValue.ToString();
+                    subjectId = cbb_Subject.SelectedValue.ToString();
                 }
 
                 // Kiểm tra xem giáo viên đã được phân công môn học này chưa

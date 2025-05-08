@@ -452,5 +452,10 @@ namespace ThiTracNghiem
                 DevExpress.XtraEditors.XtraMessageBox.Show("Lỗi khi lưu đề thi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void txt_ExamName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
