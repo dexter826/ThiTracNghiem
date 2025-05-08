@@ -7,6 +7,36 @@ namespace DataAccessLayer
 {
     public class DQuestion
     {
+        public static DataTable GetByChapter(string subjectId, string chapter)
+        {
+            try
+            {
+                DataTable dtData = SqlHelper.ExecuteData(TestCore.ConnectionString.strCon, CommandType.StoredProcedure,
+                                                        "Question_GetByChapter",
+                                                        new SqlParameter("@SubjectID", subjectId),
+                                                        new SqlParameter("@Chapter", chapter));
+                return dtData;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static DataTable GetChaptersBySubject(string subjectId)
+        {
+            try
+            {
+                DataTable dtData = SqlHelper.ExecuteData(TestCore.ConnectionString.strCon, CommandType.StoredProcedure,
+                                                        "Question_GetChaptersBySubject",
+                                                        new SqlParameter("@SubjectID", subjectId));
+                return dtData;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public static void AddNewQuestion(Question newQuestion)
         {
             try
@@ -19,6 +49,7 @@ namespace DataAccessLayer
                                                     newQuestion.OptionC,
                                                     newQuestion.OptionD,
                                                     newQuestion.Answer,
+                                                    newQuestion.Chapter,
                                                     newQuestion.CreatedBy);
             }
             catch (Exception ex)
@@ -40,7 +71,7 @@ namespace DataAccessLayer
             }
         }
 
-        public static void UpdateQuestion (Question editQuestion)
+        public static void UpdateQuestion(Question editQuestion)
         {
             try
             {
@@ -53,6 +84,7 @@ namespace DataAccessLayer
                                                     editQuestion.OptionC,
                                                     editQuestion.OptionD,
                                                     editQuestion.Answer,
+                                                    editQuestion.Chapter,
                                                     editQuestion.ModifiedBy);
             }
             catch (Exception ex)
@@ -86,15 +118,27 @@ namespace DataAccessLayer
             }
         }
 
-        public static DataTable GetQuesTionForTest(string subjectId, int numberQuestion)
+        public static DataTable GetQuesTionForTest(string subjectId, int numberQuestion, int? examId = null)
         {
             try
             {
-                DataTable dtDate = SqlHelper.ExecuteData(TestCore.ConnectionString.strCon, CommandType.StoredProcedure,
-                                                            "Question_GetQuestionForTest",
-                                                            new SqlParameter("@SubjectID", subjectId),
-                                                            new SqlParameter("@NumberOfQuestion", numberQuestion));
-                return dtDate;
+                if (examId.HasValue)
+                {
+                    DataTable dtDate = SqlHelper.ExecuteData(TestCore.ConnectionString.strCon, CommandType.StoredProcedure,
+                                                                "Question_GetQuestionForTest",
+                                                                new SqlParameter("@SubjectID", subjectId),
+                                                                new SqlParameter("@NumberOfQuestion", numberQuestion),
+                                                                new SqlParameter("@ExamID", examId.Value));
+                    return dtDate;
+                }
+                else
+                {
+                    DataTable dtDate = SqlHelper.ExecuteData(TestCore.ConnectionString.strCon, CommandType.StoredProcedure,
+                                                                "Question_GetQuestionForTest",
+                                                                new SqlParameter("@SubjectID", subjectId),
+                                                                new SqlParameter("@NumberOfQuestion", numberQuestion));
+                    return dtDate;
+                }
             }
             catch (Exception ex)
             {
@@ -119,6 +163,7 @@ namespace DataAccessLayer
                     question.OptionC = reader["OptionC"].ToString();
                     question.OptionD = reader["OptionD"].ToString();
                     question.Answer = reader["Answer"].ToString();
+                    question.Chapter = reader["Chapter"] != DBNull.Value ? reader["Chapter"].ToString() : null;
                 }
                 reader.Close();
                 return question;
