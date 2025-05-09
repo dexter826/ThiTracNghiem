@@ -37,10 +37,13 @@ namespace ThiTracNghiem
             this.groupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.grv_ExamSessions = new Guna.UI2.WinForms.Guna2DataGridView();
             this.groupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.cbb_Status = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.lbl_Status = new System.Windows.Forms.Label();
             this.btn_Cancel = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.btn_Update = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.btn_ViewDetail = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.groupBox3 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.lbl_UserCount = new System.Windows.Forms.Label();
             this.clb_Users = new System.Windows.Forms.CheckedListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btn_Add = new Guna.UI2.WinForms.Guna2GradientTileButton();
@@ -134,11 +137,14 @@ namespace ThiTracNghiem
             this.grv_ExamSessions.ThemeStyle.RowsStyle.Height = 22;
             this.grv_ExamSessions.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.grv_ExamSessions.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.grv_ExamSessions.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grv_ExamSessions_CellClick);
             //
             // groupBox2
             //
             this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.groupBox2.BorderRadius = 5;
+            this.groupBox2.Controls.Add(this.cbb_Status);
+            this.groupBox2.Controls.Add(this.lbl_Status);
             this.groupBox2.Controls.Add(this.btn_Cancel);
             this.groupBox2.Controls.Add(this.btn_Update);
             this.groupBox2.Controls.Add(this.btn_ViewDetail);
@@ -169,6 +175,31 @@ namespace ThiTracNghiem
             this.btn_Cancel.Text = "Hủy kỳ thi";
             this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             //
+            // lbl_Status
+            //
+            this.lbl_Status.AutoSize = true;
+            this.lbl_Status.Location = new System.Drawing.Point(129, 20);
+            this.lbl_Status.Name = "lbl_Status";
+            this.lbl_Status.Size = new System.Drawing.Size(62, 15);
+            this.lbl_Status.TabIndex = 3;
+            this.lbl_Status.Text = "Trạng thái:";
+
+            // cbb_Status
+            //
+            this.cbb_Status.BackColor = System.Drawing.Color.Transparent;
+            this.cbb_Status.BorderRadius = 5;
+            this.cbb_Status.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbb_Status.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbb_Status.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbb_Status.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbb_Status.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.cbb_Status.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbb_Status.ItemHeight = 15;
+            this.cbb_Status.Location = new System.Drawing.Point(197, 17);
+            this.cbb_Status.Name = "cbb_Status";
+            this.cbb_Status.Size = new System.Drawing.Size(200, 21);
+            this.cbb_Status.TabIndex = 4;
+
             // btn_Update
             //
             this.btn_Update.BorderRadius = 5;
@@ -185,7 +216,7 @@ namespace ThiTracNghiem
             this.btn_Update.Name = "btn_Update";
             this.btn_Update.Size = new System.Drawing.Size(139, 36);
             this.btn_Update.TabIndex = 1;
-            this.btn_Update.Text = "Cập nhật";
+            this.btn_Update.Text = "Cập nhật trạng thái";
             this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
             //
             // btn_ViewDetail
@@ -210,6 +241,7 @@ namespace ThiTracNghiem
             // groupBox3
             //
             this.groupBox3.BorderRadius = 5;
+            this.groupBox3.Controls.Add(this.lbl_UserCount);
             this.groupBox3.Controls.Add(this.clb_Users);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.btn_Add);
@@ -230,6 +262,15 @@ namespace ThiTracNghiem
             this.groupBox3.TabIndex = 2;
             this.groupBox3.Text = "Thêm kỳ thi mới";
             //
+            // lbl_UserCount
+            //
+            this.lbl_UserCount.AutoSize = true;
+            this.lbl_UserCount.Location = new System.Drawing.Point(136, 149);
+            this.lbl_UserCount.Name = "lbl_UserCount";
+            this.lbl_UserCount.Size = new System.Drawing.Size(93, 15);
+            this.lbl_UserCount.TabIndex = 11;
+            this.lbl_UserCount.Text = "Số người dùng: 0";
+
             // clb_Users
             //
             this.clb_Users.BackColor = System.Drawing.Color.White;
@@ -237,10 +278,11 @@ namespace ThiTracNghiem
             this.clb_Users.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.clb_Users.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.clb_Users.FormattingEnabled = true;
-            this.clb_Users.Location = new System.Drawing.Point(136, 149);
+            this.clb_Users.Location = new System.Drawing.Point(136, 167);
             this.clb_Users.Name = "clb_Users";
-            this.clb_Users.Size = new System.Drawing.Size(294, 146);
+            this.clb_Users.Size = new System.Drawing.Size(294, 128);
             this.clb_Users.TabIndex = 10;
+            this.clb_Users.Visible = false;
             //
             // label5
             //
@@ -510,5 +552,8 @@ namespace ThiTracNghiem
         private Guna.UI2.WinForms.Guna2GroupBox groupBox4;
         private Guna.UI2.WinForms.Guna2DataGridView grv_SessionUsers;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private Guna.UI2.WinForms.Guna2ComboBox cbb_Status;
+        private System.Windows.Forms.Label lbl_Status;
+        private System.Windows.Forms.Label lbl_UserCount;
     }
 }

@@ -2,6 +2,7 @@ using BusinessLogicLayer;
 using DevExpress.XtraEditors;
 using Entities;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -43,8 +44,25 @@ namespace ThiTracNghiem
         {
             LoadExamSessions();
             LoadExams();
+            InitializeStatusComboBox();
             // Không tải danh sách người dùng ở đây nữa
             // LoadUsers() sẽ được gọi khi chọn đề thi
+        }
+
+        private void InitializeStatusComboBox()
+        {
+            // Khởi tạo ComboBox trạng thái
+            var statusList = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("Scheduled", "Đã lên lịch"),
+                new KeyValuePair<string, string>("InProgress", "Đang diễn ra"),
+                new KeyValuePair<string, string>("Completed", "Đã hoàn thành"),
+                new KeyValuePair<string, string>("Cancelled", "Đã hủy")
+            };
+
+            cbb_Status.DataSource = new BindingSource(statusList, null);
+            cbb_Status.DisplayMember = "Value";
+            cbb_Status.ValueMember = "Key";
         }
 
         private void LoadExamSessions()
@@ -94,17 +112,12 @@ namespace ThiTracNghiem
                 {
                     XtraMessageBox.Show("Không có người dùng nào được gán vào môn học này. Vui lòng gán người dùng vào môn học trước khi tạo kỳ thi.",
                         "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    lbl_UserCount.Text = "Số người dùng: 0";
+                    return;
                 }
 
-                clb_Users.DataSource = dtUsers;
-                clb_Users.DisplayMember = "Fullname";
-                clb_Users.ValueMember = "UserID";
-
-                // Bỏ chọn tất cả người dùng
-                for (int i = 0; i < clb_Users.Items.Count; i++)
-                {
-                    clb_Users.SetItemChecked(i, false);
-                }
+                // Hiển thị số lượng người dùng
+                lbl_UserCount.Text = $"Số người dùng: {dtUsers.Rows.Count}";
             }
             catch (Exception ex)
             {
@@ -135,9 +148,10 @@ namespace ThiTracNghiem
                     return;
                 }
 
-                if (clb_Users.CheckedItems.Count == 0)
+                if (dtUsers == null || dtUsers.Rows.Count == 0)
                 {
-                    XtraMessageBox.Show("Vui lòng chọn ít nhất một người dùng tham gia kỳ thi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    XtraMessageBox.Show("Không có người dùng nào được gán vào môn học này. Vui lòng gán người dùng vào môn học trước khi tạo kỳ thi.",
+                        "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -164,12 +178,12 @@ namespace ThiTracNghiem
 
                 BExamSessionDetail.AddExamSessionDetail(examSessionDetail);
 
-                // Thêm người dùng vào kỳ thi
-                foreach (DataRowView item in clb_Users.CheckedItems)
+                // Thêm tất cả người dùng đã được gán môn học vào kỳ thi
+                foreach (DataRow row in dtUsers.Rows)
                 {
                     UserExamSession userExamSession = new UserExamSession
                     {
-                        UserID = Convert.ToInt32(item["UserID"]),
+                        UserID = Convert.ToInt32(row["UserID"]),
                         SessionID = sessionId,
                         Status = "Registered",
                         CreatedBy = Session.LogonUser.Username
@@ -196,12 +210,8 @@ namespace ThiTracNghiem
             dtp_StartTime.Value = DateTime.Now;
             dtp_EndTime.Value = DateTime.Now.AddHours(1);
             cbb_Exam.SelectedIndex = -1;
-
-            // Bỏ chọn tất cả người dùng
-            for (int i = 0; i < clb_Users.Items.Count; i++)
-            {
-                clb_Users.SetItemChecked(i, false);
-            }
+            lbl_UserCount.Text = "Số người dùng: 0";
+            dtUsers = null;
         }
 
         private void btn_Update_Click(object sender, EventArgs e)
@@ -224,12 +234,7 @@ namespace ThiTracNghiem
                 }
 
                 // Cập nhật trạng thái kỳ thi
-                string newStatus = "InProgress";
-                if (DateTime.Now > Convert.ToDateTime(grv_ExamSessions.SelectedRows[0].Cells["EndTime"].Value))
-                {
-                    newStatus = "Completed";
-                }
-
+                string newStatus = cbb_Status.SelectedValue.ToString();
                 BExamSession.UpdateStatus(sessionId, newStatus, Session.LogonUser.Username);
 
                 XtraMessageBox.Show("Cập nhật trạng thái kỳ thi thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -291,7 +296,18 @@ namespace ThiTracNghiem
                 }
 
                 int sessionId = Convert.ToInt32(grv_ExamSessions.SelectedRows[0].Cells["SessionID"].Value);
+                LoadSessionUsers(sessionId);
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show("Lỗi khi xem chi tiết kỳ thi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
+        private void LoadSessionUsers(int sessionId)
+        {
+            try
+            {
                 // Lấy danh sách người dùng trong kỳ thi
                 DataTable dtSessionUsers = BUserExamSession.GetBySession(sessionId);
                 grv_SessionUsers.DataSource = dtSessionUsers;
@@ -299,6 +315,15 @@ namespace ThiTracNghiem
             catch (Exception ex)
             {
                 XtraMessageBox.Show("Lỗi khi xem chi tiết kỳ thi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void grv_ExamSessions_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                int sessionId = Convert.ToInt32(grv_ExamSessions.Rows[e.RowIndex].Cells["SessionID"].Value);
+                LoadSessionUsers(sessionId);
             }
         }
 

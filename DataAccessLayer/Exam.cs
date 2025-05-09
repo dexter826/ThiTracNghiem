@@ -199,44 +199,28 @@ namespace DataAccessLayer
             }
         }
 
-        // Phương thức SetActive đã được cập nhật để sử dụng ExamSession thay vì trường IsActive
+        // Phương thức SetActive đã được cập nhật để chỉ đánh dấu đề thi là active/inactive
         public static void SetActive(int examId, bool isActive, string modifiedBy)
         {
             try
             {
-                if (isActive)
+                // Cập nhật trạng thái active của đề thi
+                SqlHelper.ExecuteNonQuery(
+                    TestCore.ConnectionString.strCon,
+                    CommandType.Text,
+                    @"UPDATE [dbo].[Exam]
+                    SET [IsActive] = @IsActive,
+                        [ModifiedBy] = @ModifiedBy,
+                        [ModifiedAt] = GETDATE()
+                    WHERE [ExamID] = @ExamID",
+                    new SqlParameter("@ExamID", examId),
+                    new SqlParameter("@IsActive", isActive),
+                    new SqlParameter("@ModifiedBy", modifiedBy)
+                );
+
+                // Nếu hủy kích hoạt đề thi, hủy tất cả các kỳ thi đang diễn ra có chứa đề thi này
+                if (!isActive)
                 {
-                    // Nếu kích hoạt đề thi, tạo một kỳ thi mới
-                    // Lấy thông tin đề thi
-                    Exam exam = GetById(examId);
-
-                    // Tạo kỳ thi mới
-                    ExamSession examSession = new ExamSession
-                    {
-                        SessionName = $"Kỳ thi {exam.SubjectName} - {DateTime.Now.ToString("dd/MM/yyyy")}",
-                        StartTime = DateTime.Now,
-                        EndTime = DateTime.Now.AddDays(7), // Kỳ thi kéo dài 7 ngày
-                        Status = "InProgress",
-                        CreatedBy = modifiedBy,
-                        ModifiedBy = modifiedBy
-                    };
-
-                    // Thêm kỳ thi mới
-                    int sessionId = DExamSession.AddExamSession(examSession);
-
-                    // Thêm chi tiết kỳ thi
-                    ExamSessionDetail examSessionDetail = new ExamSessionDetail
-                    {
-                        SessionID = sessionId,
-                        ExamID = examId,
-                        CreatedBy = modifiedBy
-                    };
-
-                    DExamSessionDetail.AddExamSessionDetail(examSessionDetail);
-                }
-                else
-                {
-                    // Nếu hủy kích hoạt đề thi, hủy tất cả các kỳ thi đang diễn ra có chứa đề thi này
                     SqlHelper.ExecuteNonQuery(
                         TestCore.ConnectionString.strCon,
                         CommandType.Text,
@@ -259,7 +243,7 @@ namespace DataAccessLayer
             }
         }
 
-        // Phương thức GetActiveBySubject đã được cập nhật để sử dụng ExamSession thay vì trường IsActive
+        // Phương thức GetActiveBySubject đã được cập nhật để sử dụng trường IsActive
         public static DataTable GetActiveBySubject(string subjectId)
         {
             try
@@ -267,7 +251,7 @@ namespace DataAccessLayer
                 DataTable dtData = SqlHelper.ExecuteData(
                     TestCore.ConnectionString.strCon,
                     CommandType.Text,
-                    @"SELECT DISTINCT e.[ExamID]
+                    @"SELECT e.[ExamID]
                           ,e.[ExamName]
                           ,e.[SubjectID]
                           ,s.[SubjectName]
@@ -280,15 +264,12 @@ namespace DataAccessLayer
                           ,e.[ModifiedAt]
                           ,e.[ApprovedBy]
                           ,e.[ApprovedAt]
-                          ,CASE WHEN es.[SessionID] IS NOT NULL THEN 1 ELSE 0 END AS IsActive
+                          ,e.[IsActive]
                       FROM [dbo].[Exam] e
                       INNER JOIN [dbo].[Subject] s ON e.[SubjectID] = s.[SubjectID]
-                      LEFT JOIN [dbo].[ExamSessionDetail] esd ON e.[ExamID] = esd.[ExamID]
-                      LEFT JOIN [dbo].[ExamSession] es ON esd.[SessionID] = es.[SessionID]
-                          AND es.[Status] IN ('Scheduled', 'InProgress')
-                          AND GETDATE() BETWEEN es.[StartTime] AND es.[EndTime]
                       WHERE e.[SubjectID] = @SubjectID
-                        AND e.[Status] = 'Approved'",
+                        AND e.[Status] = 'Approved'
+                        AND e.[IsActive] = 1",
                     new SqlParameter("@SubjectID", subjectId)
                 );
                 return dtData;
@@ -303,11 +284,11 @@ namespace DataAccessLayer
         {
             try
             {
-                // Cập nhật để sử dụng ExamSession thay vì stored procedure Exam_GetAllActive
+                // Cập nhật để sử dụng trường IsActive
                 DataTable dtData = SqlHelper.ExecuteData(
                     TestCore.ConnectionString.strCon,
                     CommandType.Text,
-                    @"SELECT DISTINCT e.[ExamID]
+                    @"SELECT e.[ExamID]
                           ,e.[ExamName]
                           ,e.[SubjectID]
                           ,s.[SubjectName]
@@ -320,14 +301,11 @@ namespace DataAccessLayer
                           ,e.[ModifiedAt]
                           ,e.[ApprovedBy]
                           ,e.[ApprovedAt]
-                          ,CASE WHEN es.[SessionID] IS NOT NULL THEN 1 ELSE 0 END AS IsActive
+                          ,e.[IsActive]
                       FROM [dbo].[Exam] e
                       INNER JOIN [dbo].[Subject] s ON e.[SubjectID] = s.[SubjectID]
-                      LEFT JOIN [dbo].[ExamSessionDetail] esd ON e.[ExamID] = esd.[ExamID]
-                      LEFT JOIN [dbo].[ExamSession] es ON esd.[SessionID] = es.[SessionID]
-                          AND es.[Status] IN ('Scheduled', 'InProgress')
-                          AND GETDATE() BETWEEN es.[StartTime] AND es.[EndTime]
                       WHERE e.[Status] = 'Approved'
+                        AND e.[IsActive] = 1
                       ORDER BY e.[ExamID] DESC"
                 );
                 return dtData;
