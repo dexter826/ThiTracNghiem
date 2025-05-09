@@ -31,14 +31,14 @@ namespace ThiTracNghiem
 
         private void InitializeStatusComboBox()
         {
-            // Khởi tạo ComboBox trạng thái
+            // Khởi tạo ComboBox trạng thái - loại bỏ tùy chọn "Draft" vì đây là trang duyệt đề thi
             var statusList = new List<KeyValuePair<string, string>>
             {
                 new KeyValuePair<string, string>("All", "Tất cả"),
                 new KeyValuePair<string, string>("Pending", "Chờ duyệt"),
                 new KeyValuePair<string, string>("Approved", "Đã duyệt"),
-                new KeyValuePair<string, string>("Rejected", "Từ chối"),
-                new KeyValuePair<string, string>("Draft", "Bản nháp")
+                new KeyValuePair<string, string>("Rejected", "Từ chối")
+                // Đã loại bỏ "Draft" vì không cần hiển thị trong trang duyệt đề thi
             };
 
             cbb_Status.DataSource = new BindingSource(statusList, null);
@@ -54,8 +54,17 @@ namespace ThiTracNghiem
 
                 if (status == "All")
                 {
-                    // Lấy tất cả đề thi
+                    // Lấy tất cả đề thi trừ các đề thi có trạng thái "Draft"
                     dtExams = BExam.GetAll();
+
+                    // Lọc bỏ các đề thi có trạng thái "Draft"
+                    if (dtExams != null && dtExams.Rows.Count > 0)
+                    {
+                        // Sử dụng DataView để lọc dữ liệu
+                        DataView dv = new DataView(dtExams);
+                        dv.RowFilter = "Status <> 'Draft'";
+                        dtExams = dv.ToTable();
+                    }
                 }
                 else
                 {
@@ -137,6 +146,24 @@ namespace ThiTracNghiem
             else
             {
                 selectedExamId = 0;
+            }
+        }
+
+        private void grv_Exams_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            try
+            {
+                // Chỉ cập nhật STT cho các dòng dữ liệu thực sự, không phải dòng mới
+                if (e.RowIndex < grv_Exams.Rows.Count && !grv_Exams.Rows[e.RowIndex].IsNewRow)
+                {
+                    // Cập nhật số thứ tự (STT) của mỗi hàng trong bảng
+                    grv_Exams["Column1", e.RowIndex].Value = (e.RowIndex < 9 ? "0" : string.Empty) + (e.RowIndex + 1);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Ghi log lỗi nếu cần
+                Console.WriteLine("Lỗi khi cập nhật STT: " + ex.Message);
             }
         }
 

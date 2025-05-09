@@ -127,6 +127,9 @@
             this.grv_Exams.RowTemplate.Height = 40;
             this.grv_Exams.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grv_Exams.MultiSelect = true;
+            this.grv_Exams.AllowUserToAddRows = false;
+            this.grv_Exams.AllowUserToDeleteRows = false;
+            this.grv_Exams.AllowUserToResizeRows = false;
             this.grv_Exams.AutoGenerateColumns = false;
             this.grv_Exams.Size = new System.Drawing.Size(1089, 542);
             this.grv_Exams.TabIndex = 2;
@@ -152,12 +155,19 @@
             this.grv_Exams.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
             this.grv_Exams.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
             this.grv_Exams.SelectionChanged += new System.EventHandler(this.grv_Exams_SelectionChanged);
+            this.grv_Exams.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.grv_Exams_RowPrePaint);
             //
             // Column1
             //
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            System.Windows.Forms.DataGridViewCellStyle sttStyle = new System.Windows.Forms.DataGridViewCellStyle();
+            sttStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column1.DefaultCellStyle = sttStyle;
             this.Column1.HeaderText = "STT";
+            this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
+            this.Column1.Width = 40;
             //
             // ExamID
             //
