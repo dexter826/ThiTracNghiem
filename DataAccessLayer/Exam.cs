@@ -28,6 +28,7 @@ namespace DataAccessLayer
                     new SqlParameter("@SubjectID", exam.SubjectID),
                     new SqlParameter("@TimeLimit", exam.TimeLimit),
                     new SqlParameter("@TotalQuestion", exam.TotalQuestion),
+                    new SqlParameter("@Status", exam.Status),
                     new SqlParameter("@CreatedBy", exam.CreatedBy),
                     outputParam
                 );

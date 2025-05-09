@@ -455,7 +455,7 @@
             this.btn_Save.Size = new System.Drawing.Size(121, 35);
             this.btn_Save.TabIndex = 16;
             this.btn_Save.Text = "Lưu";
-            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
+            this.btn_Save.Visible = false;
             //
             // btn_Submit
             //
@@ -468,7 +468,7 @@
             this.btn_Submit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_Submit.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Submit.ForeColor = System.Drawing.Color.White;
-            this.btn_Submit.Location = new System.Drawing.Point(1185, 590);
+            this.btn_Submit.Location = new System.Drawing.Point(1058, 590);
             this.btn_Submit.Name = "btn_Submit";
             this.btn_Submit.ShadowDecoration.BorderRadius = 20;
             this.btn_Submit.ShadowDecoration.Depth = 10;

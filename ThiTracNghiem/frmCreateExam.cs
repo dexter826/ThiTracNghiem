@@ -364,11 +364,6 @@ namespace ThiTracNghiem
             }
         }
 
-        private void btn_Save_Click(object sender, EventArgs e)
-        {
-            SaveExam("Draft");
-        }
-
         private void btn_Submit_Click(object sender, EventArgs e)
         {
             SaveExam("Pending");
@@ -425,8 +420,7 @@ namespace ThiTracNghiem
                     BExamQuestion.AddExamQuestion(examId, questionId);
                 }
 
-                string message = status == "Draft" ? "Lưu đề thi thành công!" : "Gửi đề thi để duyệt thành công!";
-                DevExpress.XtraEditors.XtraMessageBox.Show(message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DevExpress.XtraEditors.XtraMessageBox.Show("Gửi đề thi để duyệt thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Xóa dữ liệu đã nhập
                 txt_ExamName.Text = "";
