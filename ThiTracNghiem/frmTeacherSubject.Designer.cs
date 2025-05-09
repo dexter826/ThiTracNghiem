@@ -49,9 +49,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.grv_TeacherSubject)).BeginInit();
             this.guna2GroupBox1.SuspendLayout();
             this.SuspendLayout();
-            //
+            // 
             // cbb_Teacher
-            //
+            // 
             this.cbb_Teacher.BackColor = System.Drawing.Color.Transparent;
             this.cbb_Teacher.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbb_Teacher.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -65,9 +65,9 @@
             this.cbb_Teacher.Size = new System.Drawing.Size(239, 36);
             this.cbb_Teacher.TabIndex = 0;
             this.cbb_Teacher.SelectedIndexChanged += new System.EventHandler(this.cbb_Teacher_SelectedIndexChanged);
-            //
+            // 
             // cbb_Subject
-            //
+            // 
             this.cbb_Subject.BackColor = System.Drawing.Color.Transparent;
             this.cbb_Subject.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbb_Subject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -80,9 +80,9 @@
             this.cbb_Subject.Name = "cbb_Subject";
             this.cbb_Subject.Size = new System.Drawing.Size(326, 36);
             this.cbb_Subject.TabIndex = 1;
-            //
+            // 
             // btn_Add
-            //
+            // 
             this.btn_Add.BackColor = System.Drawing.Color.Transparent;
             this.btn_Add.BorderRadius = 8;
             this.btn_Add.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -101,9 +101,9 @@
             this.btn_Add.TabIndex = 2;
             this.btn_Add.Text = "Thêm";
             this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
-            //
+            // 
             // btn_Delete
-            //
+            // 
             this.btn_Delete.BackColor = System.Drawing.Color.Transparent;
             this.btn_Delete.BorderRadius = 8;
             this.btn_Delete.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -122,16 +122,21 @@
             this.btn_Delete.TabIndex = 3;
             this.btn_Delete.Text = "Xóa";
             this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
-            //
+            // 
             // grv_TeacherSubject
-            //
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gainsboro;
             this.grv_TeacherSubject.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.grv_TeacherSubject.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.grv_TeacherSubject.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grv_TeacherSubject.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(131)))), ((int)(((byte)(251)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
@@ -171,7 +176,7 @@
             this.grv_TeacherSubject.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
             this.grv_TeacherSubject.ThemeStyle.BackColor = System.Drawing.Color.White;
             this.grv_TeacherSubject.ThemeStyle.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.grv_TeacherSubject.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.grv_TeacherSubject.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.grv_TeacherSubject.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.grv_TeacherSubject.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grv_TeacherSubject.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
@@ -185,63 +190,70 @@
             this.grv_TeacherSubject.ThemeStyle.RowsStyle.Height = 40;
             this.grv_TeacherSubject.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
             this.grv_TeacherSubject.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
-            //
+            // 
             // Column1
-            //
+            // 
             this.Column1.HeaderText = "STT";
             this.Column1.Name = "Column1";
-            //
+            this.Column1.ReadOnly = true;
+            // 
             // Column2
-            //
+            // 
             this.Column2.HeaderText = "ID ";
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             this.Column2.Visible = false;
-            //
+            // 
             // Column3
-            //
+            // 
             this.Column3.HeaderText = "Tên giáo viên";
             this.Column3.Name = "Column3";
-            //
+            this.Column3.ReadOnly = true;
+            // 
             // Column4
-            //
+            // 
             this.Column4.HeaderText = "Mã môn học";
             this.Column4.Name = "Column4";
-            //
+            this.Column4.ReadOnly = true;
+            // 
             // Column5
-            //
+            // 
             this.Column5.HeaderText = "Tên môn học";
             this.Column5.Name = "Column5";
-            //
+            this.Column5.ReadOnly = true;
+            // 
             // Column6
-            //
+            // 
             this.Column6.HeaderText = "Ngày tạo";
             this.Column6.Name = "Column6";
-            //
+            this.Column6.ReadOnly = true;
+            // 
             // Column7
-            //
+            // 
             this.Column7.HeaderText = "Người tạo";
             this.Column7.Name = "Column7";
-            //
+            this.Column7.ReadOnly = true;
+            // 
             // guna2HtmlLabel1
-            //
+            // 
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(28, 63);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(48, 15);
             this.guna2HtmlLabel1.TabIndex = 5;
             this.guna2HtmlLabel1.Text = "Giáo viên";
-            //
+            // 
             // guna2HtmlLabel2
-            //
+            // 
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel2.Location = new System.Drawing.Point(351, 63);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             this.guna2HtmlLabel2.Size = new System.Drawing.Size(127, 15);
             this.guna2HtmlLabel2.TabIndex = 6;
             this.guna2HtmlLabel2.Text = "Môn học được phân công";
-            //
+            // 
             // guna2GroupBox1
-            //
+            // 
             this.guna2GroupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.guna2GroupBox1.BorderRadius = 4;
             this.guna2GroupBox1.Controls.Add(this.cbb_Teacher);
@@ -257,9 +269,9 @@
             this.guna2GroupBox1.Size = new System.Drawing.Size(850, 147);
             this.guna2GroupBox1.TabIndex = 7;
             this.guna2GroupBox1.Text = "Thông tin phân công";
-            //
+            // 
             // frmTeacherSubject
-            //
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.guna2GroupBox1);

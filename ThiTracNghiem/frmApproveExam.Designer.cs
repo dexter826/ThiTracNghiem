@@ -79,13 +79,18 @@
             //
             // grv_Exams
             //
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.grv_Exams.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.grv_Exams.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.grv_Exams.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grv_Exams.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(131)))), ((int)(((byte)(251)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
@@ -127,7 +132,7 @@
             this.grv_Exams.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
             this.grv_Exams.ThemeStyle.BackColor = System.Drawing.Color.White;
             this.grv_Exams.ThemeStyle.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.grv_Exams.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.grv_Exams.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.grv_Exams.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.grv_Exams.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grv_Exams.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
@@ -147,12 +152,14 @@
             //
             this.Column1.HeaderText = "STT";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             //
             // ExamID
             //
             this.ExamID.DataPropertyName = "ExamID";
             this.ExamID.HeaderText = "Mã đề thi";
             this.ExamID.Name = "ExamID";
+            this.ExamID.ReadOnly = true;
             this.ExamID.Visible = false;
             //
             // ExamName
@@ -160,42 +167,49 @@
             this.ExamName.DataPropertyName = "ExamName";
             this.ExamName.HeaderText = "Tên đề thi";
             this.ExamName.Name = "ExamName";
+            this.ExamName.ReadOnly = true;
             //
             // SubjectName
             //
             this.SubjectName.DataPropertyName = "SubjectName";
             this.SubjectName.HeaderText = "Môn học";
             this.SubjectName.Name = "SubjectName";
+            this.SubjectName.ReadOnly = true;
             //
             // TimeLimit
             //
             this.TimeLimit.DataPropertyName = "TimeLimit";
             this.TimeLimit.HeaderText = "Thời gian làm bài";
             this.TimeLimit.Name = "TimeLimit";
+            this.TimeLimit.ReadOnly = true;
             //
             // TotalQuestion
             //
             this.TotalQuestion.DataPropertyName = "TotalQuestion";
             this.TotalQuestion.HeaderText = "Số lượng câu hỏi";
             this.TotalQuestion.Name = "TotalQuestion";
+            this.TotalQuestion.ReadOnly = true;
             //
             // CreatedBy
             //
             this.CreatedBy.DataPropertyName = "CreatedBy";
             this.CreatedBy.HeaderText = "Người tạo";
             this.CreatedBy.Name = "CreatedBy";
+            this.CreatedBy.ReadOnly = true;
             //
             // CreatedAt
             //
             this.CreatedAt.DataPropertyName = "CreatedAt";
             this.CreatedAt.HeaderText = "Ngày tạo";
             this.CreatedAt.Name = "CreatedAt";
+            this.CreatedAt.ReadOnly = true;
             //
             // Status
             //
             this.Status.DataPropertyName = "Status";
             this.Status.HeaderText = "Trạng thái";
             this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
             //
             // btn_ViewDetail
             //
