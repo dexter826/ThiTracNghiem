@@ -53,6 +53,7 @@
     <Compile Include="UserExamSession.cs" />
     <Compile Include="UserRole.cs" />
     <Compile Include="UserAccount.cs" />
+    <Compile Include="UserSubject.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">

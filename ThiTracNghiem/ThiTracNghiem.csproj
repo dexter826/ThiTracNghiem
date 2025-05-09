@@ -173,6 +173,12 @@
     <Compile Include="frmManageExamSession.Designer.cs">
       <DependentUpon>frmManageExamSession.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmManageUserSubject.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmManageUserSubject.Designer.cs">
+      <DependentUpon>frmManageUserSubject.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRestore.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -302,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmManageExamSession.resx">
       <DependentUpon>frmManageExamSession.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmManageUserSubject.resx">
+      <DependentUpon>frmManageUserSubject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRestore.resx">
       <DependentUpon>frmRestore.cs</DependentUpon>

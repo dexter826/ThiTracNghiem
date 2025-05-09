@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(newFrmMain));
+
+            // Khởi tạo mn_ManageUserSubject trước
+            this.mn_ManageUserSubject = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
@@ -167,7 +170,6 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.mn_CreateExam);
             this.ribbonPageGroup2.ItemLinks.Add(this.mn_ApproveExam);
             this.ribbonPageGroup2.ItemLinks.Add(this.mn_ManageExamSession);
-            this.ribbonPageGroup2.ItemLinks.Add(this.mn_ManageUserSubject);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "....................";
             //
@@ -370,6 +372,9 @@
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             this.ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             this.ribbonControl1.TransparentEditorsMode = DevExpress.Utils.DefaultBoolean.True;
+
+            // Thêm mn_ManageUserSubject vào ribbonPageGroup2 sau khi tất cả các control đã được khởi tạo
+            this.ribbonPageGroup2.ItemLinks.Add(this.mn_ManageUserSubject);
             //
             // lbl_HelloUser
             //

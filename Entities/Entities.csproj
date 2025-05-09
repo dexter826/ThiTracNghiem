@@ -53,6 +53,7 @@
     <Compile Include="UserAccount.cs" />
     <Compile Include="UserExamSession.cs" />
     <Compile Include="UserRole.cs" />
+    <Compile Include="UserSubject.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
