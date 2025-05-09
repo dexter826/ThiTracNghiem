@@ -42,11 +42,18 @@ namespace ThiTracNghiem
 
         private void frmManageExamSession_Load(object sender, EventArgs e)
         {
-            LoadExamSessions();
-            LoadExams();
-            InitializeStatusComboBox();
-            // Không tải danh sách người dùng ở đây nữa
-            // LoadUsers() sẽ được gọi khi chọn đề thi
+            try
+            {
+                InitializeStatusComboBox();
+                LoadExamSessions();
+                LoadExams();
+                // Không tải danh sách người dùng ở đây nữa
+                // LoadUsers() sẽ được gọi khi chọn đề thi
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show("Lỗi khi tải form: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void InitializeStatusComboBox()
@@ -70,6 +77,14 @@ namespace ThiTracNghiem
             try
             {
                 dtExamSessions = BExamSession.GetAll();
+
+                // Kiểm tra xem DataTable có null không
+                if (dtExamSessions == null)
+                {
+                    XtraMessageBox.Show("Không thể tải danh sách kỳ thi.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 grv_ExamSessions.DataSource = dtExamSessions;
             }
             catch (Exception ex)
@@ -89,11 +104,29 @@ namespace ThiTracNghiem
                 {
                     XtraMessageBox.Show("Không có đề thi nào được kích hoạt. Vui lòng kích hoạt ít nhất một đề thi trước khi tạo kỳ thi.",
                         "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
 
-                cbb_Exam.DataSource = dtExams;
+                // Kiểm tra xem DataTable có chứa các cột cần thiết không
+                if (!dtExams.Columns.Contains("ExamID") || !dtExams.Columns.Contains("ExamName"))
+                {
+                    XtraMessageBox.Show("Cấu trúc dữ liệu không hợp lệ. Không tìm thấy cột ExamID hoặc ExamName.",
+                        "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Tạo một DataView từ DataTable để đảm bảo dữ liệu được hiển thị đúng cách
+                DataView dv = new DataView(dtExams);
+                cbb_Exam.DataSource = dv;
                 cbb_Exam.DisplayMember = "ExamName";
                 cbb_Exam.ValueMember = "ExamID";
+
+                // Đảm bảo ComboBox được cập nhật
+                cbb_Exam.SelectedIndex = -1;
+                if (cbb_Exam.Items.Count > 0)
+                {
+                    cbb_Exam.SelectedIndex = 0;
+                }
             }
             catch (Exception ex)
             {
@@ -106,12 +139,21 @@ namespace ThiTracNghiem
             try
             {
                 // Lấy danh sách người dùng đã được gán vào môn học
-                dtUsers = BUserAccount.GetBySubject(subjectId);
+                dtUsers = BUserSubject.GetBySubject(subjectId);
 
                 if (dtUsers == null || dtUsers.Rows.Count == 0)
                 {
                     XtraMessageBox.Show("Không có người dùng nào được gán vào môn học này. Vui lòng gán người dùng vào môn học trước khi tạo kỳ thi.",
                         "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    lbl_UserCount.Text = "Số người dùng: 0";
+                    return;
+                }
+
+                // Kiểm tra xem cột UserID có tồn tại không
+                if (!dtUsers.Columns.Contains("UserID"))
+                {
+                    XtraMessageBox.Show("Cấu trúc dữ liệu không hợp lệ. Không tìm thấy cột UserID.",
+                        "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     lbl_UserCount.Text = "Số người dùng: 0";
                     return;
                 }
@@ -172,7 +214,9 @@ namespace ThiTracNghiem
                 ExamSessionDetail examSessionDetail = new ExamSessionDetail
                 {
                     SessionID = sessionId,
-                    ExamID = Convert.ToInt32(cbb_Exam.SelectedValue),
+                    ExamID = cbb_Exam.SelectedItem is DataRowView
+                        ? Convert.ToInt32(((DataRowView)cbb_Exam.SelectedItem)["ExamID"])
+                        : Convert.ToInt32(cbb_Exam.SelectedValue),
                     CreatedBy = Session.LogonUser.Username
                 };
 
@@ -181,15 +225,20 @@ namespace ThiTracNghiem
                 // Thêm tất cả người dùng đã được gán môn học vào kỳ thi
                 foreach (DataRow row in dtUsers.Rows)
                 {
-                    UserExamSession userExamSession = new UserExamSession
+                    // Đảm bảo chuyển đổi đúng kiểu dữ liệu
+                    int userId;
+                    if (int.TryParse(row["UserID"].ToString(), out userId))
                     {
-                        UserID = Convert.ToInt32(row["UserID"]),
-                        SessionID = sessionId,
-                        Status = "Registered",
-                        CreatedBy = Session.LogonUser.Username
-                    };
+                        UserExamSession userExamSession = new UserExamSession
+                        {
+                            UserID = userId,
+                            SessionID = sessionId,
+                            Status = "Registered",
+                            CreatedBy = Session.LogonUser.Username
+                        };
 
-                    BUserExamSession.AddUserExamSession(userExamSession);
+                        BUserExamSession.AddUserExamSession(userExamSession);
+                    }
                 }
 
                 XtraMessageBox.Show("Thêm kỳ thi thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -331,17 +380,42 @@ namespace ThiTracNghiem
         {
             try
             {
-                if (cbb_Exam.SelectedValue != null)
+                // Kiểm tra xem ComboBox có giá trị được chọn không
+                if (cbb_Exam.SelectedItem == null || cbb_Exam.SelectedValue == null)
                 {
-                    int examId = Convert.ToInt32(cbb_Exam.SelectedValue);
-                    // Lấy thông tin đề thi
-                    Exam exam = BExam.GetById(examId);
-                    if (exam != null)
+                    return;
+                }
+
+                // Lấy giá trị ExamID
+                int examId;
+
+                // Kiểm tra xem giá trị được chọn có phải là DataRowView không
+                if (cbb_Exam.SelectedItem is DataRowView)
+                {
+                    DataRowView drv = (DataRowView)cbb_Exam.SelectedItem;
+                    if (!int.TryParse(drv["ExamID"].ToString(), out examId))
                     {
-                        // Tải danh sách người dùng theo môn học
-                        LoadUsers(exam.SubjectID);
+                        XtraMessageBox.Show("Giá trị ExamID không hợp lệ.", "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
                 }
+                // Nếu không, thử chuyển đổi SelectedValue
+                else if (!int.TryParse(cbb_Exam.SelectedValue.ToString(), out examId))
+                {
+                    XtraMessageBox.Show("Giá trị ExamID không hợp lệ.", "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Lấy thông tin đề thi
+                Exam exam = BExam.GetById(examId);
+                if (exam == null)
+                {
+                    XtraMessageBox.Show("Không tìm thấy thông tin đề thi.", "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Tải danh sách người dùng theo môn học
+                LoadUsers(exam.SubjectID);
             }
             catch (Exception ex)
             {
