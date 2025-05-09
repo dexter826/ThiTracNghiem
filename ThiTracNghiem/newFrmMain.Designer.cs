@@ -165,6 +165,7 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.mn_TeacherSubject);
             this.ribbonPageGroup2.ItemLinks.Add(this.mn_CreateExam);
             this.ribbonPageGroup2.ItemLinks.Add(this.mn_ApproveExam);
+            this.ribbonPageGroup2.ItemLinks.Add(this.mn_ManageExamSession);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "....................";
             //
@@ -308,6 +309,14 @@
             this.mn_ApproveExam.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("mn_ManageUser.ImageOptions.LargeImage")));
             this.mn_ApproveExam.Name = "mn_ApproveExam";
             this.mn_ApproveExam.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.mn_ApproveExam_ItemClick);
+            //
+            // mn_ManageExamSession
+            //
+            this.mn_ManageExamSession.Caption = "Quản lý kỳ thi";
+            this.mn_ManageExamSession.Id = 27;
+            this.mn_ManageExamSession.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("mn_ManageUser.ImageOptions.LargeImage")));
+            this.mn_ManageExamSession.Name = "mn_ManageExamSession";
+            this.mn_ManageExamSession.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.mn_ManageExamSession_ItemClick);
 
             //
             // ribbonControl1
@@ -331,10 +340,11 @@
             this.mn_Restore,
             this.mn_TeacherSubject,
             this.mn_CreateExam,
-            this.mn_ApproveExam});
+            this.mn_ApproveExam,
+            this.mn_ManageExamSession});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(38);
-            this.ribbonControl1.MaxItemId = 27;
+            this.ribbonControl1.MaxItemId = 28;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.OptionsMenuMinWidth = 3836;
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -496,6 +506,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.BarButtonItem mn_ChangePassword;
         private DevExpress.XtraBars.BarButtonItem mn_ManageUser;
+        private DevExpress.XtraBars.BarButtonItem mn_ManageExamSession;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
         private DevExpress.XtraBars.BarButtonItem mn_Exit;

@@ -53,5 +53,10 @@ namespace BusinessLogicLayer
         {
             return DUserAccount.IsEmailExists(email);
         }
+
+        public static DataTable GetByRole(string roleId)
+        {
+            return DUserAccount.GetByRole(roleId);
+        }
     }
 }

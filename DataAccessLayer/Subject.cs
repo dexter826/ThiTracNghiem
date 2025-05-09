@@ -116,21 +116,6 @@ namespace DataAccessLayer
             }
         }
 
-        public static DataTable GetSubjectsWithActiveExams()
-        {
-            try
-            {
-                DataTable dtData = SqlHelper.ExecuteData(
-                    TestCore.ConnectionString.strCon,
-                    CommandType.StoredProcedure,
-                    "Subject_GetWithActiveExams"
-                );
-                return dtData;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+
     }
 }

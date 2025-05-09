@@ -13,6 +13,8 @@ namespace ThiTracNghiem
 {
     public partial class frmOption : XtraForm
     {
+        private DataTable dtExamSessions;
+
         public frmOption()
         {
             InitializeComponent();
@@ -38,37 +40,42 @@ namespace ThiTracNghiem
 
         private void btn_Start_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txt_Time.Text) || txt_Time.Text == "0")
-            {
-                XtraMessageBox.Show("Thời gian thi không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
             if (cbb_Subject.SelectedValue == null)
             {
-                XtraMessageBox.Show("Vui lòng chọn môn học!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                XtraMessageBox.Show("Vui lòng chọn kỳ thi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             try
             {
-                // Thông tin môn học đã được lưu trong LoadActiveExam
-                Session.SubjectName = cbb_Subject.Text;
-                Session.SubjectID = cbb_Subject.SelectedValue.ToString();
+                // Lấy thông tin kỳ thi đã chọn
+                DataRowView selectedRow = (DataRowView)cbb_Subject.SelectedItem;
+                int sessionId = Convert.ToInt32(selectedRow["SessionID"]);
+                int examId = Convert.ToInt32(selectedRow["ExamID"]);
+                string subjectId = selectedRow["SubjectID"].ToString();
+                string subjectName = selectedRow["SubjectName"].ToString();
+                int timeLimit = Convert.ToInt32(selectedRow["TimeLimit"]);
+                int totalQuestion = Convert.ToInt32(selectedRow["TotalQuestion"]);
 
-                // Kiểm tra lại đề thi kích hoạt
-                Exam activeExam = BExam.GetActiveExam(Session.SubjectID);
-                if (activeExam == null)
-                {
-                    XtraMessageBox.Show("Không tìm thấy đề thi kích hoạt cho môn học này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                // Cập nhật trạng thái người dùng trong kỳ thi
+                BUserExamSession.UpdateStatus(
+                    Session.LogonUser.UserID,
+                    sessionId,
+                    "Started",
+                    DateTime.Now,
+                    null,
+                    Session.LogonUser.Username
+                );
 
-                // Lưu thông tin đề thi kích hoạt
-                Session.ExamID = activeExam.ExamID;
-                Session.NumberOfQuestion = activeExam.TotalQuestion;
-                Session.TestTime = activeExam.TimeLimit;
+                // Lưu thông tin kỳ thi và đề thi
+                Session.SessionID = sessionId;
+                Session.ExamID = examId;
+                Session.SubjectID = subjectId;
+                Session.SubjectName = subjectName;
+                Session.TestTime = timeLimit;
+                Session.NumberOfQuestion = totalQuestion;
 
+                // Mở form làm bài thi
                 frmTest fmTest = new frmTest();
                 this.Hide();
                 fmTest.ShowDialog();
@@ -80,25 +87,25 @@ namespace ThiTracNghiem
         }
 
         /// <summary>
-        ///  Phương thức này lấy danh sách các môn học từ BSubject
+        ///  Phương thức này lấy danh sách các kỳ thi đang diễn ra mà người dùng có thể tham gia
         /// </summary>
         private void LoadData()
         {
             try
             {
-                // Lấy danh sách môn học có đề thi đã được kích hoạt
-                var subjects = BSubject.GetSubjectsWithActiveExams();
+                // Lấy danh sách kỳ thi của người dùng
+                dtExamSessions = BExamSession.GetByUser(Session.LogonUser.UserID);
 
-                if (subjects != null && subjects.Rows.Count > 0)
+                if (dtExamSessions != null && dtExamSessions.Rows.Count > 0)
                 {
-                    cbb_Subject.DataSource = subjects;
-                    cbb_Subject.DisplayMember = "SubjectName";
-                    cbb_Subject.ValueMember = "SubjectID";
+                    cbb_Subject.DataSource = dtExamSessions;
+                    cbb_Subject.DisplayMember = "SessionName";
+                    cbb_Subject.ValueMember = "SessionID";
 
-                    // Chọn môn học đầu tiên
+                    // Chọn kỳ thi đầu tiên
                     cbb_Subject.SelectedIndex = 0;
-                    // Tải thông tin đề thi kích hoạt của môn học đầu tiên
-                    LoadActiveExam(cbb_Subject.SelectedValue.ToString());
+                    // Tải thông tin đề thi của kỳ thi đầu tiên
+                    LoadExamInfo();
                 }
                 else
                 {
@@ -106,7 +113,7 @@ namespace ThiTracNghiem
                     txt_NumberQuestion.Text = "";
                     txt_Time.Text = "";
                     btn_Start.Enabled = false;
-                    MessageBox.Show("Không có môn học nào có đề thi được kích hoạt!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Không có kỳ thi nào đang diễn ra mà bạn có thể tham gia!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -120,12 +127,10 @@ namespace ThiTracNghiem
         private void frmOption_Load(object sender, EventArgs e)
         {
             LoadData();
-            if (!Session.LogonUser.RoleID.Equals("User"))
-            {
-                txt_NumberQuestion.Enabled = true;
-                txt_Time.Enabled = true;
-                txt_Time.ReadOnly = false;
-            }
+            // Người dùng không thể thay đổi thông tin đề thi
+            txt_NumberQuestion.Enabled = false;
+            txt_Time.Enabled = false;
+            txt_Time.ReadOnly = true;
         }
 
         private void txt_Time_KeyPress(object sender, KeyPressEventArgs e)
@@ -140,47 +145,47 @@ namespace ThiTracNghiem
         {
             if (cbb_Subject.SelectedValue != null)
             {
-                var selectedSubjectID = cbb_Subject.SelectedValue.ToString();
-                LoadActiveExam(selectedSubjectID);
+                LoadExamInfo();
             }
         }
 
-        private void LoadActiveExam(string subjectId)
+        private void LoadExamInfo()
         {
             try
             {
-                // Lấy đề thi đang kích hoạt của môn học
-                Exam activeExam = BExam.GetActiveExam(subjectId);
-
-                if (activeExam != null)
+                if (cbb_Subject.SelectedItem != null)
                 {
+                    DataRowView selectedRow = (DataRowView)cbb_Subject.SelectedItem;
+
                     // Hiển thị thông tin đề thi
-                    txt_NumberQuestion.Text = activeExam.TotalQuestion.ToString();
-                    txt_Time.Text = activeExam.TimeLimit.ToString();
+                    txt_NumberQuestion.Text = selectedRow["TotalQuestion"].ToString();
+                    txt_Time.Text = selectedRow["TimeLimit"].ToString();
 
-                    // Lưu thông tin đề thi
-                    Session.ExamID = activeExam.ExamID;
-                    Session.NumberOfQuestion = activeExam.TotalQuestion;
-                    Session.TestTime = activeExam.TimeLimit;
+                    // Kiểm tra trạng thái người dùng trong kỳ thi
+                    string userStatus = selectedRow["UserStatus"].ToString();
 
-                    // Kích hoạt nút bắt đầu
-                    btn_Start.Enabled = true;
-
-
+                    // Nếu người dùng đã hoàn thành kỳ thi, không cho phép làm lại
+                    if (userStatus == "Completed")
+                    {
+                        btn_Start.Enabled = false;
+                        MessageBox.Show("Bạn đã hoàn thành kỳ thi này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        btn_Start.Enabled = true;
+                    }
                 }
                 else
                 {
-                    // Không có đề thi nào được kích hoạt
+                    // Không có kỳ thi nào được chọn
                     txt_NumberQuestion.Text = "0";
                     txt_Time.Text = "0";
                     btn_Start.Enabled = false;
-
-                    MessageBox.Show("Môn học này chưa có đề thi được kích hoạt!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi tải đề thi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi khi tải thông tin đề thi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

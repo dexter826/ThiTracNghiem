@@ -214,6 +214,7 @@ namespace ThiTracNghiem
                 mn_TeacherSubject.Enabled = false;
                 mn_ApproveExam.Enabled = false;
                 mn_ManageSubject.Enabled = false; // Giáo viên không thể truy cập chức năng "Quản lí môn thi"
+                mn_ManageExamSession.Enabled = false; // Giáo viên không thể truy cập chức năng "Quản lí kỳ thi"
             }
             else if (Session.LogonUser.RoleID.Equals("Admin"))
             {
@@ -252,6 +253,17 @@ namespace ThiTracNghiem
         {
             frmApproveExam ucfmApproveExam = new frmApproveExam();
             addNewTab("Duyệt đề thi", ucfmApproveExam);
+        }
+
+        /// <summary>
+        /// Quản lý kỳ thi
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mn_ManageExamSession_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmManageExamSession ucfmManageExamSession = new frmManageExamSession();
+            addNewTab("Quản lý kỳ thi", ucfmManageExamSession);
         }
 
         private void xtraTabControl1_Paint(object sender, PaintEventArgs e)

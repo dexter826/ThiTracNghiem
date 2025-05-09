@@ -212,5 +212,22 @@ namespace DataAccessLayer
             }
         }
 
+        public static DataTable GetByRole(string roleId)
+        {
+            try
+            {
+                DataTable dtData = SqlHelper.ExecuteData(
+                    TestCore.ConnectionString.strCon,
+                    CommandType.StoredProcedure,
+                    "UserAccount_GetByRole",
+                    new SqlParameter("@RoleID", roleId)
+                );
+                return dtData;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

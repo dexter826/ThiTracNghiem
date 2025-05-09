@@ -152,7 +152,6 @@ namespace DataAccessLayer
                     exam.ModifiedAt = Convert.ToDateTime(reader["ModifiedAt"]);
                     exam.ApprovedBy = reader["ApprovedBy"] != DBNull.Value ? reader["ApprovedBy"].ToString() : null;
                     exam.ApprovedAt = reader["ApprovedAt"] != DBNull.Value ? Convert.ToDateTime(reader["ApprovedAt"]) : (DateTime?)null;
-                    exam.IsActive = Convert.ToBoolean(reader["IsActive"]);
                 }
                 reader.Close();
                 return exam;
@@ -162,41 +161,6 @@ namespace DataAccessLayer
                 throw;
             }
         }
-        public static void SetActive(int examId, bool isActive, string modifiedBy)
-        {
-            try
-            {
-                SqlHelper.ExecuteNonQuery(
-                    TestCore.ConnectionString.strCon,
-                    CommandType.StoredProcedure,
-                    "Exam_SetActive",
-                    new SqlParameter("@ExamID", examId),
-                    new SqlParameter("@IsActive", isActive),
-                    new SqlParameter("@ModifiedBy", modifiedBy)
-                );
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
 
-        public static DataTable GetActiveBySubject(string subjectId)
-        {
-            try
-            {
-                DataTable dtData = SqlHelper.ExecuteData(
-                    TestCore.ConnectionString.strCon,
-                    CommandType.StoredProcedure,
-                    "Exam_GetActiveBySubject",
-                    new SqlParameter("@SubjectID", subjectId)
-                );
-                return dtData;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
     }
 }

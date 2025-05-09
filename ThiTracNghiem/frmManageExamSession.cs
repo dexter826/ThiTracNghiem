@@ -1,0 +1,264 @@
+using BusinessLogicLayer;
+using DevExpress.XtraEditors;
+using Entities;
+using System;
+using System.Data;
+using System.Windows.Forms;
+using ThiTracNghiem.Common;
+
+namespace ThiTracNghiem
+{
+    public partial class frmManageExamSession : XtraForm
+    {
+        private DataTable dtExamSessions;
+        private DataTable dtExams;
+        private DataTable dtUsers;
+
+        public frmManageExamSession()
+        {
+            InitializeComponent();
+        }
+
+        private void frmManageExamSession_Load(object sender, EventArgs e)
+        {
+            LoadExamSessions();
+            LoadExams();
+            LoadUsers();
+        }
+
+        private void LoadExamSessions()
+        {
+            try
+            {
+                dtExamSessions = BExamSession.GetAll();
+                grv_ExamSessions.DataSource = dtExamSessions;
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show("Lỗi khi tải danh sách kỳ thi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void LoadExams()
+        {
+            try
+            {
+                // Lấy danh sách đề thi đã được duyệt
+                dtExams = BExam.GetByStatus("Approved");
+                cbb_Exam.DataSource = dtExams;
+                cbb_Exam.DisplayMember = "ExamName";
+                cbb_Exam.ValueMember = "ExamID";
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show("Lỗi khi tải danh sách đề thi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void LoadUsers()
+        {
+            try
+            {
+                // Lấy danh sách người dùng có vai trò là User
+                dtUsers = BUserAccount.GetByRole("User");
+                clb_Users.DataSource = dtUsers;
+                clb_Users.DisplayMember = "Fullname";
+                clb_Users.ValueMember = "UserID";
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show("Lỗi khi tải danh sách người dùng: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_Add_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Kiểm tra dữ liệu đầu vào
+                if (string.IsNullOrEmpty(txt_SessionName.Text))
+                {
+                    XtraMessageBox.Show("Vui lòng nhập tên kỳ thi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (cbb_Exam.SelectedValue == null)
+                {
+                    XtraMessageBox.Show("Vui lòng chọn đề thi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (dtp_StartTime.Value >= dtp_EndTime.Value)
+                {
+                    XtraMessageBox.Show("Thời gian kết thúc phải sau thời gian bắt đầu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (clb_Users.CheckedItems.Count == 0)
+                {
+                    XtraMessageBox.Show("Vui lòng chọn ít nhất một người dùng tham gia kỳ thi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Tạo kỳ thi mới
+                ExamSession examSession = new ExamSession
+                {
+                    SessionName = txt_SessionName.Text,
+                    StartTime = dtp_StartTime.Value,
+                    EndTime = dtp_EndTime.Value,
+                    Status = "Scheduled",
+                    CreatedBy = Session.LogonUser.Username
+                };
+
+                // Thêm kỳ thi vào cơ sở dữ liệu
+                int sessionId = BExamSession.AddExamSession(examSession);
+
+                // Thêm chi tiết kỳ thi
+                ExamSessionDetail examSessionDetail = new ExamSessionDetail
+                {
+                    SessionID = sessionId,
+                    ExamID = Convert.ToInt32(cbb_Exam.SelectedValue),
+                    CreatedBy = Session.LogonUser.Username
+                };
+
+                BExamSessionDetail.AddExamSessionDetail(examSessionDetail);
+
+                // Thêm người dùng vào kỳ thi
+                foreach (DataRowView item in clb_Users.CheckedItems)
+                {
+                    UserExamSession userExamSession = new UserExamSession
+                    {
+                        UserID = Convert.ToInt32(item["UserID"]),
+                        SessionID = sessionId,
+                        Status = "Registered",
+                        CreatedBy = Session.LogonUser.Username
+                    };
+
+                    BUserExamSession.AddUserExamSession(userExamSession);
+                }
+
+                XtraMessageBox.Show("Thêm kỳ thi thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Làm mới dữ liệu
+                LoadExamSessions();
+                ClearForm();
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show("Lỗi khi thêm kỳ thi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ClearForm()
+        {
+            txt_SessionName.Text = "";
+            dtp_StartTime.Value = DateTime.Now;
+            dtp_EndTime.Value = DateTime.Now.AddHours(1);
+            cbb_Exam.SelectedIndex = -1;
+
+            // Bỏ chọn tất cả người dùng
+            for (int i = 0; i < clb_Users.Items.Count; i++)
+            {
+                clb_Users.SetItemChecked(i, false);
+            }
+        }
+
+        private void btn_Update_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (grv_ExamSessions.SelectedRows.Count == 0)
+                {
+                    XtraMessageBox.Show("Vui lòng chọn kỳ thi cần cập nhật!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                int sessionId = Convert.ToInt32(grv_ExamSessions.SelectedRows[0].Cells["SessionID"].Value);
+                string status = grv_ExamSessions.SelectedRows[0].Cells["Status"].Value.ToString();
+
+                if (status == "Completed" || status == "Cancelled")
+                {
+                    XtraMessageBox.Show("Không thể cập nhật kỳ thi đã hoàn thành hoặc đã hủy!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Cập nhật trạng thái kỳ thi
+                string newStatus = "InProgress";
+                if (DateTime.Now > Convert.ToDateTime(grv_ExamSessions.SelectedRows[0].Cells["EndTime"].Value))
+                {
+                    newStatus = "Completed";
+                }
+
+                BExamSession.UpdateStatus(sessionId, newStatus, Session.LogonUser.Username);
+
+                XtraMessageBox.Show("Cập nhật trạng thái kỳ thi thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Làm mới dữ liệu
+                LoadExamSessions();
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show("Lỗi khi cập nhật kỳ thi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_Cancel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (grv_ExamSessions.SelectedRows.Count == 0)
+                {
+                    XtraMessageBox.Show("Vui lòng chọn kỳ thi cần hủy!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                int sessionId = Convert.ToInt32(grv_ExamSessions.SelectedRows[0].Cells["SessionID"].Value);
+                string status = grv_ExamSessions.SelectedRows[0].Cells["Status"].Value.ToString();
+
+                if (status == "Completed" || status == "Cancelled")
+                {
+                    XtraMessageBox.Show("Không thể hủy kỳ thi đã hoàn thành hoặc đã hủy!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                DialogResult result = XtraMessageBox.Show("Bạn có chắc chắn muốn hủy kỳ thi này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.No)
+                    return;
+
+                // Cập nhật trạng thái kỳ thi
+                BExamSession.UpdateStatus(sessionId, "Cancelled", Session.LogonUser.Username);
+
+                XtraMessageBox.Show("Hủy kỳ thi thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Làm mới dữ liệu
+                LoadExamSessions();
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show("Lỗi khi hủy kỳ thi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_ViewDetail_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (grv_ExamSessions.SelectedRows.Count == 0)
+                {
+                    XtraMessageBox.Show("Vui lòng chọn kỳ thi cần xem chi tiết!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                int sessionId = Convert.ToInt32(grv_ExamSessions.SelectedRows[0].Cells["SessionID"].Value);
+
+                // Lấy danh sách người dùng trong kỳ thi
+                DataTable dtSessionUsers = BUserExamSession.GetBySession(sessionId);
+                grv_SessionUsers.DataSource = dtSessionUsers;
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show("Lỗi khi xem chi tiết kỳ thi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+    }
+}

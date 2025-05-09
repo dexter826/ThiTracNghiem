@@ -15,5 +15,6 @@ namespace ThiTracNghiem.Common
         public static int TestTime = 10;
         public static int NumberOfQuestion = 10;
         public static int ExamID = 0;
+        public static int SessionID = 0;
     }
 }

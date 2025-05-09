@@ -335,6 +335,17 @@ namespace ThiTracNghiem
                     correctAnswer++;
             }
             mark = (float)correctAnswer * 10 / Session.NumberOfQuestion;
+
+            // Cập nhật trạng thái người dùng trong kỳ thi
+            BUserExamSession.UpdateStatus(
+                Session.LogonUser.UserID,
+                Session.SessionID,
+                "Completed",
+                null,
+                DateTime.Now,
+                Session.LogonUser.Username
+            );
+
             frmTestResult fmTestResult = new frmTestResult(correctAnswer, mark);
 
             this.Hide();
