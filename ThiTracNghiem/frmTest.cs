@@ -87,6 +87,17 @@ namespace ThiTracNghiem
             this.KeyPreview = true;
             SetStyle(ControlStyles.ResizeRedraw, true);
         }
+
+        public frmTest(int sessionId, int examId, string subjectId, string subjectName, int timeLimit, int totalQuestion) : this()
+        {
+            // Lưu thông tin kỳ thi và đề thi
+            Session.SessionID = sessionId;
+            Session.ExamID = examId;
+            Session.SubjectID = subjectId;
+            Session.SubjectName = subjectName;
+            Session.TestTime = timeLimit;
+            Session.NumberOfQuestion = totalQuestion;
+        }
         protected override void OnPaintBackground(PaintEventArgs e)
         {
             Rectangle rc = ClientRectangle;

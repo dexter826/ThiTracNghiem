@@ -40,7 +40,7 @@ namespace ThiTracNghiem
 
         private void btn_Start_Click(object sender, EventArgs e)
         {
-            if (cbb_Subject.SelectedValue == null)
+            if (grv_ExamSessions.SelectedRows.Count == 0)
             {
                 XtraMessageBox.Show("Vui lòng chọn kỳ thi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -49,13 +49,13 @@ namespace ThiTracNghiem
             try
             {
                 // Lấy thông tin kỳ thi đã chọn
-                DataRowView selectedRow = (DataRowView)cbb_Subject.SelectedItem;
-                int sessionId = Convert.ToInt32(selectedRow["SessionID"]);
-                int examId = Convert.ToInt32(selectedRow["ExamID"]);
-                string subjectId = selectedRow["SubjectID"].ToString();
-                string subjectName = selectedRow["SubjectName"].ToString();
-                int timeLimit = Convert.ToInt32(selectedRow["TimeLimit"]);
-                int totalQuestion = Convert.ToInt32(selectedRow["TotalQuestion"]);
+                DataGridViewRow selectedRow = grv_ExamSessions.SelectedRows[0];
+                int sessionId = Convert.ToInt32(selectedRow.Cells["SessionID"].Value);
+                int examId = Convert.ToInt32(selectedRow.Cells["ExamID"].Value);
+                string subjectId = selectedRow.Cells["SubjectID"].Value.ToString();
+                string subjectName = selectedRow.Cells["SubjectName"].Value.ToString();
+                int timeLimit = Convert.ToInt32(selectedRow.Cells["TimeLimit"].Value);
+                int totalQuestion = Convert.ToInt32(selectedRow.Cells["TotalQuestion"].Value);
 
                 // Cập nhật trạng thái người dùng trong kỳ thi
                 BUserExamSession.UpdateStatus(
@@ -67,16 +67,8 @@ namespace ThiTracNghiem
                     Session.LogonUser.Username
                 );
 
-                // Lưu thông tin kỳ thi và đề thi
-                Session.SessionID = sessionId;
-                Session.ExamID = examId;
-                Session.SubjectID = subjectId;
-                Session.SubjectName = subjectName;
-                Session.TestTime = timeLimit;
-                Session.NumberOfQuestion = totalQuestion;
-
-                // Mở form làm bài thi
-                frmTest fmTest = new frmTest();
+                // Mở form làm bài thi với thông tin kỳ thi
+                frmTest fmTest = new frmTest(sessionId, examId, subjectId, subjectName, timeLimit, totalQuestion);
                 this.Hide();
                 fmTest.ShowDialog();
             }
@@ -98,18 +90,23 @@ namespace ThiTracNghiem
 
                 if (dtExamSessions != null && dtExamSessions.Rows.Count > 0)
                 {
-                    cbb_Subject.DataSource = dtExamSessions;
-                    cbb_Subject.DisplayMember = "SessionName";
-                    cbb_Subject.ValueMember = "SessionID";
+                    // Cấu hình DataGridView
+                    ConfigureDataGridView();
+
+                    // Hiển thị danh sách kỳ thi
+                    grv_ExamSessions.DataSource = dtExamSessions;
 
                     // Chọn kỳ thi đầu tiên
-                    cbb_Subject.SelectedIndex = 0;
-                    // Tải thông tin đề thi của kỳ thi đầu tiên
-                    LoadExamInfo();
+                    if (grv_ExamSessions.Rows.Count > 0)
+                    {
+                        grv_ExamSessions.Rows[0].Selected = true;
+                        // Tải thông tin đề thi của kỳ thi đầu tiên
+                        LoadExamInfo();
+                    }
                 }
                 else
                 {
-                    cbb_Subject.DataSource = null;
+                    grv_ExamSessions.DataSource = null;
                     txt_NumberQuestion.Text = "";
                     txt_Time.Text = "";
                     btn_Start.Enabled = false;
@@ -141,11 +138,71 @@ namespace ThiTracNghiem
             }
         }
 
-        private void cbb_Subject_SelectedIndexChanged(object sender, EventArgs e)
+        private void grv_ExamSessions_SelectionChanged(object sender, EventArgs e)
         {
-            if (cbb_Subject.SelectedValue != null)
+            if (grv_ExamSessions.SelectedRows.Count > 0)
             {
                 LoadExamInfo();
+            }
+        }
+
+        /// <summary>
+        /// Cấu hình DataGridView để hiển thị danh sách kỳ thi
+        /// </summary>
+        private void ConfigureDataGridView()
+        {
+            // Xóa tất cả các cột hiện có
+            grv_ExamSessions.Columns.Clear();
+
+            // Thêm các cột mới
+            DataGridViewTextBoxColumn colSessionID = new DataGridViewTextBoxColumn();
+            colSessionID.DataPropertyName = "SessionID";
+            colSessionID.HeaderText = "Mã kỳ thi";
+            colSessionID.Visible = false;
+            grv_ExamSessions.Columns.Add(colSessionID);
+
+            DataGridViewTextBoxColumn colSessionName = new DataGridViewTextBoxColumn();
+            colSessionName.DataPropertyName = "SessionName";
+            colSessionName.HeaderText = "Tên kỳ thi";
+            colSessionName.Width = 200;
+            grv_ExamSessions.Columns.Add(colSessionName);
+
+            DataGridViewTextBoxColumn colSubjectName = new DataGridViewTextBoxColumn();
+            colSubjectName.DataPropertyName = "SubjectName";
+            colSubjectName.HeaderText = "Môn học";
+            colSubjectName.Width = 150;
+            grv_ExamSessions.Columns.Add(colSubjectName);
+
+            DataGridViewTextBoxColumn colStartTime = new DataGridViewTextBoxColumn();
+            colStartTime.DataPropertyName = "StartTime";
+            colStartTime.HeaderText = "Thời gian bắt đầu";
+            colStartTime.Width = 150;
+            colStartTime.DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
+            grv_ExamSessions.Columns.Add(colStartTime);
+
+            DataGridViewTextBoxColumn colEndTime = new DataGridViewTextBoxColumn();
+            colEndTime.DataPropertyName = "EndTime";
+            colEndTime.HeaderText = "Thời gian kết thúc";
+            colEndTime.Width = 150;
+            colEndTime.DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
+            grv_ExamSessions.Columns.Add(colEndTime);
+
+            DataGridViewTextBoxColumn colUserStatus = new DataGridViewTextBoxColumn();
+            colUserStatus.DataPropertyName = "UserStatus";
+            colUserStatus.HeaderText = "Trạng thái";
+            colUserStatus.Width = 100;
+            grv_ExamSessions.Columns.Add(colUserStatus);
+
+            // Ẩn các cột không cần hiển thị
+            foreach (DataGridViewColumn col in grv_ExamSessions.Columns)
+            {
+                if (col.DataPropertyName == "ExamID" ||
+                    col.DataPropertyName == "SubjectID" ||
+                    col.DataPropertyName == "UserStartTime" ||
+                    col.DataPropertyName == "UserEndTime")
+                {
+                    col.Visible = false;
+                }
             }
         }
 
@@ -153,16 +210,16 @@ namespace ThiTracNghiem
         {
             try
             {
-                if (cbb_Subject.SelectedItem != null)
+                if (grv_ExamSessions.SelectedRows.Count > 0)
                 {
-                    DataRowView selectedRow = (DataRowView)cbb_Subject.SelectedItem;
+                    DataGridViewRow selectedRow = grv_ExamSessions.SelectedRows[0];
 
                     // Hiển thị thông tin đề thi
-                    txt_NumberQuestion.Text = selectedRow["TotalQuestion"].ToString();
-                    txt_Time.Text = selectedRow["TimeLimit"].ToString();
+                    txt_NumberQuestion.Text = selectedRow.Cells["TotalQuestion"].Value.ToString();
+                    txt_Time.Text = selectedRow.Cells["TimeLimit"].Value.ToString();
 
                     // Kiểm tra trạng thái người dùng trong kỳ thi
-                    string userStatus = selectedRow["UserStatus"].ToString();
+                    string userStatus = selectedRow.Cells["UserStatus"].Value.ToString();
 
                     // Nếu người dùng đã hoàn thành kỳ thi, không cho phép làm lại
                     if (userStatus == "Completed")

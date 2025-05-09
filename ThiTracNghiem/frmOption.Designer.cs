@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOption));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.cbb_Subject = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.grv_ExamSessions = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.txt_Time = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -41,6 +41,7 @@
             this.txt_NumberQuestion = new Guna.UI2.WinForms.Guna2TextBox();
 
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grv_ExamSessions)).BeginInit();
             this.SuspendLayout();
             //
             // label1
@@ -54,7 +55,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(312, 29);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Lựa chọn thi trắc nghiệm";
+            this.label1.Text = "Danh sách kỳ thi đang diễn ra";
             //
             // label2
             //
@@ -67,27 +68,26 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 18);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Môn thi";
+            this.label2.Text = "Danh sách kỳ thi";
             //
-            // cbb_Subject
+            // grv_ExamSessions
             //
-            this.cbb_Subject.BackColor = System.Drawing.Color.Transparent;
-            this.cbb_Subject.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbb_Subject.BorderRadius = 5;
-            this.cbb_Subject.BorderThickness = 2;
-            this.cbb_Subject.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbb_Subject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbb_Subject.FocusedColor = System.Drawing.Color.Empty;
-            this.cbb_Subject.Font = new System.Drawing.Font("Tahoma", 11.25F);
-            this.cbb_Subject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbb_Subject.FormattingEnabled = true;
-            this.cbb_Subject.ItemHeight = 30;
-            this.cbb_Subject.Location = new System.Drawing.Point(195, 189);
-            this.cbb_Subject.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.cbb_Subject.Name = "cbb_Subject";
-            this.cbb_Subject.Size = new System.Drawing.Size(315, 36);
-            this.cbb_Subject.TabIndex = 2;
-            this.cbb_Subject.SelectedIndexChanged += new System.EventHandler(this.cbb_Subject_SelectedIndexChanged);
+            this.grv_ExamSessions.AllowUserToAddRows = false;
+            this.grv_ExamSessions.AllowUserToDeleteRows = false;
+            this.grv_ExamSessions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grv_ExamSessions.BackgroundColor = System.Drawing.Color.White;
+            this.grv_ExamSessions.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.grv_ExamSessions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grv_ExamSessions.Location = new System.Drawing.Point(41, 189);
+            this.grv_ExamSessions.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.grv_ExamSessions.MultiSelect = false;
+            this.grv_ExamSessions.Name = "grv_ExamSessions";
+            this.grv_ExamSessions.ReadOnly = true;
+            this.grv_ExamSessions.RowHeadersVisible = false;
+            this.grv_ExamSessions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grv_ExamSessions.Size = new System.Drawing.Size(720, 200);
+            this.grv_ExamSessions.TabIndex = 2;
+            this.grv_ExamSessions.SelectionChanged += new System.EventHandler(this.grv_ExamSessions_SelectionChanged);
             //
             // label3
             //
@@ -95,7 +95,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.label3.Location = new System.Drawing.Point(38, 285);
+            this.label3.Location = new System.Drawing.Point(38, 418);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(130, 18);
@@ -113,7 +113,7 @@
             this.txt_Time.Enabled = false;
             this.txt_Time.Font = new System.Drawing.Font("Tahoma", 11.25F);
             this.txt_Time.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_Time.Location = new System.Drawing.Point(195, 320);
+            this.txt_Time.Location = new System.Drawing.Point(195, 453);
             this.txt_Time.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txt_Time.Name = "txt_Time";
             this.txt_Time.PasswordChar = '\0';
@@ -130,7 +130,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.label4.Location = new System.Drawing.Point(38, 328);
+            this.label4.Location = new System.Drawing.Point(38, 461);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(147, 18);
@@ -151,7 +151,7 @@
             this.btn_Start.HoverState.FillColor = System.Drawing.Color.White;
             this.btn_Start.HoverState.FillColor2 = System.Drawing.Color.White;
             this.btn_Start.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.btn_Start.Location = new System.Drawing.Point(102, 373);
+            this.btn_Start.Location = new System.Drawing.Point(200, 500);
             this.btn_Start.Name = "btn_Start";
             this.btn_Start.ShadowDecoration.BorderRadius = 20;
             this.btn_Start.ShadowDecoration.Depth = 10;
@@ -176,7 +176,7 @@
             this.btn_Exit.HoverState.FillColor = System.Drawing.Color.White;
             this.btn_Exit.HoverState.FillColor2 = System.Drawing.Color.White;
             this.btn_Exit.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.btn_Exit.Location = new System.Drawing.Point(269, 373);
+            this.btn_Exit.Location = new System.Drawing.Point(400, 500);
             this.btn_Exit.Name = "btn_Exit";
             this.btn_Exit.ShadowDecoration.BorderRadius = 20;
             this.btn_Exit.ShadowDecoration.Depth = 10;
@@ -213,7 +213,7 @@
             this.txt_NumberQuestion.Enabled = false;
             this.txt_NumberQuestion.Font = new System.Drawing.Font("Tahoma", 11.25F);
             this.txt_NumberQuestion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_NumberQuestion.Location = new System.Drawing.Point(195, 277);
+            this.txt_NumberQuestion.Location = new System.Drawing.Point(195, 410);
             this.txt_NumberQuestion.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txt_NumberQuestion.Name = "txt_NumberQuestion";
             this.txt_NumberQuestion.PasswordChar = '\0';
@@ -231,14 +231,14 @@
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(549, 446);
+            this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.txt_NumberQuestion);
             this.Controls.Add(this.btn_Exit);
             this.Controls.Add(this.btn_Start);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txt_Time);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.cbb_Subject);
+            this.Controls.Add(this.grv_ExamSessions);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureEdit1);
@@ -246,14 +246,15 @@
             this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("frmOption.IconOptions.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(565, 485);
+            this.MaximumSize = new System.Drawing.Size(816, 639);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(551, 478);
+            this.MinimumSize = new System.Drawing.Size(816, 639);
             this.Name = "frmOption";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thi trắc nghiệm";
             this.Load += new System.EventHandler(this.frmOption_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grv_ExamSessions)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,7 +264,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2ComboBox cbb_Subject;
+        private System.Windows.Forms.DataGridView grv_ExamSessions;
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2TextBox txt_Time;
         private System.Windows.Forms.Label label4;
