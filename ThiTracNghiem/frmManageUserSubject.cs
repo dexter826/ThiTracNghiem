@@ -173,7 +173,23 @@ namespace ThiTracNghiem
         {
             if (grv_Users.SelectedRows.Count > 0)
             {
-                selectedUserId = Convert.ToInt32(grv_Users.SelectedRows[0].Cells["colUserID"].Value);
+                try
+                {
+                    var value = grv_Users.SelectedRows[0].Cells["colUserID"].Value;
+                    if (value != null && value != DBNull.Value)
+                    {
+                        selectedUserId = Convert.ToInt32(value);
+                    }
+                    else
+                    {
+                        selectedUserId = 0;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    selectedUserId = 0;
+                    XtraMessageBox.Show("Lỗi khi chọn người dùng: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 UpdateButtonStatus();
             }
             else
@@ -187,7 +203,23 @@ namespace ThiTracNghiem
         {
             if (grv_Subjects.SelectedRows.Count > 0)
             {
-                selectedSubjectId = grv_Subjects.SelectedRows[0].Cells["colSubjectID"].Value.ToString();
+                try
+                {
+                    var value = grv_Subjects.SelectedRows[0].Cells["colSubjectID"].Value;
+                    if (value != null && value != DBNull.Value)
+                    {
+                        selectedSubjectId = value.ToString();
+                    }
+                    else
+                    {
+                        selectedSubjectId = "";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    selectedSubjectId = "";
+                    XtraMessageBox.Show("Lỗi khi chọn môn học: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 UpdateButtonStatus();
             }
             else

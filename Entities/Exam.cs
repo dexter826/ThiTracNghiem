@@ -21,6 +21,8 @@ namespace Entities
         public DateTime ModifiedAt { get; set; }
         public string ApprovedBy { get; set; }
         public DateTime? ApprovedAt { get; set; }
+        // Trường IsActive được giữ lại để tương thích với giao diện người dùng
+        // Giá trị của trường này được tính toán dựa trên việc đề thi có trong kỳ thi đang diễn ra không
         public bool IsActive { get; set; }
     }
 }

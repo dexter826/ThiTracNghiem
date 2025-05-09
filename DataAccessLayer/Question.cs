@@ -122,9 +122,9 @@ namespace DataAccessLayer
         {
             try
             {
+                // Cập nhật để chỉ sử dụng tham số @ExamID theo stored procedure mới
                 DataTable dtDate = SqlHelper.ExecuteData(TestCore.ConnectionString.strCon, CommandType.StoredProcedure,
                                                             "Question_GetQuestionForTest",
-                                                            new SqlParameter("@SubjectID", subjectId),
                                                             new SqlParameter("@ExamID", examId));
                 return dtDate;
             }

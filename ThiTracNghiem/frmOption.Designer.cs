@@ -31,7 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOption));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.grv_ExamSessions = new System.Windows.Forms.DataGridView();
+            this.lbl_SessionName = new System.Windows.Forms.Label();
+            this.lbl_SubjectName = new System.Windows.Forms.Label();
+            this.lbl_StartTime = new System.Windows.Forms.Label();
+            this.lbl_EndTime = new System.Windows.Forms.Label();
+            this.label_SessionName = new System.Windows.Forms.Label();
+            this.label_SubjectName = new System.Windows.Forms.Label();
+            this.label_StartTime = new System.Windows.Forms.Label();
+            this.label_EndTime = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txt_Time = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -39,13 +46,11 @@
             this.btn_Exit = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.txt_NumberQuestion = new Guna.UI2.WinForms.Guna2TextBox();
-
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grv_ExamSessions)).BeginInit();
             this.SuspendLayout();
-            //
+            // 
             // label1
-            //
+            // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -53,44 +58,125 @@
             this.label1.Location = new System.Drawing.Point(118, 142);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(312, 29);
+            this.label1.Size = new System.Drawing.Size(356, 29);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Danh sách kỳ thi đang diễn ra";
-            //
+            this.label1.Text = "Thông tin kỳ thi đang diễn ra";
+            // 
             // label2
-            //
+            // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.label2.Location = new System.Drawing.Point(38, 198);
+            this.label2.Location = new System.Drawing.Point(38, 171);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 18);
+            this.label2.Size = new System.Drawing.Size(123, 18);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Danh sách kỳ thi";
-            //
-            // grv_ExamSessions
-            //
-            this.grv_ExamSessions.AllowUserToAddRows = false;
-            this.grv_ExamSessions.AllowUserToDeleteRows = false;
-            this.grv_ExamSessions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.grv_ExamSessions.BackgroundColor = System.Drawing.Color.White;
-            this.grv_ExamSessions.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.grv_ExamSessions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grv_ExamSessions.Location = new System.Drawing.Point(41, 189);
-            this.grv_ExamSessions.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.grv_ExamSessions.MultiSelect = false;
-            this.grv_ExamSessions.Name = "grv_ExamSessions";
-            this.grv_ExamSessions.ReadOnly = true;
-            this.grv_ExamSessions.RowHeadersVisible = false;
-            this.grv_ExamSessions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grv_ExamSessions.Size = new System.Drawing.Size(720, 200);
-            this.grv_ExamSessions.TabIndex = 2;
-            this.grv_ExamSessions.SelectionChanged += new System.EventHandler(this.grv_ExamSessions_SelectionChanged);
-            //
+            this.label2.Text = "Thông tin kỳ thi";
+            // 
+            // lbl_SessionName
+            // 
+            this.lbl_SessionName.AutoSize = true;
+            this.lbl_SessionName.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_SessionName.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_SessionName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.lbl_SessionName.Location = new System.Drawing.Point(195, 198);
+            this.lbl_SessionName.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lbl_SessionName.Name = "lbl_SessionName";
+            this.lbl_SessionName.Size = new System.Drawing.Size(0, 18);
+            this.lbl_SessionName.TabIndex = 15;
+            // 
+            // lbl_SubjectName
+            // 
+            this.lbl_SubjectName.AutoSize = true;
+            this.lbl_SubjectName.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_SubjectName.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_SubjectName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.lbl_SubjectName.Location = new System.Drawing.Point(195, 238);
+            this.lbl_SubjectName.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lbl_SubjectName.Name = "lbl_SubjectName";
+            this.lbl_SubjectName.Size = new System.Drawing.Size(0, 18);
+            this.lbl_SubjectName.TabIndex = 16;
+            // 
+            // lbl_StartTime
+            // 
+            this.lbl_StartTime.AutoSize = true;
+            this.lbl_StartTime.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_StartTime.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_StartTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.lbl_StartTime.Location = new System.Drawing.Point(195, 278);
+            this.lbl_StartTime.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lbl_StartTime.Name = "lbl_StartTime";
+            this.lbl_StartTime.Size = new System.Drawing.Size(0, 18);
+            this.lbl_StartTime.TabIndex = 17;
+            // 
+            // lbl_EndTime
+            // 
+            this.lbl_EndTime.AutoSize = true;
+            this.lbl_EndTime.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_EndTime.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_EndTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.lbl_EndTime.Location = new System.Drawing.Point(195, 318);
+            this.lbl_EndTime.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lbl_EndTime.Name = "lbl_EndTime";
+            this.lbl_EndTime.Size = new System.Drawing.Size(0, 18);
+            this.lbl_EndTime.TabIndex = 18;
+            // 
+            // label_SessionName
+            // 
+            this.label_SessionName.AutoSize = true;
+            this.label_SessionName.BackColor = System.Drawing.Color.Transparent;
+            this.label_SessionName.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_SessionName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.label_SessionName.Location = new System.Drawing.Point(38, 198);
+            this.label_SessionName.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label_SessionName.Name = "label_SessionName";
+            this.label_SessionName.Size = new System.Drawing.Size(86, 18);
+            this.label_SessionName.TabIndex = 11;
+            this.label_SessionName.Text = "Tên kỳ thi:";
+            // 
+            // label_SubjectName
+            // 
+            this.label_SubjectName.AutoSize = true;
+            this.label_SubjectName.BackColor = System.Drawing.Color.Transparent;
+            this.label_SubjectName.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_SubjectName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.label_SubjectName.Location = new System.Drawing.Point(38, 238);
+            this.label_SubjectName.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label_SubjectName.Name = "label_SubjectName";
+            this.label_SubjectName.Size = new System.Drawing.Size(74, 18);
+            this.label_SubjectName.TabIndex = 12;
+            this.label_SubjectName.Text = "Môn học:";
+            // 
+            // label_StartTime
+            // 
+            this.label_StartTime.AutoSize = true;
+            this.label_StartTime.BackColor = System.Drawing.Color.Transparent;
+            this.label_StartTime.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_StartTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.label_StartTime.Location = new System.Drawing.Point(38, 278);
+            this.label_StartTime.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label_StartTime.Name = "label_StartTime";
+            this.label_StartTime.Size = new System.Drawing.Size(140, 18);
+            this.label_StartTime.TabIndex = 13;
+            this.label_StartTime.Text = "Thời gian bắt đầu:";
+            // 
+            // label_EndTime
+            // 
+            this.label_EndTime.AutoSize = true;
+            this.label_EndTime.BackColor = System.Drawing.Color.Transparent;
+            this.label_EndTime.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_EndTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.label_EndTime.Location = new System.Drawing.Point(38, 318);
+            this.label_EndTime.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label_EndTime.Name = "label_EndTime";
+            this.label_EndTime.Size = new System.Drawing.Size(145, 18);
+            this.label_EndTime.TabIndex = 14;
+            this.label_EndTime.Text = "Thời gian kết thúc:";
+            // 
             // label3
-            //
+            // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -101,9 +187,9 @@
             this.label3.Size = new System.Drawing.Size(130, 18);
             this.label3.TabIndex = 3;
             this.label3.Text = "Số lượng câu hỏi";
-            //
+            // 
             // txt_Time
-            //
+            // 
             this.txt_Time.BackColor = System.Drawing.Color.Transparent;
             this.txt_Time.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_Time.BorderRadius = 5;
@@ -123,9 +209,9 @@
             this.txt_Time.Size = new System.Drawing.Size(315, 35);
             this.txt_Time.TabIndex = 6;
             this.txt_Time.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Time_KeyPress);
-            //
+            // 
             // label4
-            //
+            // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -136,9 +222,9 @@
             this.label4.Size = new System.Drawing.Size(147, 18);
             this.label4.TabIndex = 5;
             this.label4.Text = "Thời gian thi(phút)";
-            //
+            // 
             // btn_Start
-            //
+            // 
             this.btn_Start.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Start.BackColor = System.Drawing.Color.Transparent;
             this.btn_Start.BorderColor = System.Drawing.Color.Transparent;
@@ -161,9 +247,9 @@
             this.btn_Start.TabIndex = 7;
             this.btn_Start.Text = "Bắt đầu thi";
             this.btn_Start.Click += new System.EventHandler(this.btn_Start_Click);
-            //
+            // 
             // btn_Exit
-            //
+            // 
             this.btn_Exit.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Exit.BackColor = System.Drawing.Color.Transparent;
             this.btn_Exit.BorderColor = System.Drawing.Color.Transparent;
@@ -186,24 +272,24 @@
             this.btn_Exit.TabIndex = 8;
             this.btn_Exit.Text = "Thoát";
             this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
-            //
+            // 
             // pictureEdit1
-            //
+            // 
             this.pictureEdit1.EditValue = global::ThiTracNghiem.Properties.Resources.option;
             this.pictureEdit1.Location = new System.Drawing.Point(105, -16);
             this.pictureEdit1.Name = "pictureEdit1";
-            //
-            //
-            //
+            // 
+            // 
+            // 
             this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
             this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureEdit1.Size = new System.Drawing.Size(325, 174);
             this.pictureEdit1.TabIndex = 9;
-            //
+            // 
             // txt_NumberQuestion
-            //
+            // 
             this.txt_NumberQuestion.BackColor = System.Drawing.Color.Transparent;
             this.txt_NumberQuestion.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_NumberQuestion.BorderRadius = 5;
@@ -222,11 +308,9 @@
             this.txt_NumberQuestion.SelectedText = "";
             this.txt_NumberQuestion.Size = new System.Drawing.Size(315, 35);
             this.txt_NumberQuestion.TabIndex = 10;
-            //
-
-            //
+            // 
             // frmOption
-            //
+            // 
             this.AcceptButton = this.btn_Start;
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -238,7 +322,14 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txt_Time);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.grv_ExamSessions);
+            this.Controls.Add(this.lbl_EndTime);
+            this.Controls.Add(this.lbl_StartTime);
+            this.Controls.Add(this.lbl_SubjectName);
+            this.Controls.Add(this.lbl_SessionName);
+            this.Controls.Add(this.label_EndTime);
+            this.Controls.Add(this.label_StartTime);
+            this.Controls.Add(this.label_SubjectName);
+            this.Controls.Add(this.label_SessionName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureEdit1);
@@ -248,13 +339,12 @@
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(816, 639);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(816, 639);
+            this.MinimumSize = new System.Drawing.Size(802, 632);
             this.Name = "frmOption";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thi trắc nghiệm";
             this.Load += new System.EventHandler(this.frmOption_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grv_ExamSessions)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -264,7 +354,14 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView grv_ExamSessions;
+        private System.Windows.Forms.Label lbl_SessionName;
+        private System.Windows.Forms.Label lbl_SubjectName;
+        private System.Windows.Forms.Label lbl_StartTime;
+        private System.Windows.Forms.Label lbl_EndTime;
+        private System.Windows.Forms.Label label_SessionName;
+        private System.Windows.Forms.Label label_SubjectName;
+        private System.Windows.Forms.Label label_StartTime;
+        private System.Windows.Forms.Label label_EndTime;
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2TextBox txt_Time;
         private System.Windows.Forms.Label label4;

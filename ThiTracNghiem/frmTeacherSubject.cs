@@ -33,10 +33,31 @@ namespace ThiTracNghiem
             {
                 // Lấy danh sách giáo viên (UserRole = Teacher)
                 var users = BUserAccount.GetAll();
-                var teachers = users.AsEnumerable()
-                    .Where(row => row["RoleID"].ToString() == "Teacher")
-                    .CopyToDataTable();
 
+                // Kiểm tra xem có dữ liệu không
+                if (users == null || users.Rows.Count == 0)
+                {
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Không có giáo viên nào trong hệ thống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                // Lọc ra các giáo viên
+                DataTable teachers;
+                try
+                {
+                    teachers = users.AsEnumerable()
+                        .Where(row => row["RoleID"].ToString() == "Teacher")
+                        .CopyToDataTable();
+                }
+                catch (InvalidOperationException)
+                {
+                    // Không có giáo viên nào
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Không có giáo viên nào trong hệ thống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                // Gán dữ liệu cho ComboBox
+                cbb_Teacher.DataSource = null;
                 cbb_Teacher.DataSource = teachers;
                 cbb_Teacher.DisplayMember = "Fullname";
                 cbb_Teacher.ValueMember = "UserID";
@@ -71,14 +92,18 @@ namespace ThiTracNghiem
                 if (cbb_Teacher.SelectedValue != null)
                 {
                     int teacherId;
-                    if (cbb_Teacher.SelectedValue is DataRowView)
+
+                    // Xử lý trường hợp SelectedValue là DataRowView
+                    if (cbb_Teacher.SelectedItem is DataRowView)
                     {
-                        teacherId = Convert.ToInt32(((DataRowView)cbb_Teacher.SelectedValue)["UserID"]);
+                        DataRowView drv = (DataRowView)cbb_Teacher.SelectedItem;
+                        teacherId = Convert.ToInt32(drv["UserID"]);
                     }
                     else
                     {
                         teacherId = Convert.ToInt32(cbb_Teacher.SelectedValue);
                     }
+
                     var teacherSubjects = BTeacherSubject.GetByTeacher(teacherId);
 
                     // Thêm cột STT và Fullname
@@ -156,9 +181,10 @@ namespace ThiTracNghiem
                 }
 
                 int teacherId;
-                if (cbb_Teacher.SelectedValue is DataRowView)
+                if (cbb_Teacher.SelectedItem is DataRowView)
                 {
-                    teacherId = Convert.ToInt32(((DataRowView)cbb_Teacher.SelectedValue)["UserID"]);
+                    DataRowView drv = (DataRowView)cbb_Teacher.SelectedItem;
+                    teacherId = Convert.ToInt32(drv["UserID"]);
                 }
                 else
                 {
@@ -166,9 +192,10 @@ namespace ThiTracNghiem
                 }
 
                 string subjectId;
-                if (cbb_Subject.SelectedValue is DataRowView)
+                if (cbb_Subject.SelectedItem is DataRowView)
                 {
-                    subjectId = ((DataRowView)cbb_Subject.SelectedValue)["SubjectID"].ToString();
+                    DataRowView drv = (DataRowView)cbb_Subject.SelectedItem;
+                    subjectId = drv["SubjectID"].ToString();
                 }
                 else
                 {

@@ -152,7 +152,10 @@ namespace DataAccessLayer
                     exam.ModifiedAt = Convert.ToDateTime(reader["ModifiedAt"]);
                     exam.ApprovedBy = reader["ApprovedBy"] != DBNull.Value ? reader["ApprovedBy"].ToString() : null;
                     exam.ApprovedAt = reader["ApprovedAt"] != DBNull.Value ? Convert.ToDateTime(reader["ApprovedAt"]) : (DateTime?)null;
-                    exam.IsActive = reader["IsActive"] != DBNull.Value ? Convert.ToBoolean(reader["IsActive"]) : false;
+
+                    // Kiểm tra xem đề thi có trong kỳ thi đang diễn ra không
+                    // Nếu có, đánh dấu IsActive = true
+                    exam.IsActive = IsExamInActiveSession(examId);
                 }
                 reader.Close();
                 return exam;
@@ -163,14 +166,31 @@ namespace DataAccessLayer
             }
         }
 
-        public static void SetActive(int examId, bool isActive, string modifiedBy)
+        // Phương thức kiểm tra xem đề thi có trong kỳ thi đang diễn ra không
+        private static bool IsExamInActiveSession(int examId)
         {
             try
             {
-                SqlHelper.ExecuteNonQuery(TestCore.ConnectionString.strCon, "Exam_SetActive",
-                                                    examId,
-                                                    isActive,
-                                                    modifiedBy);
+                SqlDataReader reader = SqlHelper.ExecuteReader(
+                    TestCore.ConnectionString.strCon,
+                    CommandType.Text,
+                    @"SELECT COUNT(*) AS Count
+                    FROM [dbo].[ExamSessionDetail] esd
+                    INNER JOIN [dbo].[ExamSession] es ON esd.[SessionID] = es.[SessionID]
+                    WHERE esd.[ExamID] = @ExamID
+                    AND es.[Status] IN ('Scheduled', 'InProgress')
+                    AND GETDATE() BETWEEN es.[StartTime] AND es.[EndTime]",
+                    new SqlParameter("@ExamID", examId)
+                );
+
+                int count = 0;
+                if (reader.Read())
+                {
+                    count = Convert.ToInt32(reader["Count"]);
+                }
+                reader.Close();
+
+                return count > 0;
             }
             catch (Exception)
             {
@@ -178,13 +198,98 @@ namespace DataAccessLayer
             }
         }
 
+        // Phương thức SetActive đã được cập nhật để sử dụng ExamSession thay vì trường IsActive
+        public static void SetActive(int examId, bool isActive, string modifiedBy)
+        {
+            try
+            {
+                if (isActive)
+                {
+                    // Nếu kích hoạt đề thi, tạo một kỳ thi mới
+                    // Lấy thông tin đề thi
+                    Exam exam = GetById(examId);
+
+                    // Tạo kỳ thi mới
+                    ExamSession examSession = new ExamSession
+                    {
+                        SessionName = $"Kỳ thi {exam.SubjectName} - {DateTime.Now.ToString("dd/MM/yyyy")}",
+                        StartTime = DateTime.Now,
+                        EndTime = DateTime.Now.AddDays(7), // Kỳ thi kéo dài 7 ngày
+                        Status = "InProgress",
+                        CreatedBy = modifiedBy,
+                        ModifiedBy = modifiedBy
+                    };
+
+                    // Thêm kỳ thi mới
+                    int sessionId = DExamSession.AddExamSession(examSession);
+
+                    // Thêm chi tiết kỳ thi
+                    ExamSessionDetail examSessionDetail = new ExamSessionDetail
+                    {
+                        SessionID = sessionId,
+                        ExamID = examId,
+                        CreatedBy = modifiedBy
+                    };
+
+                    DExamSessionDetail.AddExamSessionDetail(examSessionDetail);
+                }
+                else
+                {
+                    // Nếu hủy kích hoạt đề thi, hủy tất cả các kỳ thi đang diễn ra có chứa đề thi này
+                    SqlHelper.ExecuteNonQuery(
+                        TestCore.ConnectionString.strCon,
+                        CommandType.Text,
+                        @"UPDATE es
+                        SET es.[Status] = 'Cancelled',
+                            es.[ModifiedBy] = @ModifiedBy,
+                            es.[ModifiedAt] = GETDATE()
+                        FROM [dbo].[ExamSession] es
+                        INNER JOIN [dbo].[ExamSessionDetail] esd ON es.[SessionID] = esd.[SessionID]
+                        WHERE esd.[ExamID] = @ExamID
+                        AND es.[Status] IN ('Scheduled', 'InProgress')",
+                        new SqlParameter("@ExamID", examId),
+                        new SqlParameter("@ModifiedBy", modifiedBy)
+                    );
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        // Phương thức GetActiveBySubject đã được cập nhật để sử dụng ExamSession thay vì trường IsActive
         public static DataTable GetActiveBySubject(string subjectId)
         {
             try
             {
-                DataTable dtData = SqlHelper.ExecuteData(TestCore.ConnectionString.strCon, CommandType.StoredProcedure,
-                                                        "Exam_GetActiveBySubject",
-                                                        new SqlParameter("@SubjectID", subjectId));
+                DataTable dtData = SqlHelper.ExecuteData(
+                    TestCore.ConnectionString.strCon,
+                    CommandType.Text,
+                    @"SELECT DISTINCT e.[ExamID]
+                          ,e.[ExamName]
+                          ,e.[SubjectID]
+                          ,s.[SubjectName]
+                          ,e.[TimeLimit]
+                          ,e.[TotalQuestion]
+                          ,e.[Status]
+                          ,e.[CreatedBy]
+                          ,e.[CreatedAt]
+                          ,e.[ModifiedBy]
+                          ,e.[ModifiedAt]
+                          ,e.[ApprovedBy]
+                          ,e.[ApprovedAt]
+                          ,CASE WHEN es.[SessionID] IS NOT NULL THEN 1 ELSE 0 END AS IsActive
+                      FROM [dbo].[Exam] e
+                      INNER JOIN [dbo].[Subject] s ON e.[SubjectID] = s.[SubjectID]
+                      LEFT JOIN [dbo].[ExamSessionDetail] esd ON e.[ExamID] = esd.[ExamID]
+                      LEFT JOIN [dbo].[ExamSession] es ON esd.[SessionID] = es.[SessionID]
+                          AND es.[Status] IN ('Scheduled', 'InProgress')
+                          AND GETDATE() BETWEEN es.[StartTime] AND es.[EndTime]
+                      WHERE e.[SubjectID] = @SubjectID
+                        AND e.[Status] = 'Approved'",
+                    new SqlParameter("@SubjectID", subjectId)
+                );
                 return dtData;
             }
             catch (Exception)
@@ -197,7 +302,33 @@ namespace DataAccessLayer
         {
             try
             {
-                DataTable dtData = SqlHelper.ExecuteData(TestCore.ConnectionString.strCon, CommandType.StoredProcedure, "Exam_GetAllActive");
+                // Cập nhật để sử dụng ExamSession thay vì stored procedure Exam_GetAllActive
+                DataTable dtData = SqlHelper.ExecuteData(
+                    TestCore.ConnectionString.strCon,
+                    CommandType.Text,
+                    @"SELECT DISTINCT e.[ExamID]
+                          ,e.[ExamName]
+                          ,e.[SubjectID]
+                          ,s.[SubjectName]
+                          ,e.[TimeLimit]
+                          ,e.[TotalQuestion]
+                          ,e.[Status]
+                          ,e.[CreatedBy]
+                          ,e.[CreatedAt]
+                          ,e.[ModifiedBy]
+                          ,e.[ModifiedAt]
+                          ,e.[ApprovedBy]
+                          ,e.[ApprovedAt]
+                          ,CASE WHEN es.[SessionID] IS NOT NULL THEN 1 ELSE 0 END AS IsActive
+                      FROM [dbo].[Exam] e
+                      INNER JOIN [dbo].[Subject] s ON e.[SubjectID] = s.[SubjectID]
+                      LEFT JOIN [dbo].[ExamSessionDetail] esd ON e.[ExamID] = esd.[ExamID]
+                      LEFT JOIN [dbo].[ExamSession] es ON esd.[SessionID] = es.[SessionID]
+                          AND es.[Status] IN ('Scheduled', 'InProgress')
+                          AND GETDATE() BETWEEN es.[StartTime] AND es.[EndTime]
+                      WHERE e.[Status] = 'Approved'
+                      ORDER BY e.[ExamID] DESC"
+                );
                 return dtData;
             }
             catch (Exception)
