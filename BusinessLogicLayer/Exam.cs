@@ -47,6 +47,19 @@ namespace BusinessLogicLayer
             return DExam.GetById(examId);
         }
 
+        public static void SetActive(int examId, bool isActive, string modifiedBy)
+        {
+            DExam.SetActive(examId, isActive, modifiedBy);
+        }
 
+        public static DataTable GetActiveBySubject(string subjectId)
+        {
+            return DExam.GetActiveBySubject(subjectId);
+        }
+
+        public static DataTable GetAllActive()
+        {
+            return DExam.GetAllActive();
+        }
     }
 }

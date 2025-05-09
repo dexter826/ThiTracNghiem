@@ -63,8 +63,15 @@ namespace ThiTracNghiem
         {
             try
             {
-                // Lấy danh sách đề thi đã được duyệt
-                dtExams = BExam.GetByStatus("Approved");
+                // Lấy danh sách đề thi đã được duyệt và kích hoạt
+                dtExams = BExam.GetAllActive();
+
+                if (dtExams == null || dtExams.Rows.Count == 0)
+                {
+                    XtraMessageBox.Show("Không có đề thi nào được kích hoạt. Vui lòng kích hoạt ít nhất một đề thi trước khi tạo kỳ thi.",
+                        "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
                 cbb_Exam.DataSource = dtExams;
                 cbb_Exam.DisplayMember = "ExamName";
                 cbb_Exam.ValueMember = "ExamID";

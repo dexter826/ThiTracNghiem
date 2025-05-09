@@ -152,6 +152,7 @@ namespace DataAccessLayer
                     exam.ModifiedAt = Convert.ToDateTime(reader["ModifiedAt"]);
                     exam.ApprovedBy = reader["ApprovedBy"] != DBNull.Value ? reader["ApprovedBy"].ToString() : null;
                     exam.ApprovedAt = reader["ApprovedAt"] != DBNull.Value ? Convert.ToDateTime(reader["ApprovedAt"]) : (DateTime?)null;
+                    exam.IsActive = reader["IsActive"] != DBNull.Value ? Convert.ToBoolean(reader["IsActive"]) : false;
                 }
                 reader.Close();
                 return exam;
@@ -162,5 +163,47 @@ namespace DataAccessLayer
             }
         }
 
+        public static void SetActive(int examId, bool isActive, string modifiedBy)
+        {
+            try
+            {
+                SqlHelper.ExecuteNonQuery(TestCore.ConnectionString.strCon, "Exam_SetActive",
+                                                    examId,
+                                                    isActive,
+                                                    modifiedBy);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public static DataTable GetActiveBySubject(string subjectId)
+        {
+            try
+            {
+                DataTable dtData = SqlHelper.ExecuteData(TestCore.ConnectionString.strCon, CommandType.StoredProcedure,
+                                                        "Exam_GetActiveBySubject",
+                                                        new SqlParameter("@SubjectID", subjectId));
+                return dtData;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public static DataTable GetAllActive()
+        {
+            try
+            {
+                DataTable dtData = SqlHelper.ExecuteData(TestCore.ConnectionString.strCon, CommandType.StoredProcedure, "Exam_GetAllActive");
+                return dtData;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
