@@ -1,4 +1,5 @@
 ﻿using BusinessLogicLayer;
+using DevExpress.XtraEditors;
 using Entities;
 using System;
 using System.Collections.Generic;
@@ -110,7 +111,7 @@ namespace ThiTracNghiem
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi tải danh sách đề thi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("Lỗi khi tải danh sách đề thi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -180,32 +181,17 @@ namespace ThiTracNghiem
             {
                 if (selectedExamId <= 0)
                 {
-                    MessageBox.Show("Vui lòng chọn đề thi cần xem chi tiết!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    XtraMessageBox.Show("Vui lòng chọn đề thi cần xem chi tiết!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                // Lấy thông tin đề thi
-                Exam exam = BExam.GetById(selectedExamId);
-
-                // Lấy danh sách câu hỏi trong đề thi
-                DataTable dtQuestions = BExamQuestion.GetByExam(selectedExamId);
-
-                // Hiển thị thông tin chi tiết đề thi
-                string message = $"Thông tin đề thi:\n\n" +
-                                $"Tên đề thi: {exam.ExamName}\n" +
-                                $"Môn học: {exam.SubjectName}\n" +
-                                $"Thời gian làm bài: {exam.TimeLimit} phút\n" +
-                                $"Số lượng câu hỏi: {exam.TotalQuestion}\n" +
-                                $"Trạng thái: {exam.Status}\n" +
-                                $"Người tạo: {exam.CreatedBy}\n" +
-                                $"Ngày tạo: {exam.CreatedAt.ToString("dd/MM/yyyy HH:mm:ss")}\n\n" +
-                                $"Số câu hỏi trong đề thi: {dtQuestions.Rows.Count}";
-
-                MessageBox.Show(message, "Chi tiết đề thi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Mở form chi tiết đề thi
+                frmExamDetail frmDetail = new frmExamDetail(selectedExamId);
+                frmDetail.ShowDialog();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi xem chi tiết đề thi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("Lỗi khi xem chi tiết đề thi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -215,25 +201,25 @@ namespace ThiTracNghiem
             {
                 if (selectedExamId <= 0)
                 {
-                    MessageBox.Show("Vui lòng chọn đề thi cần duyệt!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    XtraMessageBox.Show("Vui lòng chọn đề thi cần duyệt!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 // Xác nhận duyệt đề thi
-                if (MessageBox.Show("Bạn có chắc chắn muốn duyệt đề thi này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                if (XtraMessageBox.Show("Bạn có chắc chắn muốn duyệt đề thi này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                     return;
 
                 // Cập nhật trạng thái đề thi
                 BExam.UpdateStatus(selectedExamId, "Approved", Session.LogonUser.Username);
 
-                MessageBox.Show("Duyệt đề thi thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                XtraMessageBox.Show("Duyệt đề thi thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Tải lại danh sách đề thi
                 LoadExams();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi duyệt đề thi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("Lỗi khi duyệt đề thi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -243,32 +229,32 @@ namespace ThiTracNghiem
             {
                 if (selectedExamId <= 0)
                 {
-                    MessageBox.Show("Vui lòng chọn đề thi cần từ chối!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    XtraMessageBox.Show("Vui lòng chọn đề thi cần từ chối!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 // Xác nhận từ chối đề thi
-                if (MessageBox.Show("Bạn có chắc chắn muốn từ chối đề thi này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                if (XtraMessageBox.Show("Bạn có chắc chắn muốn từ chối đề thi này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                     return;
 
                 // Cập nhật trạng thái đề thi
                 BExam.UpdateStatus(selectedExamId, "Rejected", Session.LogonUser.Username);
 
-                MessageBox.Show("Từ chối đề thi thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                XtraMessageBox.Show("Từ chối đề thi thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Tải lại danh sách đề thi
                 LoadExams();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi từ chối đề thi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("Lỗi khi từ chối đề thi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btn_ToggleActive_Click(object sender, EventArgs e)
         {
             // Chức năng này đã được thay thế bằng ExamSession
-            MessageBox.Show("Chức năng kích hoạt đề thi đã được thay thế bằng tính năng Kỳ thi. Vui lòng sử dụng chức năng Quản lý kỳ thi để tạo kỳ thi mới.",
+            XtraMessageBox.Show("Chức năng kích hoạt đề thi đã được thay thế bằng tính năng Kỳ thi. Vui lòng sử dụng chức năng Quản lý kỳ thi để tạo kỳ thi mới.",
                 "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
