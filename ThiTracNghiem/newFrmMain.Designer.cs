@@ -36,6 +36,7 @@
             this.mn_TeacherSubject = new DevExpress.XtraBars.BarButtonItem();
             this.mn_CreateExam = new DevExpress.XtraBars.BarButtonItem();
             this.mn_ApproveExam = new DevExpress.XtraBars.BarButtonItem();
+            this.mn_ManageExamSession = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.mn_ReportBySubject = new DevExpress.XtraBars.BarButtonItem();

@@ -123,24 +123,17 @@ namespace ThiTracNghiem
             if (hasSelectedRow)
             {
                 string status = grv_Exams.SelectedRows[0].Cells["Status"].Value.ToString();
-                bool isActive = false;
-                if (grv_Exams.SelectedRows[0].Cells["IsActive"].Value != DBNull.Value)
-                {
-                    isActive = Convert.ToBoolean(grv_Exams.SelectedRows[0].Cells["IsActive"].Value);
-                }
 
                 btn_Approve.Enabled = status == "Pending";
                 btn_Reject.Enabled = status == "Pending";
-                btn_ToggleActive.Enabled = status == "Approved";
 
-                // Cập nhật text của nút kích hoạt
-                btn_ToggleActive.Text = isActive ? "Hủy kích hoạt" : "Kích hoạt";
+                // Ẩn nút kích hoạt vì chúng ta đã chuyển sang sử dụng ExamSession
+                btn_ToggleActive.Visible = false;
             }
             else
             {
                 btn_Approve.Enabled = false;
                 btn_Reject.Enabled = false;
-                btn_ToggleActive.Enabled = false;
             }
         }
 
@@ -274,48 +267,9 @@ namespace ThiTracNghiem
 
         private void btn_ToggleActive_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (selectedExamId <= 0)
-                {
-                    MessageBox.Show("Vui lòng chọn đề thi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // Lấy thông tin đề thi
-                Exam exam = BExam.GetById(selectedExamId);
-
-                // Kiểm tra trạng thái đề thi
-                if (exam.Status != "Approved")
-                {
-                    MessageBox.Show("Chỉ có thể kích hoạt đề thi đã được duyệt!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // Xác nhận kích hoạt/hủy kích hoạt đề thi
-                string message = exam.IsActive
-                    ? "Bạn có chắc chắn muốn hủy kích hoạt đề thi này?"
-                    : "Bạn có chắc chắn muốn kích hoạt đề thi này? Điều này sẽ hủy kích hoạt tất cả các đề thi khác cùng môn học.";
-
-                if (MessageBox.Show(message, "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-                    return;
-
-                // Cập nhật trạng thái kích hoạt đề thi
-                BExam.SetActive(selectedExamId, !exam.IsActive, Session.LogonUser.Username);
-
-                string successMessage = exam.IsActive
-                    ? "Hủy kích hoạt đề thi thành công!"
-                    : "Kích hoạt đề thi thành công!";
-
-                MessageBox.Show(successMessage, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Tải lại danh sách đề thi
-                LoadExams();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi thay đổi trạng thái kích hoạt đề thi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            // Chức năng này đã được thay thế bằng ExamSession
+            MessageBox.Show("Chức năng kích hoạt đề thi đã được thay thế bằng tính năng Kỳ thi. Vui lòng sử dụng chức năng Quản lý kỳ thi để tạo kỳ thi mới.",
+                "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

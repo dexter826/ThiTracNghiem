@@ -3,12 +3,14 @@ using DevExpress.XtraEditors;
 using Entities;
 using System;
 using System.Data;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using ThiTracNghiem.Common;
 
 namespace ThiTracNghiem
 {
-    public partial class frmManageExamSession : XtraForm
+    public partial class frmManageExamSession : UserControl
     {
         private DataTable dtExamSessions;
         private DataTable dtExams;
@@ -17,6 +19,24 @@ namespace ThiTracNghiem
         public frmManageExamSession()
         {
             InitializeComponent();
+            SetStyle(ControlStyles.ResizeRedraw, true);
+        }
+
+        /// <summary>
+        /// Đổ màu background
+        /// </summary>
+        /// <param name="e"></param>
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            Rectangle rc = ClientRectangle;
+            if (rc.IsEmpty)
+                return;
+            if (rc.Width == 0 || rc.Height == 0)
+                return;
+            using (LinearGradientBrush brush = new LinearGradientBrush(rc, Color.White, Color.FromArgb(196, 232, 250), 90F))
+            {
+                e.Graphics.FillRectangle(brush, rc);
+            }
         }
 
         private void frmManageExamSession_Load(object sender, EventArgs e)
