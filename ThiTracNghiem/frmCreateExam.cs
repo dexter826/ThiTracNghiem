@@ -1,13 +1,7 @@
 ﻿using BusinessLogicLayer;
 using Entities;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ThiTracNghiem.Common;
 
@@ -326,7 +320,7 @@ namespace ThiTracNghiem
                 }
 
                 // Cập nhật số lượng câu hỏi
-                txt_TotalQuestion.Value = dtSelectedQuestions.Rows.Count;
+                txt_TotalQuestion.Text = dtSelectedQuestions.Rows.Count.ToString();
             }
             catch (Exception ex)
             {
@@ -368,7 +362,7 @@ namespace ThiTracNghiem
                 }
 
                 // Cập nhật số lượng câu hỏi
-                txt_TotalQuestion.Value = dtSelectedQuestions.Rows.Count;
+                txt_TotalQuestion.Text = dtSelectedQuestions.Rows.Count.ToString();
             }
             catch (Exception ex)
             {
@@ -443,7 +437,7 @@ namespace ThiTracNghiem
                 // Xóa dữ liệu đã nhập
                 txt_ExamName.Text = "";
                 txt_TimeLimit.Value = 0;
-                txt_TotalQuestion.Value = 0;
+                txt_TotalQuestion.Text = "0";
                 dtSelectedQuestions.Rows.Clear();
                 grv_Questions.DataSource = null;
             }
@@ -451,11 +445,6 @@ namespace ThiTracNghiem
             {
                 DevExpress.XtraEditors.XtraMessageBox.Show("Lỗi khi lưu đề thi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void txt_ExamName_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -28,18 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txt_SubjectId = new Guna.UI2.WinForms.Guna2TextBox();
             this.btn_Add = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.grv_DataUser = new Guna.UI2.WinForms.Guna2DataGridView();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubjectName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubjectID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -50,16 +49,15 @@
             this.btn_Edit = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.btn_Search = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.grb_Infor = new Guna.UI2.WinForms.Guna2GroupBox();
-
             this.btn_Cancel = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.btn_Save = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.txt_Search = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.grv_DataUser)).BeginInit();
             this.grb_Infor.SuspendLayout();
             this.SuspendLayout();
-            //
+            // 
             // txt_SubjectId
-            //
+            // 
             this.txt_SubjectId.BorderRadius = 5;
             this.txt_SubjectId.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_SubjectId.DefaultText = "";
@@ -73,9 +71,9 @@
             this.txt_SubjectId.SelectedText = "";
             this.txt_SubjectId.Size = new System.Drawing.Size(120, 36);
             this.txt_SubjectId.TabIndex = 1;
-            //
+            // 
             // btn_Add
-            //
+            // 
             this.btn_Add.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Add.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_Add.BackColor = System.Drawing.Color.Transparent;
@@ -94,29 +92,29 @@
             this.btn_Add.TabIndex = 2;
             this.btn_Add.Text = "Thêm";
             this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
-            //
+            // 
             // grv_DataUser
-            //
+            // 
             this.grv_DataUser.AllowUserToAddRows = false;
             this.grv_DataUser.AllowUserToDeleteRows = false;
             this.grv_DataUser.AllowUserToResizeRows = false;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            this.grv_DataUser.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
-            this.grv_DataUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            this.grv_DataUser.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.grv_DataUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grv_DataUser.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(131)))), ((int)(((byte)(251)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grv_DataUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(131)))), ((int)(((byte)(251)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grv_DataUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.grv_DataUser.ColumnHeadersHeight = 40;
             this.grv_DataUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.grv_DataUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -124,27 +122,27 @@
             this.SubjectName,
             this.SubjectID,
             this.Description});
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grv_DataUser.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grv_DataUser.DefaultCellStyle = dataGridViewCellStyle4;
             this.grv_DataUser.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.grv_DataUser.Location = new System.Drawing.Point(5, 287);
             this.grv_DataUser.Margin = new System.Windows.Forms.Padding(5);
             this.grv_DataUser.Name = "grv_DataUser";
             this.grv_DataUser.ReadOnly = true;
             this.grv_DataUser.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(131)))), ((int)(((byte)(251)))));
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grv_DataUser.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(131)))), ((int)(((byte)(251)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grv_DataUser.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.grv_DataUser.RowHeadersVisible = false;
             this.grv_DataUser.RowHeadersWidth = 51;
             this.grv_DataUser.RowTemplate.Height = 40;
@@ -173,28 +171,28 @@
             this.grv_DataUser.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.grv_DataUser.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.grv_DataUser_RowEnter);
             this.grv_DataUser.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.grv_DataUser_RowPrePaint);
-            //
+            // 
             // STT
-            //
+            // 
             this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.STT.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.STT.DefaultCellStyle = dataGridViewCellStyle3;
             this.STT.HeaderText = "STT";
             this.STT.MinimumWidth = 6;
             this.STT.Name = "STT";
             this.STT.ReadOnly = true;
             this.STT.Width = 40;
-            //
+            // 
             // SubjectName
-            //
+            // 
             this.SubjectName.DataPropertyName = "SubjectName";
             this.SubjectName.HeaderText = "Tên môn thi";
             this.SubjectName.MinimumWidth = 6;
             this.SubjectName.Name = "SubjectName";
             this.SubjectName.ReadOnly = true;
-            //
+            // 
             // SubjectID
-            //
+            // 
             this.SubjectID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.SubjectID.DataPropertyName = "SubjectID";
             this.SubjectID.HeaderText = "Mã môn thi";
@@ -202,18 +200,17 @@
             this.SubjectID.Name = "SubjectID";
             this.SubjectID.ReadOnly = true;
             this.SubjectID.Width = 150;
-
-            //
+            // 
             // Description
-            //
+            // 
             this.Description.DataPropertyName = "Description";
             this.Description.HeaderText = "Mô tả";
             this.Description.MinimumWidth = 6;
             this.Description.Name = "Description";
             this.Description.ReadOnly = true;
-            //
+            // 
             // label2
-            //
+            // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(59, 55);
@@ -222,9 +219,9 @@
             this.label2.Size = new System.Drawing.Size(85, 20);
             this.label2.TabIndex = 0;
             this.label2.Text = "Mã môn thi";
-            //
+            // 
             // label7
-            //
+            // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(301, 55);
@@ -233,9 +230,9 @@
             this.label7.Size = new System.Drawing.Size(79, 20);
             this.label7.TabIndex = 2;
             this.label7.Text = "Tên mô thi";
-            //
+            // 
             // txt_SubjectName
-            //
+            // 
             this.txt_SubjectName.BorderRadius = 5;
             this.txt_SubjectName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_SubjectName.DefaultText = "";
@@ -247,11 +244,11 @@
             this.txt_SubjectName.PasswordChar = '\0';
             this.txt_SubjectName.PlaceholderText = "";
             this.txt_SubjectName.SelectedText = "";
-            this.txt_SubjectName.Size = new System.Drawing.Size(289, 36);
+            this.txt_SubjectName.Size = new System.Drawing.Size(746, 36);
             this.txt_SubjectName.TabIndex = 3;
-            //
+            // 
             // label10
-            //
+            // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(77, 100);
@@ -260,9 +257,9 @@
             this.label10.Size = new System.Drawing.Size(48, 20);
             this.label10.TabIndex = 4;
             this.label10.Text = "Mô tả";
-            //
+            // 
             // txt_SubjectDesb
-            //
+            // 
             this.txt_SubjectDesb.BorderRadius = 5;
             this.txt_SubjectDesb.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_SubjectDesb.DefaultText = "";
@@ -276,9 +273,9 @@
             this.txt_SubjectDesb.SelectedText = "";
             this.txt_SubjectDesb.Size = new System.Drawing.Size(986, 36);
             this.txt_SubjectDesb.TabIndex = 5;
-            //
+            // 
             // btn_Delete
-            //
+            // 
             this.btn_Delete.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Delete.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_Delete.BackColor = System.Drawing.Color.Transparent;
@@ -297,9 +294,9 @@
             this.btn_Delete.TabIndex = 4;
             this.btn_Delete.Text = "Xóa";
             this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
-            //
+            // 
             // btn_Edit
-            //
+            // 
             this.btn_Edit.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Edit.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_Edit.BackColor = System.Drawing.Color.Transparent;
@@ -318,9 +315,9 @@
             this.btn_Edit.TabIndex = 3;
             this.btn_Edit.Text = "Sửa";
             this.btn_Edit.Click += new System.EventHandler(this.btn_Edit_Click);
-            //
+            // 
             // btn_Search
-            //
+            // 
             this.btn_Search.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Search.BackColor = System.Drawing.Color.Transparent;
             this.btn_Search.BorderRadius = 8;
@@ -338,13 +335,12 @@
             this.btn_Search.TabIndex = 6;
             this.btn_Search.Text = "Tìm kiếm";
             this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
-            //
+            // 
             // grb_Infor
-            //
+            // 
             this.grb_Infor.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.grb_Infor.BackColor = System.Drawing.Color.Transparent;
             this.grb_Infor.BorderRadius = 10;
-
             this.grb_Infor.Controls.Add(this.label10);
             this.grb_Infor.Controls.Add(this.txt_SubjectDesb);
             this.grb_Infor.Controls.Add(this.label7);
@@ -361,10 +357,9 @@
             this.grb_Infor.TabIndex = 1;
             this.grb_Infor.TabStop = false;
             this.grb_Infor.Text = "Thông tin môn thi";
-
-            //
+            // 
             // btn_Cancel
-            //
+            // 
             this.btn_Cancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Cancel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_Cancel.BackColor = System.Drawing.Color.Transparent;
@@ -384,9 +379,9 @@
             this.btn_Cancel.Text = "Hủy";
             this.btn_Cancel.Visible = false;
             this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
-            //
+            // 
             // btn_Save
-            //
+            // 
             this.btn_Save.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Save.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_Save.BackColor = System.Drawing.Color.Transparent;
@@ -406,9 +401,9 @@
             this.btn_Save.Text = "Lưu";
             this.btn_Save.Visible = false;
             this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
-            //
+            // 
             // txt_Search
-            //
+            // 
             this.txt_Search.BorderRadius = 8;
             this.txt_Search.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_Search.DefaultText = "";
@@ -427,9 +422,9 @@
             this.txt_Search.Enter += new System.EventHandler(this.txt_Search_Enter);
             this.txt_Search.Leave += new System.EventHandler(this.txt_Search_Leave);
             this.txt_Search.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.txt_Search_MouseDoubleClick);
-            //
+            // 
             // frmManageSubject
-            //
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btn_Cancel);
@@ -449,7 +444,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.grv_DataUser)).EndInit();
             this.grb_Infor.ResumeLayout(false);
             this.grb_Infor.PerformLayout();
-
             this.ResumeLayout(false);
 
         }
