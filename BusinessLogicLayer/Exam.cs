@@ -46,5 +46,43 @@ namespace BusinessLogicLayer
         {
             return DExam.GetById(examId);
         }
+
+        public static void SetActive(int examId, bool isActive, string modifiedBy)
+        {
+            DExam.SetActive(examId, isActive, modifiedBy);
+        }
+
+        public static DataTable GetActiveBySubject(string subjectId)
+        {
+            return DExam.GetActiveBySubject(subjectId);
+        }
+
+        public static Exam GetActiveExam(string subjectId)
+        {
+            DataTable dt = DExam.GetActiveBySubject(subjectId);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                DataRow row = dt.Rows[0];
+                Exam exam = new Exam
+                {
+                    ExamID = Convert.ToInt32(row["ExamID"]),
+                    ExamName = row["ExamName"].ToString(),
+                    SubjectID = row["SubjectID"].ToString(),
+                    SubjectName = row["SubjectName"].ToString(),
+                    TimeLimit = Convert.ToInt32(row["TimeLimit"]),
+                    TotalQuestion = Convert.ToInt32(row["TotalQuestion"]),
+                    Status = row["Status"].ToString(),
+                    CreatedBy = row["CreatedBy"].ToString(),
+                    CreatedAt = Convert.ToDateTime(row["CreatedAt"]),
+                    ModifiedBy = row["ModifiedBy"].ToString(),
+                    ModifiedAt = Convert.ToDateTime(row["ModifiedAt"]),
+                    ApprovedBy = row["ApprovedBy"] != DBNull.Value ? row["ApprovedBy"].ToString() : null,
+                    ApprovedAt = row["ApprovedAt"] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row["ApprovedAt"]) : null,
+                    IsActive = Convert.ToBoolean(row["IsActive"])
+                };
+                return exam;
+            }
+            return null;
+        }
     }
 }

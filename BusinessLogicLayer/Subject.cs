@@ -36,5 +36,10 @@ namespace BusinessLogicLayer
         {
             return DSubject.IsSubjectExist(subjectId);
         }
+
+        public static DataTable GetSubjectsWithActiveExams()
+        {
+            return DSubject.GetSubjectsWithActiveExams();
+        }
     }
 }

@@ -21,5 +21,6 @@ namespace Entities
         public DateTime ModifiedAt { get; set; }
         public string ApprovedBy { get; set; }
         public DateTime? ApprovedAt { get; set; }
+        public bool IsActive { get; set; }
     }
 }
