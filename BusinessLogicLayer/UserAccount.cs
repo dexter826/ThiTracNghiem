@@ -58,5 +58,10 @@ namespace BusinessLogicLayer
         {
             return DUserAccount.GetByRole(roleId);
         }
+
+        public static DataTable GetBySubject(string subjectId)
+        {
+            return DUserAccount.GetBySubject(subjectId);
+        }
     }
 }

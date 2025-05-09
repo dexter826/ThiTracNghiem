@@ -43,7 +43,8 @@ namespace ThiTracNghiem
         {
             LoadExamSessions();
             LoadExams();
-            LoadUsers();
+            // Không tải danh sách người dùng ở đây nữa
+            // LoadUsers() sẽ được gọi khi chọn đề thi
         }
 
         private void LoadExamSessions()
@@ -82,15 +83,28 @@ namespace ThiTracNghiem
             }
         }
 
-        private void LoadUsers()
+        private void LoadUsers(string subjectId)
         {
             try
             {
-                // Lấy danh sách người dùng có vai trò là User
-                dtUsers = BUserAccount.GetByRole("User");
+                // Lấy danh sách người dùng đã được gán vào môn học
+                dtUsers = BUserAccount.GetBySubject(subjectId);
+
+                if (dtUsers == null || dtUsers.Rows.Count == 0)
+                {
+                    XtraMessageBox.Show("Không có người dùng nào được gán vào môn học này. Vui lòng gán người dùng vào môn học trước khi tạo kỳ thi.",
+                        "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
                 clb_Users.DataSource = dtUsers;
                 clb_Users.DisplayMember = "Fullname";
                 clb_Users.ValueMember = "UserID";
+
+                // Bỏ chọn tất cả người dùng
+                for (int i = 0; i < clb_Users.Items.Count; i++)
+                {
+                    clb_Users.SetItemChecked(i, false);
+                }
             }
             catch (Exception ex)
             {
@@ -285,6 +299,28 @@ namespace ThiTracNghiem
             catch (Exception ex)
             {
                 XtraMessageBox.Show("Lỗi khi xem chi tiết kỳ thi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cbb_Exam_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbb_Exam.SelectedValue != null)
+                {
+                    int examId = Convert.ToInt32(cbb_Exam.SelectedValue);
+                    // Lấy thông tin đề thi
+                    Exam exam = BExam.GetById(examId);
+                    if (exam != null)
+                    {
+                        // Tải danh sách người dùng theo môn học
+                        LoadUsers(exam.SubjectID);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show("Lỗi khi tải danh sách người dùng: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

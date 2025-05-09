@@ -229,5 +229,23 @@ namespace DataAccessLayer
                 throw ex;
             }
         }
+
+        public static DataTable GetBySubject(string subjectId)
+        {
+            try
+            {
+                DataTable dtData = SqlHelper.ExecuteData(
+                    TestCore.ConnectionString.strCon,
+                    CommandType.StoredProcedure,
+                    "UserAccount_GetBySubject",
+                    new SqlParameter("@SubjectID", subjectId)
+                );
+                return dtData;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

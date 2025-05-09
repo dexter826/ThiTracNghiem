@@ -66,10 +66,10 @@ namespace ThiTracNghiem
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
-            // 
+            //
             // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BorderRadius = 5;
             this.groupBox1.Controls.Add(this.grv_ExamSessions);
@@ -80,9 +80,9 @@ namespace ThiTracNghiem
             this.groupBox1.Size = new System.Drawing.Size(1365, 187);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.Text = "Danh sách kỳ thi";
-            // 
+            //
             // grv_ExamSessions
-            // 
+            //
             this.grv_ExamSessions.AllowUserToAddRows = false;
             this.grv_ExamSessions.AllowUserToDeleteRows = false;
             dataGridViewCellStyle79.BackColor = System.Drawing.Color.White;
@@ -134,9 +134,9 @@ namespace ThiTracNghiem
             this.grv_ExamSessions.ThemeStyle.RowsStyle.Height = 22;
             this.grv_ExamSessions.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.grv_ExamSessions.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
+            //
             // groupBox2
-            // 
+            //
             this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.groupBox2.BorderRadius = 5;
             this.groupBox2.Controls.Add(this.btn_Cancel);
@@ -149,9 +149,9 @@ namespace ThiTracNghiem
             this.groupBox2.Size = new System.Drawing.Size(776, 92);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.Text = "Thao tác";
-            // 
+            //
             // btn_Cancel
-            // 
+            //
             this.btn_Cancel.BorderRadius = 5;
             this.btn_Cancel.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btn_Cancel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -168,9 +168,9 @@ namespace ThiTracNghiem
             this.btn_Cancel.TabIndex = 2;
             this.btn_Cancel.Text = "Hủy kỳ thi";
             this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
-            // 
+            //
             // btn_Update
-            // 
+            //
             this.btn_Update.BorderRadius = 5;
             this.btn_Update.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btn_Update.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -187,9 +187,9 @@ namespace ThiTracNghiem
             this.btn_Update.TabIndex = 1;
             this.btn_Update.Text = "Cập nhật";
             this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
-            // 
+            //
             // btn_ViewDetail
-            // 
+            //
             this.btn_ViewDetail.BorderRadius = 5;
             this.btn_ViewDetail.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btn_ViewDetail.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -206,9 +206,9 @@ namespace ThiTracNghiem
             this.btn_ViewDetail.TabIndex = 0;
             this.btn_ViewDetail.Text = "Xem chi tiết";
             this.btn_ViewDetail.Click += new System.EventHandler(this.btn_ViewDetail_Click);
-            // 
+            //
             // groupBox3
-            // 
+            //
             this.groupBox3.BorderRadius = 5;
             this.groupBox3.Controls.Add(this.clb_Users);
             this.groupBox3.Controls.Add(this.label5);
@@ -229,9 +229,9 @@ namespace ThiTracNghiem
             this.groupBox3.Size = new System.Drawing.Size(455, 344);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.Text = "Thêm kỳ thi mới";
-            // 
+            //
             // clb_Users
-            // 
+            //
             this.clb_Users.BackColor = System.Drawing.Color.White;
             this.clb_Users.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.clb_Users.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -241,18 +241,18 @@ namespace ThiTracNghiem
             this.clb_Users.Name = "clb_Users";
             this.clb_Users.Size = new System.Drawing.Size(294, 146);
             this.clb_Users.TabIndex = 10;
-            // 
+            //
             // label5
-            // 
+            //
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(24, 149);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(93, 15);
             this.label5.TabIndex = 9;
             this.label5.Text = "Người tham gia:";
-            // 
+            //
             // btn_Add
-            // 
+            //
             this.btn_Add.BorderRadius = 5;
             this.btn_Add.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btn_Add.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -269,9 +269,9 @@ namespace ThiTracNghiem
             this.btn_Add.TabIndex = 8;
             this.btn_Add.Text = "Thêm";
             this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
-            // 
+            //
             // dtp_EndTime
-            // 
+            //
             this.dtp_EndTime.BorderRadius = 5;
             this.dtp_EndTime.Checked = true;
             this.dtp_EndTime.CustomFormat = "dd/MM/yyyy HH:mm";
@@ -285,18 +285,18 @@ namespace ThiTracNghiem
             this.dtp_EndTime.Size = new System.Drawing.Size(294, 20);
             this.dtp_EndTime.TabIndex = 7;
             this.dtp_EndTime.Value = new System.DateTime(2023, 7, 1, 0, 0, 0, 0);
-            // 
+            //
             // label4
-            // 
+            //
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(24, 123);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 15);
             this.label4.TabIndex = 6;
             this.label4.Text = "Thời gian kết thúc:";
-            // 
+            //
             // dtp_StartTime
-            // 
+            //
             this.dtp_StartTime.BorderRadius = 5;
             this.dtp_StartTime.Checked = true;
             this.dtp_StartTime.CustomFormat = "dd/MM/yyyy HH:mm";
@@ -310,18 +310,18 @@ namespace ThiTracNghiem
             this.dtp_StartTime.Size = new System.Drawing.Size(294, 20);
             this.dtp_StartTime.TabIndex = 5;
             this.dtp_StartTime.Value = new System.DateTime(2023, 7, 1, 0, 0, 0, 0);
-            // 
+            //
             // label3
-            // 
+            //
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(24, 97);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(103, 15);
             this.label3.TabIndex = 4;
             this.label3.Text = "Thời gian bắt đầu:";
-            // 
+            //
             // cbb_Exam
-            // 
+            //
             this.cbb_Exam.BackColor = System.Drawing.Color.Transparent;
             this.cbb_Exam.BorderRadius = 5;
             this.cbb_Exam.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
@@ -335,18 +335,19 @@ namespace ThiTracNghiem
             this.cbb_Exam.Name = "cbb_Exam";
             this.cbb_Exam.Size = new System.Drawing.Size(294, 21);
             this.cbb_Exam.TabIndex = 3;
-            // 
+            this.cbb_Exam.SelectedIndexChanged += new System.EventHandler(this.cbb_Exam_SelectedIndexChanged);
+            //
             // label2
-            // 
+            //
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(24, 73);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 15);
             this.label2.TabIndex = 2;
             this.label2.Text = "Đề thi:";
-            // 
+            //
             // txt_SessionName
-            // 
+            //
             this.txt_SessionName.BorderRadius = 5;
             this.txt_SessionName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_SessionName.DefaultText = "";
@@ -364,18 +365,18 @@ namespace ThiTracNghiem
             this.txt_SessionName.SelectedText = "";
             this.txt_SessionName.Size = new System.Drawing.Size(294, 20);
             this.txt_SessionName.TabIndex = 1;
-            // 
+            //
             // label1
-            // 
+            //
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(24, 47);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên kỳ thi:";
-            // 
+            //
             // groupBox4
-            // 
+            //
             this.groupBox4.BorderRadius = 5;
             this.groupBox4.Controls.Add(this.grv_SessionUsers);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -386,9 +387,9 @@ namespace ThiTracNghiem
             this.groupBox4.Size = new System.Drawing.Size(906, 344);
             this.groupBox4.TabIndex = 3;
             this.groupBox4.Text = "Danh sách người tham gia";
-            // 
+            //
             // grv_SessionUsers
-            // 
+            //
             this.grv_SessionUsers.AllowUserToAddRows = false;
             this.grv_SessionUsers.AllowUserToDeleteRows = false;
             dataGridViewCellStyle82.BackColor = System.Drawing.Color.White;
@@ -440,28 +441,28 @@ namespace ThiTracNghiem
             this.grv_SessionUsers.ThemeStyle.RowsStyle.Height = 22;
             this.grv_SessionUsers.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.grv_SessionUsers.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
+            //
             // splitContainer1
-            // 
-            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer1.Location = new System.Drawing.Point(8, 303);
             this.splitContainer1.Name = "splitContainer1";
-            // 
+            //
             // splitContainer1.Panel1
-            // 
+            //
             this.splitContainer1.Panel1.Controls.Add(this.groupBox3);
-            // 
+            //
             // splitContainer1.Panel2
-            // 
+            //
             this.splitContainer1.Panel2.Controls.Add(this.groupBox4);
             this.splitContainer1.Size = new System.Drawing.Size(1365, 344);
             this.splitContainer1.SplitterDistance = 455;
             this.splitContainer1.TabIndex = 4;
-            // 
+            //
             // frmManageExamSession
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;

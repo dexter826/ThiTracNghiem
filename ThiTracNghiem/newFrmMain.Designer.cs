@@ -167,6 +167,7 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.mn_CreateExam);
             this.ribbonPageGroup2.ItemLinks.Add(this.mn_ApproveExam);
             this.ribbonPageGroup2.ItemLinks.Add(this.mn_ManageExamSession);
+            this.ribbonPageGroup2.ItemLinks.Add(this.mn_ManageUserSubject);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "....................";
             //
@@ -320,6 +321,15 @@
             this.mn_ManageExamSession.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.mn_ManageExamSession_ItemClick);
 
             //
+            // mn_ManageUserSubject
+            //
+            this.mn_ManageUserSubject.Caption = "Gán môn học cho người thi";
+            this.mn_ManageUserSubject.Id = 28;
+            this.mn_ManageUserSubject.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("mn_ManageUser.ImageOptions.LargeImage")));
+            this.mn_ManageUserSubject.Name = "mn_ManageUserSubject";
+            this.mn_ManageUserSubject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.mn_ManageUserSubject_ItemClick);
+
+            //
             // ribbonControl1
             //
             this.ribbonControl1.BackColor = System.Drawing.Color.ForestGreen;
@@ -342,10 +352,11 @@
             this.mn_TeacherSubject,
             this.mn_CreateExam,
             this.mn_ApproveExam,
-            this.mn_ManageExamSession});
+            this.mn_ManageExamSession,
+            this.mn_ManageUserSubject});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(38);
-            this.ribbonControl1.MaxItemId = 28;
+            this.ribbonControl1.MaxItemId = 29;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.OptionsMenuMinWidth = 3836;
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -531,5 +542,6 @@
         private DevExpress.XtraBars.BarButtonItem mn_TeacherSubject;
         private DevExpress.XtraBars.BarButtonItem mn_CreateExam;
         private DevExpress.XtraBars.BarButtonItem mn_ApproveExam;
+        private DevExpress.XtraBars.BarButtonItem mn_ManageUserSubject;
     }
 }
