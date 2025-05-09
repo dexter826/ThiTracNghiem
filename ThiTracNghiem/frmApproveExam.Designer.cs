@@ -81,7 +81,9 @@
             //
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.grv_Exams.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.grv_Exams.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
@@ -123,6 +125,9 @@
             this.grv_Exams.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.grv_Exams.RowHeadersVisible = false;
             this.grv_Exams.RowTemplate.Height = 40;
+            this.grv_Exams.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grv_Exams.MultiSelect = true;
+            this.grv_Exams.AutoGenerateColumns = false;
             this.grv_Exams.Size = new System.Drawing.Size(1089, 542);
             this.grv_Exams.TabIndex = 2;
             this.grv_Exams.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;

@@ -19,27 +19,9 @@ namespace ThiTracNghiem
 
         private void frmCreateExam_Load(object sender, EventArgs e)
         {
-            // Thiết lập thuộc tính cho DataGridView
-            SetupDataGridViews();
-
             // Tải dữ liệu
             LoadSubjects();
             InitializeSelectedQuestionsTable();
-        }
-
-        private void SetupDataGridViews()
-        {
-            // Thiết lập thuộc tính cho grv_Questions
-            grv_Questions.AutoGenerateColumns = false;
-            grv_Questions.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            grv_Questions.MultiSelect = true;
-            grv_Questions.ReadOnly = true;
-
-            // Thiết lập thuộc tính cho grv_SelectedQuestions
-            grv_SelectedQuestions.AutoGenerateColumns = false;
-            grv_SelectedQuestions.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            grv_SelectedQuestions.MultiSelect = true;
-            grv_SelectedQuestions.ReadOnly = true;
         }
 
         private void LoadSubjects()
@@ -73,25 +55,36 @@ namespace ThiTracNghiem
         {
             try
             {
+                // Tạo DataTable mới để lưu trữ danh sách chương
+                DataTable chaptersTable = new DataTable();
+                chaptersTable.Columns.Add("Chapter", typeof(string));
+
+                // Thêm tùy chọn "Tất cả"
+                DataRow allRow = chaptersTable.NewRow();
+                allRow["Chapter"] = "All";
+                chaptersTable.Rows.Add(allRow);
+
                 // Lấy danh sách chương của môn học
-                var chapters = BQuestion.GetChaptersBySubject(subjectId);
+                var dbChapters = BQuestion.GetChaptersBySubject(subjectId);
 
-                if (chapters != null && chapters.Rows.Count > 0)
+                if (dbChapters != null && dbChapters.Rows.Count > 0)
                 {
-                    // Thêm tùy chọn "Tất cả"
-                    DataRow allRow = chapters.NewRow();
-                    allRow["Chapter"] = "All";
-                    chapters.Rows.InsertAt(allRow, 0);
+                    // Thêm các chương từ cơ sở dữ liệu vào DataTable
+                    foreach (DataRow row in dbChapters.Rows)
+                    {
+                        if (row["Chapter"] != DBNull.Value)
+                        {
+                            DataRow newRow = chaptersTable.NewRow();
+                            newRow["Chapter"] = row["Chapter"];
+                            chaptersTable.Rows.Add(newRow);
+                        }
+                    }
+                }
 
-                    cbb_Chapter.DataSource = chapters;
-                    cbb_Chapter.DisplayMember = "Chapter";
-                    cbb_Chapter.ValueMember = "Chapter";
-                }
-                else
-                {
-                    cbb_Chapter.DataSource = null;
-                    DevExpress.XtraEditors.XtraMessageBox.Show("Không có chương nào cho môn học này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                // Gán DataTable cho ComboBox
+                cbb_Chapter.DataSource = chaptersTable;
+                cbb_Chapter.DisplayMember = "Chapter";
+                cbb_Chapter.ValueMember = "Chapter";
             }
             catch (Exception ex)
             {
@@ -151,6 +144,7 @@ namespace ThiTracNghiem
                 string chapter = cbb_Chapter.SelectedValue.ToString();
 
                 // Lấy danh sách câu hỏi theo môn học và chương
+                // Nếu chọn "All", sẽ lấy tất cả câu hỏi của môn học, bất kể Chapter có giá trị hay không
                 dtQuestions = BQuestion.GetByChapter(subjectId, chapter);
 
                 if (dtQuestions != null && dtQuestions.Rows.Count > 0)

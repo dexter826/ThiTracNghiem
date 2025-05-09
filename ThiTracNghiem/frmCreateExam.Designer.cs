@@ -84,9 +84,9 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
-            // 
+            //
             // txt_ExamName
-            // 
+            //
             this.txt_ExamName.BorderRadius = 5;
             this.txt_ExamName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_ExamName.DefaultText = "";
@@ -104,18 +104,18 @@
             this.txt_ExamName.SelectedText = "";
             this.txt_ExamName.Size = new System.Drawing.Size(200, 36);
             this.txt_ExamName.TabIndex = 0;
-            // 
+            //
             // guna2HtmlLabel1
-            // 
+            //
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(28, 63);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(52, 15);
             this.guna2HtmlLabel1.TabIndex = 1;
             this.guna2HtmlLabel1.Text = "Tên đề thi";
-            // 
+            //
             // cbb_Subject
-            // 
+            //
             this.cbb_Subject.BackColor = System.Drawing.Color.Transparent;
             this.cbb_Subject.BorderRadius = 5;
             this.cbb_Subject.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
@@ -130,27 +130,27 @@
             this.cbb_Subject.Size = new System.Drawing.Size(200, 36);
             this.cbb_Subject.TabIndex = 2;
             this.cbb_Subject.SelectedIndexChanged += new System.EventHandler(this.cbb_Subject_SelectedIndexChanged);
-            // 
+            //
             // guna2HtmlLabel2
-            // 
+            //
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel2.Location = new System.Drawing.Point(28, 119);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             this.guna2HtmlLabel2.Size = new System.Drawing.Size(45, 15);
             this.guna2HtmlLabel2.TabIndex = 3;
             this.guna2HtmlLabel2.Text = "Môn học";
-            // 
+            //
             // guna2HtmlLabel3
-            // 
+            //
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel3.Location = new System.Drawing.Point(337, 63);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             this.guna2HtmlLabel3.Size = new System.Drawing.Size(61, 15);
             this.guna2HtmlLabel3.TabIndex = 5;
             this.guna2HtmlLabel3.Text = "Thời gian thi";
-            // 
+            //
             // txt_TimeLimit
-            // 
+            //
             this.txt_TimeLimit.AutoRoundedCorners = true;
             this.txt_TimeLimit.BackColor = System.Drawing.Color.Transparent;
             this.txt_TimeLimit.BorderRadius = 5;
@@ -160,18 +160,18 @@
             this.txt_TimeLimit.Name = "txt_TimeLimit";
             this.txt_TimeLimit.Size = new System.Drawing.Size(100, 36);
             this.txt_TimeLimit.TabIndex = 6;
-            // 
+            //
             // guna2HtmlLabel4
-            // 
+            //
             this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel4.Location = new System.Drawing.Point(337, 120);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
             this.guna2HtmlLabel4.Size = new System.Drawing.Size(83, 15);
             this.guna2HtmlLabel4.TabIndex = 8;
             this.guna2HtmlLabel4.Text = "Số lượng câu hỏi";
-            // 
+            //
             // cbb_Chapter
-            // 
+            //
             this.cbb_Chapter.BackColor = System.Drawing.Color.Transparent;
             this.cbb_Chapter.BorderRadius = 5;
             this.cbb_Chapter.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
@@ -185,18 +185,18 @@
             this.cbb_Chapter.Name = "cbb_Chapter";
             this.cbb_Chapter.Size = new System.Drawing.Size(200, 36);
             this.cbb_Chapter.TabIndex = 9;
-            // 
+            //
             // guna2HtmlLabel5
-            // 
+            //
             this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel5.Location = new System.Drawing.Point(578, 63);
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             this.guna2HtmlLabel5.Size = new System.Drawing.Size(40, 15);
             this.guna2HtmlLabel5.TabIndex = 10;
             this.guna2HtmlLabel5.Text = "Chương";
-            // 
+            //
             // btn_Search
-            // 
+            //
             this.btn_Search.BackColor = System.Drawing.Color.Transparent;
             this.btn_Search.BorderRadius = 8;
             this.btn_Search.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -215,9 +215,9 @@
             this.btn_Search.TabIndex = 11;
             this.btn_Search.Text = "Tìm kiếm";
             this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
-            // 
+            //
             // txt_SearchKeyword
-            // 
+            //
             this.txt_SearchKeyword.BorderRadius = 5;
             this.txt_SearchKeyword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_SearchKeyword.DefaultText = "";
@@ -235,22 +235,24 @@
             this.txt_SearchKeyword.SelectedText = "";
             this.txt_SearchKeyword.Size = new System.Drawing.Size(200, 36);
             this.txt_SearchKeyword.TabIndex = 12;
-            // 
+            //
             // guna2HtmlLabel6
-            // 
+            //
             this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel6.Location = new System.Drawing.Point(578, 120);
             this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
             this.guna2HtmlLabel6.Size = new System.Drawing.Size(84, 15);
             this.guna2HtmlLabel6.TabIndex = 13;
             this.guna2HtmlLabel6.Text = "Từ khóa tìm kiếm";
-            // 
+            //
             // grv_Questions
-            // 
+            //
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
             this.grv_Questions.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.grv_Questions.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -290,6 +292,9 @@
             this.grv_Questions.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.grv_Questions.RowHeadersVisible = false;
             this.grv_Questions.RowTemplate.Height = 40;
+            this.grv_Questions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grv_Questions.MultiSelect = true;
+            this.grv_Questions.AutoGenerateColumns = false;
             this.grv_Questions.Size = new System.Drawing.Size(658, 396);
             this.grv_Questions.TabIndex = 12;
             this.grv_Questions.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -313,82 +318,82 @@
             this.grv_Questions.ThemeStyle.RowsStyle.Height = 40;
             this.grv_Questions.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
             this.grv_Questions.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
-            // 
+            //
             // STT
-            // 
+            //
             this.STT.DataPropertyName = "STT";
             this.STT.HeaderText = "STT";
             this.STT.Name = "STT";
             this.STT.ReadOnly = true;
-            // 
+            //
             // QuestionID
-            // 
+            //
             this.QuestionID.DataPropertyName = "QuestionID";
             this.QuestionID.HeaderText = "Mã câu hỏi";
             this.QuestionID.Name = "QuestionID";
             this.QuestionID.ReadOnly = true;
             this.QuestionID.Visible = false;
-            // 
+            //
             // SubjectID
-            // 
+            //
             this.SubjectID.DataPropertyName = "SubjectID";
             this.SubjectID.HeaderText = "Mã môn học";
             this.SubjectID.Name = "SubjectID";
             this.SubjectID.ReadOnly = true;
             this.SubjectID.Visible = false;
-            // 
+            //
             // QContent
-            // 
+            //
             this.QContent.DataPropertyName = "QContent";
             this.QContent.HeaderText = "Nội dung câu hỏi";
             this.QContent.Name = "QContent";
             this.QContent.ReadOnly = true;
-            // 
+            //
             // Chapter
-            // 
+            //
             this.Chapter.DataPropertyName = "Chapter";
             this.Chapter.HeaderText = "Chương";
             this.Chapter.Name = "Chapter";
             this.Chapter.ReadOnly = true;
-            // 
+            //
             // OptionA
-            // 
+            //
             this.OptionA.DataPropertyName = "OptionA";
             this.OptionA.HeaderText = "Đáp án A";
             this.OptionA.Name = "OptionA";
             this.OptionA.ReadOnly = true;
-            // 
+            //
             // OptionB
-            // 
+            //
             this.OptionB.DataPropertyName = "OptionB";
             this.OptionB.HeaderText = "Đáp án B";
             this.OptionB.Name = "OptionB";
             this.OptionB.ReadOnly = true;
-            // 
+            //
             // OptionC
-            // 
+            //
             this.OptionC.DataPropertyName = "OptionC";
             this.OptionC.HeaderText = "Đáp án C";
             this.OptionC.Name = "OptionC";
             this.OptionC.ReadOnly = true;
-            // 
+            //
             // OptionD
-            // 
+            //
             this.OptionD.DataPropertyName = "OptionD";
             this.OptionD.HeaderText = "Đáp án D";
             this.OptionD.Name = "OptionD";
             this.OptionD.ReadOnly = true;
-            // 
+            //
             // Answer
-            // 
+            //
             this.Answer.DataPropertyName = "Answer";
             this.Answer.HeaderText = "Đáp án đúng";
             this.Answer.Name = "Answer";
             this.Answer.ReadOnly = true;
-            // 
+            //
             // btn_AddToExam
-            // 
-            this.btn_AddToExam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            //
+            this.btn_AddToExam.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_AddToExam.BackColor = System.Drawing.Color.Transparent;
             this.btn_AddToExam.BorderRadius = 8;
             this.btn_AddToExam.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -407,10 +412,10 @@
             this.btn_AddToExam.TabIndex = 14;
             this.btn_AddToExam.Text = "Thêm câu hỏi";
             this.btn_AddToExam.Click += new System.EventHandler(this.btn_AddToExam_Click);
-            // 
+            //
             // btn_RemoveFromExam
-            // 
-            this.btn_RemoveFromExam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            //
+            this.btn_RemoveFromExam.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_RemoveFromExam.BackColor = System.Drawing.Color.Transparent;
             this.btn_RemoveFromExam.BorderRadius = 8;
             this.btn_RemoveFromExam.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -429,9 +434,9 @@
             this.btn_RemoveFromExam.TabIndex = 15;
             this.btn_RemoveFromExam.Text = "Xóa câu hỏi";
             this.btn_RemoveFromExam.Click += new System.EventHandler(this.btn_RemoveFromExam_Click);
-            // 
+            //
             // btn_Save
-            // 
+            //
             this.btn_Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Save.BackColor = System.Drawing.Color.Transparent;
             this.btn_Save.BorderRadius = 8;
@@ -451,9 +456,9 @@
             this.btn_Save.TabIndex = 16;
             this.btn_Save.Text = "Lưu";
             this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
-            // 
+            //
             // btn_Submit
-            // 
+            //
             this.btn_Submit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Submit.BackColor = System.Drawing.Color.Transparent;
             this.btn_Submit.BorderRadius = 8;
@@ -473,13 +478,15 @@
             this.btn_Submit.TabIndex = 17;
             this.btn_Submit.Text = "Gửi";
             this.btn_Submit.Click += new System.EventHandler(this.btn_Submit_Click);
-            // 
+            //
             // grv_SelectedQuestions
-            // 
+            //
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.Gainsboro;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
             this.grv_SelectedQuestions.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.grv_SelectedQuestions.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -519,6 +526,9 @@
             this.grv_SelectedQuestions.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.grv_SelectedQuestions.RowHeadersVisible = false;
             this.grv_SelectedQuestions.RowTemplate.Height = 40;
+            this.grv_SelectedQuestions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grv_SelectedQuestions.MultiSelect = true;
+            this.grv_SelectedQuestions.AutoGenerateColumns = false;
             this.grv_SelectedQuestions.Size = new System.Drawing.Size(663, 396);
             this.grv_SelectedQuestions.TabIndex = 18;
             this.grv_SelectedQuestions.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -542,80 +552,80 @@
             this.grv_SelectedQuestions.ThemeStyle.RowsStyle.Height = 40;
             this.grv_SelectedQuestions.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
             this.grv_SelectedQuestions.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
-            // 
+            //
             // colSelectedSTT
-            // 
+            //
             this.colSelectedSTT.DataPropertyName = "STT";
             this.colSelectedSTT.HeaderText = "STT";
             this.colSelectedSTT.Name = "colSelectedSTT";
             this.colSelectedSTT.ReadOnly = true;
-            // 
+            //
             // colSelectedQuestionID
-            // 
+            //
             this.colSelectedQuestionID.DataPropertyName = "QuestionID";
             this.colSelectedQuestionID.HeaderText = "Mã câu hỏi";
             this.colSelectedQuestionID.Name = "colSelectedQuestionID";
             this.colSelectedQuestionID.ReadOnly = true;
             this.colSelectedQuestionID.Visible = false;
-            // 
+            //
             // colSelectedSubjectID
-            // 
+            //
             this.colSelectedSubjectID.HeaderText = "Mã môn học";
             this.colSelectedSubjectID.Name = "colSelectedSubjectID";
             this.colSelectedSubjectID.ReadOnly = true;
             this.colSelectedSubjectID.Visible = false;
-            // 
+            //
             // colSelectedQContent
-            // 
+            //
             this.colSelectedQContent.DataPropertyName = "QContent";
             this.colSelectedQContent.HeaderText = "Nội dung câu hỏi";
             this.colSelectedQContent.Name = "colSelectedQContent";
             this.colSelectedQContent.ReadOnly = true;
-            // 
+            //
             // colSelectedChapter
-            // 
+            //
             this.colSelectedChapter.DataPropertyName = "Chapter";
             this.colSelectedChapter.HeaderText = "Chương";
             this.colSelectedChapter.Name = "colSelectedChapter";
             this.colSelectedChapter.ReadOnly = true;
-            // 
+            //
             // colSelectedOptionA
-            // 
+            //
             this.colSelectedOptionA.DataPropertyName = "OptionA";
             this.colSelectedOptionA.HeaderText = "Đáp án A";
             this.colSelectedOptionA.Name = "colSelectedOptionA";
             this.colSelectedOptionA.ReadOnly = true;
-            // 
+            //
             // colSelectedOptionB
-            // 
+            //
             this.colSelectedOptionB.DataPropertyName = "OptionB";
             this.colSelectedOptionB.HeaderText = "Đáp án B";
             this.colSelectedOptionB.Name = "colSelectedOptionB";
             this.colSelectedOptionB.ReadOnly = true;
-            // 
+            //
             // colSelectedOptionC
-            // 
+            //
             this.colSelectedOptionC.DataPropertyName = "OptionC";
             this.colSelectedOptionC.HeaderText = "Đáp án C";
             this.colSelectedOptionC.Name = "colSelectedOptionC";
             this.colSelectedOptionC.ReadOnly = true;
-            // 
+            //
             // colSelectedOptionD
-            // 
+            //
             this.colSelectedOptionD.DataPropertyName = "OptionD";
             this.colSelectedOptionD.HeaderText = "Đáp án D";
             this.colSelectedOptionD.Name = "colSelectedOptionD";
             this.colSelectedOptionD.ReadOnly = true;
-            // 
+            //
             // colSelectedAnswer
-            // 
+            //
             this.colSelectedAnswer.DataPropertyName = "Answer";
             this.colSelectedAnswer.HeaderText = "Đáp án đúng";
             this.colSelectedAnswer.Name = "colSelectedAnswer";
             this.colSelectedAnswer.ReadOnly = true;
-            // 
+            //
             // guna2GroupBox1
-            // 
+            //
             this.guna2GroupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.guna2GroupBox1.BorderRadius = 8;
             this.guna2GroupBox1.Controls.Add(this.txt_TotalQuestion);
@@ -638,9 +648,9 @@
             this.guna2GroupBox1.Size = new System.Drawing.Size(1074, 169);
             this.guna2GroupBox1.TabIndex = 19;
             this.guna2GroupBox1.Text = "Thông tin đề thi";
-            // 
+            //
             // txt_TotalQuestion
-            // 
+            //
             this.txt_TotalQuestion.BorderRadius = 5;
             this.txt_TotalQuestion.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_TotalQuestion.DefaultText = "";
@@ -659,28 +669,28 @@
             this.txt_TotalQuestion.SelectedText = "";
             this.txt_TotalQuestion.Size = new System.Drawing.Size(100, 36);
             this.txt_TotalQuestion.TabIndex = 14;
-            // 
+            //
             // splitContainer1
-            // 
-            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer1.Location = new System.Drawing.Point(3, 188);
             this.splitContainer1.Name = "splitContainer1";
-            // 
+            //
             // splitContainer1.Panel1
-            // 
+            //
             this.splitContainer1.Panel1.Controls.Add(this.grv_Questions);
-            // 
+            //
             // splitContainer1.Panel2
-            // 
+            //
             this.splitContainer1.Panel2.Controls.Add(this.grv_SelectedQuestions);
             this.splitContainer1.Size = new System.Drawing.Size(1325, 396);
             this.splitContainer1.SplitterDistance = 658;
             this.splitContainer1.TabIndex = 20;
-            // 
+            //
             // frmCreateExam
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainer1);
