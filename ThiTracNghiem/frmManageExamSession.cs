@@ -46,10 +46,20 @@ namespace ThiTracNghiem
             {
                 InitializeStatusComboBox();
                 LoadExamSessions();
+
+                // Tạm thời tắt sự kiện SelectedIndexChanged để tránh gọi nhiều lần
+                cbb_Subject.SelectedIndexChanged -= cbb_Subject_SelectedIndexChanged;
+
                 LoadSubjects();
-                // Không tải danh sách đề thi ở đây nữa
-                // LoadExams() sẽ được gọi khi chọn môn học
-                // LoadUsers() sẽ được gọi khi chọn đề thi
+
+                // Bật lại sự kiện SelectedIndexChanged
+                cbb_Subject.SelectedIndexChanged += cbb_Subject_SelectedIndexChanged;
+
+                // Gọi sự kiện SelectedIndexChanged một cách thủ công nếu có item được chọn
+                if (cbb_Subject.SelectedIndex >= 0)
+                {
+                    cbb_Subject_SelectedIndexChanged(cbb_Subject, EventArgs.Empty);
+                }
             }
             catch (Exception ex)
             {
@@ -118,6 +128,11 @@ namespace ThiTracNghiem
 
                 // Tạo một DataView từ DataTable để đảm bảo dữ liệu được hiển thị đúng cách
                 DataView dv = new DataView(dtSubjects);
+
+                // Xóa DataSource hiện tại trước khi thiết lập DataSource mới
+                cbb_Subject.DataSource = null;
+
+                // Thiết lập DataSource mới
                 cbb_Subject.DataSource = dv;
                 cbb_Subject.DisplayMember = "SubjectName";
                 cbb_Subject.ValueMember = "SubjectID";
@@ -159,6 +174,11 @@ namespace ThiTracNghiem
 
                 // Tạo một DataView từ DataTable để đảm bảo dữ liệu được hiển thị đúng cách
                 DataView dv = new DataView(dtExams);
+
+                // Xóa DataSource hiện tại trước khi thiết lập DataSource mới
+                cbb_Exam.DataSource = null;
+
+                // Thiết lập DataSource mới
                 cbb_Exam.DataSource = dv;
                 cbb_Exam.DisplayMember = "ExamName";
                 cbb_Exam.ValueMember = "ExamID";
