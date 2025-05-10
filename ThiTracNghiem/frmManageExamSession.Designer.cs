@@ -28,12 +28,12 @@ namespace ThiTracNghiem
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.grv_ExamSessions = new Guna.UI2.WinForms.Guna2DataGridView();
             this.groupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
@@ -91,26 +91,26 @@ namespace ThiTracNghiem
             // 
             this.grv_ExamSessions.AllowUserToAddRows = false;
             this.grv_ExamSessions.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.grv_ExamSessions.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grv_ExamSessions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.grv_ExamSessions.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grv_ExamSessions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.grv_ExamSessions.ColumnHeadersHeight = 40;
             this.grv_ExamSessions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grv_ExamSessions.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grv_ExamSessions.DefaultCellStyle = dataGridViewCellStyle9;
             this.grv_ExamSessions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grv_ExamSessions.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.grv_ExamSessions.Location = new System.Drawing.Point(0, 40);
@@ -279,7 +279,7 @@ namespace ThiTracNghiem
             // lbl_UserCount
             // 
             this.lbl_UserCount.AutoSize = true;
-            this.lbl_UserCount.Location = new System.Drawing.Point(181, 213);
+            this.lbl_UserCount.Location = new System.Drawing.Point(181, 215);
             this.lbl_UserCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_UserCount.Name = "lbl_UserCount";
             this.lbl_UserCount.Size = new System.Drawing.Size(122, 20);
@@ -296,14 +296,14 @@ namespace ThiTracNghiem
             this.clb_Users.Location = new System.Drawing.Point(181, 238);
             this.clb_Users.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.clb_Users.Name = "clb_Users";
-            this.clb_Users.Size = new System.Drawing.Size(391, 134);
+            this.clb_Users.Size = new System.Drawing.Size(391, 156);
             this.clb_Users.TabIndex = 10;
             this.clb_Users.Visible = false;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(32, 213);
+            this.label5.Location = new System.Drawing.Point(32, 215);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(117, 20);
@@ -338,7 +338,7 @@ namespace ThiTracNghiem
             this.dtp_EndTime.FillColor = System.Drawing.Color.White;
             this.dtp_EndTime.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtp_EndTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_EndTime.Location = new System.Drawing.Point(181, 180);
+            this.dtp_EndTime.Location = new System.Drawing.Point(182, 176);
             this.dtp_EndTime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtp_EndTime.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtp_EndTime.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
@@ -350,7 +350,7 @@ namespace ThiTracNghiem
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(32, 182);
+            this.label4.Location = new System.Drawing.Point(33, 176);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(130, 20);
@@ -365,7 +365,7 @@ namespace ThiTracNghiem
             this.dtp_StartTime.FillColor = System.Drawing.Color.White;
             this.dtp_StartTime.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtp_StartTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_StartTime.Location = new System.Drawing.Point(181, 149);
+            this.dtp_StartTime.Location = new System.Drawing.Point(182, 144);
             this.dtp_StartTime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtp_StartTime.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtp_StartTime.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
@@ -377,7 +377,7 @@ namespace ThiTracNghiem
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 151);
+            this.label3.Location = new System.Drawing.Point(33, 144);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(129, 20);
@@ -395,7 +395,7 @@ namespace ThiTracNghiem
             this.cbb_Exam.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.cbb_Exam.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbb_Exam.ItemHeight = 15;
-            this.cbb_Exam.Location = new System.Drawing.Point(181, 120);
+            this.cbb_Exam.Location = new System.Drawing.Point(182, 111);
             this.cbb_Exam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbb_Exam.Name = "cbb_Exam";
             this.cbb_Exam.Size = new System.Drawing.Size(391, 21);
@@ -405,7 +405,7 @@ namespace ThiTracNghiem
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 120);
+            this.label2.Location = new System.Drawing.Point(33, 115);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 20);
@@ -424,7 +424,7 @@ namespace ThiTracNghiem
             this.txt_SessionName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_SessionName.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_SessionName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_SessionName.Location = new System.Drawing.Point(181, 56);
+            this.txt_SessionName.Location = new System.Drawing.Point(181, 54);
             this.txt_SessionName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_SessionName.Name = "txt_SessionName";
             this.txt_SessionName.PasswordChar = '\0';
@@ -461,26 +461,26 @@ namespace ThiTracNghiem
             // 
             this.grv_SessionUsers.AllowUserToAddRows = false;
             this.grv_SessionUsers.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.grv_SessionUsers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grv_SessionUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            this.grv_SessionUsers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grv_SessionUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.grv_SessionUsers.ColumnHeadersHeight = 40;
             this.grv_SessionUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grv_SessionUsers.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grv_SessionUsers.DefaultCellStyle = dataGridViewCellStyle12;
             this.grv_SessionUsers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grv_SessionUsers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.grv_SessionUsers.Location = new System.Drawing.Point(0, 40);
@@ -545,7 +545,7 @@ namespace ThiTracNghiem
             this.cbb_Subject.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.cbb_Subject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbb_Subject.ItemHeight = 15;
-            this.cbb_Subject.Location = new System.Drawing.Point(182, 89);
+            this.cbb_Subject.Location = new System.Drawing.Point(183, 85);
             this.cbb_Subject.Margin = new System.Windows.Forms.Padding(4);
             this.cbb_Subject.Name = "cbb_Subject";
             this.cbb_Subject.Size = new System.Drawing.Size(391, 21);
@@ -554,7 +554,7 @@ namespace ThiTracNghiem
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(33, 89);
+            this.label6.Location = new System.Drawing.Point(34, 89);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(63, 20);
