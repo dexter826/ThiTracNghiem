@@ -119,20 +119,13 @@ namespace ThiTracNghiem
         {
             bool hasSelectedRow = grv_Exams.SelectedRows.Count > 0;
             btn_ViewDetail.Enabled = hasSelectedRow;
-            btn_ToggleActive.Enabled = hasSelectedRow;
 
             if (hasSelectedRow)
             {
                 string status = grv_Exams.SelectedRows[0].Cells["Status"].Value.ToString();
-                bool isActive = Convert.ToBoolean(grv_Exams.SelectedRows[0].Cells["IsActive"].Value);
 
                 btn_Approve.Enabled = status == "Pending";
                 btn_Reject.Enabled = status == "Pending";
-                btn_ToggleActive.Enabled = status == "Approved";
-
-                // Cập nhật text cho nút kích hoạt
-                btn_ToggleActive.Text = isActive ? "Hủy kích hoạt" : "Kích hoạt";
-                btn_ToggleActive.Visible = true;
             }
             else
             {
@@ -254,36 +247,6 @@ namespace ThiTracNghiem
             }
         }
 
-        private void btn_ToggleActive_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (selectedExamId <= 0)
-                {
-                    XtraMessageBox.Show("Vui lòng chọn đề thi cần kích hoạt/hủy kích hoạt!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
 
-                // Lấy trạng thái kích hoạt hiện tại
-                bool isActive = Convert.ToBoolean(grv_Exams.SelectedRows[0].Cells["IsActive"].Value);
-                string action = isActive ? "hủy kích hoạt" : "kích hoạt";
-
-                // Xác nhận kích hoạt/hủy kích hoạt đề thi
-                if (XtraMessageBox.Show($"Bạn có chắc chắn muốn {action} đề thi này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-                    return;
-
-                // Cập nhật trạng thái kích hoạt đề thi
-                BExam.SetActive(selectedExamId, !isActive, Session.LogonUser.Username);
-
-                XtraMessageBox.Show($"{char.ToUpper(action[0]) + action.Substring(1)} đề thi thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Tải lại danh sách đề thi
-                LoadExams();
-            }
-            catch (Exception ex)
-            {
-                XtraMessageBox.Show("Lỗi khi kích hoạt/hủy kích hoạt đề thi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
     }
 }

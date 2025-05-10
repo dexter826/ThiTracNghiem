@@ -153,10 +153,6 @@ namespace DataAccessLayer
                     exam.ModifiedAt = Convert.ToDateTime(reader["ModifiedAt"]);
                     exam.ApprovedBy = reader["ApprovedBy"] != DBNull.Value ? reader["ApprovedBy"].ToString() : null;
                     exam.ApprovedAt = reader["ApprovedAt"] != DBNull.Value ? Convert.ToDateTime(reader["ApprovedAt"]) : (DateTime?)null;
-
-                    // Kiểm tra xem đề thi có trong kỳ thi đang diễn ra không
-                    // Nếu có, đánh dấu IsActive = true
-                    exam.IsActive = IsExamInActiveSession(examId);
                 }
                 reader.Close();
                 return exam;
@@ -167,84 +163,8 @@ namespace DataAccessLayer
             }
         }
 
-        // Phương thức kiểm tra xem đề thi có trong kỳ thi đang diễn ra không
-        private static bool IsExamInActiveSession(int examId)
-        {
-            try
-            {
-                SqlDataReader reader = SqlHelper.ExecuteReader(
-                    TestCore.ConnectionString.strCon,
-                    CommandType.Text,
-                    @"SELECT COUNT(*) AS Count
-                    FROM [dbo].[ExamSessionDetail] esd
-                    INNER JOIN [dbo].[ExamSession] es ON esd.[SessionID] = es.[SessionID]
-                    WHERE esd.[ExamID] = @ExamID
-                    AND es.[Status] IN ('Scheduled', 'InProgress')
-                    AND GETDATE() BETWEEN es.[StartTime] AND es.[EndTime]",
-                    new SqlParameter("@ExamID", examId)
-                );
-
-                int count = 0;
-                if (reader.Read())
-                {
-                    count = Convert.ToInt32(reader["Count"]);
-                }
-                reader.Close();
-
-                return count > 0;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        // Phương thức SetActive đã được cập nhật để chỉ đánh dấu đề thi là active/inactive
-        public static void SetActive(int examId, bool isActive, string modifiedBy)
-        {
-            try
-            {
-                // Cập nhật trạng thái active của đề thi
-                SqlHelper.ExecuteNonQuery(
-                    TestCore.ConnectionString.strCon,
-                    CommandType.Text,
-                    @"UPDATE [dbo].[Exam]
-                    SET [IsActive] = @IsActive,
-                        [ModifiedBy] = @ModifiedBy,
-                        [ModifiedAt] = GETDATE()
-                    WHERE [ExamID] = @ExamID",
-                    new SqlParameter("@ExamID", examId),
-                    new SqlParameter("@IsActive", isActive),
-                    new SqlParameter("@ModifiedBy", modifiedBy)
-                );
-
-                // Nếu hủy kích hoạt đề thi, hủy tất cả các kỳ thi đang diễn ra có chứa đề thi này
-                if (!isActive)
-                {
-                    SqlHelper.ExecuteNonQuery(
-                        TestCore.ConnectionString.strCon,
-                        CommandType.Text,
-                        @"UPDATE es
-                        SET es.[Status] = 'Cancelled',
-                            es.[ModifiedBy] = @ModifiedBy,
-                            es.[ModifiedAt] = GETDATE()
-                        FROM [dbo].[ExamSession] es
-                        INNER JOIN [dbo].[ExamSessionDetail] esd ON es.[SessionID] = esd.[SessionID]
-                        WHERE esd.[ExamID] = @ExamID
-                        AND es.[Status] IN ('Scheduled', 'InProgress')",
-                        new SqlParameter("@ExamID", examId),
-                        new SqlParameter("@ModifiedBy", modifiedBy)
-                    );
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        // Phương thức GetActiveBySubject đã được cập nhật để sử dụng trường IsActive
-        public static DataTable GetActiveBySubject(string subjectId)
+        // Phương thức lấy danh sách đề thi đã được duyệt theo môn học
+        public static DataTable GetApprovedBySubject(string subjectId)
         {
             try
             {
@@ -264,12 +184,11 @@ namespace DataAccessLayer
                           ,e.[ModifiedAt]
                           ,e.[ApprovedBy]
                           ,e.[ApprovedAt]
-                          ,e.[IsActive]
                       FROM [dbo].[Exam] e
                       INNER JOIN [dbo].[Subject] s ON e.[SubjectID] = s.[SubjectID]
                       WHERE e.[SubjectID] = @SubjectID
                         AND e.[Status] = 'Approved'
-                        AND e.[IsActive] = 1",
+                      ORDER BY e.[ExamID] DESC",
                     new SqlParameter("@SubjectID", subjectId)
                 );
                 return dtData;
@@ -280,11 +199,11 @@ namespace DataAccessLayer
             }
         }
 
-        public static DataTable GetAllActive()
+        // Phương thức lấy tất cả đề thi đã được duyệt
+        public static DataTable GetAllApproved()
         {
             try
             {
-                // Cập nhật để sử dụng trường IsActive
                 DataTable dtData = SqlHelper.ExecuteData(
                     TestCore.ConnectionString.strCon,
                     CommandType.Text,
@@ -301,11 +220,9 @@ namespace DataAccessLayer
                           ,e.[ModifiedAt]
                           ,e.[ApprovedBy]
                           ,e.[ApprovedAt]
-                          ,e.[IsActive]
                       FROM [dbo].[Exam] e
                       INNER JOIN [dbo].[Subject] s ON e.[SubjectID] = s.[SubjectID]
                       WHERE e.[Status] = 'Approved'
-                        AND e.[IsActive] = 1
                       ORDER BY e.[ExamID] DESC"
                 );
                 return dtData;

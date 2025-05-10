@@ -44,7 +44,7 @@
             this.CreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsActive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+
             this.btn_ViewDetail = new Guna.UI2.WinForms.Guna2Button();
             this.btn_Approve = new Guna.UI2.WinForms.Guna2Button();
             this.btn_Reject = new Guna.UI2.WinForms.Guna2Button();
@@ -115,8 +115,7 @@
             this.TotalQuestion,
             this.CreatedBy,
             this.CreatedAt,
-            this.Status,
-            this.IsActive});
+            this.Status});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -225,13 +224,7 @@
             this.Status.HeaderText = "Trạng thái";
             this.Status.Name = "Status";
             this.Status.ReadOnly = true;
-            //
-            // IsActive
-            //
-            this.IsActive.DataPropertyName = "IsActive";
-            this.IsActive.HeaderText = "Kích hoạt";
-            this.IsActive.Name = "IsActive";
-            this.IsActive.ReadOnly = true;
+
             //
             // btn_ViewDetail
             //
@@ -299,33 +292,11 @@
             this.btn_Reject.Text = "Từ chối";
             this.btn_Reject.Click += new System.EventHandler(this.btn_Reject_Click);
             //
-            // btn_ToggleActive
-            //
-            this.btn_ToggleActive.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_ToggleActive.BackColor = System.Drawing.Color.Transparent;
-            this.btn_ToggleActive.BorderRadius = 8;
-            this.btn_ToggleActive.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_ToggleActive.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_ToggleActive.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_ToggleActive.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_ToggleActive.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ToggleActive.ForeColor = System.Drawing.Color.White;
-            this.btn_ToggleActive.Location = new System.Drawing.Point(862, 22);
-            this.btn_ToggleActive.Name = "btn_ToggleActive";
-            this.btn_ToggleActive.ShadowDecoration.BorderRadius = 20;
-            this.btn_ToggleActive.ShadowDecoration.Depth = 10;
-            this.btn_ToggleActive.ShadowDecoration.Enabled = true;
-            this.btn_ToggleActive.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(5, 0, 5, 5);
-            this.btn_ToggleActive.Size = new System.Drawing.Size(119, 36);
-            this.btn_ToggleActive.TabIndex = 6;
-            this.btn_ToggleActive.Text = "Kích hoạt";
-            this.btn_ToggleActive.Click += new System.EventHandler(this.btn_ToggleActive_Click);
-            //
             // frmApproveExam
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btn_ToggleActive);
+
             this.Controls.Add(this.btn_Reject);
             this.Controls.Add(this.btn_Approve);
             this.Controls.Add(this.btn_ViewDetail);
@@ -359,6 +330,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CreatedBy;
         private System.Windows.Forms.DataGridViewTextBoxColumn CreatedAt;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn IsActive;
     }
 }
