@@ -66,9 +66,9 @@ namespace ThiTracNghiem
             }
             useraccount.Password = txt_Password.Text.Trim();
             useraccount.PhoneNumber = txt_PhoneMumber.Text.Trim();
-            useraccount.RoldId = cbb_Role.SelectedValue.ToString();
-            int.TryParse(txt_UserID.Text, out int roleId);
-            useraccount.UsertId = roleId;
+            useraccount.RoleID = cbb_Role.SelectedValue.ToString();
+            int.TryParse(txt_UserID.Text, out int userId);
+            useraccount.UserID = userId;
             useraccount.Username = txt_Username.Text.Trim();
             return useraccount;
         }

@@ -1,11 +1,13 @@
 ﻿using BusinessLogicLayer;
-using DevExpress.XtraReports.UI;
 using System;
+using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Windows.Forms;
 using ThiTracNghiem.Common;
 using DevExpress.XtraEditors;
 using Entities;
+using Microsoft.Reporting.WinForms;
 
 
 namespace ThiTracNghiem
@@ -56,20 +58,11 @@ namespace ThiTracNghiem
                     return;
                 }
 
-                XtraReportBySubject xtraReport = new XtraReportBySubject();
-                xtraReport.DataSource = dtData;
-                xtraReport.DataMember = "";
+                // Lấy tên môn học
+                string subjectName = cbb_MonThi.Text;
 
-                DateTime dtNow = DateTime.Now;
-                string reportPalace = string.Format("TP.HCM, ngày {0} tháng {1} năm {2}", dtNow.Day, dtNow.Month, dtNow.Year);
-                xtraReport.Parameters["ReportPalace"].Value = reportPalace;
-
-                xtraReport.Parameters["CreatedBy"].Value = Session.LogonUser.Fullname;
-
-
-                // Hiển thị báo cáo trong DocumentViewer
-                documentViewer1.DocumentSource = xtraReport;
-                xtraReport.CreateDocument();
+                // Hiển thị báo cáo sử dụng ReportHelper
+                ReportHelper.ShowSubjectReport(subjectName, dtData);
                 //xtraReport.ShowPreview();
 
 
@@ -88,16 +81,10 @@ namespace ThiTracNghiem
             try
             {
                 DataTable dtData = GetReportData();
-                XtraReportBySubject xtraReport = new XtraReportBySubject();
-                xtraReport.DataSource = dtData;
-                xtraReport.DataMember = "";
-                xtraReport.ShowPreview();
+                string subjectName = cbb_MonThi.Text;
 
-                // Thiết lập các tham số cho báo cáo
-                DateTime dtNow = DateTime.Now;
-                string reportPalace = string.Format("TP.HCM, ngày {0} tháng {1} năm {2}", dtNow.Day, dtNow.Month, dtNow.Year);
-                xtraReport.Parameters["ReportPalace"].Value = reportPalace;
-                xtraReport.Parameters["CreatedBy"].Value = Session.LogonUser.Fullname;
+                // Hiển thị báo cáo sử dụng ReportHelper
+                ReportHelper.ShowSubjectReport(subjectName, dtData);
             }
             catch (Exception ex)
             {
@@ -110,16 +97,6 @@ namespace ThiTracNghiem
             try
             {
                 DataTable dtData = GetReportData();
-                XtraReportBySubject xtraReport = new XtraReportBySubject();
-                xtraReport.DataSource = dtData;
-                xtraReport.DataMember = "";
-
-                // Thiết lập các tham số cho báo cáo
-                DateTime dtNow = DateTime.Now;
-                string reportPalace = string.Format("TP.HCM, ngày {0} tháng {1} năm {2}", dtNow.Day, dtNow.Month, dtNow.Year);
-                xtraReport.Parameters["ReportPalace"].Value = reportPalace;
-                xtraReport.Parameters["CreatedBy"].Value = Session.LogonUser.Fullname;
-
                 string subjectName = cbb_MonThi.Text;
 
                 // Mở hộp thoại lưu file
@@ -131,9 +108,20 @@ namespace ThiTracNghiem
 
                     if (saveFileDialog.ShowDialog() == DialogResult.OK)
                     {
+                        // Tạo tham số báo cáo
+                        List<ReportParameter> parameters = new List<ReportParameter>();
+                        parameters.Add(new ReportParameter("SubjectName", subjectName));
+
+                        DateTime dtNow = DateTime.Now;
+                        string reportPalace = string.Format("TP.HCM, ngày {0} tháng {1} năm {2}", dtNow.Day, dtNow.Month, dtNow.Year);
+                        parameters.Add(new ReportParameter("ReportPalace", reportPalace));
+                        parameters.Add(new ReportParameter("CreatedBy", Session.LogonUser.Fullname));
+
+                        // Đường dẫn file báo cáo
+                        string reportPath = Path.Combine(Application.StartupPath, "Reports", "SubjectReport.rdlc");
+
                         // Xuất báo cáo ra file PDF
-                        xtraReport.ExportToPdf(saveFileDialog.FileName);
-                        XtraMessageBox.Show("Xuất file PDF thành công!", "Thông báo");
+                        ReportHelper.ExportToPdf(reportPath, dtData, "SubjectReportDataSet", parameters, saveFileDialog.FileName);
                     }
                 }
             }

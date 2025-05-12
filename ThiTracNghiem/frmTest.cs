@@ -87,6 +87,17 @@ namespace ThiTracNghiem
             this.KeyPreview = true;
             SetStyle(ControlStyles.ResizeRedraw, true);
         }
+
+        public frmTest(int sessionId, int examId, string subjectId, string subjectName, int timeLimit, int totalQuestion) : this()
+        {
+            // Lưu thông tin kỳ thi và đề thi
+            Session.SessionID = sessionId;
+            Session.ExamID = examId;
+            Session.SubjectID = subjectId;
+            Session.SubjectName = subjectName;
+            Session.TestTime = timeLimit;
+            Session.NumberOfQuestion = totalQuestion;
+        }
         protected override void OnPaintBackground(PaintEventArgs e)
         {
             Rectangle rc = ClientRectangle;
@@ -138,7 +149,8 @@ namespace ThiTracNghiem
         {
             try
             {
-                dtQuestion = BQuestion.GetQuesTionForTest(Session.SubjectID, Session.NumberOfQuestion);
+                // Lấy câu hỏi từ đề thi đã chọn
+                dtQuestion = BQuestion.GetQuesTionForTest(Session.SubjectID, Session.ExamID);
                 dtQuestion.Columns.Add("SelectedOption"); //"SelectedOption" để lưu đáp án người dùng chọn.
                 lsb_Question.DataSource = dtQuestion;
                 lsb_Question.DisplayMember = "QuestionIndex";
@@ -334,6 +346,17 @@ namespace ThiTracNghiem
                     correctAnswer++;
             }
             mark = (float)correctAnswer * 10 / Session.NumberOfQuestion;
+
+            // Cập nhật trạng thái người dùng trong kỳ thi
+            BUserExamSession.UpdateStatus(
+                Session.LogonUser.UserID,
+                Session.SessionID,
+                "Completed",
+                null,
+                DateTime.Now,
+                Session.LogonUser.Username
+            );
+
             frmTestResult fmTestResult = new frmTestResult(correctAnswer, mark);
 
             this.Hide();
@@ -363,7 +386,7 @@ namespace ThiTracNghiem
         private void frmTest_FormClosing(object sender, FormClosingEventArgs e)
         {
             // Hiển thị hộp thoại xác nhận nếu là "User"
-            if (Session.LogonUser.RoldId.Equals("User"))
+            if (Session.LogonUser.RoleID.Equals("User"))
             {
                 DialogResult result = XtraMessageBox.Show("Bạn có chắc chắn muốn dừng làm bài không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.No)

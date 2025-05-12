@@ -53,6 +53,7 @@ namespace ThiTracNghiem
             question.OptionB = txt_OptionB.Text.Trim();
             question.OptionC = txt_OptionC.Text.Trim();
             question.OptionD = txt_OptionD.Text.Trim();
+            question.Chapter = txt_Chapter.Text.Trim();
             question.SubjectID = cbb_Subject.SelectedValue.ToString();
             question.CreatedAt = DateTime.Now;
             question.CreatedBy = Session.LogonUser.Username;
@@ -158,6 +159,7 @@ namespace ThiTracNghiem
             txt_OptionB.Clear();
             txt_OptionC.Clear();
             txt_OptionD.Clear();
+            txt_Chapter.Clear();
             btn_ImportExcel.Visible = true;
         }
 
@@ -206,6 +208,7 @@ namespace ThiTracNghiem
                 txt_OptionB.Text = row.Cells["OptionB"].Value.ToString();
                 txt_OptionC.Text = row.Cells["OptionC"].Value.ToString();
                 txt_OptionD.Text = row.Cells["OptionD"].Value.ToString();
+                txt_Chapter.Text = row.Cells["colChapter"] != null && row.Cells["colChapter"].Value != DBNull.Value ? row.Cells["colChapter"].Value.ToString() : "";
                 cbb_Subject.SelectedValue = row.Cells["SubjectID"].Value.ToString();
             }
             catch (Exception ex)
@@ -401,7 +404,8 @@ namespace ThiTracNghiem
                             OptionC = row[3].ToString().Trim(),
                             OptionD = row[4].ToString().Trim(),
                             Answer = row[5].ToString().Trim(),
-                            SubjectID = row[6].ToString().Trim(),
+                            Chapter = row[6].ToString().Trim(),
+                            SubjectID = row[7].ToString().Trim(),
                             CreatedAt = DateTime.Now,
                             CreatedBy = Session.LogonUser.Username
                         };

@@ -65,9 +65,9 @@ namespace DataAccessLayer
         {
             try
             {
-                SqlHelper.ExecuteNonQuery(TestCore.ConnectionString.strCon, "UserAccount_Insert", newUser.RoldId, newUser.Username,
+                SqlHelper.ExecuteNonQuery(TestCore.ConnectionString.strCon, "UserAccount_Insert", newUser.RoleID, newUser.Username,
                     newUser.Password, newUser.Fullname, newUser.Email, newUser.PhoneNumber, newUser.Address,
-                    newUser.Birthday, newUser.Note,newUser.Image, newUser.CreatedBy, newUser.ModifiedBy);
+                    newUser.Birthday, newUser.Note, newUser.Image, newUser.CreatedBy, newUser.ModifiedBy);
             }
             catch (Exception ex)
             {
@@ -93,8 +93,8 @@ namespace DataAccessLayer
             try
             {
                 SqlHelper.ExecuteNonQuery(TestCore.ConnectionString.strCon, "UserAccount_Update",
-                                                    editUser.UsertId,
-                                                    editUser.RoldId,
+                                                    editUser.UserID,
+                                                    editUser.RoleID,
                                                     editUser.Username,
                                                     editUser.Password,
                                                     editUser.Fullname,
@@ -152,9 +152,9 @@ namespace DataAccessLayer
                     userAccount.Username = reader["Username"].ToString();
                     userAccount.Fullname = reader["Fullname"].ToString();
                     userAccount.Birthday = DateTime.Parse(reader["Birthday"].ToString());
-                    userAccount.UsertId = int.Parse(reader["UserID"].ToString());
+                    userAccount.UserID = int.Parse(reader["UserID"].ToString());
                     userAccount.Address = reader["Address"].ToString();
-                    userAccount.RoldId = reader["RoleID"].ToString();
+                    userAccount.RoleID = reader["RoleID"].ToString();
                     userAccount.Image = reader["Image"] as byte[];
                 }
                 reader.Close();
@@ -212,5 +212,40 @@ namespace DataAccessLayer
             }
         }
 
+        public static DataTable GetByRole(string roleId)
+        {
+            try
+            {
+                DataTable dtData = SqlHelper.ExecuteData(
+                    TestCore.ConnectionString.strCon,
+                    CommandType.StoredProcedure,
+                    "UserAccount_GetByRole",
+                    new SqlParameter("@RoleID", roleId)
+                );
+                return dtData;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static DataTable GetBySubject(string subjectId)
+        {
+            try
+            {
+                DataTable dtData = SqlHelper.ExecuteData(
+                    TestCore.ConnectionString.strCon,
+                    CommandType.StoredProcedure,
+                    "UserAccount_GetBySubject",
+                    new SqlParameter("@SubjectID", subjectId)
+                );
+                return dtData;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

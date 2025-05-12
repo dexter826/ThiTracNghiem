@@ -13,7 +13,6 @@ namespace ThiTracNghiem
 {
     public partial class frmLeaderBoard : Form
     {
-        private bool isSwitchingToMain = false;
         public frmLeaderBoard()
         {
             InitializeComponent();

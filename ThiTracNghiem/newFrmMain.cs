@@ -13,10 +13,36 @@ namespace ThiTracNghiem
 {
     public partial class newFrmMain : Form
     {
+        private System.Windows.Forms.Timer timerUpdateStatus;
+
         public newFrmMain()
         {
             InitializeComponent();
             lbl_HelloUser.Text = $"Xin chào, {ThiTracNghiem.Common.Session.LogonUser.Fullname}";
+            InitializeStatusUpdateTimer();
+        }
+
+        /// <summary>
+        /// Khởi tạo timer để cập nhật trạng thái kỳ thi và người dùng
+        /// </summary>
+        private void InitializeStatusUpdateTimer()
+        {
+            timerUpdateStatus = new System.Windows.Forms.Timer();
+            timerUpdateStatus.Interval = 60000; // Kiểm tra mỗi phút
+            timerUpdateStatus.Tick += TimerUpdateStatus_Tick;
+            timerUpdateStatus.Start();
+        }
+
+        /// <summary>
+        /// Xử lý sự kiện Tick của timer cập nhật trạng thái
+        /// </summary>
+        private void TimerUpdateStatus_Tick(object sender, EventArgs e)
+        {
+            // Cập nhật trạng thái kỳ thi
+            ExamSessionManager.UpdateExamSessionStatus();
+
+            // Cập nhật trạng thái người dùng trong kỳ thi
+            ExamSessionManager.UpdateUserExamSessionStatus();
         }
         /// <summary>
         /// Tạo tab page
@@ -111,7 +137,17 @@ namespace ThiTracNghiem
             NewFrmReportByTime newFrmReportByTime = new NewFrmReportByTime();
             //newFrmReportByTime.ShowDialog();
             addNewTab("Báo cáo điểm theo thời gian", newFrmReportByTime);
+        }
 
+        /// <summary>
+        /// Báo cáo kỳ thi
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mn_ReportExamSession_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            NewFrmReportExamSession newFrmReportExamSession = new NewFrmReportExamSession();
+            addNewTab("Báo cáo kỳ thi", newFrmReportExamSession);
         }
 
         private void mn_Exit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -142,7 +178,7 @@ namespace ThiTracNghiem
                 if (frmLogin.IsLoginSuccess)
                 {
                     // Kiểm tra quyền đăng nhập
-                    if (Session.LogonUser.RoldId.Equals("User"))
+                    if (Session.LogonUser.RoleID.Equals("User"))
                     {
                         // Mở giao diện cho User
                         frmOption frmUser = new frmOption();
@@ -206,12 +242,76 @@ namespace ThiTracNghiem
 
         private void newFrmMain_Load(object sender, EventArgs e)
         {
-            if (Session.LogonUser.RoldId.Equals("Teacher"))
+            if (Session.LogonUser.RoleID.Equals("Teacher"))
             {
                 mn_ManageUser.Enabled = false;
                 mn_Restore.Enabled = false;
                 barButtonItem1.Enabled = false;
+                mn_TeacherSubject.Enabled = false;
+                mn_ApproveExam.Enabled = false;
+                mn_ManageSubject.Enabled = false; // Giáo viên không thể truy cập chức năng "Quản lí môn thi"
+                mn_ManageExamSession.Enabled = false; // Giáo viên không thể truy cập chức năng "Quản lí kỳ thi"
+                mn_ManageUserSubject.Enabled = false; // Giáo viên không thể truy cập chức năng "Gán môn học cho người thi"
             }
+            else if (Session.LogonUser.RoleID.Equals("Admin"))
+            {
+                mn_CreateExam.Enabled = false;
+            }
+        }
+
+        /// <summary>
+        /// Phân công môn học cho giáo viên
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mn_TeacherSubject_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmTeacherSubject ucfmTeacherSubject = new frmTeacherSubject();
+            addNewTab("Phân công môn học", ucfmTeacherSubject);
+        }
+
+        /// <summary>
+        /// Tạo đề thi
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mn_CreateExam_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmCreateExam ucfmCreateExam = new frmCreateExam();
+            addNewTab("Tạo đề thi", ucfmCreateExam);
+        }
+
+        /// <summary>
+        /// Duyệt đề thi
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mn_ApproveExam_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmApproveExam ucfmApproveExam = new frmApproveExam();
+            addNewTab("Duyệt đề thi", ucfmApproveExam);
+        }
+
+        /// <summary>
+        /// Quản lý kỳ thi
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mn_ManageExamSession_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmManageExamSession ucfmManageExamSession = new frmManageExamSession();
+            addNewTab("Quản lý kỳ thi", ucfmManageExamSession);
+        }
+
+        /// <summary>
+        /// Gán môn học cho người thi
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mn_ManageUserSubject_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmManageUserSubject ucfmManageUserSubject = new frmManageUserSubject();
+            addNewTab("Gán môn học cho người thi", ucfmManageUserSubject);
         }
 
         private void xtraTabControl1_Paint(object sender, PaintEventArgs e)

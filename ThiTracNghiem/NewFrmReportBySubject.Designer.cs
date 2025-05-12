@@ -209,9 +209,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemZoomTrackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
             this.SuspendLayout();
-            // 
+            //
             // cbb_MonThi
-            // 
+            //
             this.cbb_MonThi.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbb_MonThi.BackColor = System.Drawing.Color.Transparent;
             this.cbb_MonThi.BorderRadius = 5;
@@ -231,9 +231,9 @@
             this.cbb_MonThi.Size = new System.Drawing.Size(417, 31);
             this.cbb_MonThi.TabIndex = 1;
             this.cbb_MonThi.SelectedIndexChanged += new System.EventHandler(this.cbb_MonThi_SelectedIndexChanged);
-            // 
+            //
             // btn_XemBaoCao
-            // 
+            //
             this.btn_XemBaoCao.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_XemBaoCao.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_XemBaoCao.BackColor = System.Drawing.Color.Transparent;
@@ -257,13 +257,13 @@
             this.btn_XemBaoCao.TabIndex = 2;
             this.btn_XemBaoCao.Text = "Xem báo cáo";
             this.btn_XemBaoCao.Click += new System.EventHandler(this.btn_XemBaoCao_Click);
-            // 
+            //
             // labelX1
-            // 
+            //
             this.labelX1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            // 
-            // 
-            // 
+            //
+            //
+            //
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -273,9 +273,9 @@
             this.labelX1.Size = new System.Drawing.Size(109, 35);
             this.labelX1.TabIndex = 0;
             this.labelX1.Text = "Chọn môn thi";
-            // 
+            //
             // documentViewerBarManager1
-            // 
+            //
             this.documentViewerBarManager1.DockControls.Add(this.barDockControlTop);
             this.documentViewerBarManager1.DockControls.Add(this.barDockControlBottom);
             this.documentViewerBarManager1.DockControls.Add(this.barDockControlLeft);
@@ -285,45 +285,45 @@
             this.documentViewerBarManager1.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("documentViewerBarManager1.ImageStream")));
             this.documentViewerBarManager1.MaxItemId = 62;
             this.documentViewerBarManager1.TransparentEditorsMode = DevExpress.Utils.DefaultBoolean.True;
-            // 
+            //
             // barDockControlTop
-            // 
+            //
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.documentViewerBarManager1;
             this.barDockControlTop.Size = new System.Drawing.Size(1178, 0);
-            // 
+            //
             // barDockControlBottom
-            // 
+            //
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 759);
             this.barDockControlBottom.Manager = this.documentViewerBarManager1;
             this.barDockControlBottom.Size = new System.Drawing.Size(1178, 0);
-            // 
+            //
             // barDockControlLeft
-            // 
+            //
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
             this.barDockControlLeft.Manager = this.documentViewerBarManager1;
             this.barDockControlLeft.Size = new System.Drawing.Size(0, 759);
-            // 
+            //
             // barDockControlRight
-            // 
+            //
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(1178, 0);
             this.barDockControlRight.Manager = this.documentViewerBarManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 759);
-            // 
+            //
             // documentViewer1
-            // 
-            this.documentViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.documentViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.documentViewer1.DocumentSource = typeof(ThiTracNghiem.XtraReportBySubject);
+            this.documentViewer1.DocumentSource = null;
             this.documentViewer1.IsMetric = true;
             this.documentViewer1.Location = new System.Drawing.Point(13, 74);
             this.documentViewer1.Margin = new System.Windows.Forms.Padding(4);
@@ -331,18 +331,18 @@
             this.documentViewer1.ShowPageMargins = false;
             this.documentViewer1.Size = new System.Drawing.Size(1161, 681);
             this.documentViewer1.TabIndex = 5;
-            // 
+            //
             // printPreviewStaticItemZoomFactor
-            // 
+            //
             this.printPreviewStaticItemZoomFactor.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
             this.printPreviewStaticItemZoomFactor.Border = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.printPreviewStaticItemZoomFactor.Id = 3;
             this.printPreviewStaticItemZoomFactor.Name = "printPreviewStaticItemZoomFactor";
             this.printPreviewStaticItemZoomFactor.TextAlignment = System.Drawing.StringAlignment.Far;
             this.printPreviewStaticItemZoomFactor.Type = "ZoomFactor";
-            // 
+            //
             // zoomTrackBarEditItem
-            // 
+            //
             this.zoomTrackBarEditItem.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
             this.zoomTrackBarEditItem.Edit = this.repositoryItemZoomTrackBar1;
             this.zoomTrackBarEditItem.EditWidth = 140;
@@ -351,298 +351,298 @@
             this.zoomTrackBarEditItem.Range = new int[] {
         10,
         500};
-            // 
+            //
             // repositoryItemZoomTrackBar1
-            // 
+            //
             this.repositoryItemZoomTrackBar1.Alignment = DevExpress.Utils.VertAlignment.Center;
             this.repositoryItemZoomTrackBar1.AllowFocused = false;
             this.repositoryItemZoomTrackBar1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.repositoryItemZoomTrackBar1.Maximum = 180;
             this.repositoryItemZoomTrackBar1.Name = "repositoryItemZoomTrackBar1";
-            // 
+            //
             // panelContainer3
-            // 
+            //
             this.panelContainer3.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
             this.panelContainer3.ID = new System.Guid("735f97df-0c77-4ca2-9bf7-e2bbbd35d728");
             this.panelContainer3.Location = new System.Drawing.Point(0, 0);
             this.panelContainer3.Name = "panelContainer3";
             this.panelContainer3.Size = new System.Drawing.Size(200, 200);
-            // 
+            //
             // panelContainer2
-            // 
+            //
             this.panelContainer2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
             this.panelContainer2.ID = new System.Guid("4be6f3f8-b48d-4091-9cee-9d99c06c53ba");
             this.panelContainer2.Location = new System.Drawing.Point(0, 0);
             this.panelContainer2.Name = "panelContainer2";
             this.panelContainer2.Size = new System.Drawing.Size(200, 200);
-            // 
+            //
             // dockPanel1
-            // 
+            //
             this.dockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
             this.dockPanel1.ID = new System.Guid("8464d291-5780-430d-969f-84c59ee5b19b");
             this.dockPanel1.Location = new System.Drawing.Point(0, 0);
             this.dockPanel1.Name = "dockPanel1";
             this.dockPanel1.Size = new System.Drawing.Size(200, 200);
-            // 
+            //
             // designControlContainer1
-            // 
+            //
             this.designControlContainer1.Location = new System.Drawing.Point(0, 0);
             this.designControlContainer1.Name = "designControlContainer1";
             this.designControlContainer1.Size = new System.Drawing.Size(200, 100);
             this.designControlContainer1.TabIndex = 0;
-            // 
+            //
             // errorListDockPanel1
-            // 
+            //
             this.errorListDockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Bottom;
             this.errorListDockPanel1.ID = new System.Guid("f20c38df-c002-47bc-aebf-53ae269cc11d");
             this.errorListDockPanel1.Location = new System.Drawing.Point(0, 0);
             this.errorListDockPanel1.Name = "errorListDockPanel1";
             this.errorListDockPanel1.Size = new System.Drawing.Size(200, 200);
             this.errorListDockPanel1.Text = "Report Design Analyzer";
-            // 
+            //
             // groupAndSortDockPanel1
-            // 
+            //
             this.groupAndSortDockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Bottom;
             this.groupAndSortDockPanel1.ID = new System.Guid("5f5b75a4-89fa-481c-9a59-d6cd2ddaa81a");
             this.groupAndSortDockPanel1.Location = new System.Drawing.Point(0, 0);
             this.groupAndSortDockPanel1.Name = "groupAndSortDockPanel1";
             this.groupAndSortDockPanel1.Size = new System.Drawing.Size(200, 200);
             this.groupAndSortDockPanel1.Text = "Group and Sort";
-            // 
+            //
             // reportGalleryDockPanel1
-            // 
+            //
             this.reportGalleryDockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
             this.reportGalleryDockPanel1.ID = new System.Guid("49c173b5-07a1-4bb1-a5f7-d6d126d17754");
             this.reportGalleryDockPanel1.Location = new System.Drawing.Point(0, 0);
             this.reportGalleryDockPanel1.Name = "reportGalleryDockPanel1";
             this.reportGalleryDockPanel1.Size = new System.Drawing.Size(200, 200);
             this.reportGalleryDockPanel1.Text = "Report Gallery";
-            // 
+            //
             // reportExplorerDockPanel1
-            // 
+            //
             this.reportExplorerDockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
             this.reportExplorerDockPanel1.ID = new System.Guid("e492c6b2-d20c-4b2f-abae-ce7a7c3f2569");
             this.reportExplorerDockPanel1.Location = new System.Drawing.Point(0, 0);
             this.reportExplorerDockPanel1.Name = "reportExplorerDockPanel1";
             this.reportExplorerDockPanel1.Size = new System.Drawing.Size(200, 200);
             this.reportExplorerDockPanel1.Text = "Report Explorer";
-            // 
+            //
             // propertyGridDockPanel1
-            // 
+            //
             this.propertyGridDockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
             this.propertyGridDockPanel1.ID = new System.Guid("cd50c67e-977c-48c1-b307-e93938fa5615");
             this.propertyGridDockPanel1.Location = new System.Drawing.Point(0, 0);
             this.propertyGridDockPanel1.Name = "propertyGridDockPanel1";
             this.propertyGridDockPanel1.Size = new System.Drawing.Size(200, 200);
             this.propertyGridDockPanel1.Text = "Properties";
-            // 
+            //
             // fieldListDockPanel1
-            // 
+            //
             this.fieldListDockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
             this.fieldListDockPanel1.ID = new System.Guid("8758c2d6-275a-448a-a55e-7adedf257cb6");
             this.fieldListDockPanel1.Location = new System.Drawing.Point(0, 0);
             this.fieldListDockPanel1.Name = "fieldListDockPanel1";
             this.fieldListDockPanel1.Size = new System.Drawing.Size(200, 200);
             this.fieldListDockPanel1.Text = "Field List";
-            // 
+            //
             // printPreviewBarItem51
-            // 
+            //
             this.printPreviewBarItem51.Command = DevExpress.XtraPrinting.PrintingSystemCommand.Save;
             this.printPreviewBarItem51.Id = 223;
             this.printPreviewBarItem51.Name = "printPreviewBarItem51";
-            // 
+            //
             // printPreviewBarItem50
-            // 
+            //
             this.printPreviewBarItem50.Command = DevExpress.XtraPrinting.PrintingSystemCommand.Open;
             this.printPreviewBarItem50.Id = 222;
             this.printPreviewBarItem50.Name = "printPreviewBarItem50";
-            // 
+            //
             // printPreviewBarItem30
-            // 
+            //
             this.printPreviewBarItem30.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.printPreviewBarItem30.Command = DevExpress.XtraPrinting.PrintingSystemCommand.PageMargins;
             this.printPreviewBarItem30.Id = 202;
             this.printPreviewBarItem30.Name = "printPreviewBarItem30";
-            // 
+            //
             // printPreviewBarItem29
-            // 
+            //
             this.printPreviewBarItem29.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.printPreviewBarItem29.Command = DevExpress.XtraPrinting.PrintingSystemCommand.PaperSize;
             this.printPreviewBarItem29.Id = 201;
             this.printPreviewBarItem29.Name = "printPreviewBarItem29";
-            // 
+            //
             // printPreviewBarItem28
-            // 
+            //
             this.printPreviewBarItem28.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.printPreviewBarItem28.Command = DevExpress.XtraPrinting.PrintingSystemCommand.PageOrientation;
             this.printPreviewBarItem28.Id = 200;
             this.printPreviewBarItem28.Name = "printPreviewBarItem28";
-            // 
+            //
             // printPreviewBarItem27
-            // 
+            //
             this.printPreviewBarItem27.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ClosePreview;
             this.printPreviewBarItem27.Id = 199;
             this.printPreviewBarItem27.Name = "printPreviewBarItem27";
-            // 
+            //
             // printPreviewBarItem26
-            // 
+            //
             this.printPreviewBarItem26.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.printPreviewBarItem26.Command = DevExpress.XtraPrinting.PrintingSystemCommand.SendFile;
             this.printPreviewBarItem26.Id = 198;
             this.printPreviewBarItem26.Name = "printPreviewBarItem26";
-            // 
+            //
             // printPreviewBarItem25
-            // 
+            //
             this.printPreviewBarItem25.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.printPreviewBarItem25.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ExportFile;
             this.printPreviewBarItem25.Id = 197;
             this.printPreviewBarItem25.Name = "printPreviewBarItem25";
-            // 
+            //
             // printPreviewBarItem24
-            // 
+            //
             this.printPreviewBarItem24.Command = DevExpress.XtraPrinting.PrintingSystemCommand.Watermark;
             this.printPreviewBarItem24.Id = 196;
             this.printPreviewBarItem24.Name = "printPreviewBarItem24";
-            // 
+            //
             // printPreviewBarItem23
-            // 
+            //
             this.printPreviewBarItem23.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.printPreviewBarItem23.Command = DevExpress.XtraPrinting.PrintingSystemCommand.FillBackground;
             this.printPreviewBarItem23.Id = 195;
             this.printPreviewBarItem23.Name = "printPreviewBarItem23";
-            // 
+            //
             // printPreviewBarItem22
-            // 
+            //
             this.printPreviewBarItem22.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.printPreviewBarItem22.Command = DevExpress.XtraPrinting.PrintingSystemCommand.MultiplePages;
             this.printPreviewBarItem22.Id = 194;
             this.printPreviewBarItem22.Name = "printPreviewBarItem22";
-            // 
+            //
             // printPreviewBarItem21
-            // 
+            //
             this.printPreviewBarItem21.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ShowLastPage;
             this.printPreviewBarItem21.Id = 193;
             this.printPreviewBarItem21.Name = "printPreviewBarItem21";
-            // 
+            //
             // printPreviewBarItem20
-            // 
+            //
             this.printPreviewBarItem20.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ShowNextPage;
             this.printPreviewBarItem20.Id = 192;
             this.printPreviewBarItem20.Name = "printPreviewBarItem20";
-            // 
+            //
             // printPreviewBarItem19
-            // 
+            //
             this.printPreviewBarItem19.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ShowPrevPage;
             this.printPreviewBarItem19.Id = 191;
             this.printPreviewBarItem19.Name = "printPreviewBarItem19";
-            // 
+            //
             // printPreviewBarItem17
-            // 
+            //
             this.printPreviewBarItem17.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.printPreviewBarItem17.Command = DevExpress.XtraPrinting.PrintingSystemCommand.Zoom;
             this.printPreviewBarItem17.Id = 189;
             this.printPreviewBarItem17.Name = "printPreviewBarItem17";
-            // 
+            //
             // printPreviewBarItem16
-            // 
+            //
             this.printPreviewBarItem16.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ZoomIn;
             this.printPreviewBarItem16.Id = 188;
             this.printPreviewBarItem16.Name = "printPreviewBarItem16";
-            // 
+            //
             // printPreviewBarItem15
-            // 
+            //
             this.printPreviewBarItem15.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ZoomOut;
             this.printPreviewBarItem15.Id = 187;
             this.printPreviewBarItem15.Name = "printPreviewBarItem15";
-            // 
+            //
             // printPreviewBarItem14
-            // 
+            //
             this.printPreviewBarItem14.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
             this.printPreviewBarItem14.Command = DevExpress.XtraPrinting.PrintingSystemCommand.Magnifier;
             this.printPreviewBarItem14.GroupIndex = 1;
             this.printPreviewBarItem14.Id = 186;
             this.printPreviewBarItem14.Name = "printPreviewBarItem14";
             this.printPreviewBarItem14.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
-            // 
+            //
             // printPreviewBarItem13
-            // 
+            //
             this.printPreviewBarItem13.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
             this.printPreviewBarItem13.Command = DevExpress.XtraPrinting.PrintingSystemCommand.HandTool;
             this.printPreviewBarItem13.GroupIndex = 1;
             this.printPreviewBarItem13.Id = 185;
             this.printPreviewBarItem13.Name = "printPreviewBarItem13";
             this.printPreviewBarItem13.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
-            // 
+            //
             // printPreviewBarItem12
-            // 
+            //
             this.printPreviewBarItem12.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
             this.printPreviewBarItem12.Command = DevExpress.XtraPrinting.PrintingSystemCommand.Pointer;
             this.printPreviewBarItem12.GroupIndex = 1;
             this.printPreviewBarItem12.Id = 184;
             this.printPreviewBarItem12.Name = "printPreviewBarItem12";
             this.printPreviewBarItem12.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
-            // 
+            //
             // printPreviewBarItem11
-            // 
+            //
             this.printPreviewBarItem11.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.printPreviewBarItem11.Command = DevExpress.XtraPrinting.PrintingSystemCommand.Scale;
             this.printPreviewBarItem11.Id = 183;
             this.printPreviewBarItem11.Name = "printPreviewBarItem11";
-            // 
+            //
             // printPreviewBarItem10
-            // 
+            //
             this.printPreviewBarItem10.Command = DevExpress.XtraPrinting.PrintingSystemCommand.EditPageHF;
             this.printPreviewBarItem10.Id = 182;
             this.printPreviewBarItem10.Name = "printPreviewBarItem10";
-            // 
+            //
             // printPreviewBarItem8
-            // 
+            //
             this.printPreviewBarItem8.Command = DevExpress.XtraPrinting.PrintingSystemCommand.PrintDirect;
             this.printPreviewBarItem8.Id = 180;
             this.printPreviewBarItem8.Name = "printPreviewBarItem8";
-            // 
+            //
             // printPreviewBarItem7
-            // 
+            //
             this.printPreviewBarItem7.Command = DevExpress.XtraPrinting.PrintingSystemCommand.Print;
             this.printPreviewBarItem7.Id = 179;
             this.printPreviewBarItem7.Name = "printPreviewBarItem7";
-            // 
+            //
             // printPreviewBarItem6
-            // 
+            //
             this.printPreviewBarItem6.Command = DevExpress.XtraPrinting.PrintingSystemCommand.Customize;
             this.printPreviewBarItem6.Id = 178;
             this.printPreviewBarItem6.Name = "printPreviewBarItem6";
-            // 
+            //
             // printPreviewBarItem5
-            // 
+            //
             this.printPreviewBarItem5.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
             this.printPreviewBarItem5.Command = DevExpress.XtraPrinting.PrintingSystemCommand.Thumbnails;
             this.printPreviewBarItem5.Id = 177;
             this.printPreviewBarItem5.Name = "printPreviewBarItem5";
-            // 
+            //
             // printPreviewBarItem4
-            // 
+            //
             this.printPreviewBarItem4.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
             this.printPreviewBarItem4.Command = DevExpress.XtraPrinting.PrintingSystemCommand.Find;
             this.printPreviewBarItem4.Id = 176;
             this.printPreviewBarItem4.Name = "printPreviewBarItem4";
-            // 
+            //
             // printPreviewBarItem3
-            // 
+            //
             this.printPreviewBarItem3.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
             this.printPreviewBarItem3.Command = DevExpress.XtraPrinting.PrintingSystemCommand.Parameters;
             this.printPreviewBarItem3.Id = 175;
             this.printPreviewBarItem3.Name = "printPreviewBarItem3";
-            // 
+            //
             // printPreviewBarItem2
-            // 
+            //
             this.printPreviewBarItem2.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
             this.printPreviewBarItem2.Command = DevExpress.XtraPrinting.PrintingSystemCommand.DocumentMap;
             this.printPreviewBarItem2.Id = 174;
             this.printPreviewBarItem2.Name = "printPreviewBarItem2";
-            // 
+            //
             // printPreviewBarItem1
-            // 
+            //
             this.printPreviewBarItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
             this.printPreviewBarItem1.Caption = "Stop";
             this.printPreviewBarItem1.Command = DevExpress.XtraPrinting.PrintingSystemCommand.StopPageBuilding;
@@ -650,9 +650,9 @@
             this.printPreviewBarItem1.Id = 2;
             this.printPreviewBarItem1.Name = "printPreviewBarItem1";
             this.printPreviewBarItem1.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            // 
+            //
             // zoomTrackBarEditItem1
-            // 
+            //
             this.zoomTrackBarEditItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
             this.zoomTrackBarEditItem1.Edit = null;
             this.zoomTrackBarEditItem1.EditWidth = 140;
@@ -661,729 +661,729 @@
             this.zoomTrackBarEditItem1.Range = new int[] {
         10,
         500};
-            // 
+            //
             // xrDesignBarButtonGroup14
-            // 
+            //
             this.xrDesignBarButtonGroup14.Id = 172;
             this.xrDesignBarButtonGroup14.Name = "xrDesignBarButtonGroup14";
-            // 
+            //
             // xrDesignBarButtonGroup13
-            // 
+            //
             this.xrDesignBarButtonGroup13.Id = 171;
             this.xrDesignBarButtonGroup13.Name = "xrDesignBarButtonGroup13";
-            // 
+            //
             // xrDesignBarButtonGroup11
-            // 
+            //
             this.xrDesignBarButtonGroup11.Id = 169;
             this.xrDesignBarButtonGroup11.Name = "xrDesignBarButtonGroup11";
-            // 
+            //
             // xrDesignBarButtonGroup12
-            // 
+            //
             this.xrDesignBarButtonGroup12.Id = 170;
             this.xrDesignBarButtonGroup12.Name = "xrDesignBarButtonGroup12";
-            // 
+            //
             // xrDesignBarButtonGroup10
-            // 
+            //
             this.xrDesignBarButtonGroup10.Id = 168;
             this.xrDesignBarButtonGroup10.Name = "xrDesignBarButtonGroup10";
-            // 
+            //
             // xrDesignBarButtonGroup9
-            // 
+            //
             this.xrDesignBarButtonGroup9.Id = 167;
             this.xrDesignBarButtonGroup9.Name = "xrDesignBarButtonGroup9";
-            // 
+            //
             // xrDesignBarButtonGroup7
-            // 
+            //
             this.xrDesignBarButtonGroup7.Id = 165;
             this.xrDesignBarButtonGroup7.Name = "xrDesignBarButtonGroup7";
-            // 
+            //
             // xrDesignBarButtonGroup6
-            // 
+            //
             this.xrDesignBarButtonGroup6.Id = 164;
             this.xrDesignBarButtonGroup6.Name = "xrDesignBarButtonGroup6";
-            // 
+            //
             // xrDesignBarButtonGroup4
-            // 
+            //
             this.xrDesignBarButtonGroup4.Id = 162;
             this.xrDesignBarButtonGroup4.Name = "xrDesignBarButtonGroup4";
-            // 
+            //
             // xrDesignBarButtonGroup5
-            // 
+            //
             this.xrDesignBarButtonGroup5.Id = 163;
             this.xrDesignBarButtonGroup5.Name = "xrDesignBarButtonGroup5";
-            // 
+            //
             // xrDesignBarButtonGroup3
-            // 
+            //
             this.xrDesignBarButtonGroup3.Id = 161;
             this.xrDesignBarButtonGroup3.Name = "xrDesignBarButtonGroup3";
-            // 
+            //
             // xrDesignBarButtonGroup2
-            // 
+            //
             this.xrDesignBarButtonGroup2.Id = 160;
             this.xrDesignBarButtonGroup2.Name = "xrDesignBarButtonGroup2";
-            // 
+            //
             // xrDesignBarButtonGroup8
-            // 
+            //
             this.xrDesignBarButtonGroup8.Id = 166;
             this.xrDesignBarButtonGroup8.Name = "xrDesignBarButtonGroup8";
-            // 
+            //
             // printPreviewRibbonPageGroup8
-            // 
+            //
             this.printPreviewRibbonPageGroup8.AllowTextClipping = false;
             this.printPreviewRibbonPageGroup8.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.printPreviewRibbonPageGroup8.Kind = DevExpress.XtraPrinting.Preview.PrintPreviewRibbonPageGroupKind.Close;
             this.printPreviewRibbonPageGroup8.Name = "printPreviewRibbonPageGroup8";
-            // 
+            //
             // printPreviewRibbonPageGroup7
-            // 
+            //
             this.printPreviewRibbonPageGroup7.AllowTextClipping = false;
             this.printPreviewRibbonPageGroup7.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.printPreviewRibbonPageGroup7.Kind = DevExpress.XtraPrinting.Preview.PrintPreviewRibbonPageGroupKind.Export;
             this.printPreviewRibbonPageGroup7.Name = "printPreviewRibbonPageGroup7";
-            // 
+            //
             // printPreviewRibbonPageGroup6
-            // 
+            //
             this.printPreviewRibbonPageGroup6.AllowTextClipping = false;
             this.printPreviewRibbonPageGroup6.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.printPreviewRibbonPageGroup6.Kind = DevExpress.XtraPrinting.Preview.PrintPreviewRibbonPageGroupKind.Background;
             this.printPreviewRibbonPageGroup6.Name = "printPreviewRibbonPageGroup6";
-            // 
+            //
             // printPreviewRibbonPageGroup5
-            // 
+            //
             this.printPreviewRibbonPageGroup5.AllowTextClipping = false;
             this.printPreviewRibbonPageGroup5.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.printPreviewRibbonPageGroup5.Kind = DevExpress.XtraPrinting.Preview.PrintPreviewRibbonPageGroupKind.Zoom;
             this.printPreviewRibbonPageGroup5.Name = "printPreviewRibbonPageGroup5";
-            // 
+            //
             // printPreviewBarItem18
-            // 
+            //
             this.printPreviewBarItem18.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ShowFirstPage;
             this.printPreviewBarItem18.Id = 190;
             this.printPreviewBarItem18.Name = "printPreviewBarItem18";
-            // 
+            //
             // printPreviewRibbonPageGroup4
-            // 
+            //
             this.printPreviewRibbonPageGroup4.AllowTextClipping = false;
             this.printPreviewRibbonPageGroup4.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.printPreviewRibbonPageGroup4.Kind = DevExpress.XtraPrinting.Preview.PrintPreviewRibbonPageGroupKind.Navigation;
             this.printPreviewRibbonPageGroup4.Name = "printPreviewRibbonPageGroup4";
-            // 
+            //
             // printPreviewRibbonPageGroup3
-            // 
+            //
             this.printPreviewRibbonPageGroup3.AllowTextClipping = false;
             this.printPreviewRibbonPageGroup3.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.printPreviewRibbonPageGroup3.Kind = DevExpress.XtraPrinting.Preview.PrintPreviewRibbonPageGroupKind.PageSetup;
             this.printPreviewRibbonPageGroup3.Name = "printPreviewRibbonPageGroup3";
-            // 
+            //
             // printPreviewRibbonPageGroup2
-            // 
+            //
             this.printPreviewRibbonPageGroup2.AllowTextClipping = false;
             this.printPreviewRibbonPageGroup2.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.printPreviewRibbonPageGroup2.Kind = DevExpress.XtraPrinting.Preview.PrintPreviewRibbonPageGroupKind.Print;
             this.printPreviewRibbonPageGroup2.Name = "printPreviewRibbonPageGroup2";
-            // 
+            //
             // printPreviewRibbonPageGroup1
-            // 
+            //
             this.printPreviewRibbonPageGroup1.AllowTextClipping = false;
             this.printPreviewRibbonPageGroup1.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.printPreviewRibbonPageGroup1.Kind = DevExpress.XtraPrinting.Preview.PrintPreviewRibbonPageGroupKind.Document;
             this.printPreviewRibbonPageGroup1.Name = "printPreviewRibbonPageGroup1";
-            // 
+            //
             // printPreviewRibbonPage
-            // 
+            //
             this.printPreviewRibbonPage.Name = "printPreviewRibbonPage";
-            // 
+            //
             // printPreviewStaticItem2
-            // 
+            //
             this.printPreviewStaticItem2.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
             this.printPreviewStaticItem2.AutoSize = DevExpress.XtraBars.BarStaticItemSize.None;
             this.printPreviewStaticItem2.Caption = "100%";
             this.printPreviewStaticItem2.Id = 228;
             this.printPreviewStaticItem2.Name = "printPreviewStaticItem2";
             this.printPreviewStaticItem2.Type = "ZoomFactorText";
-            // 
+            //
             // commandBarItem129
-            // 
+            //
             this.commandBarItem129.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
             this.commandBarItem129.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.ShowReportDesignAnalyzer;
             this.commandBarItem129.Id = 227;
             this.commandBarItem129.Name = "commandBarItem129";
             this.commandBarItem129.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
+            //
             // printPreviewBarItem52
-            // 
+            //
             this.printPreviewBarItem52.Caption = "Stop";
             this.printPreviewBarItem52.Command = DevExpress.XtraPrinting.PrintingSystemCommand.StopPageBuilding;
             this.printPreviewBarItem52.Hint = "Stop";
             this.printPreviewBarItem52.Id = 226;
             this.printPreviewBarItem52.Name = "printPreviewBarItem52";
             this.printPreviewBarItem52.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            // 
+            //
             // progressBarEditItem1
-            // 
+            //
             this.progressBarEditItem1.Edit = null;
             this.progressBarEditItem1.EditHeight = 12;
             this.progressBarEditItem1.EditWidth = 150;
             this.progressBarEditItem1.Id = 225;
             this.progressBarEditItem1.Name = "progressBarEditItem1";
             this.progressBarEditItem1.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            // 
+            //
             // repositoryItemProgressBar1
-            // 
+            //
             this.repositoryItemProgressBar1.Name = "repositoryItemProgressBar1";
-            // 
+            //
             // printPreviewStaticItem1
-            // 
+            //
             this.printPreviewStaticItem1.Caption = "Nothing";
             this.printPreviewStaticItem1.Id = 224;
             this.printPreviewStaticItem1.LeftIndent = 1;
             this.printPreviewStaticItem1.Name = "printPreviewStaticItem1";
             this.printPreviewStaticItem1.RightIndent = 1;
             this.printPreviewStaticItem1.Type = "PageOfPages";
-            // 
+            //
             // printPreviewBarItem49
-            // 
+            //
             this.printPreviewBarItem49.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ExportGraphic;
             this.printPreviewBarItem49.Id = 221;
             this.printPreviewBarItem49.Name = "printPreviewBarItem49";
-            // 
+            //
             // printPreviewBarItem48
-            // 
+            //
             this.printPreviewBarItem48.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ExportDocx;
             this.printPreviewBarItem48.Id = 220;
             this.printPreviewBarItem48.Name = "printPreviewBarItem48";
-            // 
+            //
             // printPreviewBarItem47
-            // 
+            //
             this.printPreviewBarItem47.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ExportRtf;
             this.printPreviewBarItem47.Id = 219;
             this.printPreviewBarItem47.Name = "printPreviewBarItem47";
-            // 
+            //
             // printPreviewBarItem46
-            // 
+            //
             this.printPreviewBarItem46.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ExportXlsx;
             this.printPreviewBarItem46.Id = 218;
             this.printPreviewBarItem46.Name = "printPreviewBarItem46";
-            // 
+            //
             // printPreviewBarItem45
-            // 
+            //
             this.printPreviewBarItem45.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ExportXls;
             this.printPreviewBarItem45.Id = 217;
             this.printPreviewBarItem45.Name = "printPreviewBarItem45";
-            // 
+            //
             // printPreviewBarItem44
-            // 
+            //
             this.printPreviewBarItem44.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ExportMht;
             this.printPreviewBarItem44.Id = 216;
             this.printPreviewBarItem44.Name = "printPreviewBarItem44";
-            // 
+            //
             // printPreviewBarItem43
-            // 
+            //
             this.printPreviewBarItem43.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ExportCsv;
             this.printPreviewBarItem43.Id = 215;
             this.printPreviewBarItem43.Name = "printPreviewBarItem43";
-            // 
+            //
             // printPreviewBarItem42
-            // 
+            //
             this.printPreviewBarItem42.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ExportTxt;
             this.printPreviewBarItem42.Id = 214;
             this.printPreviewBarItem42.Name = "printPreviewBarItem42";
-            // 
+            //
             // printPreviewBarItem41
-            // 
+            //
             this.printPreviewBarItem41.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ExportHtm;
             this.printPreviewBarItem41.Id = 213;
             this.printPreviewBarItem41.Name = "printPreviewBarItem41";
-            // 
+            //
             // printPreviewBarItem40
-            // 
+            //
             this.printPreviewBarItem40.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ExportPdf;
             this.printPreviewBarItem40.Id = 212;
             this.printPreviewBarItem40.Name = "printPreviewBarItem40";
-            // 
+            //
             // printPreviewBarItem39
-            // 
+            //
             this.printPreviewBarItem39.Command = DevExpress.XtraPrinting.PrintingSystemCommand.SendGraphic;
             this.printPreviewBarItem39.Id = 211;
             this.printPreviewBarItem39.Name = "printPreviewBarItem39";
-            // 
+            //
             // printPreviewBarItem38
-            // 
+            //
             this.printPreviewBarItem38.Command = DevExpress.XtraPrinting.PrintingSystemCommand.SendDocx;
             this.printPreviewBarItem38.Id = 210;
             this.printPreviewBarItem38.Name = "printPreviewBarItem38";
-            // 
+            //
             // printPreviewBarItem37
-            // 
+            //
             this.printPreviewBarItem37.Command = DevExpress.XtraPrinting.PrintingSystemCommand.SendRtf;
             this.printPreviewBarItem37.Id = 209;
             this.printPreviewBarItem37.Name = "printPreviewBarItem37";
-            // 
+            //
             // printPreviewBarItem36
-            // 
+            //
             this.printPreviewBarItem36.Command = DevExpress.XtraPrinting.PrintingSystemCommand.SendXlsx;
             this.printPreviewBarItem36.Id = 208;
             this.printPreviewBarItem36.Name = "printPreviewBarItem36";
-            // 
+            //
             // printPreviewBarItem35
-            // 
+            //
             this.printPreviewBarItem35.Command = DevExpress.XtraPrinting.PrintingSystemCommand.SendXls;
             this.printPreviewBarItem35.Id = 207;
             this.printPreviewBarItem35.Name = "printPreviewBarItem35";
-            // 
+            //
             // printPreviewBarItem34
-            // 
+            //
             this.printPreviewBarItem34.Command = DevExpress.XtraPrinting.PrintingSystemCommand.SendMht;
             this.printPreviewBarItem34.Id = 206;
             this.printPreviewBarItem34.Name = "printPreviewBarItem34";
-            // 
+            //
             // printPreviewBarItem33
-            // 
+            //
             this.printPreviewBarItem33.Command = DevExpress.XtraPrinting.PrintingSystemCommand.SendCsv;
             this.printPreviewBarItem33.Id = 205;
             this.printPreviewBarItem33.Name = "printPreviewBarItem33";
-            // 
+            //
             // printPreviewBarItem32
-            // 
+            //
             this.printPreviewBarItem32.Command = DevExpress.XtraPrinting.PrintingSystemCommand.SendTxt;
             this.printPreviewBarItem32.Id = 204;
             this.printPreviewBarItem32.Name = "printPreviewBarItem32";
-            // 
+            //
             // printPreviewBarItem31
-            // 
+            //
             this.printPreviewBarItem31.Command = DevExpress.XtraPrinting.PrintingSystemCommand.SendPdf;
             this.printPreviewBarItem31.Id = 203;
             this.printPreviewBarItem31.Name = "printPreviewBarItem31";
-            // 
+            //
             // printPreviewBarItem9
-            // 
+            //
             this.printPreviewBarItem9.Command = DevExpress.XtraPrinting.PrintingSystemCommand.PageSetup;
             this.printPreviewBarItem9.Id = 181;
             this.printPreviewBarItem9.Name = "printPreviewBarItem9";
-            // 
+            //
             // xrDesignRibbonPageGroup43
-            // 
+            //
             this.xrDesignRibbonPageGroup43.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup43.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup43.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.Behavior;
             this.xrDesignRibbonPageGroup43.Name = "xrDesignRibbonPageGroup43";
-            // 
+            //
             // xrDesignRibbonPageGroup42
-            // 
+            //
             this.xrDesignRibbonPageGroup42.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup42.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup42.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.Design;
             this.xrDesignRibbonPageGroup42.Name = "xrDesignRibbonPageGroup42";
-            // 
+            //
             // labelRibbonPageCategory
-            // 
+            //
             this.labelRibbonPageCategory.AutoStretchPageHeaders = true;
             this.labelRibbonPageCategory.Name = "labelRibbonPageCategory";
             this.labelRibbonPageCategory.Visible = false;
-            // 
+            //
             // labelTextContextRibbonPage
-            // 
+            //
             this.labelTextContextRibbonPage.Name = "labelTextContextRibbonPage";
-            // 
+            //
             // xrDesignRibbonPageGroup41
-            // 
+            //
             this.xrDesignRibbonPageGroup41.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup41.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup41.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.View;
             this.xrDesignRibbonPageGroup41.Name = "xrDesignRibbonPageGroup41";
-            // 
+            //
             // shapeRibbonPageCategory
-            // 
+            //
             this.shapeRibbonPageCategory.AutoStretchPageHeaders = true;
             this.shapeRibbonPageCategory.Name = "shapeRibbonPageCategory";
             this.shapeRibbonPageCategory.Visible = false;
-            // 
+            //
             // shapeDesignContextRibbonPage
-            // 
+            //
             this.shapeDesignContextRibbonPage.Name = "shapeDesignContextRibbonPage";
-            // 
+            //
             // xrDesignRibbonPageGroup40
-            // 
+            //
             this.xrDesignRibbonPageGroup40.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup40.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup40.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.View;
             this.xrDesignRibbonPageGroup40.Name = "xrDesignRibbonPageGroup40";
-            // 
+            //
             // xrDesignRibbonPageGroup39
-            // 
+            //
             this.xrDesignRibbonPageGroup39.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup39.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup39.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.Data;
             this.xrDesignRibbonPageGroup39.Name = "xrDesignRibbonPageGroup39";
-            // 
+            //
             // sparklineRibbonPageCategory
-            // 
+            //
             this.sparklineRibbonPageCategory.AutoStretchPageHeaders = true;
             this.sparklineRibbonPageCategory.Name = "sparklineRibbonPageCategory";
             this.sparklineRibbonPageCategory.Visible = false;
-            // 
+            //
             // sparklineDesignContextRibbonPage
-            // 
+            //
             this.sparklineDesignContextRibbonPage.Name = "sparklineDesignContextRibbonPage";
-            // 
+            //
             // xrDesignRibbonPageGroup38
-            // 
+            //
             this.xrDesignRibbonPageGroup38.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup38.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup38.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.Theme;
             this.xrDesignRibbonPageGroup38.Name = "xrDesignRibbonPageGroup38";
-            // 
+            //
             // xrDesignRibbonPageGroup37
-            // 
+            //
             this.xrDesignRibbonPageGroup37.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup37.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup37.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.View;
             this.xrDesignRibbonPageGroup37.Name = "xrDesignRibbonPageGroup37";
-            // 
+            //
             // gaugeRibbonPageCategory
-            // 
+            //
             this.gaugeRibbonPageCategory.AutoStretchPageHeaders = true;
             this.gaugeRibbonPageCategory.Name = "gaugeRibbonPageCategory";
             this.gaugeRibbonPageCategory.Visible = false;
-            // 
+            //
             // gaugeDesignContextRibbonPage
-            // 
+            //
             this.gaugeDesignContextRibbonPage.Name = "gaugeDesignContextRibbonPage";
-            // 
+            //
             // xrDesignRibbonPageGroup36
-            // 
+            //
             this.xrDesignRibbonPageGroup36.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup36.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup36.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.Symbology;
             this.xrDesignRibbonPageGroup36.Name = "xrDesignRibbonPageGroup36";
-            // 
+            //
             // xrDesignRibbonPageGroup35
-            // 
+            //
             this.xrDesignRibbonPageGroup35.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup35.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup35.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.View;
             this.xrDesignRibbonPageGroup35.Name = "xrDesignRibbonPageGroup35";
-            // 
+            //
             // barcodeDesignContextRibbonPage
-            // 
+            //
             this.barcodeDesignContextRibbonPage.Name = "barcodeDesignContextRibbonPage";
-            // 
+            //
             // barCodeRibbonPageCategory
-            // 
+            //
             this.barCodeRibbonPageCategory.AutoStretchPageHeaders = true;
             this.barCodeRibbonPageCategory.Name = "barCodeRibbonPageCategory";
             this.barCodeRibbonPageCategory.Visible = false;
-            // 
+            //
             // xrDesignRibbonPageGroup34
-            // 
+            //
             this.xrDesignRibbonPageGroup34.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup34.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup34.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.PivotPrintOptions;
             this.xrDesignRibbonPageGroup34.Name = "xrDesignRibbonPageGroup34";
-            // 
+            //
             // xrDesignRibbonPageGroup33
-            // 
+            //
             this.xrDesignRibbonPageGroup33.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup33.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup33.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.PivotFields;
             this.xrDesignRibbonPageGroup33.Name = "xrDesignRibbonPageGroup33";
-            // 
+            //
             // xrDesignRibbonPageGroup32
-            // 
+            //
             this.xrDesignRibbonPageGroup32.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup32.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup32.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.Data;
             this.xrDesignRibbonPageGroup32.Name = "xrDesignRibbonPageGroup32";
-            // 
+            //
             // xrDesignRibbonPageGroup31
-            // 
+            //
             this.xrDesignRibbonPageGroup31.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup31.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup31.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.Layout;
             this.xrDesignRibbonPageGroup31.Name = "xrDesignRibbonPageGroup31";
-            // 
+            //
             // pivotGridDesignContextRibbonPage
-            // 
+            //
             this.pivotGridDesignContextRibbonPage.Name = "pivotGridDesignContextRibbonPage";
-            // 
+            //
             // pivotGridRibbonPageCategory
-            // 
+            //
             this.pivotGridRibbonPageCategory.AutoStretchPageHeaders = true;
             this.pivotGridRibbonPageCategory.Name = "pivotGridRibbonPageCategory";
             this.pivotGridRibbonPageCategory.Visible = false;
-            // 
+            //
             // xrDesignRibbonPageGroup30
-            // 
+            //
             this.xrDesignRibbonPageGroup30.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup30.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup30.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.Appearance;
             this.xrDesignRibbonPageGroup30.Name = "xrDesignRibbonPageGroup30";
-            // 
+            //
             // xrDesignRibbonPageGroup29
-            // 
+            //
             this.xrDesignRibbonPageGroup29.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup29.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup29.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.Annotations;
             this.xrDesignRibbonPageGroup29.Name = "xrDesignRibbonPageGroup29";
-            // 
+            //
             // xrDesignRibbonPageGroup28
-            // 
+            //
             this.xrDesignRibbonPageGroup28.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup28.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup28.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.Series;
             this.xrDesignRibbonPageGroup28.Name = "xrDesignRibbonPageGroup28";
-            // 
+            //
             // xrDesignRibbonPageGroup27
-            // 
+            //
             this.xrDesignRibbonPageGroup27.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup27.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup27.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.Data;
             this.xrDesignRibbonPageGroup27.Name = "xrDesignRibbonPageGroup27";
-            // 
+            //
             // xrDesignRibbonPageGroup26
-            // 
+            //
             this.xrDesignRibbonPageGroup26.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup26.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup26.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.Layout;
             this.xrDesignRibbonPageGroup26.Name = "xrDesignRibbonPageGroup26";
-            // 
+            //
             // chartDesignContextRibbonPage
-            // 
+            //
             this.chartDesignContextRibbonPage.Name = "chartDesignContextRibbonPage";
-            // 
+            //
             // chartRibbonPageCategory
-            // 
+            //
             this.chartRibbonPageCategory.AutoStretchPageHeaders = true;
             this.chartRibbonPageCategory.Name = "chartRibbonPageCategory";
             this.chartRibbonPageCategory.Visible = false;
-            // 
+            //
             // xrDesignRibbonPageGroup25
-            // 
+            //
             this.xrDesignRibbonPageGroup25.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup25.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup25.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.Distribute;
             this.xrDesignRibbonPageGroup25.Name = "xrDesignRibbonPageGroup25";
-            // 
+            //
             // xrDesignRibbonPageGroup24
-            // 
+            //
             this.xrDesignRibbonPageGroup24.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup24.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup24.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.Merge;
             this.xrDesignRibbonPageGroup24.Name = "xrDesignRibbonPageGroup24";
-            // 
+            //
             // xrDesignRibbonPageGroup23
-            // 
+            //
             this.xrDesignRibbonPageGroup23.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup23.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup23.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.Delete;
             this.xrDesignRibbonPageGroup23.Name = "xrDesignRibbonPageGroup23";
-            // 
+            //
             // xrDesignRibbonPageGroup22
-            // 
+            //
             this.xrDesignRibbonPageGroup22.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup22.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup22.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.Insert;
             this.xrDesignRibbonPageGroup22.Name = "xrDesignRibbonPageGroup22";
-            // 
+            //
             // xrDesignRibbonPageGroup21
-            // 
+            //
             this.xrDesignRibbonPageGroup21.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup21.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup21.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.Select;
             this.xrDesignRibbonPageGroup21.Name = "xrDesignRibbonPageGroup21";
-            // 
+            //
             // tableDesignContextRibbonPage
-            // 
+            //
             this.tableDesignContextRibbonPage.Name = "tableDesignContextRibbonPage";
-            // 
+            //
             // tableRibbonPageCategory
-            // 
+            //
             this.tableRibbonPageCategory.AutoStretchPageHeaders = true;
             this.tableRibbonPageCategory.Name = "tableRibbonPageCategory";
             this.tableRibbonPageCategory.Visible = false;
-            // 
+            //
             // xrDesignRibbonPageGroup20
-            // 
+            //
             this.xrDesignRibbonPageGroup20.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup20.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup20.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.CellSize;
             this.xrDesignRibbonPageGroup20.Name = "xrDesignRibbonPageGroup20";
-            // 
+            //
             // characterCombRibbonPageCategory
-            // 
+            //
             this.characterCombRibbonPageCategory.AutoStretchPageHeaders = true;
             this.characterCombRibbonPageCategory.Name = "characterCombRibbonPageCategory";
             this.characterCombRibbonPageCategory.Visible = false;
-            // 
+            //
             // characterCombDesignContextRibbonPage
-            // 
+            //
             this.characterCombDesignContextRibbonPage.Name = "characterCombDesignContextRibbonPage";
-            // 
+            //
             // xrDesignRibbonPageGroup19
-            // 
+            //
             this.xrDesignRibbonPageGroup19.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup19.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup19.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.Edit;
             this.xrDesignRibbonPageGroup19.Name = "xrDesignRibbonPageGroup19";
-            // 
+            //
             // scriptsRibbonPage
-            // 
+            //
             this.scriptsRibbonPage.Name = "scriptsRibbonPage";
-            // 
+            //
             // xrDesignRibbonPageGroup18
-            // 
+            //
             this.xrDesignRibbonPageGroup18.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup18.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup18.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.View;
             this.xrDesignRibbonPageGroup18.Name = "xrDesignRibbonPageGroup18";
-            // 
+            //
             // xrDesignRibbonPageGroup17
-            // 
+            //
             this.xrDesignRibbonPageGroup17.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup17.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup17.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.Zoom;
             this.xrDesignRibbonPageGroup17.Name = "xrDesignRibbonPageGroup17";
-            // 
+            //
             // xrDesignRibbonPageGroup16
-            // 
+            //
             this.xrDesignRibbonPageGroup16.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup16.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup16.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.Localization;
             this.xrDesignRibbonPageGroup16.Name = "xrDesignRibbonPageGroup16";
-            // 
+            //
             // xrDesignRibbonPageGroup15
-            // 
+            //
             this.xrDesignRibbonPageGroup15.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup15.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup15.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.Bands;
             this.xrDesignRibbonPageGroup15.Name = "xrDesignRibbonPageGroup15";
-            // 
+            //
             // xrDesignRibbonPageGroup14
-            // 
+            //
             this.xrDesignRibbonPageGroup14.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup14.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup14.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.Show;
             this.xrDesignRibbonPageGroup14.Name = "xrDesignRibbonPageGroup14";
-            // 
+            //
             // viewRibbonPage
-            // 
+            //
             this.viewRibbonPage.Name = "viewRibbonPage";
-            // 
+            //
             // xrDesignRibbonPageGroup13
-            // 
+            //
             this.xrDesignRibbonPageGroup13.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup13.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup13.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.Appearance;
             this.xrDesignRibbonPageGroup13.Name = "xrDesignRibbonPageGroup13";
-            // 
+            //
             // xrDesignRibbonPageGroup12
-            // 
+            //
             this.xrDesignRibbonPageGroup12.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup12.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup12.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.PageSetup;
             this.xrDesignRibbonPageGroup12.Name = "xrDesignRibbonPageGroup12";
-            // 
+            //
             // pageRibbonPage
-            // 
+            //
             this.pageRibbonPage.Name = "pageRibbonPage";
-            // 
+            //
             // xrDesignRibbonPageGroup11
-            // 
+            //
             this.xrDesignRibbonPageGroup11.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup11.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup11.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.Snapping;
             this.xrDesignRibbonPageGroup11.Name = "xrDesignRibbonPageGroup11";
-            // 
+            //
             // xrDesignRibbonPageGroup10
-            // 
+            //
             this.xrDesignRibbonPageGroup10.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup10.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup10.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.Arranging;
             this.xrDesignRibbonPageGroup10.Name = "xrDesignRibbonPageGroup10";
-            // 
+            //
             // xrDesignRibbonPageGroup9
-            // 
+            //
             this.xrDesignRibbonPageGroup9.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup9.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup9.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.SizeAndLayout;
             this.xrDesignRibbonPageGroup9.Name = "xrDesignRibbonPageGroup9";
-            // 
+            //
             // xrDesignRibbonPageGroup8
-            // 
+            //
             this.xrDesignRibbonPageGroup8.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup8.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup8.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.Alignment;
             this.xrDesignRibbonPageGroup8.Name = "xrDesignRibbonPageGroup8";
-            // 
+            //
             // layoutRibbonPage
-            // 
+            //
             this.layoutRibbonPage.Name = "layoutRibbonPage";
-            // 
+            //
             // xrDesignRibbonPageGroup7
-            // 
+            //
             this.xrDesignRibbonPageGroup7.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup7.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup7.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.Styles;
             this.xrDesignRibbonPageGroup7.Name = "xrDesignRibbonPageGroup7";
-            // 
+            //
             // xrDesignRibbonPageGroup6
-            // 
+            //
             this.xrDesignRibbonPageGroup6.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup6.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup6.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.Borders;
             this.xrDesignRibbonPageGroup6.Name = "xrDesignRibbonPageGroup6";
-            // 
+            //
             // xrDesignRibbonPageGroup5
-            // 
+            //
             this.xrDesignRibbonPageGroup5.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup5.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup5.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.TextAlignment;
             this.xrDesignRibbonPageGroup5.Name = "xrDesignRibbonPageGroup5";
-            // 
+            //
             // xrDesignBarButtonGroup1
-            // 
+            //
             this.xrDesignBarButtonGroup1.Id = 159;
             this.xrDesignBarButtonGroup1.Name = "xrDesignBarButtonGroup1";
-            // 
+            //
             // xrDesignRibbonPageGroup4
-            // 
+            //
             this.xrDesignRibbonPageGroup4.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup4.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup4.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.Font;
             this.xrDesignRibbonPageGroup4.Name = "xrDesignRibbonPageGroup4";
-            // 
+            //
             // xrDesignRibbonPageGroup3
-            // 
+            //
             this.xrDesignRibbonPageGroup3.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup3.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup3.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.Clipboard;
             this.xrDesignRibbonPageGroup3.Name = "xrDesignRibbonPageGroup3";
-            // 
+            //
             // xrDesignRibbonPageGroup2
-            // 
+            //
             this.xrDesignRibbonPageGroup2.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup2.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup2.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.Data;
             this.xrDesignRibbonPageGroup2.Name = "xrDesignRibbonPageGroup2";
-            // 
+            //
             // xrDesignRibbonPageGroup1
-            // 
+            //
             this.xrDesignRibbonPageGroup1.AllowTextClipping = false;
             this.xrDesignRibbonPageGroup1.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.xrDesignRibbonPageGroup1.Kind = DevExpress.XtraReports.UserDesigner.XRDesignRibbonPageGroupKind.Report;
             this.xrDesignRibbonPageGroup1.Name = "xrDesignRibbonPageGroup1";
-            // 
+            //
             // progressBarEditItem
-            // 
+            //
             this.progressBarEditItem.Edit = this.repositoryItemProgressBar1;
             this.progressBarEditItem.EditHeight = 12;
             this.progressBarEditItem.EditWidth = 150;
             this.progressBarEditItem.Id = 1;
             this.progressBarEditItem.Name = "progressBarEditItem";
             this.progressBarEditItem.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            // 
+            //
             // printPreviewStaticItemPageOfPages
-            // 
+            //
             this.printPreviewStaticItemPageOfPages.Border = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.printPreviewStaticItemPageOfPages.Caption = "Nothing";
             this.printPreviewStaticItemPageOfPages.Id = 0;
@@ -1391,33 +1391,33 @@
             this.printPreviewStaticItemPageOfPages.Name = "printPreviewStaticItemPageOfPages";
             this.printPreviewStaticItemPageOfPages.RightIndent = 1;
             this.printPreviewStaticItemPageOfPages.Type = "PageOfPages";
-            // 
+            //
             // previewBar3
-            // 
+            //
             this.previewBar3.BarName = "Main Menu";
             this.previewBar3.DockCol = 0;
             this.previewBar3.DockRow = 0;
             this.previewBar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.previewBar3.Text = "Main Menu";
-            // 
+            //
             // previewBar2
-            // 
+            //
             this.previewBar2.BarName = "Status Bar";
             this.previewBar2.DockCol = 0;
             this.previewBar2.DockRow = 0;
             this.previewBar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
             this.previewBar2.Text = "Status Bar";
-            // 
+            //
             // previewBar1
-            // 
+            //
             this.previewBar1.BarName = "Toolbar";
             this.previewBar1.DockCol = 0;
             this.previewBar1.DockRow = 0;
             this.previewBar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.previewBar1.Text = "Toolbar";
-            // 
+            //
             // btn_Print
-            // 
+            //
             this.btn_Print.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Print.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_Print.BackColor = System.Drawing.Color.Transparent;
@@ -1440,9 +1440,9 @@
             this.btn_Print.TabIndex = 3;
             this.btn_Print.Text = "Xem chi tiết";
             this.btn_Print.Click += new System.EventHandler(this.btn_Print_Click);
-            // 
+            //
             // btn_ExportPDF
-            // 
+            //
             this.btn_ExportPDF.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_ExportPDF.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_ExportPDF.BackColor = System.Drawing.Color.Transparent;
@@ -1465,9 +1465,9 @@
             this.btn_ExportPDF.TabIndex = 4;
             this.btn_ExportPDF.Text = "Xuất file .pdf";
             this.btn_ExportPDF.Click += new System.EventHandler(this.btn_ExportPDF_Click);
-            // 
+            //
             // NewFrmReportBySubject
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btn_ExportPDF);

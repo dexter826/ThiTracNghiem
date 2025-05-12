@@ -1,5 +1,6 @@
-﻿using BusinessLogicLayer;
+using BusinessLogicLayer;
 using DevExpress.XtraEditors;
+using Entities;
 using System;
 using System.Data;
 using System.Drawing;
@@ -12,6 +13,8 @@ namespace ThiTracNghiem
 {
     public partial class frmOption : XtraForm
     {
+        private DataTable dtExamSessions;
+
         public frmOption()
         {
             InitializeComponent();
@@ -37,52 +40,101 @@ namespace ThiTracNghiem
 
         private void btn_Start_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txt_Time.Text))
+            if (dtExamSessions == null || dtExamSessions.Rows.Count == 0)
             {
-                XtraMessageBox.Show("Vui lòng nhập thời gian thi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                XtraMessageBox.Show("Không có kỳ thi nào đang diễn ra!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             try
             {
-                Session.SubjectName = cbb_Subject.Text;
-                Session.SubjectID = cbb_Subject.SelectedValue.ToString();
-                int.TryParse(txt_NumberQuestion.Text, out int numberOfQuestion);
-                Session.NumberOfQuestion = numberOfQuestion;
-                int.TryParse(txt_Time.Text, out int time);
-                Session.TestTime = time;
+                // Lấy thông tin kỳ thi
+                DataRow examSession = dtExamSessions.Rows[0];
+                int sessionId = Convert.ToInt32(examSession["SessionID"]);
+                int examId = Convert.ToInt32(examSession["ExamID"]);
+                string subjectId = examSession["SubjectID"].ToString();
+                string subjectName = examSession["SubjectName"].ToString();
+                int timeLimit = Convert.ToInt32(examSession["TimeLimit"]);
+                int totalQuestion = Convert.ToInt32(examSession["TotalQuestion"]);
 
-                frmTest fmTest = new frmTest();
+                // Cập nhật trạng thái người dùng trong kỳ thi
+                BUserExamSession.UpdateStatus(
+                    Session.LogonUser.UserID,
+                    sessionId,
+                    "Started",
+                    DateTime.Now,
+                    null,
+                    Session.LogonUser.Username
+                );
+
+                // Mở form làm bài thi với thông tin kỳ thi
+                frmTest fmTest = new frmTest(sessionId, examId, subjectId, subjectName, timeLimit, totalQuestion);
                 this.Hide();
                 fmTest.ShowDialog();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Lỗi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         /// <summary>
-        ///  Phương thức này lấy danh sách các môn học từ BSubject
+        ///  Phương thức này lấy danh sách các kỳ thi đang diễn ra mà người dùng có thể tham gia
         /// </summary>
         private void LoadData()
         {
             try
             {
-                var subjects = BSubject.GetAll();
-                var filteredSubjects = subjects.AsEnumerable()
-                    .Where(row => BQuestion.GetTotalQuestion(row["SubjectID"].ToString()) >= Convert.ToInt32(row["QuesQuantity"]))
-                    .CopyToDataTable();
+                // Lấy thông tin kỳ thi của người dùng
+                // Stored procedure đã được cập nhật để chỉ trả về một kỳ thi duy nhất
+                dtExamSessions = BExamSession.GetByUser(Session.LogonUser.UserID);
 
-                cbb_Subject.DataSource = filteredSubjects;
-                cbb_Subject.DisplayMember = "SubjectName";
-                cbb_Subject.ValueMember = "SubjectID";
-
-                if (filteredSubjects != null && filteredSubjects.Rows.Count > 0)
+                if (dtExamSessions != null && dtExamSessions.Rows.Count > 0)
                 {
-                    var selectedSubject = filteredSubjects.Rows[0];
-                    txt_NumberQuestion.Text = selectedSubject["QuesQuantity"].ToString();
-                    txt_Time.Text = selectedSubject["TimeLimit"].ToString();
+                    // Lấy thông tin kỳ thi
+                    DataRow examSession = dtExamSessions.Rows[0];
+                    
+                    // Hiển thị thông tin kỳ thi
+                    lbl_SessionName.Text = examSession["SessionName"].ToString();
+                    lbl_SubjectName.Text = examSession["SubjectName"].ToString();
+                    lbl_StartTime.Text = Convert.ToDateTime(examSession["StartTime"]).ToString("dd/MM/yyyy HH:mm");
+                    lbl_EndTime.Text = Convert.ToDateTime(examSession["EndTime"]).ToString("dd/MM/yyyy HH:mm");
+                    
+                    // Hiển thị thông tin đề thi
+                    txt_NumberQuestion.Text = examSession["TotalQuestion"].ToString();
+                    txt_Time.Text = examSession["TimeLimit"].ToString();
+                    
+                    // Kiểm tra trạng thái người dùng trong kỳ thi
+                    string userStatus = examSession["UserStatus"].ToString();
+                    
+                    // Nếu người dùng đã hoàn thành kỳ thi, không cho phép làm lại
+                    if (userStatus == "Completed")
+                    {
+                        btn_Start.Enabled = false;
+                        MessageBox.Show("Bạn đã hoàn thành kỳ thi này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        btn_Start.Enabled = true;
+                    }
+                }
+                else
+                {
+                    // Xóa thông tin kỳ thi
+                    lbl_SessionName.Text = "";
+                    lbl_SubjectName.Text = "";
+                    lbl_StartTime.Text = "";
+                    lbl_EndTime.Text = "";
+                    
+                    // Xóa thông tin đề thi
+                    txt_NumberQuestion.Text = "";
+                    txt_Time.Text = "";
+                    
+                    // Vô hiệu hóa nút bắt đầu thi
+                    btn_Start.Enabled = false;
+                    
+                    // Hiển thị thông báo
+                    MessageBox.Show("Không có kỳ thi nào đang diễn ra mà bạn có thể tham gia!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -94,12 +146,10 @@ namespace ThiTracNghiem
         private void frmOption_Load(object sender, EventArgs e)
         {
             LoadData();
-            if (!Session.LogonUser.RoldId.Equals("User"))
-            {
-                txt_NumberQuestion.Enabled = true;
-                txt_Time.Enabled = true;
-                txt_Time.ReadOnly = false;
-            }
+            // Người dùng không thể thay đổi thông tin đề thi
+            txt_NumberQuestion.Enabled = false;
+            txt_Time.Enabled = false;
+            txt_Time.ReadOnly = true;
         }
 
         private void txt_Time_KeyPress(object sender, KeyPressEventArgs e)
@@ -107,23 +157,6 @@ namespace ThiTracNghiem
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
-            }
-        }
-
-        private void cbb_Subject_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbb_Subject.SelectedValue != null)
-            {
-                var selectedSubjectID = cbb_Subject.SelectedValue.ToString();
-                var subjects = BSubject.GetAll();
-                var selectedSubject = subjects.AsEnumerable()
-                    .FirstOrDefault(row => row["SubjectID"].ToString() == selectedSubjectID);
-
-                if (selectedSubject != null)
-                {
-                    txt_NumberQuestion.Text = selectedSubject["QuesQuantity"].ToString();
-                    txt_Time.Text = selectedSubject["TimeLimit"].ToString();
-                }
             }
         }
     }

@@ -11,6 +11,15 @@ namespace BusinessLogicLayer
 {
     public class BQuestion
     {
+        public static DataTable GetByChapter(string subjectId, string chapter)
+        {
+            return DQuestion.GetByChapter(subjectId, chapter);
+        }
+
+        public static DataTable GetChaptersBySubject(string subjectId)
+        {
+            return DQuestion.GetChaptersBySubject(subjectId);
+        }
         public static void AddNewQuestion(Question newQuestion)
         {
             DQuestion.AddNewQuestion(newQuestion);
@@ -31,9 +40,9 @@ namespace BusinessLogicLayer
         {
             return DQuestion.Search(keyword);
         }
-        public static DataTable GetQuesTionForTest(string subjectId, int numberQuestion)
+        public static DataTable GetQuesTionForTest(string subjectId, int examId)
         {
-            return DQuestion.GetQuesTionForTest(subjectId, numberQuestion); 
+            return DQuestion.GetQuesTionForTest(subjectId, examId);
         }
         public static Question GetOne(int questionId)
         {

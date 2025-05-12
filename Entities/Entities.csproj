@@ -41,12 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exam.cs" />
+    <Compile Include="ExamQuestion.cs" />
+    <Compile Include="ExamSession.cs" />
+    <Compile Include="ExamSessionDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Question.cs" />
     <Compile Include="Subject.cs" />
+    <Compile Include="TeacherSubject.cs" />
     <Compile Include="TestHistory.cs" />
     <Compile Include="UserAccount.cs" />
+    <Compile Include="UserExamSession.cs" />
     <Compile Include="UserRole.cs" />
+    <Compile Include="UserSubject.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

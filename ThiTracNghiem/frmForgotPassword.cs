@@ -55,7 +55,7 @@ namespace ThiTracNghiem
         /// <param name="email"></param>
         /// <param name="otp"></param>
         /// <returns></returns>
-        private bool SendEmail(string email, string otp)
+        private async Task<bool> SendEmailAsync(string email, string otp)
         {
             try
             {
@@ -70,7 +70,7 @@ namespace ThiTracNghiem
                 mail.Subject = "Mã xác nhận quên mật khẩu";
                 mail.Body = $"Mã xác nhận của bạn là: {otp}";
 
-                smtpServer.Send(mail);
+                await Task.Run(() => smtpServer.Send(mail));
                 return true;
             }
             catch (Exception ex)
@@ -100,7 +100,7 @@ namespace ThiTracNghiem
 
             _otp = GenerateOtp();
 
-            if (SendEmail(email, _otp))
+            if (await SendEmailAsync(email, _otp))
             {
                 XtraMessageBox.Show("Mã xác nhận đã được gửi đến email của bạn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

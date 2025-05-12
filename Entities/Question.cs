@@ -16,6 +16,7 @@ namespace Entities
         public string OptionC { get; set; }
         public string OptionD { get; set; }
         public string Answer { get; set; }
+        public string Chapter { get; set; }
         public string CreatedBy { get; set; }
         public string ModifiedBy { get; set; }
         public DateTime CreatedAt { get; set; }
