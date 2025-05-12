@@ -17,6 +17,11 @@ namespace BusinessLogicLayer
             DExamSession.UpdateStatus(sessionId, status, modifiedBy);
         }
 
+        public static void UpdateExamSession(ExamSession examSession)
+        {
+            DExamSession.UpdateExamSession(examSession);
+        }
+
         public static DataTable GetAll()
         {
             return DExamSession.GetAll();

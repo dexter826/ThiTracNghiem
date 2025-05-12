@@ -181,6 +181,12 @@
     <Compile Include="frmExamDetail.Designer.cs">
       <DependentUpon>frmExamDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEditExamSession.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditExamSession.Designer.cs">
+      <DependentUpon>frmEditExamSession.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLoad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -314,6 +320,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmExamDetail.resx">
       <DependentUpon>frmExamDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditExamSession.resx">
+      <DependentUpon>frmEditExamSession.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmForgotPassword.resx">
       <DependentUpon>frmForgotPassword.cs</DependentUpon>

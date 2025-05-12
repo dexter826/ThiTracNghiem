@@ -28,19 +28,16 @@ namespace ThiTracNghiem
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.grv_ExamSessions = new Guna.UI2.WinForms.Guna2DataGridView();
             this.groupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.cbb_Status = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.lbl_Status = new System.Windows.Forms.Label();
             this.btn_Cancel = new Guna.UI2.WinForms.Guna2GradientTileButton();
-            this.btn_Update = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.groupBox3 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.cbb_Subject = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -59,6 +56,7 @@ namespace ThiTracNghiem
             this.grv_SessionUsers = new Guna.UI2.WinForms.Guna2DataGridView();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.btn_Edit = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grv_ExamSessions)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -93,26 +91,26 @@ namespace ThiTracNghiem
             // 
             this.grv_ExamSessions.AllowUserToAddRows = false;
             this.grv_ExamSessions.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            this.grv_ExamSessions.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grv_ExamSessions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle43.BackColor = System.Drawing.Color.White;
+            this.grv_ExamSessions.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle44.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle44.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle44.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grv_ExamSessions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle44;
             this.grv_ExamSessions.ColumnHeadersHeight = 40;
             this.grv_ExamSessions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grv_ExamSessions.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle45.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle45.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle45.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            dataGridViewCellStyle45.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle45.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle45.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grv_ExamSessions.DefaultCellStyle = dataGridViewCellStyle45;
             this.grv_ExamSessions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grv_ExamSessions.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.grv_ExamSessions.Location = new System.Drawing.Point(0, 40);
@@ -148,10 +146,8 @@ namespace ThiTracNghiem
             // groupBox2
             // 
             this.groupBox2.BorderRadius = 5;
-            this.groupBox2.Controls.Add(this.cbb_Status);
-            this.groupBox2.Controls.Add(this.lbl_Status);
+            this.groupBox2.Controls.Add(this.btn_Edit);
             this.groupBox2.Controls.Add(this.btn_Cancel);
-            this.groupBox2.Controls.Add(this.btn_Update);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -160,31 +156,6 @@ namespace ThiTracNghiem
             this.groupBox2.Size = new System.Drawing.Size(458, 90);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.Text = "Thao tác";
-            // 
-            // cbb_Status
-            // 
-            this.cbb_Status.BackColor = System.Drawing.Color.Transparent;
-            this.cbb_Status.BorderRadius = 5;
-            this.cbb_Status.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbb_Status.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbb_Status.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbb_Status.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbb_Status.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cbb_Status.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cbb_Status.ItemHeight = 15;
-            this.cbb_Status.Location = new System.Drawing.Point(147, 10);
-            this.cbb_Status.Name = "cbb_Status";
-            this.cbb_Status.Size = new System.Drawing.Size(200, 21);
-            this.cbb_Status.TabIndex = 4;
-            // 
-            // lbl_Status
-            // 
-            this.lbl_Status.AutoSize = true;
-            this.lbl_Status.Location = new System.Drawing.Point(79, 13);
-            this.lbl_Status.Name = "lbl_Status";
-            this.lbl_Status.Size = new System.Drawing.Size(63, 15);
-            this.lbl_Status.TabIndex = 3;
-            this.lbl_Status.Text = "Trạng thái:";
             // 
             // btn_Cancel
             // 
@@ -198,31 +169,12 @@ namespace ThiTracNghiem
             this.btn_Cancel.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btn_Cancel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_Cancel.ForeColor = System.Drawing.Color.White;
-            this.btn_Cancel.Location = new System.Drawing.Point(251, 48);
+            this.btn_Cancel.Location = new System.Drawing.Point(75, 47);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(139, 36);
             this.btn_Cancel.TabIndex = 2;
             this.btn_Cancel.Text = "Hủy kỳ thi";
             this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
-            // 
-            // btn_Update
-            // 
-            this.btn_Update.BorderRadius = 5;
-            this.btn_Update.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_Update.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_Update.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_Update.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_Update.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_Update.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btn_Update.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btn_Update.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_Update.ForeColor = System.Drawing.Color.White;
-            this.btn_Update.Location = new System.Drawing.Point(65, 48);
-            this.btn_Update.Name = "btn_Update";
-            this.btn_Update.Size = new System.Drawing.Size(139, 36);
-            this.btn_Update.TabIndex = 1;
-            this.btn_Update.Text = "Cập nhật trạng thái";
-            this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
             // 
             // groupBox3
             // 
@@ -424,26 +376,26 @@ namespace ThiTracNghiem
             // 
             this.grv_SessionUsers.AllowUserToAddRows = false;
             this.grv_SessionUsers.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
-            this.grv_SessionUsers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grv_SessionUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle46.BackColor = System.Drawing.Color.White;
+            this.grv_SessionUsers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle47.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle47.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle47.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle47.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle47.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle47.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grv_SessionUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle47;
             this.grv_SessionUsers.ColumnHeadersHeight = 40;
             this.grv_SessionUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grv_SessionUsers.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle48.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle48.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle48.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            dataGridViewCellStyle48.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle48.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle48.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grv_SessionUsers.DefaultCellStyle = dataGridViewCellStyle48;
             this.grv_SessionUsers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grv_SessionUsers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.grv_SessionUsers.Location = new System.Drawing.Point(0, 40);
@@ -512,6 +464,25 @@ namespace ThiTracNghiem
             this.splitContainer2.SplitterDistance = 90;
             this.splitContainer2.TabIndex = 0;
             // 
+            // btn_Edit
+            // 
+            this.btn_Edit.BorderRadius = 5;
+            this.btn_Edit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Edit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Edit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_Edit.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_Edit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_Edit.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_Edit.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btn_Edit.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_Edit.ForeColor = System.Drawing.Color.White;
+            this.btn_Edit.Location = new System.Drawing.Point(245, 47);
+            this.btn_Edit.Name = "btn_Edit";
+            this.btn_Edit.Size = new System.Drawing.Size(139, 36);
+            this.btn_Edit.TabIndex = 3;
+            this.btn_Edit.Text = "Chỉnh sửa";
+            this.btn_Edit.Click += new System.EventHandler(this.btn_Edit_Click);
+            // 
             // frmManageExamSession
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -525,7 +496,6 @@ namespace ThiTracNghiem
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grv_ExamSessions)).EndInit();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -549,7 +519,6 @@ namespace ThiTracNghiem
         private Guna.UI2.WinForms.Guna2GroupBox groupBox2;
         private Guna.UI2.WinForms.Guna2GradientTileButton btn_RefreshStatus;
         private Guna.UI2.WinForms.Guna2GradientTileButton btn_Cancel;
-        private Guna.UI2.WinForms.Guna2GradientTileButton btn_Update;
         private Guna.UI2.WinForms.Guna2GroupBox groupBox3;
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2GradientTileButton btn_Add;
@@ -563,12 +532,11 @@ namespace ThiTracNghiem
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2GroupBox groupBox4;
         private Guna.UI2.WinForms.Guna2DataGridView grv_SessionUsers;
-        private Guna.UI2.WinForms.Guna2ComboBox cbb_Status;
-        private System.Windows.Forms.Label lbl_Status;
         private System.Windows.Forms.Label lbl_UserCount;
         private Guna.UI2.WinForms.Guna2ComboBox cbb_Subject;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer splitContainer2;
+        private Guna.UI2.WinForms.Guna2GradientTileButton btn_Edit;
     }
 }

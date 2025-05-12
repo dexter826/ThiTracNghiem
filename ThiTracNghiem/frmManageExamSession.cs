@@ -69,18 +69,7 @@ namespace ThiTracNghiem
 
         private void InitializeStatusComboBox()
         {
-            // Khởi tạo ComboBox trạng thái
-            var statusList = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("Scheduled", "Đã lên lịch"),
-                new KeyValuePair<string, string>("InProgress", "Đang diễn ra"),
-                new KeyValuePair<string, string>("Completed", "Đã hoàn thành"),
-                new KeyValuePair<string, string>("Cancelled", "Đã hủy")
-            };
-
-            cbb_Status.DataSource = new BindingSource(statusList, null);
-            cbb_Status.DisplayMember = "Value";
-            cbb_Status.ValueMember = "Key";
+            // Không cần khởi tạo ComboBox trạng thái nữa vì đã có cập nhật tự động
         }
 
         private void LoadExamSessions()
@@ -365,37 +354,40 @@ namespace ThiTracNghiem
             dtUsers = null;
         }
 
-        private void btn_Update_Click(object sender, EventArgs e)
+        private void btn_Edit_Click(object sender, EventArgs e)
         {
             try
             {
                 if (grv_ExamSessions.SelectedRows.Count == 0)
                 {
-                    XtraMessageBox.Show("Vui lòng chọn kỳ thi cần cập nhật!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    XtraMessageBox.Show("Vui lòng chọn kỳ thi cần chỉnh sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 int sessionId = Convert.ToInt32(grv_ExamSessions.SelectedRows[0].Cells["SessionID"].Value);
                 string status = grv_ExamSessions.SelectedRows[0].Cells["Status"].Value.ToString();
 
-                if (status == "Completed" || status == "Cancelled")
+                if (status != "Scheduled")
                 {
-                    XtraMessageBox.Show("Không thể cập nhật kỳ thi đã hoàn thành hoặc đã hủy!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    XtraMessageBox.Show("Chỉ có thể chỉnh sửa kỳ thi chưa diễn ra!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                // Cập nhật trạng thái kỳ thi
-                string newStatus = cbb_Status.SelectedValue.ToString();
-                BExamSession.UpdateStatus(sessionId, newStatus, Session.LogonUser.Username);
+                // Lấy thông tin kỳ thi
+                ExamSession examSession = BExamSession.GetById(sessionId);
 
-                XtraMessageBox.Show("Cập nhật trạng thái kỳ thi thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Làm mới dữ liệu
-                LoadExamSessions();
+                // Hiển thị form chỉnh sửa kỳ thi
+                frmEditExamSession frmEdit = new frmEditExamSession(examSession);
+                if (frmEdit.ShowDialog() == DialogResult.OK)
+                {
+                    // Làm mới dữ liệu
+                    LoadExamSessions();
+                    XtraMessageBox.Show("Chỉnh sửa kỳ thi thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             catch (Exception ex)
             {
-                XtraMessageBox.Show("Lỗi khi cập nhật kỳ thi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("Lỗi khi chỉnh sửa kỳ thi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

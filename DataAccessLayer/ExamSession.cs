@@ -60,6 +60,27 @@ namespace DataAccessLayer
             }
         }
 
+        public static void UpdateExamSession(ExamSession examSession)
+        {
+            try
+            {
+                SqlHelper.ExecuteNonQuery(
+                    TestCore.ConnectionString.strCon,
+                    CommandType.StoredProcedure,
+                    "ExamSession_Update",
+                    new SqlParameter("@SessionID", examSession.SessionID),
+                    new SqlParameter("@SessionName", examSession.SessionName),
+                    new SqlParameter("@StartTime", examSession.StartTime),
+                    new SqlParameter("@EndTime", examSession.EndTime),
+                    new SqlParameter("@ModifiedBy", examSession.ModifiedBy)
+                );
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public static DataTable GetAll()
         {
             try
