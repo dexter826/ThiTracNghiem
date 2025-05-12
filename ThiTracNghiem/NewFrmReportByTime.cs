@@ -1,10 +1,12 @@
 ﻿using BusinessLogicLayer;
-using DevExpress.XtraReports.UI;
 using System;
+using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Windows.Forms;
 using ThiTracNghiem.Common;
 using DevExpress.XtraEditors;
+using Microsoft.Reporting.WinForms;
 
 
 namespace ThiTracNghiem
@@ -40,22 +42,10 @@ namespace ThiTracNghiem
                     return;
                 }
 
-                XtraReportByTime xtraReport = new XtraReportByTime();
-                xtraReport.DataSource = dtData;
-                xtraReport.DataMember = "";
-
                 string reportTime = string.Format("Từ ngày {0} đến ngày {1}", startDate.ToString("dd/MM/yyyy"), endDate.ToString("dd/MM/yyyy"));
-                xtraReport.Parameters["ReportTime"].Value = reportTime;
 
-                DateTime dtNow = DateTime.Now;
-                string reportPalace = string.Format("TP.HCM, ngày {0} tháng {1} năm {2}", dtNow.Day, dtNow.Month, dtNow.Year);
-                xtraReport.Parameters["ReportPalace"].Value = reportPalace;
-
-                xtraReport.Parameters["CreatedBy"].Value = Session.LogonUser.Fullname;
-
-                // Hiển thị báo cáo trong DocumentViewer
-                documentViewer1.DocumentSource = xtraReport;
-                xtraReport.CreateDocument();
+                // Hiển thị báo cáo sử dụng ReportHelper
+                ReportHelper.ShowTimeReport(reportTime, dtData);
 
                 // Kích hoạt nút In và Xuất PDF
                 btn_Print.Enabled = true;
@@ -75,19 +65,10 @@ namespace ThiTracNghiem
                 DateTime endDate = dpk_EndDate.Value;
 
                 DataTable dtData = BTestHistory.GetReportByTime(startDate, endDate);
-                XtraReportByTime xtraReport = new XtraReportByTime();
-                xtraReport.DataSource = dtData;
-                xtraReport.DataMember = "";
-                xtraReport.ShowPreview();
-
                 string reportTime = string.Format("Từ ngày {0} đến ngày {1}", startDate.ToString("dd/MM/yyyy"), endDate.ToString("dd/MM/yyyy"));
-                xtraReport.Parameters["ReportTime"].Value = reportTime;
 
-                DateTime dtNow = DateTime.Now;
-                string reportPalace = string.Format("TP.HCM, ngày {0} tháng {1} năm {2}", dtNow.Day, dtNow.Month, dtNow.Year);
-                xtraReport.Parameters["ReportPalace"].Value = reportPalace;
-
-                xtraReport.Parameters["CreatedBy"].Value = Session.LogonUser.Fullname;
+                // Hiển thị báo cáo sử dụng ReportHelper
+                ReportHelper.ShowTimeReport(reportTime, dtData);
             }
             catch (Exception ex)
             {
@@ -103,17 +84,7 @@ namespace ThiTracNghiem
                 DateTime endDate = dpk_EndDate.Value;
 
                 DataTable dtData = BTestHistory.GetReportByTime(startDate, endDate);
-                XtraReportByTime xtraReport = new XtraReportByTime();
-                xtraReport.DataSource = dtData;
-                xtraReport.DataMember = "";
-
                 string reportTime = string.Format("Từ ngày {0} đến ngày {1}", startDate.ToString("dd/MM/yyyy"), endDate.ToString("dd/MM/yyyy"));
-                xtraReport.Parameters["ReportTime"].Value = reportTime;
-
-                DateTime dtNow = DateTime.Now;
-                string reportPalace = string.Format("TP.HCM, ngày {0} tháng {1} năm {2}", dtNow.Day, dtNow.Month, dtNow.Year);
-                xtraReport.Parameters["ReportPalace"].Value = reportPalace;
-                xtraReport.Parameters["CreatedBy"].Value = Session.LogonUser.Fullname;
 
                 string DayStart = startDate.ToString("dd-MM-yyyy");
                 string DayEnd = endDate.ToString("dd-MM-yyyy");
@@ -125,12 +96,22 @@ namespace ThiTracNghiem
                     saveFileDialog.Title = "Save a PDF File";
                     saveFileDialog.FileName = $"Báo cáo điểm thi từ ngày {DayStart}_{DayEnd}.pdf"; // Đặt tên mặc định cho file
 
-
                     if (saveFileDialog.ShowDialog() == DialogResult.OK)
                     {
+                        // Tạo tham số báo cáo
+                        List<ReportParameter> parameters = new List<ReportParameter>();
+                        parameters.Add(new ReportParameter("TimePeriod", reportTime));
+
+                        DateTime dtNow = DateTime.Now;
+                        string reportPalace = string.Format("TP.HCM, ngày {0} tháng {1} năm {2}", dtNow.Day, dtNow.Month, dtNow.Year);
+                        parameters.Add(new ReportParameter("ReportPalace", reportPalace));
+                        parameters.Add(new ReportParameter("CreatedBy", Session.LogonUser.Fullname));
+
+                        // Đường dẫn file báo cáo
+                        string reportPath = Path.Combine(Application.StartupPath, "Reports", "TimeReport.rdlc");
+
                         // Xuất báo cáo ra file PDF
-                        xtraReport.ExportToPdf(saveFileDialog.FileName);
-                        XtraMessageBox.Show("Xuất file PDF thành công!", "Thông báo");
+                        ReportHelper.ExportToPdf(reportPath, dtData, "TimeReportDataSet", parameters, saveFileDialog.FileName);
                     }
                 }
             }

@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(newFrmMain));
 
-            // Khởi tạo mn_ManageUserSubject trước
+            // Khởi tạo các biến trước khi sử dụng
             this.mn_ManageUserSubject = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
@@ -40,10 +40,11 @@
             this.mn_CreateExam = new DevExpress.XtraBars.BarButtonItem();
             this.mn_ApproveExam = new DevExpress.XtraBars.BarButtonItem();
             this.mn_ManageExamSession = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.mn_ReportExamSession = new DevExpress.XtraBars.BarButtonItem();
             this.mn_ReportBySubject = new DevExpress.XtraBars.BarButtonItem();
             this.mn_ReportByStudent = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.mn_StartExam = new DevExpress.XtraBars.BarButtonItem();
@@ -109,6 +110,7 @@
             //
             this.ribbonPageGroup4.ItemLinks.Add(this.mn_ReportBySubject);
             this.ribbonPageGroup4.ItemLinks.Add(this.mn_ReportByStudent);
+            this.ribbonPageGroup4.ItemLinks.Add(this.mn_ReportExamSession);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.Text = "........................................";
             //
@@ -332,6 +334,15 @@
             this.mn_ManageUserSubject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.mn_ManageUserSubject_ItemClick);
 
             //
+            // mn_ReportExamSession
+            //
+            this.mn_ReportExamSession.Caption = "Báo cáo kỳ thi";
+            this.mn_ReportExamSession.Id = 29;
+            this.mn_ReportExamSession.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("mn_ReportBySubject.ImageOptions.SvgImage")));
+            this.mn_ReportExamSession.Name = "mn_ReportExamSession";
+            this.mn_ReportExamSession.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.mn_ReportExamSession_ItemClick);
+
+            //
             // ribbonControl1
             //
             this.ribbonControl1.BackColor = System.Drawing.Color.ForestGreen;
@@ -355,10 +366,11 @@
             this.mn_CreateExam,
             this.mn_ApproveExam,
             this.mn_ManageExamSession,
-            this.mn_ManageUserSubject});
+            this.mn_ManageUserSubject,
+            this.mn_ReportExamSession});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(38);
-            this.ribbonControl1.MaxItemId = 29;
+            this.ribbonControl1.MaxItemId = 30;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.OptionsMenuMinWidth = 3836;
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -513,6 +525,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraBars.BarButtonItem mn_ReportBySubject;
         private DevExpress.XtraBars.BarButtonItem mn_ReportByStudent;
+        private DevExpress.XtraBars.BarButtonItem mn_ReportExamSession;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.BarButtonItem mn_StartExam;

@@ -13,10 +13,36 @@ namespace ThiTracNghiem
 {
     public partial class newFrmMain : Form
     {
+        private System.Windows.Forms.Timer timerUpdateStatus;
+
         public newFrmMain()
         {
             InitializeComponent();
             lbl_HelloUser.Text = $"Xin chào, {ThiTracNghiem.Common.Session.LogonUser.Fullname}";
+            InitializeStatusUpdateTimer();
+        }
+
+        /// <summary>
+        /// Khởi tạo timer để cập nhật trạng thái kỳ thi và người dùng
+        /// </summary>
+        private void InitializeStatusUpdateTimer()
+        {
+            timerUpdateStatus = new System.Windows.Forms.Timer();
+            timerUpdateStatus.Interval = 60000; // Kiểm tra mỗi phút
+            timerUpdateStatus.Tick += TimerUpdateStatus_Tick;
+            timerUpdateStatus.Start();
+        }
+
+        /// <summary>
+        /// Xử lý sự kiện Tick của timer cập nhật trạng thái
+        /// </summary>
+        private void TimerUpdateStatus_Tick(object sender, EventArgs e)
+        {
+            // Cập nhật trạng thái kỳ thi
+            ExamSessionManager.UpdateExamSessionStatus();
+
+            // Cập nhật trạng thái người dùng trong kỳ thi
+            ExamSessionManager.UpdateUserExamSessionStatus();
         }
         /// <summary>
         /// Tạo tab page
@@ -111,7 +137,17 @@ namespace ThiTracNghiem
             NewFrmReportByTime newFrmReportByTime = new NewFrmReportByTime();
             //newFrmReportByTime.ShowDialog();
             addNewTab("Báo cáo điểm theo thời gian", newFrmReportByTime);
+        }
 
+        /// <summary>
+        /// Báo cáo kỳ thi
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mn_ReportExamSession_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            NewFrmReportExamSession newFrmReportExamSession = new NewFrmReportExamSession();
+            addNewTab("Báo cáo kỳ thi", newFrmReportExamSession);
         }
 
         private void mn_Exit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

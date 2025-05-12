@@ -96,6 +96,45 @@ namespace ThiTracNghiem
                     return;
                 }
 
+                // Thêm cột hiển thị thời gian còn lại
+                if (!dtExamSessions.Columns.Contains("RemainingTime"))
+                {
+                    dtExamSessions.Columns.Add("RemainingTime", typeof(string));
+
+                    foreach (DataRow row in dtExamSessions.Rows)
+                    {
+                        string status = row["Status"].ToString();
+                        DateTime endTime = Convert.ToDateTime(row["EndTime"]);
+                        DateTime startTime = Convert.ToDateTime(row["StartTime"]);
+                        DateTime now = DateTime.Now;
+
+                        if (status == "Scheduled")
+                        {
+                            // Nếu chưa bắt đầu, hiển thị thời gian đến khi bắt đầu
+                            TimeSpan remaining = startTime - now;
+                            if (remaining.TotalMinutes > 0)
+                                row["RemainingTime"] = string.Format("{0} ngày {1} giờ {2} phút",
+                                    remaining.Days, remaining.Hours, remaining.Minutes);
+                            else
+                                row["RemainingTime"] = "Sắp bắt đầu";
+                        }
+                        else if (status == "InProgress")
+                        {
+                            // Nếu đang diễn ra, hiển thị thời gian còn lại
+                            TimeSpan remaining = endTime - now;
+                            if (remaining.TotalMinutes > 0)
+                                row["RemainingTime"] = string.Format("{0} ngày {1} giờ {2} phút",
+                                    remaining.Days, remaining.Hours, remaining.Minutes);
+                            else
+                                row["RemainingTime"] = "Sắp kết thúc";
+                        }
+                        else
+                        {
+                            row["RemainingTime"] = "Đã kết thúc";
+                        }
+                    }
+                }
+
                 grv_ExamSessions.DataSource = dtExamSessions;
             }
             catch (Exception ex)
@@ -468,5 +507,7 @@ namespace ThiTracNghiem
         {
             // Không cần làm gì ở đây vì danh sách người dùng đã được tải khi chọn môn học
         }
+
+
     }
 }

@@ -26,5 +26,10 @@ namespace BusinessLogicLayer
         {
             return DUserExamSession.GetByUserAndSession(userId, sessionId);
         }
+
+        public static DataTable GetStatistics(int sessionId)
+        {
+            return DUserExamSession.GetStatistics(sessionId);
+        }
     }
 }

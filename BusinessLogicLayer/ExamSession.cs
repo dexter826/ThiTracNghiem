@@ -36,5 +36,10 @@ namespace BusinessLogicLayer
         {
             return DExamSession.GetById(sessionId);
         }
+
+        public static DataTable GetStatistics()
+        {
+            return DExamSession.GetStatistics();
+        }
     }
 }

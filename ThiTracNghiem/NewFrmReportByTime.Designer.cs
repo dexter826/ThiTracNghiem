@@ -37,13 +37,13 @@
             this.dpk_EndDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.documentViewer1 = new DevExpress.XtraPrinting.Preview.DocumentViewer();
             this.SuspendLayout();
-            // 
+            //
             // labelX2
-            // 
+            //
             this.labelX2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            // 
-            // 
-            // 
+            //
+            //
+            //
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX2.Location = new System.Drawing.Point(344, 13);
@@ -53,9 +53,9 @@
             this.labelX2.TabIndex = 2;
             this.labelX2.Text = "Đến ngày";
             this.labelX2.TextAlignment = System.Drawing.StringAlignment.Center;
-            // 
+            //
             // btn_XemBaoCao
-            // 
+            //
             this.btn_XemBaoCao.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_XemBaoCao.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_XemBaoCao.BackColor = System.Drawing.Color.Transparent;
@@ -80,13 +80,13 @@
             this.btn_XemBaoCao.TabIndex = 4;
             this.btn_XemBaoCao.Text = "Xem báo cáo";
             this.btn_XemBaoCao.Click += new System.EventHandler(this.btn_XemBaoCao_Click);
-            // 
+            //
             // labelX1
-            // 
+            //
             this.labelX1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            // 
-            // 
-            // 
+            //
+            //
+            //
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX1.Location = new System.Drawing.Point(97, 13);
@@ -96,9 +96,9 @@
             this.labelX1.TabIndex = 0;
             this.labelX1.Text = "Từ ngày";
             this.labelX1.TextAlignment = System.Drawing.StringAlignment.Center;
-            // 
+            //
             // btn_ExportPDF
-            // 
+            //
             this.btn_ExportPDF.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_ExportPDF.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_ExportPDF.BackColor = System.Drawing.Color.Transparent;
@@ -123,9 +123,9 @@
             this.btn_ExportPDF.TabIndex = 6;
             this.btn_ExportPDF.Text = "Xuất file .PDF";
             this.btn_ExportPDF.Click += new System.EventHandler(this.btn_ExportPDF_Click);
-            // 
+            //
             // btn_Print
-            // 
+            //
             this.btn_Print.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Print.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_Print.BackColor = System.Drawing.Color.Transparent;
@@ -150,9 +150,9 @@
             this.btn_Print.TabIndex = 5;
             this.btn_Print.Text = "Xem chi tiết";
             this.btn_Print.Click += new System.EventHandler(this.btn_Print_Click);
-            // 
+            //
             // dpk_StartDate
-            // 
+            //
             this.dpk_StartDate.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dpk_StartDate.BorderRadius = 5;
             this.dpk_StartDate.Checked = true;
@@ -169,9 +169,9 @@
             this.dpk_StartDate.TabIndex = 8;
             this.dpk_StartDate.Value = new System.DateTime(2024, 10, 1, 19, 33, 51, 837);
             this.dpk_StartDate.Click += new System.EventHandler(this.dpk_StartDate_Click);
-            // 
+            //
             // dpk_EndDate
-            // 
+            //
             this.dpk_EndDate.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dpk_EndDate.BorderRadius = 5;
             this.dpk_EndDate.Checked = true;
@@ -188,22 +188,22 @@
             this.dpk_EndDate.TabIndex = 9;
             this.dpk_EndDate.Value = new System.DateTime(2024, 10, 1, 19, 33, 51, 837);
             this.dpk_EndDate.Click += new System.EventHandler(this.dpk_EndDate_Click);
-            // 
+            //
             // documentViewer1
-            // 
-            this.documentViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.documentViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.documentViewer1.DocumentSource = typeof(ThiTracNghiem.XtraReportByTime);
+            this.documentViewer1.DocumentSource = null;
             this.documentViewer1.IsMetric = true;
             this.documentViewer1.Location = new System.Drawing.Point(12, 50);
             this.documentViewer1.Margin = new System.Windows.Forms.Padding(4);
             this.documentViewer1.Name = "documentViewer1";
             this.documentViewer1.Size = new System.Drawing.Size(1138, 669);
             this.documentViewer1.TabIndex = 7;
-            // 
+            //
             // NewFrmReportByTime
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dpk_EndDate);

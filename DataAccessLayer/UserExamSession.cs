@@ -67,6 +67,24 @@ namespace DataAccessLayer
             }
         }
 
+        public static DataTable GetStatistics(int sessionId)
+        {
+            try
+            {
+                DataTable dtData = SqlHelper.ExecuteData(
+                    TestCore.ConnectionString.strCon,
+                    CommandType.StoredProcedure,
+                    "UserExamSession_GetStatistics",
+                    new SqlParameter("@SessionID", sessionId)
+                );
+                return dtData;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public static UserExamSession GetByUserAndSession(int userId, int sessionId)
         {
             try
