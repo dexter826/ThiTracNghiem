@@ -366,10 +366,10 @@ namespace ThiTracNghiem
 
         private void btn_Submit_Click(object sender, EventArgs e)
         {
-            SaveExam("Pending");
+            SaveExam();
         }
 
-        private void SaveExam(string status)
+        private void SaveExam() // Removed string status parameter
         {
             try
             {
@@ -405,7 +405,7 @@ namespace ThiTracNghiem
                     SubjectID = cbb_Subject.SelectedValue.ToString(),
                     TimeLimit = Convert.ToInt32(txt_TimeLimit.Value),
                     TotalQuestion = dtSelectedQuestions.Rows.Count,
-                    Status = status,
+                    Status = "Pending", // Hardcoded to "Pending"
                     CreatedBy = Session.LogonUser.Username,
                     ModifiedBy = Session.LogonUser.Username
                 };
