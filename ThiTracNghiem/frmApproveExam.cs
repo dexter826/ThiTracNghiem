@@ -55,17 +55,9 @@ namespace ThiTracNghiem
 
                 if (status == "All")
                 {
-                    // Lấy tất cả đề thi trừ các đề thi có trạng thái "Draft"
+                    // Lấy tất cả đề thi (chức năng lưu nháp đã bị loại bỏ)
                     dtExams = BExam.GetAll();
-
-                    // Lọc bỏ các đề thi có trạng thái "Draft"
-                    if (dtExams != null && dtExams.Rows.Count > 0)
-                    {
-                        // Sử dụng DataView để lọc dữ liệu
-                        DataView dv = new DataView(dtExams);
-                        dv.RowFilter = "Status <> 'Draft'";
-                        dtExams = dv.ToTable();
-                    }
+                    // Không cần lọc trạng thái "Draft" nữa vì nó không còn được sử dụng
                 }
                 else
                 {
