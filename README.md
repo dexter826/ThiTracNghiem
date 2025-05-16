@@ -336,6 +336,22 @@ Hệ thống cung cấp các loại báo cáo đa dạng:
    - Tối ưu hóa việc truy xuất dữ liệu
    - Hỗ trợ nhiều người dùng đồng thời
 
+## Demo vài hình ảnh ứng dụng
+
+Dưới đây là một số hình ảnh minh họa cho ứng dụng SpamFilterApp:
+
+### Form Đăng nhập
+
+![Form Đăng nhập](./Images/frmLogin.png)
+
+### Form quản lí
+
+![Phân loại spam](./Images/frmManageUser.png)
+
+### Form làm bài thi
+
+![Form làm bài thi](./Images/frmTest.png)
+
 ## Liên hệ và hỗ trợ
 
 - **Email:** tcongminh1604@gmail.com
