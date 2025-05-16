@@ -57,6 +57,7 @@ Lưu ý:
 - **Chủ sở hữu:** Trần Công Minh
 - **Khoa:** Công nghệ thông tin (CNTT)
 - **Trường:** Đại học Công Thương TP.HCM (HUIT)
+- **Cộng tác:** Lê Đức Trung - 2001225676
 
 ## Tính năng chính
 
