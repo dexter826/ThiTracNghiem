@@ -11,6 +11,47 @@ Hệ thống Thi Trắc Nghiệm là một ứng dụng Windows Forms được p
 
 Mỗi vai trò có quyền truy cập và chức năng riêng biệt trong hệ thống, giúp quản lý quá trình thi một cách hiệu quả và minh bạch.
 
+## Thiết lập ban đầu trước khi sử dụng
+
+### 1. Cấu hình kết nối cơ sở dữ liệu
+
+Bạn cần thiết lập cấu hình kết nối cơ sở dữ liệu:
+
+1. Tạo file `App.config` trong thư mục `ThiTracNghiem` bằng cách sao chép từ file `App.config.example`
+2. Chỉnh sửa thông tin kết nối trong thẻ `connectionStrings` để phù hợp với máy chủ SQL Server của bạn:
+   ```xml
+   <connectionStrings>
+      <add name="testConnection" connectionString="Server=YourServerName;database=YourDatabaseName;Integrated security=true"/>
+   </connectionStrings>
+   ```
+
+### 2. Cấu hình email để gửi mã xác thực
+
+Để sử dụng chức năng gửi email xác thực cho tính năng quên mật khẩu, bạn cần thiết lập các thông số SMTP trong file `App.config`:
+
+```xml
+<appSettings>
+   <!-- Cấu hình email -->
+   <add key="SmtpHost" value="smtp.example.com"/>
+   <add key="SmtpPort" value="587"/>
+   <add key="SmtpUsername" value="your-email@example.com"/>
+   <add key="SmtpPassword" value="your-password-or-app-password"/>
+   <add key="SmtpEnableSsl" value="true"/>
+</appSettings>
+```
+
+Lưu ý:
+
+- Đối với Gmail, sử dụng `smtp.gmail.com` làm SmtpHost
+- Bạn nên tạo "Mật khẩu ứng dụng" (App Password) thay vì sử dụng mật khẩu chính khi dùng Gmail
+
+### 3. Khôi phục cơ sở dữ liệu
+
+1. Mở SQL Server Management Studio
+2. Tạo một cơ sở dữ liệu mới có tên như đã đặt trong chuỗi kết nối
+3. Khôi phục dữ liệu từ file backup trong thư mục Database hoặc thực thi script SQL
+4. Đảm bảo người dùng trong chuỗi kết nối có quyền truy cập và thao tác trên cơ sở dữ liệu
+
 ## Thông tin đồ án
 
 - **Chủ sở hữu:** Trần Công Minh

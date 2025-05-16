@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+	<startup>
+		<supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.8.1" />
+	</startup>
+	<connectionStrings>
+		<add name ="testConnection" connectionString ="Server=YourServerName;database=YourDatabaseName;Integrated security=true"/>
+	</connectionStrings>
+	<appSettings>
+		<!-- Cấu hình email -->
+		<add key="SmtpHost" value="smtp.example.com"/>
+		<add key="SmtpPort" value="587"/>
+		<add key="SmtpUsername" value="your-email@example.com"/>
+		<add key="SmtpPassword" value="your-password-or-app-password"/>
+		<add key="SmtpEnableSsl" value="true"/>
+	</appSettings>
+</configuration>

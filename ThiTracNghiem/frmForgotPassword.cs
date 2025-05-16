@@ -5,6 +5,7 @@ using System;
 using System.Net.Mail;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace ThiTracNghiem
 {
@@ -47,25 +48,38 @@ namespace ThiTracNghiem
         {
             Random random = new Random();
             return random.Next(100000, 999999).ToString();
-        }
-
-        /// <summary>
-        /// Gửi email xác nhận
-        /// </summary>
-        /// <param name="email"></param>
-        /// <param name="otp"></param>
-        /// <returns></returns>
+        }        /// <summary>
+                 /// Gửi email xác nhận
+                 /// </summary>
+                 /// <param name="email"></param>
+                 /// <param name="otp"></param>
+                 /// <returns></returns>
         private async Task<bool> SendEmailAsync(string email, string otp)
         {
             try
             {
-                MailMessage mail = new MailMessage();
-                SmtpClient smtpServer = new SmtpClient("smtp.gmail.com"); // Cập nhật với SMTP server của bạn
-                smtpServer.Port = 587;
-                smtpServer.Credentials = new System.Net.NetworkCredential("leductrung0907@gmail.com", "maed qojq aphc phau");
-                smtpServer.EnableSsl = true;
+                // Đọc thông tin SMTP từ App.config
+                string smtpHost = ConfigurationManager.AppSettings["SmtpHost"] ?? "smtp.gmail.com";
+                int smtpPort = int.Parse(ConfigurationManager.AppSettings["SmtpPort"] ?? "587");
+                string smtpUsername = ConfigurationManager.AppSettings["SmtpUsername"] ?? "";
+                string smtpPassword = ConfigurationManager.AppSettings["SmtpPassword"] ?? "";
+                bool enableSsl = bool.Parse(ConfigurationManager.AppSettings["SmtpEnableSsl"] ?? "true");
 
-                mail.From = new MailAddress("leductrung0907@gmail.com");
+                // Kiểm tra thông tin email có tồn tại
+                if (string.IsNullOrEmpty(smtpUsername) || string.IsNullOrEmpty(smtpPassword))
+                {
+                    XtraMessageBox.Show("Thiếu thông tin cấu hình email trong App.config. Vui lòng kiểm tra lại!",
+                        "Lỗi cấu hình", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                MailMessage mail = new MailMessage();
+                SmtpClient smtpServer = new SmtpClient(smtpHost);
+                smtpServer.Port = smtpPort;
+                smtpServer.Credentials = new System.Net.NetworkCredential(smtpUsername, smtpPassword);
+                smtpServer.EnableSsl = enableSsl;
+
+                mail.From = new MailAddress(smtpUsername);
                 mail.To.Add(email);
                 mail.Subject = "Mã xác nhận quên mật khẩu";
                 mail.Body = $"Mã xác nhận của bạn là: {otp}";

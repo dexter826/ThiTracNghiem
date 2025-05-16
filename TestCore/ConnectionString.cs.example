@@ -1,0 +1,35 @@
+using System;
+using System.Configuration;
+
+namespace TestCore
+{
+    public class ConnectionString
+    {
+        public static string strCon = string.Empty;
+        
+        public static void loadConfig()
+        {
+            try
+            {
+                // Kiểm tra môi trường nếu có
+                string envConnectionString = Environment.GetEnvironmentVariable("THITRACNGHIEM_CONNECTION_STRING");
+                
+                if (!string.IsNullOrEmpty(envConnectionString))
+                {
+                    strCon = envConnectionString;
+                }
+                else
+                {
+                    // Sử dụng giá trị từ App.config nếu không có biến môi trường
+                    strCon = ConfigurationManager.ConnectionStrings["testConnection"].ConnectionString;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                // Hiển thị thông báo đề nghị người dùng kiểm tra cấu hình kết nối
+                Console.WriteLine("Vui lòng kiểm tra cấu hình kết nối trong App.config hoặc thiết lập biến môi trường THITRACNGHIEM_CONNECTION_STRING");
+            }
+        }
+    }
+}

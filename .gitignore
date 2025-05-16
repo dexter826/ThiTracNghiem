@@ -10,6 +10,10 @@
 *.userosscache
 *.sln.docstates
 
+# Thông tin nhạy cảm
+ThiTracNghiem/App.config
+TestCore/ConnectionString.cs
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
