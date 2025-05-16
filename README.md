@@ -338,8 +338,6 @@ Hệ thống cung cấp các loại báo cáo đa dạng:
 
 ## Demo vài hình ảnh ứng dụng
 
-Dưới đây là một số hình ảnh minh họa cho ứng dụng SpamFilterApp:
-
 ### Form Đăng nhập
 
 ![Form Đăng nhập](./Images/frmLogin.png)
