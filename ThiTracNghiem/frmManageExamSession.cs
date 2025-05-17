@@ -49,6 +49,9 @@ namespace ThiTracNghiem
 
                 // Tạm thời tắt sự kiện SelectedIndexChanged để tránh gọi nhiều lần
                 cbb_Subject.SelectedIndexChanged -= cbb_Subject_SelectedIndexChanged;
+                // Thiết lập giá trị mặc định cho control thời gian thi
+                dtp_StartTime.Value = DateTime.Now;
+                dtp_EndTime.Value = DateTime.Now.AddHours(1);
 
                 LoadSubjects();
 
