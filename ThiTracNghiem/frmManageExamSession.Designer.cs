@@ -517,7 +517,6 @@ namespace ThiTracNghiem
         private Guna.UI2.WinForms.Guna2GroupBox groupBox1;
         private Guna.UI2.WinForms.Guna2DataGridView grv_ExamSessions;
         private Guna.UI2.WinForms.Guna2GroupBox groupBox2;
-        private Guna.UI2.WinForms.Guna2GradientTileButton btn_RefreshStatus;
         private Guna.UI2.WinForms.Guna2GradientTileButton btn_Cancel;
         private Guna.UI2.WinForms.Guna2GroupBox groupBox3;
         private System.Windows.Forms.Label label5;

@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOption));
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.lbl_SessionName = new System.Windows.Forms.Label();
             this.lbl_SubjectName = new System.Windows.Forms.Label();
             this.lbl_StartTime = new System.Windows.Forms.Label();
@@ -44,9 +43,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btn_Start = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.btn_Exit = new Guna.UI2.WinForms.Guna2GradientTileButton();
-            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.txt_NumberQuestion = new Guna.UI2.WinForms.Guna2TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -55,25 +52,12 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label1.Location = new System.Drawing.Point(118, 142);
+            this.label1.Location = new System.Drawing.Point(121, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(356, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Thông tin kỳ thi đang diễn ra";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.label2.Location = new System.Drawing.Point(38, 171);
-            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 18);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Thông tin kỳ thi";
             // 
             // lbl_SessionName
             // 
@@ -81,7 +65,7 @@
             this.lbl_SessionName.BackColor = System.Drawing.Color.Transparent;
             this.lbl_SessionName.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_SessionName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.lbl_SessionName.Location = new System.Drawing.Point(195, 198);
+            this.lbl_SessionName.Location = new System.Drawing.Point(223, 64);
             this.lbl_SessionName.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lbl_SessionName.Name = "lbl_SessionName";
             this.lbl_SessionName.Size = new System.Drawing.Size(0, 18);
@@ -93,7 +77,7 @@
             this.lbl_SubjectName.BackColor = System.Drawing.Color.Transparent;
             this.lbl_SubjectName.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_SubjectName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.lbl_SubjectName.Location = new System.Drawing.Point(195, 238);
+            this.lbl_SubjectName.Location = new System.Drawing.Point(223, 116);
             this.lbl_SubjectName.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lbl_SubjectName.Name = "lbl_SubjectName";
             this.lbl_SubjectName.Size = new System.Drawing.Size(0, 18);
@@ -105,7 +89,7 @@
             this.lbl_StartTime.BackColor = System.Drawing.Color.Transparent;
             this.lbl_StartTime.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_StartTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.lbl_StartTime.Location = new System.Drawing.Point(195, 278);
+            this.lbl_StartTime.Location = new System.Drawing.Point(223, 168);
             this.lbl_StartTime.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lbl_StartTime.Name = "lbl_StartTime";
             this.lbl_StartTime.Size = new System.Drawing.Size(0, 18);
@@ -117,7 +101,7 @@
             this.lbl_EndTime.BackColor = System.Drawing.Color.Transparent;
             this.lbl_EndTime.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_EndTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.lbl_EndTime.Location = new System.Drawing.Point(195, 318);
+            this.lbl_EndTime.Location = new System.Drawing.Point(223, 220);
             this.lbl_EndTime.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lbl_EndTime.Name = "lbl_EndTime";
             this.lbl_EndTime.Size = new System.Drawing.Size(0, 18);
@@ -129,7 +113,7 @@
             this.label_SessionName.BackColor = System.Drawing.Color.Transparent;
             this.label_SessionName.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_SessionName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.label_SessionName.Location = new System.Drawing.Point(38, 198);
+            this.label_SessionName.Location = new System.Drawing.Point(66, 64);
             this.label_SessionName.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label_SessionName.Name = "label_SessionName";
             this.label_SessionName.Size = new System.Drawing.Size(86, 18);
@@ -142,7 +126,7 @@
             this.label_SubjectName.BackColor = System.Drawing.Color.Transparent;
             this.label_SubjectName.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_SubjectName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.label_SubjectName.Location = new System.Drawing.Point(38, 238);
+            this.label_SubjectName.Location = new System.Drawing.Point(66, 116);
             this.label_SubjectName.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label_SubjectName.Name = "label_SubjectName";
             this.label_SubjectName.Size = new System.Drawing.Size(74, 18);
@@ -155,7 +139,7 @@
             this.label_StartTime.BackColor = System.Drawing.Color.Transparent;
             this.label_StartTime.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_StartTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.label_StartTime.Location = new System.Drawing.Point(38, 278);
+            this.label_StartTime.Location = new System.Drawing.Point(66, 168);
             this.label_StartTime.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label_StartTime.Name = "label_StartTime";
             this.label_StartTime.Size = new System.Drawing.Size(140, 18);
@@ -168,7 +152,7 @@
             this.label_EndTime.BackColor = System.Drawing.Color.Transparent;
             this.label_EndTime.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_EndTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.label_EndTime.Location = new System.Drawing.Point(38, 318);
+            this.label_EndTime.Location = new System.Drawing.Point(66, 220);
             this.label_EndTime.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label_EndTime.Name = "label_EndTime";
             this.label_EndTime.Size = new System.Drawing.Size(145, 18);
@@ -181,7 +165,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.label3.Location = new System.Drawing.Point(38, 418);
+            this.label3.Location = new System.Drawing.Point(66, 272);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(130, 18);
@@ -199,7 +183,7 @@
             this.txt_Time.Enabled = false;
             this.txt_Time.Font = new System.Drawing.Font("Tahoma", 11.25F);
             this.txt_Time.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_Time.Location = new System.Drawing.Point(195, 453);
+            this.txt_Time.Location = new System.Drawing.Point(223, 316);
             this.txt_Time.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txt_Time.Name = "txt_Time";
             this.txt_Time.PasswordChar = '\0';
@@ -216,7 +200,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.label4.Location = new System.Drawing.Point(38, 461);
+            this.label4.Location = new System.Drawing.Point(66, 324);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(147, 18);
@@ -237,7 +221,7 @@
             this.btn_Start.HoverState.FillColor = System.Drawing.Color.White;
             this.btn_Start.HoverState.FillColor2 = System.Drawing.Color.White;
             this.btn_Start.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.btn_Start.Location = new System.Drawing.Point(200, 500);
+            this.btn_Start.Location = new System.Drawing.Point(116, 383);
             this.btn_Start.Name = "btn_Start";
             this.btn_Start.ShadowDecoration.BorderRadius = 20;
             this.btn_Start.ShadowDecoration.Depth = 10;
@@ -262,7 +246,7 @@
             this.btn_Exit.HoverState.FillColor = System.Drawing.Color.White;
             this.btn_Exit.HoverState.FillColor2 = System.Drawing.Color.White;
             this.btn_Exit.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.btn_Exit.Location = new System.Drawing.Point(400, 500);
+            this.btn_Exit.Location = new System.Drawing.Point(316, 383);
             this.btn_Exit.Name = "btn_Exit";
             this.btn_Exit.ShadowDecoration.BorderRadius = 20;
             this.btn_Exit.ShadowDecoration.Depth = 10;
@@ -272,21 +256,6 @@
             this.btn_Exit.TabIndex = 8;
             this.btn_Exit.Text = "Thoát";
             this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
-            // 
-            // pictureEdit1
-            // 
-            this.pictureEdit1.EditValue = global::ThiTracNghiem.Properties.Resources.option;
-            this.pictureEdit1.Location = new System.Drawing.Point(105, -16);
-            this.pictureEdit1.Name = "pictureEdit1";
-            // 
-            // 
-            // 
-            this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
-            this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit1.Size = new System.Drawing.Size(325, 174);
-            this.pictureEdit1.TabIndex = 9;
             // 
             // txt_NumberQuestion
             // 
@@ -299,7 +268,7 @@
             this.txt_NumberQuestion.Enabled = false;
             this.txt_NumberQuestion.Font = new System.Drawing.Font("Tahoma", 11.25F);
             this.txt_NumberQuestion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_NumberQuestion.Location = new System.Drawing.Point(195, 410);
+            this.txt_NumberQuestion.Location = new System.Drawing.Point(223, 264);
             this.txt_NumberQuestion.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txt_NumberQuestion.Name = "txt_NumberQuestion";
             this.txt_NumberQuestion.PasswordChar = '\0';
@@ -315,7 +284,7 @@
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 600);
+            this.ClientSize = new System.Drawing.Size(598, 449);
             this.Controls.Add(this.txt_NumberQuestion);
             this.Controls.Add(this.btn_Exit);
             this.Controls.Add(this.btn_Start);
@@ -330,21 +299,18 @@
             this.Controls.Add(this.label_StartTime);
             this.Controls.Add(this.label_SubjectName);
             this.Controls.Add(this.label_SessionName);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureEdit1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("frmOption.IconOptions.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(816, 639);
+            this.MaximumSize = new System.Drawing.Size(600, 500);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(802, 632);
+            this.MinimumSize = new System.Drawing.Size(600, 400);
             this.Name = "frmOption";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Thi trắc nghiệm";
+            this.Text = "Thông tin ca thi";
             this.Load += new System.EventHandler(this.frmOption_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -353,7 +319,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbl_SessionName;
         private System.Windows.Forms.Label lbl_SubjectName;
         private System.Windows.Forms.Label lbl_StartTime;
@@ -367,7 +332,6 @@
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2GradientTileButton btn_Start;
         private Guna.UI2.WinForms.Guna2GradientTileButton btn_Exit;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private Guna.UI2.WinForms.Guna2TextBox txt_NumberQuestion;
     }
 }

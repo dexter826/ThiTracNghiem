@@ -392,7 +392,6 @@ namespace ThiTracNghiem
                 if (result == DialogResult.No)
                 {
                     e.Cancel = true; // Hủy quá trình đóng form
-                    return;
                 }
                 else
                 {
