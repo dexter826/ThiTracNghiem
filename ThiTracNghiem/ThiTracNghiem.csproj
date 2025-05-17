@@ -308,7 +308,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-
+    <Compile Include="QL_THITRACNGHIEM2DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QL_THITRACNGHIEM2DataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmApproveExam.resx">
       <DependentUpon>frmApproveExam.cs</DependentUpon>
     </EmbeddedResource>
@@ -387,7 +391,6 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -431,6 +434,17 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="QL_THITRACNGHIEM2DataSet.xsc">
+      <DependentUpon>QL_THITRACNGHIEM2DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QL_THITRACNGHIEM2DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QL_THITRACNGHIEM2DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QL_THITRACNGHIEM2DataSet.xss">
+      <DependentUpon>QL_THITRACNGHIEM2DataSet.xsd</DependentUpon>
+    </None>
     <None Include="Resources\profile-avatar.png" />
   </ItemGroup>
   <ItemGroup>
@@ -518,7 +532,6 @@
     <None Include="Resources\Cat2.gif" />
   </ItemGroup>
   <ItemGroup>
-
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
