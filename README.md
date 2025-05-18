@@ -367,7 +367,8 @@ Xem tệp `LICENSE` để biết thêm chi tiết.
 
 ## Lưu ý
 
-Ứng dụng chỉ là đồ án môn học không phải prodution nên vẫn còn phải phát triển thêm và có nhiều thiếu xót.
+Ứng dụng chỉ là đồ án môn học không phải production nên vẫn còn phải phát triển thêm và có nhiều thiếu xót.
+
 ---
 
 © 2025 Hệ thống Thi Trắc Nghiệm. Bản quyền thuộc sinh viên Trần Công Minh, khoa CNTT, Đại học Công Thương TP.HCM.
