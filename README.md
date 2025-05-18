@@ -49,7 +49,7 @@ Lưu ý:
 
 1. Mở SQL Server Management Studio
 2. Tạo một cơ sở dữ liệu mới có tên như đã đặt trong chuỗi kết nối
-3. Khôi phục dữ liệu từ file backup trong thư mục Database hoặc thực thi script SQL
+3. Khôi phục dữ liệu từ file backup(Sử dụng chính vì file SQL không hoàn thiện) trong thư mục Database hoặc thực thi script SQL
 4. Đảm bảo người dùng trong chuỗi kết nối có quyền truy cập và thao tác trên cơ sở dữ liệu
 
 ## Thông tin đồ án
@@ -145,14 +145,12 @@ Lưu ý:
 ## Hướng dẫn cài đặt
 
 1. Tải xuống và giải nén tệp cài đặt
-2. Chạy tệp `setup.exe` để bắt đầu quá trình cài đặt
-3. Làm theo các bước hướng dẫn trên màn hình
-4. Cấu hình kết nối cơ sở dữ liệu:
+2. Cấu hình kết nối cơ sở dữ liệu:
    - Mở tệp cấu hình `App.config` trong thư mục cài đặt
    - Cập nhật chuỗi kết nối đến SQL Server của bạn trong thẻ `<connectionStrings>`
-5. Chạy script cơ sở dữ liệu (nằm trong thư mục `Database/QL_ThiTracNghiem.sql`) để tạo cơ sở dữ liệu và dữ liệu ban đầu
-6. Khởi động ứng dụng và đăng nhập với tài khoản mặc định:
-   - **Admin:** `admin/123`
+3. Chạy file backup sql (vì file script không hoàn thiện) (nằm trong thư mục `Database/) để tạo cơ sở dữ liệu và dữ liệu ban đầu
+4. Khởi động ứng dụng và đăng nhập với tài khoản mặc định:
+   - **Admin:** `admin/123456`
    - **Giáo viên:** `teacher/123`
    - **Sinh viên:** `2001222641/123`
 
@@ -163,9 +161,7 @@ Lưu ý:
 1. **Tầng trình bày (Presentation Layer):**
 
    - Windows Forms với giao diện hiện đại, thân thiện
-   - Tích hợp thư viện UI hiệu năng cao: DevExpress UI, Guna.UI2, DevComponents.DotNetBar2
-   - Hỗ trợ đa ngôn ngữ (Tiếng Việt, Tiếng Anh)
-   - Thiết kế responsive cho các màn hình khác nhau
+   - Tích hợp thư viện UI hiệu năng cao: DevExpress UI, Guna.UI2
 
 2. **Tầng logic nghiệp vụ (Business Logic Layer):**
 
@@ -187,7 +183,6 @@ Lưu ý:
 - **Thư viện UI/UX:**
   - DevExpress v22.2.3 (Forms, Reports, Charts)
   - Guna.UI2 v2.0.4.4
-  - DevComponents.DotNetBar2 v14.1.0.37
 - **Cơ sở dữ liệu:** Microsoft SQL Server 2014+
 - **Báo cáo:**
   - Microsoft Reporting Services
@@ -204,7 +199,6 @@ Lưu ý:
 1. **Xác thực người dùng:**
 
    - Đăng nhập bảo mật với nhiều cấp độ quyền
-   - Mã hóa mật khẩu người dùng
    - Kiểm soát phiên làm việc
 
 2. **Quản lý quyền truy cập:**
@@ -215,7 +209,6 @@ Lưu ý:
 3. **Bảo mật dữ liệu:**
    - Lưu trữ dữ liệu an toàn
    - Sao lưu và phục hồi dữ liệu
-   - Mã hóa thông tin nhạy cảm
 
 ## Các loại báo cáo
 
@@ -243,7 +236,6 @@ Hệ thống cung cấp các loại báo cáo đa dạng:
 4. **Định dạng xuất báo cáo:**
    - PDF (có thể in trực tiếp)
    - Excel (để phân tích dữ liệu)
-   - Word (để chỉnh sửa và tùy biến)
 
 ## Hướng dẫn sử dụng
 
@@ -373,6 +365,9 @@ Nếu bạn muốn đóng góp, vui lòng:
 Dự án này được phát hành theo giấy phép MIT.  
 Xem tệp `LICENSE` để biết thêm chi tiết.
 
+## Lưu ý
+
+Ứng dụng chỉ là đồ án môn học không phải prodution nên vẫn còn phải phát triển thêm và có nhiều thiếu xót.
 ---
 
 © 2025 Hệ thống Thi Trắc Nghiệm. Bản quyền thuộc sinh viên Trần Công Minh, khoa CNTT, Đại học Công Thương TP.HCM.
