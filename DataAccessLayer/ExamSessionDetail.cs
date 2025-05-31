@@ -43,5 +43,41 @@ namespace DataAccessLayer
                 throw;
             }
         }
+
+        public static void UpdateExamSessionDetail(int sessionId, int examId, string modifiedBy)
+        {
+            try
+            {
+                SqlHelper.ExecuteNonQuery(
+                    TestCore.ConnectionString.strCon,
+                    CommandType.StoredProcedure,
+                    "ExamSessionDetail_Update",
+                    new SqlParameter("@SessionID", sessionId),
+                    new SqlParameter("@ExamID", examId),
+                    new SqlParameter("@ModifiedBy", modifiedBy)
+                );
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public static void DeleteBySession(int sessionId)
+        {
+            try
+            {
+                SqlHelper.ExecuteNonQuery(
+                    TestCore.ConnectionString.strCon,
+                    CommandType.StoredProcedure,
+                    "ExamSessionDetail_DeleteBySession",
+                    new SqlParameter("@SessionID", sessionId)
+                );
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

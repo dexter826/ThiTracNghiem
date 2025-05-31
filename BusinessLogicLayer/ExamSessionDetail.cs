@@ -16,5 +16,15 @@ namespace BusinessLogicLayer
         {
             return DExamSessionDetail.GetBySession(sessionId);
         }
+
+        public static void UpdateExamSessionDetail(int sessionId, int examId, string modifiedBy)
+        {
+            DExamSessionDetail.UpdateExamSessionDetail(sessionId, examId, modifiedBy);
+        }
+
+        public static void DeleteBySession(int sessionId)
+        {
+            DExamSessionDetail.DeleteBySession(sessionId);
+        }
     }
 }

@@ -11,6 +11,8 @@ namespace ThiTracNghiem
     public partial class frmEditExamSession : Form
     {
         private ExamSession _examSession;
+        private DataTable dtExams;
+        private int _currentExamId;
 
         public frmEditExamSession(ExamSession examSession)
         {
@@ -27,21 +29,60 @@ namespace ThiTracNghiem
                 dtp_StartTime.Value = _examSession.StartTime;
                 dtp_EndTime.Value = _examSession.EndTime;
 
-                // Hiển thị thông tin đề thi
-                DataTable dtExamSessionDetail = BExamSessionDetail.GetBySession(_examSession.SessionID);
-                if (dtExamSessionDetail != null && dtExamSessionDetail.Rows.Count > 0)
-                {
-                    int examId = Convert.ToInt32(dtExamSessionDetail.Rows[0]["ExamID"]);
-                    var exam = BExam.GetById(examId);
-                    if (exam != null)
-                    {
-                        lbl_ExamInfo.Text = $"Đề thi: {exam.ExamName}";
-                    }
-                }
+                // Tải danh sách đề thi đã được duyệt
+                LoadApprovedExams();
+
+                // Hiển thị đề thi hiện tại
+                LoadCurrentExam();
             }
             catch (Exception ex)
             {
                 XtraMessageBox.Show("Lỗi khi tải thông tin kỳ thi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void LoadApprovedExams()
+        {
+            try
+            {
+                // Lấy tất cả đề thi đã được duyệt
+                dtExams = BExam.GetAllApproved();
+
+                if (dtExams != null && dtExams.Rows.Count > 0)
+                {
+                    cbb_Exam.DataSource = dtExams;
+                    cbb_Exam.DisplayMember = "ExamName";
+                    cbb_Exam.ValueMember = "ExamID";
+                }
+                else
+                {
+                    XtraMessageBox.Show("Không có đề thi nào được duyệt. Vui lòng duyệt ít nhất một đề thi trước khi chỉnh sửa kỳ thi.",
+                        "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show("Lỗi khi tải danh sách đề thi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void LoadCurrentExam()
+        {
+            try
+            {
+                // Lấy thông tin đề thi hiện tại của kỳ thi
+                DataTable dtExamSessionDetail = BExamSessionDetail.GetBySession(_examSession.SessionID);
+                if (dtExamSessionDetail != null && dtExamSessionDetail.Rows.Count > 0)
+                {
+                    _currentExamId = Convert.ToInt32(dtExamSessionDetail.Rows[0]["ExamID"]);
+
+                    // Chọn đề thi hiện tại trong ComboBox
+                    cbb_Exam.SelectedValue = _currentExamId;
+                }
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show("Lỗi khi tải thông tin đề thi hiện tại: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -53,6 +94,12 @@ namespace ThiTracNghiem
                 if (string.IsNullOrEmpty(txt_SessionName.Text))
                 {
                     XtraMessageBox.Show("Vui lòng nhập tên kỳ thi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (cbb_Exam.SelectedValue == null)
+                {
+                    XtraMessageBox.Show("Vui lòng chọn đề thi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -77,6 +124,14 @@ namespace ThiTracNghiem
 
                 // Cập nhật kỳ thi vào cơ sở dữ liệu
                 BExamSession.UpdateExamSession(_examSession);
+
+                // Kiểm tra xem đề thi có thay đổi không
+                int selectedExamId = Convert.ToInt32(cbb_Exam.SelectedValue);
+                if (selectedExamId != _currentExamId)
+                {
+                    // Cập nhật đề thi trong ExamSessionDetail
+                    BExamSessionDetail.UpdateExamSessionDetail(_examSession.SessionID, selectedExamId, Session.LogonUser.Username);
+                }
 
                 DialogResult = DialogResult.OK;
                 Close();
