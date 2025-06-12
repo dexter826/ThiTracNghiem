@@ -16,6 +16,11 @@ namespace BusinessLogicLayer
             return DQuestion.GetByChapter(subjectId, chapter);
         }
 
+        public static DataTable GetBySubject(string subjectId)
+        {
+            return DQuestion.GetBySubject(subjectId);
+        }
+
         public static DataTable GetChaptersBySubject(string subjectId)
         {
             return DQuestion.GetChaptersBySubject(subjectId);

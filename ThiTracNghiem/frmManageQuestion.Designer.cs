@@ -485,6 +485,7 @@
             this.cbb_Subject.Name = "cbb_Subject";
             this.cbb_Subject.Size = new System.Drawing.Size(218, 36);
             this.cbb_Subject.TabIndex = 5;
+            this.cbb_Subject.SelectedIndexChanged += new System.EventHandler(this.cbb_Subject_SelectedIndexChanged);
             //
             // btn_Cancel
             //

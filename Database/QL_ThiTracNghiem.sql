@@ -363,6 +363,26 @@ SELECT [QuestionID]
   FROM [dbo].[Question]
 GO
 
+CREATE procedure [dbo].[Question_GetBySubject]
+@SubjectID varchar(50)
+as
+SELECT [QuestionID]
+      ,[SubjectID]
+      ,[QContent]
+      ,[OptionA]
+      ,[OptionB]
+      ,[OptionC]
+      ,[OptionD]
+      ,[Answer]
+      ,[Chapter]
+      ,[CreatedBy]
+      ,[CreatedAt]
+      ,[ModifiedBy]
+      ,[ModifiedAt]
+  FROM [dbo].[Question]
+  WHERE SubjectID = @SubjectID
+GO
+
 CREATE procedure [dbo].[Question_Update]
 @QuestionID int,
 		@SubjectID varchar(50)

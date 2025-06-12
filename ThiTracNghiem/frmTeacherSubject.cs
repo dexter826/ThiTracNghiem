@@ -243,7 +243,7 @@ namespace ThiTracNghiem
                 if (DevExpress.XtraEditors.XtraMessageBox.Show("Bạn có chắc chắn muốn xóa phân công này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                     return;
 
-                int id = Convert.ToInt32(grv_TeacherSubject.SelectedRows[0].Cells["ID"].Value);
+                int id = Convert.ToInt32(grv_TeacherSubject.SelectedRows[0].Cells["Column2"].Value);
                 BTeacherSubject.DeleteTeacherSubject(id);
                 DevExpress.XtraEditors.XtraMessageBox.Show("Xóa phân công thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

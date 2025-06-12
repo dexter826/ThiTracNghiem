@@ -170,21 +170,68 @@ namespace ThiTracNghiem
         }
 
         /// <summary>
-        /// Tải danh sách tất cả các câu hỏi từ cơ sở dữ liệu và hiển thị chúng trên DataGridView. Đồng thời, tải dữ liệu các môn học từ bảng Subject để hiển thị trong ComboBox.
+        /// Tải danh sách câu hỏi từ cơ sở dữ liệu và hiển thị chúng trên DataGridView. Đồng thời, tải dữ liệu các môn học để hiển thị trong ComboBox.
+        /// Nếu là giáo viên, chỉ hiển thị câu hỏi và môn học được phân công.
         /// </summary>
         private void LoadData()
         {
             try
             {
                 grv_DataUser.AutoGenerateColumns = false;
-                grv_DataUser.DataSource = BQuestion.GetAll();
-                cbb_Subject.DataSource = BSubject.GetAll();
-                cbb_Subject.DisplayMember = "SubjectName";
-                cbb_Subject.ValueMember = "SubjectID";
+
+                // Kiểm tra quyền của người dùng
+                if (Session.LogonUser.RoleID.Equals("Teacher"))
+                {
+                    // Nếu là giáo viên, chỉ load môn học được phân công
+                    var teacherSubjects = BTeacherSubject.GetByTeacher(Session.LogonUser.UserID);
+
+                    if (teacherSubjects != null && teacherSubjects.Rows.Count > 0)
+                    {
+                        cbb_Subject.DataSource = teacherSubjects;
+                        cbb_Subject.DisplayMember = "SubjectName";
+                        cbb_Subject.ValueMember = "SubjectID";
+
+                        // Load câu hỏi của môn học đầu tiên được phân công
+                        string firstSubjectId = teacherSubjects.Rows[0]["SubjectID"].ToString();
+                        LoadQuestionsBySubject(firstSubjectId);
+                    }
+                    else
+                    {
+                        DevExpress.XtraEditors.XtraMessageBox.Show("Bạn chưa được phân công môn học nào!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        grv_DataUser.DataSource = null;
+                        cbb_Subject.DataSource = null;
+                    }
+                }
+                else
+                {
+                    // Nếu là Admin, load tất cả
+                    grv_DataUser.DataSource = BQuestion.GetAll();
+                    cbb_Subject.DataSource = BSubject.GetAll();
+                    cbb_Subject.DisplayMember = "SubjectName";
+                    cbb_Subject.ValueMember = "SubjectID";
+                }
             }
             catch (Exception ex)
             {
                 DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "Thông báo lỗi!");
+            }
+        }
+
+        /// <summary>
+        /// Load câu hỏi theo môn học được chỉ định
+        /// </summary>
+        /// <param name="subjectId">Mã môn học</param>
+        private void LoadQuestionsBySubject(string subjectId)
+        {
+            try
+            {
+                // Load câu hỏi theo môn học
+                var questions = BQuestion.GetBySubject(subjectId);
+                grv_DataUser.DataSource = questions;
+            }
+            catch (Exception ex)
+            {
+                DevExpress.XtraEditors.XtraMessageBox.Show("Lỗi khi tải câu hỏi: " + ex.Message, "Thông báo lỗi!");
             }
         }
 
@@ -293,11 +340,69 @@ namespace ThiTracNghiem
                 {
                     keyword = string.Empty;
                 }
-                grv_DataUser.DataSource = BQuestion.Search(keyword);
+
+                // Nếu là giáo viên, chỉ tìm kiếm trong môn học được phân công
+                if (Session.LogonUser.RoleID.Equals("Teacher"))
+                {
+                    if (cbb_Subject.SelectedValue != null)
+                    {
+                        string subjectId = cbb_Subject.SelectedValue.ToString();
+                        var questions = BQuestion.GetBySubject(subjectId);
+
+                        if (!string.IsNullOrEmpty(keyword))
+                        {
+                            // Lọc theo từ khóa
+                            var filteredQuestions = questions.AsEnumerable()
+                                .Where(row => row["QContent"].ToString().ToLower().Contains(keyword.ToLower()) ||
+                                             row["OptionA"].ToString().ToLower().Contains(keyword.ToLower()) ||
+                                             row["OptionB"].ToString().ToLower().Contains(keyword.ToLower()) ||
+                                             row["OptionC"].ToString().ToLower().Contains(keyword.ToLower()) ||
+                                             row["OptionD"].ToString().ToLower().Contains(keyword.ToLower()));
+
+                            if (filteredQuestions.Any())
+                            {
+                                grv_DataUser.DataSource = filteredQuestions.CopyToDataTable();
+                            }
+                            else
+                            {
+                                grv_DataUser.DataSource = null;
+                                DevExpress.XtraEditors.XtraMessageBox.Show("Không tìm thấy câu hỏi nào phù hợp!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else
+                        {
+                            grv_DataUser.DataSource = questions;
+                        }
+                    }
+                }
+                else
+                {
+                    // Admin có thể tìm kiếm tất cả
+                    grv_DataUser.DataSource = BQuestion.Search(keyword);
+                }
             }
             catch (Exception ex)
             {
                 DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "Thông báo lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Xử lý sự kiện khi thay đổi môn học trong ComboBox
+        /// </summary>
+        private void cbb_Subject_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Session.LogonUser.RoleID.Equals("Teacher") && cbb_Subject.SelectedValue != null)
+                {
+                    string subjectId = cbb_Subject.SelectedValue.ToString();
+                    LoadQuestionsBySubject(subjectId);
+                }
+            }
+            catch (Exception ex)
+            {
+                DevExpress.XtraEditors.XtraMessageBox.Show("Lỗi khi tải câu hỏi: " + ex.Message, "Thông báo lỗi!");
             }
         }
 
