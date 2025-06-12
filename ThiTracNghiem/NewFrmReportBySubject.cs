@@ -28,9 +28,31 @@ namespace ThiTracNghiem
         {
             try
             {
-                cbb_MonThi.DataSource = BSubject.GetAll();
-                cbb_MonThi.DisplayMember = "SubjectName";
-                cbb_MonThi.ValueMember = "SubjectID";
+                // Kiểm tra quyền của người dùng
+                if (Session.LogonUser.RoleID.Equals("Teacher"))
+                {
+                    // Nếu là giáo viên, chỉ load môn học được phân công
+                    var teacherSubjects = BTeacherSubject.GetByTeacher(Session.LogonUser.UserID);
+
+                    if (teacherSubjects != null && teacherSubjects.Rows.Count > 0)
+                    {
+                        cbb_MonThi.DataSource = teacherSubjects;
+                        cbb_MonThi.DisplayMember = "SubjectName";
+                        cbb_MonThi.ValueMember = "SubjectID";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Bạn chưa được phân công môn học nào!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        cbb_MonThi.DataSource = null;
+                    }
+                }
+                else
+                {
+                    // Nếu là Admin, load tất cả môn học
+                    cbb_MonThi.DataSource = BSubject.GetAll();
+                    cbb_MonThi.DisplayMember = "SubjectName";
+                    cbb_MonThi.ValueMember = "SubjectID";
+                }
             }
             catch (Exception ex)
             {
