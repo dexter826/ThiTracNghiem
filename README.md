@@ -1,374 +1,228 @@
-# HỆ THỐNG THI TRẮC NGHIỆM
+<div align="center">
 
-## Giới thiệu
+# 🎓 HỆ THỐNG THI TRẮC NGHIỆM TRỰC TUYẾN (EXAM PORTAL)
 
-Hệ thống Thi Trắc Nghiệm là một ứng dụng Windows Forms được phát triển trên nền tảng .NET Framework 4.8.1, cho phép tổ chức và quản lý các bài thi trắc nghiệm trực tuyến.  
-Ứng dụng được thiết kế với ba vai trò chính:
+[![.NET Framework](https://img.shields.io/badge/.NET_Framework-4.8.1-512BD4?style=for-the-badge&logo=dotnet)](https://dotnet.microsoft.com/)
+[![SQL Server](https://img.shields.io/badge/SQL_Server-2014+-CC292B?style=for-the-badge&logo=microsoftsqlserver)](https://www.microsoft.com/sql-server)
+[![DevExpress](https://img.shields.io/badge/DevExpress-v22.2-FF7200?style=for-the-badge&logo=devexpress)](https://www.devexpress.com/)
+[![Guna UI2](https://img.shields.io/badge/Guna_UI2-v2.0.4-00B4D8?style=for-the-badge)](https://gunaui.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-- **Quản trị viên (Admin)**
-- **Giáo viên (Teacher)**
-- **Sinh viên (User)**
+**Đồ án môn học: Xây dựng hệ thống tổ chức và quản lý thi trắc nghiệm trực tuyến trên nền tảng .NET Windows Forms.**
 
-Mỗi vai trò có quyền truy cập và chức năng riêng biệt trong hệ thống, giúp quản lý quá trình thi một cách hiệu quả và minh bạch.
-
-## Thiết lập ban đầu trước khi sử dụng
-
-### 1. Cấu hình kết nối cơ sở dữ liệu
-
-Bạn cần thiết lập cấu hình kết nối cơ sở dữ liệu:
-
-1. Tạo file `App.config` trong thư mục `ThiTracNghiem` bằng cách sao chép từ file `App.config.example`
-2. Chỉnh sửa thông tin kết nối trong thẻ `connectionStrings` để phù hợp với máy chủ SQL Server của bạn:
-   ```xml
-   <connectionStrings>
-      <add name="testConnection" connectionString="Server=YourServerName;database=YourDatabaseName;Integrated security=true"/>
-   </connectionStrings>
-   ```
-
-### 2. Cấu hình email để gửi mã xác thực
-
-Để sử dụng chức năng gửi email xác thực cho tính năng quên mật khẩu, bạn cần thiết lập các thông số SMTP trong file `App.config`:
-
-```xml
-<appSettings>
-   <!-- Cấu hình email -->
-   <add key="SmtpHost" value="smtp.example.com"/>
-   <add key="SmtpPort" value="587"/>
-   <add key="SmtpUsername" value="your-email@example.com"/>
-   <add key="SmtpPassword" value="your-password-or-app-password"/>
-   <add key="SmtpEnableSsl" value="true"/>
-</appSettings>
-```
-
-Lưu ý:
-
-- Đối với Gmail, sử dụng `smtp.gmail.com` làm SmtpHost
-- Bạn nên tạo "Mật khẩu ứng dụng" (App Password) thay vì sử dụng mật khẩu chính khi dùng Gmail
-
-### 3. Khôi phục cơ sở dữ liệu
-
-1. Mở SQL Server Management Studio
-2. Tạo một cơ sở dữ liệu mới có tên như đã đặt trong chuỗi kết nối
-3. Khôi phục dữ liệu từ file backup(Sử dụng chính vì file SQL không hoàn thiện) trong thư mục Database hoặc thực thi script SQL
-4. Đảm bảo người dùng trong chuỗi kết nối có quyền truy cập và thao tác trên cơ sở dữ liệu
-
-## Thông tin đồ án
-
-- **Chủ sở hữu:** Trần Công Minh
-- **Khoa:** Công nghệ thông tin (CNTT)
-- **Trường:** Đại học Công Thương TP.HCM (HUIT)
-- **Cộng tác:** Lê Đức Trung - 2001225676
-
-## Tính năng chính
-
-### Dành cho Sinh viên (User)
-
-- Đăng nhập hệ thống với tài khoản được cấp
-- Đăng ký tham gia kỳ thi
-- Thực hiện bài thi trắc nghiệm với giao diện thân thiện
-- Hỗ trợ phím tắt để chọn đáp án (A, B, C, D) và di chuyển giữa các câu hỏi
-- Hiển thị thời gian làm bài còn lại theo thời gian thực
-- Xem kết quả thi và đánh giá ngay sau khi hoàn thành bài thi
-- Xem bảng xếp hạng điểm thi theo môn học
-
-### Dành cho Giáo viên (Teacher)
-
-- Quản lý danh sách môn học được phân công
-- Tạo, sửa, xóa câu hỏi trắc nghiệm cho môn học
-- Nhập câu hỏi từ file Excel
-- Tạo đề thi với các tùy chọn về số lượng câu hỏi, thời gian làm bài
-- Quản lý các đề thi đã tạo
-- Xem báo cáo điểm thi theo môn học
-- Xuất báo cáo điểm thi ra file PDF
-
-### Dành cho Quản trị viên (Admin)
-
-- Quản lý danh sách người dùng (thêm, sửa, xóa, phân quyền)
-- Quản lý danh sách môn học (thêm, sửa, xóa, phân công giáo viên)
-- Quản lý kỳ thi (lên lịch, phân công đề thi, đăng ký thí sinh)
-- Duyệt đề thi do giáo viên tạo
-- Xem thống kê kỳ thi theo nhiều tiêu chí
-- Xuất báo cáo điểm thi theo môn học và khoảng thời gian
-- In và xuất báo cáo dưới dạng PDF
-- Sao lưu và phục hồi cơ sở dữ liệu
-
-## Cấu trúc hệ thống
-
-### Cấu trúc cơ sở dữ liệu
-
-1. **UserRole**: Lưu trữ thông tin về vai trò người dùng trong hệ thống (Admin, Teacher, User)
-2. **UserAccount**: Quản lý thông tin tài khoản người dùng, liên kết với UserRole
-3. **Subject**: Quản lý thông tin về môn học
-4. **Question**: Lưu trữ ngân hàng câu hỏi trắc nghiệm, liên kết với Subject
-5. **Exam**: Quản lý đề thi với thông tin về thời gian, số lượng câu hỏi, tình trạng duyệt
-6. **ExamQuestion**: Bảng liên kết giữa đề thi và các câu hỏi thuộc đề thi
-7. **TeacherSubject**: Quản lý phân công giảng dạy, liên kết giáo viên với môn học
-8. **ExamSession**: Quản lý kỳ thi với thông tin về thời gian bắt đầu, kết thúc, trạng thái
-9. **ExamSessionDetail**: Liên kết kỳ thi với đề thi được sử dụng
-10. **UserExamSession**: Quản lý thông tin đăng ký tham gia kỳ thi của sinh viên
-11. **TestHistory**: Lưu trữ lịch sử và kết quả thi của sinh viên
-
-### Quy trình hoạt động
-
-1. **Tạo đề thi**:
-
-   - Giáo viên tạo đề thi từ ngân hàng câu hỏi
-   - Admin duyệt đề thi trước khi sử dụng
-   - Đề thi có thể được tạo thủ công hoặc tự động từ ngân hàng câu hỏi
-
-2. **Tổ chức kỳ thi**:
-
-   - Admin tạo kỳ thi và gán đề thi vào kỳ thi
-   - Sinh viên đăng ký tham gia kỳ thi
-   - Hệ thống tự động cập nhật trạng thái kỳ thi theo thời gian thực
-
-3. **Thực hiện bài thi**:
-
-   - Sinh viên thực hiện bài thi trong thời gian quy định
-   - Hệ thống giám sát thời gian và tự động nộp bài khi hết giờ
-   - Kết quả được tính toán và hiển thị ngay sau khi hoàn thành bài thi
-
-4. **Báo cáo và thống kê**:
-   - Hệ thống tự động lưu trữ kết quả thi
-   - Giáo viên và Admin có thể xem thống kê và xuất báo cáo
-   - Hỗ trợ nhiều định dạng báo cáo khác nhau
-
-## Yêu cầu hệ thống
-
-- **Hệ điều hành:** Windows 7/8/10/11
-- **.NET Framework:** 4.8.1 trở lên
-- **Cơ sở dữ liệu:** Microsoft SQL Server 2014 trở lên
-- **Dung lượng ổ đĩa:** Ít nhất 500MB
-- **RAM:** Ít nhất 4GB
-- **Thư viện bổ sung:** DevExpress, Guna.UI2, DevComponents.DotNetBar2
-
-## Hướng dẫn cài đặt
-
-1. Tải xuống và giải nén tệp cài đặt
-2. Cấu hình kết nối cơ sở dữ liệu:
-   - Mở tệp cấu hình `App.config` trong thư mục cài đặt
-   - Cập nhật chuỗi kết nối đến SQL Server của bạn trong thẻ `<connectionStrings>`
-3. Chạy file backup sql (vì file script không hoàn thiện) (nằm trong thư mục `Database/) để tạo cơ sở dữ liệu và dữ liệu ban đầu
-4. Khởi động ứng dụng và đăng nhập với tài khoản mặc định:
-   - **Admin:** `admin/123456`
-   - **Giáo viên:** `teacher/123`
-   - **Sinh viên:** `2001222641/123`
-
-## Kiến trúc hệ thống
-
-Ứng dụng được xây dựng theo mô hình ba tầng:
-
-1. **Tầng trình bày (Presentation Layer):**
-
-   - Windows Forms với giao diện hiện đại, thân thiện
-   - Tích hợp thư viện UI hiệu năng cao: DevExpress UI, Guna.UI2
-
-2. **Tầng logic nghiệp vụ (Business Logic Layer):**
-
-   - Xử lý logic nghiệp vụ tách biệt với giao diện
-   - Kiểm tra tính hợp lệ của dữ liệu
-   - Triển khai các quy tắc nghiệp vụ theo từng chức năng
-   - Xử lý quá trình thi, tính điểm, thống kê
-
-3. **Tầng truy cập dữ liệu (Data Access Layer):**
-   - Tương tác với cơ sở dữ liệu thông qua ADO.NET
-   - Cung cấp các phương thức CRUD chuẩn hóa
-   - Sử dụng Stored Procedures để tối ưu hiệu suất
-   - Xử lý các truy vấn phức tạp, báo cáo thống kê
-
-## Công nghệ sử dụng
-
-- **Ngôn ngữ lập trình:** C# 7.3
-- **Nền tảng:** .NET Framework 4.8.1
-- **Thư viện UI/UX:**
-  - DevExpress v22.2.3 (Forms, Reports, Charts)
-  - Guna.UI2 v2.0.4.4
-- **Cơ sở dữ liệu:** Microsoft SQL Server 2014+
-- **Báo cáo:**
-  - Microsoft Reporting Services
-  - DevExpress Reports
-  - Xuất báo cáo đa định dạng: PDF, Excel, Word
-- **Công cụ phát triển:** Visual Studio 2022
-- **Thư viện bổ sung:**
-  - EPPlus 6.0 (xử lý file Excel)
-  - SQLHelper (tối ưu truy vấn dữ liệu)
-  - iTextSharp (xử lý file PDF)
-
-## Tính năng bảo mật
-
-1. **Xác thực người dùng:**
-
-   - Đăng nhập bảo mật với nhiều cấp độ quyền
-   - Kiểm soát phiên làm việc
-
-2. **Quản lý quyền truy cập:**
-
-   - Phân quyền chi tiết theo từng chức năng
-   - Giới hạn quyền truy cập dựa trên vai trò
-
-3. **Bảo mật dữ liệu:**
-   - Lưu trữ dữ liệu an toàn
-   - Sao lưu và phục hồi dữ liệu
-
-## Các loại báo cáo
-
-Hệ thống cung cấp các loại báo cáo đa dạng:
-
-1. **Báo cáo điểm thi:**
-
-   - Theo môn học
-   - Theo khoảng thời gian
-   - Theo sinh viên
-
-2. **Báo cáo thống kê:**
-
-   - Tỷ lệ đậu/rớt theo môn học
-   - Điểm trung bình theo môn học
-   - Phân bố điểm số
-   - Đánh giá độ khó của đề thi
-
-3. **Báo cáo quản trị:**
-
-   - Số lượng kỳ thi đã tổ chức
-   - Số lượng sinh viên tham gia
-   - Thống kê hoạt động hệ thống
-
-4. **Định dạng xuất báo cáo:**
-   - PDF (có thể in trực tiếp)
-   - Excel (để phân tích dữ liệu)
-
-## Hướng dẫn sử dụng
-
-### Quản trị viên (Admin)
-
-1. **Quản lý người dùng:**
-
-   - Vào menu "Hệ thống" > "Quản lý người dùng"
-   - Thêm, sửa, xóa người dùng, phân quyền vai trò
-
-2. **Quản lý môn học:**
-
-   - Vào menu "Quản lý" > "Quản lý môn học"
-   - Thêm, sửa, xóa môn học, phân công giáo viên giảng dạy
-
-3. **Quản lý kỳ thi:**
-
-   - Vào menu "Quản lý" > "Quản lý kỳ thi"
-   - Tạo kỳ thi mới, chỉ định đề thi sử dụng, quản lý trạng thái kỳ thi
-
-4. **Duyệt đề thi:**
-
-   - Vào menu "Quản lý" > "Duyệt đề thi"
-   - Xem chi tiết và phê duyệt các đề thi do giáo viên tạo
-
-5. **Sao lưu dữ liệu:**
-   - Vào menu "Hệ thống" > "Sao lưu dữ liệu"
-   - Tạo bản sao lưu cơ sở dữ liệu, khôi phục từ bản sao lưu
-
-### Giáo viên (Teacher)
-
-1. **Quản lý câu hỏi:**
-
-   - Vào menu "Quản lý" > "Quản lý câu hỏi"
-   - Thêm, sửa, xóa câu hỏi cho môn học được phân công
-   - Nhập câu hỏi từ file Excel với mẫu định dạng có sẵn
-
-2. **Tạo đề thi:**
-
-   - Vào menu "Quản lý" > "Tạo đề thi mới"
-   - Chọn môn học, số lượng câu hỏi, thời gian làm bài
-   - Chọn câu hỏi từ ngân hàng hoặc để hệ thống tự động chọn ngẫu nhiên
-
-3. **Xem báo cáo:**
-   - Vào menu "Báo cáo" > "Báo cáo điểm theo môn học"
-   - Chọn môn học và xem thống kê điểm số
-
-### Sinh viên (User)
-
-1. **Tham gia kỳ thi:**
-
-   - Vào menu "Kỳ thi" > "Đăng ký kỳ thi"
-   - Chọn kỳ thi muốn tham gia từ danh sách các kỳ thi hiện có
-
-2. **Làm bài thi:**
-
-   - Vào menu "Kỳ thi" > "Kỳ thi đã đăng ký"
-   - Chọn kỳ thi và bắt đầu làm bài trong thời gian quy định
-   - Sử dụng các phím tắt: A, B, C, D để chọn đáp án, mũi tên trái/phải để di chuyển giữa các câu
-
-3. **Xem kết quả:**
-
-   - Sau khi hoàn thành bài thi, kết quả sẽ hiển thị ngay
-   - Vào menu "Kỳ thi" > "Lịch sử thi" để xem lại kết quả các bài thi đã làm
-
-4. **Xem bảng xếp hạng:**
-   - Vào menu "Kỳ thi" > "Bảng xếp hạng" để xem thứ hạng điểm thi theo môn học
-
-## Tính năng nổi bật
-
-1. **Giao diện người dùng thân thiện:**
-
-   - Thiết kế hiện đại, dễ sử dụng
-   - Hỗ trợ phím tắt để thao tác nhanh
-   - Hỗ trợ các tùy chọn hiển thị theo sở thích người dùng
-
-2. **Hệ thống tự động:**
-
-   - Tự động cập nhật trạng thái kỳ thi theo thời gian thực
-   - Tự động chấm điểm và hiển thị kết quả ngay sau khi hoàn thành bài thi
-   - Tự động sắp xếp bảng xếp hạng điểm thi
-
-3. **Bảo mật và ổn định:**
-
-   - Xác thực người dùng an toàn
-   - Bảo vệ dữ liệu bài thi và kết quả
-   - Khả năng phục hồi khi gặp sự cố
-
-4. **Hiệu suất cao:**
-   - Thời gian phản hồi nhanh
-   - Tối ưu hóa việc truy xuất dữ liệu
-   - Hỗ trợ nhiều người dùng đồng thời
-
-## Demo vài hình ảnh ứng dụng
-
-### Form Đăng nhập
-
-![Form Đăng nhập](./Images/frmLogin.png)
-
-### Form quản lí
-
-![Phân loại spam](./Images/frmManageUser.png)
-
-### Form làm bài thi
-
-![Form làm bài thi](./Images/frmTest.png)
-
-## Liên hệ và hỗ trợ
-
-- **Email:** tcongminh1604@gmail.com
-- **Điện thoại:** (+84) 777999496
-- **GitHub:** [github.com/tcongminh](https://github.com/dexter826)
-
-## Đóng góp
-
-Mọi đóng góp cho dự án đều được đánh giá cao.  
-Nếu bạn muốn đóng góp, vui lòng:
-
-1. Fork dự án
-2. Tạo nhánh tính năng mới (`git checkout -b feature/AmazingFeature`)
-3. Commit thay đổi của bạn (`git commit -m 'Add some AmazingFeature'`)
-4. Push lên nhánh của bạn (`git push origin feature/AmazingFeature`)
-5. Tạo Pull Request mới
-
-## Giấy phép
-
-Dự án này được phát hành theo giấy phép MIT.  
-Xem tệp `LICENSE` để biết thêm chi tiết.
-
-## Lưu ý
-
-Ứng dụng chỉ là đồ án môn học không phải production nên vẫn còn phải phát triển thêm và có nhiều thiếu xót.
+[**📌 Thông Tin Đồ Án**](#2-thông-tin-đồ-án) • [**✨ Tính Năng**](#3-tính-năng-chính) • [**⚙️ Kiến Trúc**](#4-kiến-trúc--công-nghệ) • [**🚀 Cài Đặt & Chạy**](#5-hướng-dẫn-cài-đặt--chạy-dự-án) • [**📸 Hình Ảnh Demo**](#7-giao-diện-thực-tế)
 
 ---
 
-© 2025 Hệ thống Thi Trắc Nghiệm. Bản quyền thuộc sinh viên Trần Công Minh, khoa CNTT, Đại học Công Thương TP.HCM.
+</div>
+
+## 1. Tiêu đề & Mô tả
+
+**Hệ thống Thi Trắc Nghiệm** là sản phẩm phần mềm được thiết kế theo mô hình kiến trúc 3 tầng (3-Tier Architecture) trên nền tảng .NET Framework 4.8.1. Ứng dụng mô phỏng và giải quyết trọn vẹn quy trình thi trắc nghiệm: từ khâu khởi tạo ngân hàng câu hỏi, import dữ liệu, kiểm duyệt đề thi, tổ chức thi với đếm ngược thời gian, chấm điểm tự động đến trích xuất các báo cáo thống kê đa chiều.
+
+---
+
+## 2. Thông tin đồ án
+
+*   **Tên dự án:** Phần mềm Quản lý và Tổ chức Thi trắc nghiệm trực tuyến.
+*   **Trường:** Đại học Công Thương TP.HCM (HUIT)
+*   **Khoa:** Công nghệ thông tin (CNTT)
+*   **Tác giả (Chủ sở hữu):** Trần Công Minh
+*   **Thành viên cộng tác:** Lê Đức Trung (MSSV: 2001225676)
+*   **Mục đích:** Đồ án môn học / Sản phẩm nghiên cứu và ứng dụng thực hành kiến trúc phần mềm.
+
+> [!IMPORTANT]
+> **Lưu ý:** Đây là sản phẩm đồ án môn học phục vụ nghiên cứu và học tập trong nhà trường, không phải hệ thống thương mại (production-ready). Dự án được mở mã nguồn để chia sẻ kiến thức và thảo luận học thuật.
+
+---
+
+## 3. Tính năng chính
+
+Ứng dụng phân quyền chặt chẽ với ba phân hệ người dùng hoạt động độc lập:
+
+### 👨‍🎓 Phân hệ Sinh viên (User)
+*   **Giao diện làm bài tập trung:** Thiết kế tối giản, trực quan, hỗ trợ danh sách câu hỏi dễ dàng nhảy đến câu mong muốn.
+*   **Thao tác nhanh bằng phím tắt:** Bấm trực tiếp các phím `A`, `B`, `C`, `D` để chọn đáp án và mũi tên `←` / `→` để sang câu khác.
+*   **Giám sát thời gian thực:** Đồng hồ đếm ngược theo từng giây, hệ thống tự động khóa và nộp bài khi hết giờ.
+*   **Xem điểm & Bảng xếp hạng:** Xem ngay điểm số sau khi hoàn thành và theo dõi vị trí trên Bảng xếp hạng (Leaderboard) theo từng môn học.
+
+### 👨‍🏫 Phân hệ Giáo viên (Teacher)
+*   **Quản lý câu hỏi & Đề thi:** Thêm, sửa, xóa câu hỏi, phân loại theo chuyên đề và mức độ khó.
+*   **Nhập liệu tự động từ Excel:** Tích hợp thư viện EPPlus cho phép import hàng trăm câu hỏi từ file Excel theo biểu mẫu chuẩn chỉ trong vài giây.
+*   **Tạo đề thi linh hoạt:** Tự động sinh đề thi ngẫu nhiên từ ngân hàng câu hỏi hoặc chỉ định thủ công.
+*   **Thống kê & Báo cáo:** Xuất danh sách bảng điểm sinh viên, thống kê tỷ lệ đạt/trượt ra file PDF hoặc Excel.
+
+### 🛡️ Phân hệ Quản trị viên (Admin)
+*   **Quản lý người dùng & Môn học:** Cấp tài khoản, phân quyền (Admin, Teacher, User) và gán giáo viên phụ trách môn học.
+*   **Kiểm duyệt quy trình thi:** Xem xét và phê duyệt các đề thi do giáo viên nộp trước khi đưa vào kỳ thi chính thức.
+*   **Sao lưu & Khôi phục (Backup/Restore):** Tích hợp tính năng tạo bản sao lưu dữ liệu (backup) và khôi phục trực tiếp CSDL SQL Server ngay trên giao diện ứng dụng.
+
+---
+
+## 4. Kiến trúc & Công nghệ
+
+### Công nghệ sử dụng
+*   **Ngôn ngữ & Nền tảng:** C# 7.3, .NET Framework 4.8.1, WinForms.
+*   **Cơ sở dữ liệu:** Microsoft SQL Server (sử dụng Stored Procedures để tối ưu hóa truy vấn).
+*   **Giao diện (UI/UX):** DevExpress v22.2.3 (Bảng biểu, Báo cáo, Đồ thị), Guna.UI2 v2.0.4.6, DevComponents.DotNetBar2.
+*   **Xử lý tệp tin:** EPPlus 7.5.1 (xử lý Excel), iTextSharp (xử lý PDF).
+
+### Kiến trúc 3 tầng (3-Tier Architecture)
+
+Dự án áp dụng chặt chẽ mô hình phân tầng chuẩn mực, tách biệt hoàn toàn Giao diện, Xử lý nghiệp vụ và Tương tác dữ liệu:
+
+```mermaid
+graph TD
+    subgraph Presentation["🖥️ Tầng Giao diện (Presentation Layer)"]
+        UI["Các Form WinForms (DevExpress, Guna UI)"]
+    end
+    
+    subgraph BLL["⚙️ Tầng Nghiệp vụ (Business Logic Layer)"]
+        Services["Kiểm tra dữ liệu đầu vào, tính toán điểm số, quy chế thi"]
+    end
+
+    subgraph DAL["🗄️ Tầng Dữ liệu (Data Access Layer)"]
+        SQLHelper["ADO.NET & SQLHelper (Gọi Stored Procedures)"]
+    end
+    
+    subgraph Entities["📦 Các Thực thể (Entities / DTO)"]
+        Models["Các lớp đối tượng truyền dữ liệu (UserAccount, Question...)"]
+    end
+    
+    subgraph Database["💽 Cơ sở dữ liệu"]
+        MSSQL[("Microsoft SQL Server")]
+    end
+
+    UI <-->|Gọi hàm xử lý| BLL
+    BLL <-->|Truy vấn / Cập nhật| DAL
+    DAL <-->|Thực thi Stored Procedure| MSSQL
+    UI -.->|Sử dụng| Entities
+    BLL -.->|Sử dụng| Entities
+    DAL -.->|Sử dụng| Entities
+```
+
+### Luồng quy trình hoạt động kỳ thi
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor T as Giáo viên
+    actor A as Quản trị viên
+    actor S as Sinh viên
+    participant Sys as Hệ thống (ThiTracNghiem)
+    participant DB as SQL Database
+
+    T->>Sys: Tạo câu hỏi hoặc Import từ Excel
+    Sys->>DB: Lưu ngân hàng câu hỏi
+    T->>Sys: Tạo đề thi mới
+    Sys->>DB: Lưu đề thi (Trạng thái: Chờ duyệt)
+    A->>Sys: Kiểm duyệt đề thi & Tạo lịch kỳ thi
+    Sys->>DB: Kích hoạt kỳ thi (Sẵn sàng)
+    S->>Sys: Đăng ký & Bắt đầu làm bài thi
+    Sys-->>S: Hiển thị câu hỏi & Đếm ngược thời gian
+    S->>Sys: Nộp bài (hoặc đồng hồ tự động nộp)
+    Sys->>DB: Chấm điểm tự động & Ghi nhận kết quả
+    Sys-->>S: Trả điểm & Cập nhật Bảng xếp hạng tức thì
+```
+
+---
+
+## 5. Hướng dẫn cài đặt & Chạy dự án
+
+### Bước 1: Chuẩn bị CSDL
+1. Mở SQL Server Management Studio (SSMS).
+2. Tạo một cơ sở dữ liệu rỗng mang tên `QL_THITRACNGHIEM2`.
+3. Thực hiện khôi phục (Restore) dữ liệu từ file backup chuẩn có sẵn trong kho mã nguồn:
+   `Database/QL_THITRACNGHIEM2-20-05-2025--22-37-33.bak`
+
+### Bước 2: Cấu hình môi trường (App.config)
+Tại thư mục project `ThiTracNghiem`, sao chép file cấu hình mẫu `App.config.example` thành `App.config` và điều chỉnh thông số chuỗi kết nối CSDL và tài khoản email khôi phục mật khẩu:
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <startup>
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.8.1" />
+    </startup>
+    
+    <!-- CẤU HÌNH CHUỖI KẾT NỐI DATABASE -->
+    <connectionStrings>
+        <add name="testConnection" 
+             connectionString="Server=.\SQLEXPRESS;Database=QL_THITRACNGHIEM2;Integrated Security=True;" />
+    </connectionStrings>
+    
+    <!-- CẤU HÌNH EMAIL GỬI MÃ KHÔI PHỤC -->
+    <appSettings>
+        <add key="SmtpHost" value="smtp.gmail.com" />
+        <add key="SmtpPort" value="587" />
+        <add key="SmtpUsername" value="your-email@gmail.com" />
+        <add key="SmtpPassword" value="your-app-password" /> <!-- Mật khẩu ứng dụng 16 ký tự -->
+        <add key="SmtpEnableSsl" value="true" />
+    </appSettings>
+</configuration>
+```
+
+### Bước 3: Biên dịch & Chạy thử nghiệm
+1. Mở solution `ThiTracNghiem.sln` bằng Visual Studio 2022. Visual Studio sẽ tự động khôi phục các gói NuGet.
+2. Đặt project `ThiTracNghiem` làm **Startup Project** (chuột phải vào project -> `Set as Startup Project`).
+3. Nhấn `F5` hoặc chọn nút `Start` để chạy ứng dụng.
+4. Đăng nhập để trải nghiệm bằng các tài khoản kiểm thử mặc định:
+
+| Phân hệ | Tên đăng nhập (Username) | Mật khẩu (Password) | Chức năng kiểm thử |
+| :--- | :--- | :--- | :--- |
+| **Quản trị viên (Admin)** | `admin` | `123456` | Quản lý hệ thống, duyệt đề thi, sao lưu CSDL |
+| **Giáo viên (Teacher)** | `teacher` | `123` | Nhập câu hỏi Excel, tạo đề thi, xem bảng điểm |
+| **Sinh viên (User)** | `2001222641` | `123` | Đăng ký kỳ thi, làm bài trắc nghiệm, xem thứ hạng |
+
+---
+
+## 6. Cấu trúc thư mục dự án
+
+```text
+ThiTracNghiem/
+├── 📁 Avatar_Image/            # Bộ ảnh đại diện (avatar) kiểm thử của người dùng
+├── 📁 Báo cáo Word/            # Các tài liệu phân tích thiết kế & báo cáo đồ án (PDF/DOCX)
+├── 📁 Database/                # Script SQL và file sao lưu CSDL mẫu (.bak)
+├── 📁 Images/                  # Các icon, hình ảnh đồ họa sử dụng trên giao diện
+├── 📁 Test_AddSubjectExcel.xlsx # File Excel dữ liệu mẫu dùng để test import câu hỏi
+├── 📁 Entities/                # [Tầng DTO] Định nghĩa các thực thể (UserAccount, Question, Exam...)
+├── 📁 DataAccessLayer/         # [Tầng DAL] Tương tác CSDL SQL Server qua SQLHelper
+├── 📁 BusinessLogicLayer/      # [Tầng BLL] Chứa các hàm nghiệp vụ, quy chế thi và tính điểm
+├── 📁 TestCore/                # Các lớp hỗ trợ kết nối và kiểm thử tự động
+└── 📁 ThiTracNghiem/           # [Tầng GUI] Tầng giao diện chính (Windows Forms)
+    ├── 📁 Reports/             # Các mẫu xuất báo cáo điểm số (DevExpress Repx / PDF)
+    ├── App.config.example      # File cấu hình mẫu an toàn
+    ├── frmLogin.cs             # Form đăng nhập hệ thống
+    ├── frmTest.cs              # Form làm bài thi trắc nghiệm
+    └── ...
+```
+
+---
+
+## 7. Giao diện thực tế
+
+### Màn hình đăng nhập
+![Form Đăng nhập](./Images/frmLogin.png)
+
+### Bảng quản trị người dùng & phân quyền
+![Quản lý người dùng](./Images/frmManageUser.png)
+
+### Phòng thi trực tuyến với đồng hồ đếm ngược
+![Form làm bài thi](./Images/frmTest.png)
+
+---
+
+## 8. Giấy phép
+
+Dự án được phát hành dưới giấy phép mã nguồn mở **MIT License**. Chi tiết vui lòng xem tại tệp [LICENSE](./LICENSE).
+
+---
+
+<div align="center">
+
+**© 2025 Hệ thống Thi Trắc Nghiệm. Sản phẩm thuộc Đồ án môn học.**  
+*Khoa Công nghệ thông tin (CNTT) - Đại học Công Thương TP.HCM (HUIT)*
+
+🐙 **GitHub:** [@dexter826](https://github.com/dexter826)
+
+</div>
